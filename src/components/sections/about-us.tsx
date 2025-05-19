@@ -1,37 +1,49 @@
+// This component is repurposed for the "Why Choose Us" section
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export function AboutUs() {
   return (
-    <section id="about-us" className="py-16 md:py-24 bg-background">
+    <section id="about-us" className="py-16 md:py-24 bg-inlogic-light-bg text-inlogic-text-dark">
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-          <div className="order-2 md:order-1">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">About Btruss Digital Hub</h2>
-            <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
-              At Btruss Services Pvt Ltd, we are more than just a service provider; we are your strategic partner in navigating the complexities of the digital and business landscape. Our mission is to empower your organization with innovative, reliable, and tailored solutions that drive growth, efficiency, and peace of mind.
+          <div>
+            <span className="text-sm font-semibold text-primary uppercase tracking-wider mb-2 block">About Btruss</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">Why Choose Btruss IT Solutions?</h2>
+            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+              We are service-oriented to satisfying local solutions that are innovative. Our main business scope is IT. We are committed to providing our clients with cutting-edge IT solutions that enhance efficiency, foster growth, and ensure security.
             </p>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              With a foundation built on expertise, integrity, and a client-centric approach, we specialize in a diverse array of services, including cutting-edge IT solutions, compassionate healthcare support, secure financial services, and comprehensive insurance sales. We are committed to excellence in everything we do.
+              Our team of experts leverages the latest technologies and industry best practices to deliver tailored services that meet your unique business needs. Partner with us to navigate the complexities of the digital landscape.
             </p>
-            <Button 
-              size="lg" 
-              variant="default" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8" 
+             <Button 
+              variant="outline" 
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300 hover:scale-105" 
               asChild
             >
-              <Link href="#contact">Learn More</Link>
+              <Link href="#contact-cta">Learn More</Link>
             </Button>
           </div>
-          <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl order-1 md:order-2">
-            <Image 
-              src="https://placehold.co/600x450.png" 
-              alt="Team collaborating in a modern Btruss office" 
-              data-ai-hint="modern office diverse team discussion bright natural light"
-              layout="fill"
-              objectFit="cover"
-            />
+          <div className="space-y-8">
+            <div className="bg-card p-6 rounded-lg shadow-lg border border-border/20">
+              <h3 className="text-xl font-semibold text-primary mb-2">Our Mission</h3>
+              <p className="text-card-foreground text-opacity-80">
+                To empower businesses with innovative and reliable IT solutions, fostering growth and efficiency through technology and expertise.
+              </p>
+            </div>
+            <div className="bg-card p-6 rounded-lg shadow-lg border border-border/20">
+              <h3 className="text-xl font-semibold text-primary mb-2">Our Vision</h3>
+              <p className="text-card-foreground text-opacity-80">
+                To be a leading IT service provider, recognized for our commitment to client success, technological excellence, and ethical practices.
+              </p>
+            </div>
+            <div className="bg-card p-6 rounded-lg shadow-lg border border-border/20">
+              <h3 className="text-xl font-semibold text-primary mb-2">Our Values</h3>
+              <p className="text-card-foreground text-opacity-80">
+                Integrity, Innovation, Customer-Centricity, Excellence, and Collaboration drive every aspect of our operations and client interactions.
+              </p>
+            </div>
           </div>
         </div>
       </div>

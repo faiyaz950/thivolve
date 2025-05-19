@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
-    darkMode: ["class"],
+    darkMode: ["class"], // Keep 'class' if you might want to toggle later, though the base is dark.
     content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -20,12 +20,12 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: 'hsl(var(--primary))', // Red
+          foreground: 'hsl(var(--primary-foreground))', // White
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
+          DEFAULT: 'hsl(var(--secondary))', // Light Gray/White for specific sections
+          foreground: 'hsl(var(--secondary-foreground))', // Dark text for light sections
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
@@ -36,27 +36,26 @@ export default {
           foreground: 'hsl(var(--muted-foreground))',
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+          DEFAULT: 'hsl(var(--accent))', // Red
+          foreground: 'hsl(var(--accent-foreground))', // White
         },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))',
         },
         card: {
-          DEFAULT: 'hsl(var(--card))',
+          DEFAULT: 'hsl(var(--card))', // Darker card background
           foreground: 'hsl(var(--card-foreground))',
         },
-        // Careem specific colors
-        'careem-green': 'hsl(var(--careem-green))',
-        'careem-light-green': 'hsl(var(--careem-light-green))',
-        'careem-blue': 'hsl(var(--careem-blue))',
-        'careem-purple': 'hsl(var(--careem-purple))',
-        'careem-dark-blue': 'hsl(var(--careem-dark-blue))',
-        'careem-dark-green-banner': 'hsl(var(--careem-dark-green-banner))',
-        'careem-text-primary': 'hsl(var(--careem-text-primary))',
-        'careem-text-secondary': 'hsl(var(--careem-text-secondary))',
-        sidebar: {
+        // Inlogic specific color mappings (can be direct or use theme values)
+        'inlogic-red': 'hsl(var(--inlogic-red))',
+        'inlogic-dark-bg': 'hsl(var(--inlogic-dark-bg))',
+        'inlogic-light-bg': 'hsl(var(--inlogic-light-bg))',
+        'inlogic-card-dark': 'hsl(var(--inlogic-card-dark))',
+        'inlogic-text-light': 'hsl(var(--inlogic-text-light))',
+        'inlogic-text-dark': 'hsl(var(--inlogic-text-dark))',
+        'inlogic-button-dark': 'hsl(var(--inlogic-button-dark))',
+        sidebar: { // Keep if sidebar might be used
           DEFAULT: 'hsl(var(--sidebar-background))',
           foreground: 'hsl(var(--sidebar-foreground))',
           primary: 'hsl(var(--sidebar-primary))',
@@ -68,10 +67,10 @@ export default {
         }
   		},
   		borderRadius: {
-  			lg: 'var(--radius)',
+  			lg: 'var(--radius)', // 0.375rem
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)',
-        xl: 'calc(var(--radius) + 4px)', // Added for more rounded elements
+        xl: 'calc(var(--radius) + 4px)', 
   		},
   		keyframes: {
   			'accordion-down': {

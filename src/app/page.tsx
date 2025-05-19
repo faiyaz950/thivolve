@@ -1,13 +1,12 @@
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Hero } from '@/components/sections/hero';
-import { AboutUs } from '@/components/sections/about-us';
-import { ServicesOverview } from '@/components/sections/services-overview';
-import { OurWork } from '@/components/sections/our-work';
-import { Testimonials } from '@/components/sections/testimonials';
-import { ContactForm } from '@/components/sections/contact-form';
-import { BtrussPlusBanner } from '@/components/sections/btruss-plus-banner';
-import { InnovateWithBtruss } from '@/components/sections/innovate-with-btruss';
+import { AboutUs } from '@/components/sections/about-us'; // "Why Choose Us"
+import { PartnersBanner } from '@/components/sections/partners-banner';
+import { ServicesOverview } from '@/components/sections/services-overview'; // "Explore All Services"
+import { OurProducts } from '@/components/sections/our-products'; // "Our Products"
+import { FAQ } from '@/components/sections/faq';
+import { CallToAction } from '@/components/sections/call-to-action';
 
 
 export default function HomePage() {
@@ -16,13 +15,12 @@ export default function HomePage() {
       <Header />
       <main className="flex-grow">
         <Hero />
-        <ServicesOverview /> {/* This is the 4-card layout now */}
-        <BtrussPlusBanner />
         <AboutUs />
-        <InnovateWithBtruss />
-        <OurWork />
-        <Testimonials />
-        <ContactForm />
+        <PartnersBanner />
+        <ServicesOverview />
+        <OurProducts />
+        <FAQ />
+        <CallToAction />
       </main>
       <Footer />
     </div>

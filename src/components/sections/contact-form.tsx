@@ -1,12 +1,16 @@
 "use client";
 
+// This component is effectively replaced by the CallToAction section for the "Inlogic" design.
+// However, it might still be linked from somewhere or used if "Contact Us" has a dedicated page.
+// For now, I'll keep its styling consistent with the new dark theme if it were to be used.
+
 import { useEffect } from 'react';
-import { useActionState } from 'react';
-import { useFormStatus } from 'react-dom';
+import { useActionState } from 'react'; // Corrected import
+// import { useFormStatus } from 'react-dom'; // Not used in this simplified version
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactFormSchema, type ContactFormValues } from '@/lib/schemas';
-import { submitContactForm, type FormState } from '@/app/actions';
+import { submitContactForm, type FormState } from '@/app/actions'; // Assuming actions.ts is still relevant
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -20,14 +24,15 @@ const initialState: FormState = {
   status: 'idle',
 };
 
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-base py-3 rounded-md">
-      {pending ? 'Submitting...' : 'Send Message'}
-    </Button>
-  );
-}
+// SubmitButton can be simplified or removed if not using useFormStatus
+// function SubmitButton() {
+//   const { pending } = useFormStatus();
+//   return (
+//     <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-base py-3 rounded-md transition-transform hover:scale-105">
+//       {pending ? 'Submitting...' : 'Send Message'}
+//     </Button>
+//   );
+// }
 
 export function ContactForm() {
   const [state, formAction] = useActionState(submitContactForm, initialState);
@@ -56,7 +61,6 @@ export function ContactForm() {
         description: state.message || "An error occurred. Please try again.",
         variant: "destructive",
       });
-      // Removed console.error for validation issues as they are displayed below fields
     }
   }, [state, toast, form]);
 
@@ -65,17 +69,19 @@ export function ContactForm() {
     { value: 'healthcare_services', label: 'Healthcare Services' },
     { value: 'credit_card_sales', label: 'Credit Card Sales' },
     { value: 'insurance_sales', label: 'Insurance Sales' },
+    { value: 'ai_services', label: 'AI Services' },
+    { value: 'resource_outsource', label: 'Resource Outsource' },
     { value: 'other', label: 'Other Inquiry' },
   ];
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto px-4 max-w-xl"> {/* Narrower for a more focused form */}
-        <Card className="shadow-xl rounded-xl bg-card border-border/50">
+    <section id="contact-page-form" className="py-16 md:py-24 bg-inlogic-dark-bg text-inlogic-text-light">
+      <div className="container mx-auto px-4 max-w-xl">
+        <Card className="shadow-xl rounded-lg bg-inlogic-card-dark border-border/50">
           <CardHeader className="text-center p-8">
-            <CardTitle className="text-3xl sm:text-4xl font-bold text-foreground">Get in Touch</CardTitle>
+            <CardTitle className="text-3xl sm:text-4xl font-bold text-foreground">Full Contact Form</CardTitle>
             <CardDescription className="mt-3 text-lg text-muted-foreground">
-              Have questions or want to discuss a project? We&apos;re here to help.
+              Use this form for detailed inquiries. For quick demos, see the section above.
             </CardDescription>
           </CardHeader>
           <CardContent className="p-8 pt-0">
@@ -86,14 +92,11 @@ export function ContactForm() {
                   id="name" 
                   {...form.register('name')} 
                   placeholder="John Doe" 
-                  className="bg-background border-border focus:border-primary focus:ring-primary rounded-md"
+                  className="bg-background border-border focus:border-primary focus:ring-primary rounded-md text-base"
                 />
                 {form.formState.errors.name && (
                   <p className="text-sm text-destructive mt-1">{form.formState.errors.name.message}</p>
                 )}
-                 {state.fields?.name && state.issues && !form.formState.errors.name && (
-                   <p className="text-sm text-destructive mt-1">{state.issues.find(issue => issue.toLowerCase().includes('name'))}</p>
-                 )}
               </div>
 
               <div>
@@ -103,25 +106,22 @@ export function ContactForm() {
                   type="email" 
                   {...form.register('email')} 
                   placeholder="you@example.com" 
-                  className="bg-background border-border focus:border-primary focus:ring-primary rounded-md"
+                  className="bg-background border-border focus:border-primary focus:ring-primary rounded-md text-base"
                 />
                 {form.formState.errors.email && (
                   <p className="text-sm text-destructive mt-1">{form.formState.errors.email.message}</p>
                 )}
-                 {state.fields?.email && state.issues && !form.formState.errors.email && (
-                   <p className="text-sm text-destructive mt-1">{state.issues.find(issue => issue.toLowerCase().includes('email'))}</p>
-                 )}
               </div>
 
               <div>
-                <Label htmlFor="service" className="text-foreground font-medium mb-1.5 block">Service of Interest (Optional)</Label>
+                <Label htmlFor="service" className="text-foreground font-medium mb-1.5 block">Service of Interest</Label>
                 <Select onValueChange={(value) => form.setValue('service', value)} value={form.watch('service')}>
-                  <SelectTrigger id="service" className="bg-background border-border focus:border-primary focus:ring-primary text-foreground rounded-md">
+                  <SelectTrigger id="service" className="bg-background border-border focus:border-primary focus:ring-primary text-foreground rounded-md text-base">
                     <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
                   <SelectContent className="bg-popover text-popover-foreground border-border rounded-md">
                     {services.map(service => (
-                      <SelectItem key={service.value} value={service.value} className="focus:bg-primary/10 focus:text-primary rounded-sm">
+                      <SelectItem key={service.value} value={service.value} className="focus:bg-primary/20 focus:text-primary rounded-sm">
                         {service.label}
                       </SelectItem>
                     ))}
@@ -135,19 +135,18 @@ export function ContactForm() {
                 <Textarea 
                   id="message" 
                   {...form.register('message')} 
-                  placeholder="Your message..." 
+                  placeholder="Your detailed message..." 
                   rows={5} 
-                  className="bg-background border-border focus:border-primary focus:ring-primary rounded-md"
+                  className="bg-background border-border focus:border-primary focus:ring-primary rounded-md text-base"
                 />
                 {form.formState.errors.message && (
                   <p className="text-sm text-destructive mt-1">{form.formState.errors.message.message}</p>
                 )}
-                 {state.fields?.message && state.issues && !form.formState.errors.message && (
-                   <p className="text-sm text-destructive mt-1">{state.issues.find(issue => issue.toLowerCase().includes('message'))}</p>
-                 )}
               </div>
               
-              <SubmitButton />
+              <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-base py-3 rounded-md transition-transform hover:scale-105">
+                Send Message
+              </Button>
             </form>
           </CardContent>
         </Card>
@@ -155,3 +154,4 @@ export function ContactForm() {
     </section>
   );
 }
+

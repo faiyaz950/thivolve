@@ -1,109 +1,120 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Briefcase, HeartPulse, CreditCard, ShieldCheck, Tv, Bot, Palette, Search, Users, Building, ShoppingCart, Utensils } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ArrowRight, Settings2, HeartPulse, CreditCard, ShieldCheck, BrainCircuit, Users, Smartphone, Laptop, MonitorPlay, Megaphone, Palette } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
-interface ServiceItem {
+interface Service {
   icon: LucideIcon;
-  name: string;
-}
-
-interface ServiceCardProps {
-  bgColorClass: string;
-  textColorClass: string;
   title: string;
-  items: ServiceItem[];
+  description: string;
+  subServices?: { name: string, icon: LucideIcon }[];
   href: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ bgColorClass, textColorClass, title, items, href }) => (
-  <Link href={href} className={`group block rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col ${bgColorClass} ${textColorClass}`}>
-    <h3 className="text-2xl md:text-3xl font-bold mb-4">{title}</h3>
-    <ul className="space-y-2 mb-6 flex-grow">
-      {items.map((item) => (
-        <li key={item.name} className="flex items-center">
-          <item.icon className="w-5 h-5 mr-3_5 shrink-0" />
-          <span className="text-sm md:text-base">{item.name}</span>
-        </li>
-      ))}
-    </ul>
-    <div className="mt-auto text-right">
-      <ArrowRight className="w-8 h-8 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-transform duration-300" />
-    </div>
-  </Link>
-);
-
-const servicesData = [
+const services: Service[] = [
   {
-    bgColorClass: "bg-careem-blue", // Specific blue from globals.css variable
-    textColorClass: "text-white",
+    icon: Settings2,
     title: "IT Services",
-    items: [
-      { icon: Tv, name: "Web Development" },
-      { icon: Bot, name: "Mobile App Development" },
-      { icon: Palette, name: "Graphic Designing" },
-      { icon: Search, name: "Digital Marketing" },
+    description: "Leveraging technology to provide cutting-edge solutions that elevate your business, from startups to enterprises.",
+    subServices: [
+      { name: "Mobile App Development", icon: Smartphone },
+      { name: "Website Development", icon: MonitorPlay },
+      { name: "Web Application Development", icon: Laptop },
+      { name: "Digital Marketing", icon: Megaphone },
+      { name: "Graphic Designing", icon: Palette },
     ],
-    href: "#contact",
+    href: "#contact-cta",
   },
   {
-    bgColorClass: "bg-careem-light-green", // Specific light green
-    textColorClass: "text-careem-text-primary", // Dark text on light green
+    icon: HeartPulse,
     title: "Healthcare Services",
-    items: [
-      { icon: Users, name: "Patient Management" },
-      { icon: Building, name: "Clinic Solutions" },
-      { icon: HeartPulse, name: "Wellness Programs" },
-    ],
-    href: "#contact",
+    description: "Prioritizing quality and accessibility, supporting individuals and organizations with care that improves lives.",
+    href: "#contact-cta",
   },
   {
-    bgColorClass: "bg-careem-purple", // Specific purple
-    textColorClass: "text-white",
+    icon: CreditCard,
     title: "Credit Card Sales",
-    items: [
-      { icon: CreditCard, name: "Payment Gateways" },
-      { icon: ShoppingCart, name: "Merchant Accounts" },
-      { icon: Briefcase, name: "Business Cards" },
-    ],
-    href: "#contact",
+    description: "Secure, convenient payment solutions to help businesses thrive and streamline transactions.",
+    href: "#contact-cta",
   },
   {
-    bgColorClass: "bg-careem-dark-blue", // Specific dark blue
-    textColorClass: "text-white",
+    icon: ShieldCheck,
     title: "Insurance Sales",
-    items: [
-      { icon: ShieldCheck, name: "Business Insurance" },
-      { icon: HeartPulse, name: "Health Coverage" }, // Re-using, consider specific insurance icons
-      { icon: Utensils, name: "Liability Protection" }, // Utensils as generic placeholder, replace if better found
-    ],
-    href: "#contact",
+    description: "Comprehensive insurance plans tailored to your needs, providing peace of mind and dependable coverage.",
+    href: "#contact-cta",
+  },
+  {
+    icon: BrainCircuit,
+    title: "AI Services",
+    description: "Utilizing modern AI technologies to create intelligent solutions for data analysis, automation, and insights.",
+    href: "#contact-cta",
+  },
+  {
+    icon: Users,
+    title: "Resource Outsource",
+    description: "Providing skilled professionals and expertise for short-term and long-term projects to boost your team's performance.",
+    href: "#contact-cta",
   },
 ];
 
 export function ServicesOverview() {
   return (
-    <section id="services" className="py-16 md:py-24 bg-background">
+    <section id="services" className="py-16 md:py-24 bg-inlogic-light-bg text-inlogic-text-dark">
       <div className="container mx-auto px-4 max-w-screen-xl">
-        <div className="text-left mb-12 md:mb-16 max-w-xl">
-           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Comprehensive Solutions</h2>
-           <p className="text-lg text-muted-foreground">
-             Driving success with tailored services in IT, Healthcare, Finance, and Insurance.
-           </p>
+        <div className="text-center mb-12 md:mb-16">
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider mb-2 block">Services</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Explore All Services We Offer to Customers</h2>
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+            At Btruss Services Pvt Ltd, we’re dedicated to delivering innovative and reliable solutions that empower our clients across multiple industries.
+          </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {servicesData.map((service) => (
-            <ServiceCard key={service.title} {...service} />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service) => (
+            <Card key={service.title} className="flex flex-col bg-card text-card-foreground rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <CardHeader className="pb-4">
+                <div className="flex items-center space-x-4">
+                  <service.icon className="w-10 h-10 text-primary" />
+                  <CardTitle className="text-xl font-semibold">{service.title}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <p className="text-muted-foreground text-sm mb-4">{service.description}</p>
+                {service.subServices && (
+                  <ul className="space-y-1.5 text-sm text-muted-foreground mb-4">
+                    {service.subServices.map(sub => (
+                      <li key={sub.name} className="flex items-center">
+                        <sub.icon className="w-4 h-4 mr-2 text-primary/80" />
+                        {sub.name}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </CardContent>
+              <div className="p-6 pt-0 mt-auto">
+                <Button 
+                  variant="default" 
+                  className="w-full bg-inlogic-button-dark text-white hover:bg-black transition-colors duration-300 hover:scale-105" 
+                  asChild
+                >
+                  <Link href={service.href}>
+                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </Card>
           ))}
         </div>
-         <div className="text-center mt-16">
+
+        <div className="text-center mt-16">
           <Button 
-            size="lg" 
-            variant="default"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-3 text-base" 
+            variant="outline" 
+            size="lg"
+            className="border-foreground/30 text-foreground/80 hover:bg-foreground/10 hover:text-foreground transition-colors duration-300 hover:scale-105"
             asChild
           >
-            <Link href="#contact">Discuss Your Needs</Link>
+            <Link href="#services">View All Services</Link>
           </Button>
         </div>
       </div>
