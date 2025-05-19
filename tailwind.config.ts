@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
-    darkMode: ["class"], // Keep 'class' if you might want to toggle later, though the base is dark.
+    darkMode: ["class"], 
     content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,17 +15,20 @@ export default {
       },
   		colors: {
         border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
+        input: {
+          DEFAULT: 'hsl(var(--input))',
+          border: 'hsl(var(--input-border))',
+        },
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: 'hsl(var(--primary))', // Red
-          foreground: 'hsl(var(--primary-foreground))', // White
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))', // Light Gray/White for specific sections
-          foreground: 'hsl(var(--secondary-foreground))', // Dark text for light sections
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
@@ -36,41 +39,23 @@ export default {
           foreground: 'hsl(var(--muted-foreground))',
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))', // Red
-          foreground: 'hsl(var(--accent-foreground))', // White
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
         },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))',
         },
         card: {
-          DEFAULT: 'hsl(var(--card))', // Darker card background
+          DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        // Inlogic specific color mappings (can be direct or use theme values)
-        'inlogic-red': 'hsl(var(--inlogic-red))',
-        'inlogic-dark-bg': 'hsl(var(--inlogic-dark-bg))',
-        'inlogic-light-bg': 'hsl(var(--inlogic-light-bg))',
-        'inlogic-card-dark': 'hsl(var(--inlogic-card-dark))',
-        'inlogic-text-light': 'hsl(var(--inlogic-text-light))',
-        'inlogic-text-dark': 'hsl(var(--inlogic-text-dark))',
-        'inlogic-button-dark': 'hsl(var(--inlogic-button-dark))',
-        sidebar: { // Keep if sidebar might be used
-          DEFAULT: 'hsl(var(--sidebar-background))',
-          foreground: 'hsl(var(--sidebar-foreground))',
-          primary: 'hsl(var(--sidebar-primary))',
-          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-          accent: 'hsl(var(--sidebar-accent))',
-          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-          border: 'hsl(var(--sidebar-border))',
-          ring: 'hsl(var(--sidebar-ring))'
-        }
   		},
   		borderRadius: {
-  			lg: 'var(--radius)', // 0.375rem
+        xl: 'calc(var(--radius) + 4px)', 
+  			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)',
-        xl: 'calc(var(--radius) + 4px)', 
   		},
   		keyframes: {
   			'accordion-down': {

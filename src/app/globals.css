@@ -4,86 +4,70 @@
 
 @layer base {
   :root {
-    /* Inlogic Inspired Palette - Dark Theme Dominant */
-    --background: 220 15% 12%; /* Very Dark Blue/Almost Black */
-    --foreground: 0 0% 98%; /* Almost White for text on dark backgrounds */
+    /* No9ine Inspired Palette - Light Theme */
+    --background: 0 0% 100%; /* White */
+    --foreground: 240 60% 10%; /* Dark Blue/Almost Black for text */
 
-    --card: 220 15% 18%; /* Slightly Lighter Dark for cards on dark bg */
-    --card-foreground: 0 0% 95%;
+    --card: 0 0% 100%; /* White for cards */
+    --card-foreground: 240 60% 10%;
 
-    --popover: 220 15% 15%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 60% 10%;
 
-    --primary: 0 70% 50%; /* Bright Red (Inlogic Accent) */
-    --primary-foreground: 0 0% 100%; /* White */
+    --primary: 0 84% 60%; /* Bright Red (No9ine Accent) */
+    --primary-foreground: 0 0% 100%; /* White for text on red buttons */
 
-    --secondary: 0 0% 95%; /* Light Gray/Almost White for specific content blocks */
-    --secondary-foreground: 220 15% 20%; /* Dark text for light backgrounds */
+    --secondary: 240 4.8% 95.9%; /* Light Gray for subtle backgrounds or borders */
+    --secondary-foreground: 240 5.9% 10%; /* Dark text for light gray backgrounds */
 
-    --muted: 220 10% 25%; /* Muted dark for less emphasis */
-    --muted-foreground: 0 0% 70%; /* Lighter gray for muted text */
+    --muted: 240 4.8% 95.9%; /* Light Gray for muted elements */
+    --muted-foreground: 240 3.8% 46.1%; /* Grayer text for muted content */
 
-    --accent: 0 70% 50%; /* Bright Red for general accents */
-    --accent-foreground: 0 0% 100%; /* White */
+    --accent: 0 84% 60%; /* Bright Red for general accents */
+    --accent-foreground: 0 0% 100%; /* White for text on red accents */
     
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 72.2% 50.6%; /* A slightly different red for destructive actions if needed */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 10% 30%; /* Darker border for elements on dark bg */
-    --input: 220 10% 25%; /* Dark input background */
-    --ring: 0 75% 55%; /* Slightly lighter red for focus rings */
+    --border: 240 5.9% 90%; /* Light Gray border */
+    --input: 0 0% 100%; /* White input background */
+    --input-border: 240 5.9% 90%; /* Light Gray input border */
+    --ring: 0 84% 65%; /* Slightly lighter red for focus rings */
 
-    --radius: 0.375rem; /* Slightly less rounded corners than default */
-
-    /* Specific Inlogic-like colors */
-    --inlogic-red: 0 70% 50%;
-    --inlogic-dark-bg: 220 15% 12%;
-    --inlogic-light-bg: 0 0% 96%; /* For sections like 'Explore Services' */
-    --inlogic-card-dark: 220 15% 18%;
-    --inlogic-text-light: 0 0% 98%;
-    --inlogic-text-dark: 220 20% 15%;
-    --inlogic-button-dark: 220 10% 10%; /* For 'Learn More' buttons on light cards */
-
-    /* Sidebar variables - can be kept or adjusted if a sidebar is ever needed */
-    --sidebar-background: 220 15% 10%; 
-    --sidebar-foreground: 0 0% 90%; 
-    --sidebar-primary: 0 65% 55%; 
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 15% 15%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 220 10% 20%;
-    --sidebar-ring: 0 70% 60%;
+    --radius: 0.5rem; /* Standard radius */
   }
 
-  /* Dark theme is default, so .dark class might not be strictly needed if not supporting light/dark toggle */
   .dark {
-    --background: 220 15% 12%;
+    /* Optional: Define dark theme variables if a toggle is ever implemented */
+    /* For now, we are focusing on the light theme as per No9ine */
+    --background: 240 60% 10%;
     --foreground: 0 0% 98%;
 
-    --card: 220 15% 18%;
+    --card: 240 60% 12%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 220 15% 15%;
+    --popover: 240 60% 10%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 0 70% 50%;
+    --primary: 0 70% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 10% 25%; /* Darker secondary for dark mode if used on light section */
+    --secondary: 240 15% 20%;
     --secondary-foreground: 0 0% 85%;
 
-    --muted: 220 10% 20%;
+    --muted: 240 15% 25%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 0 70% 50%;
+    --accent: 0 70% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 60% 45%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 10% 30%;
-    --input: 220 10% 25%;
-    --ring: 0 75% 55%;
+    --border: 240 15% 30%;
+    --input: 240 15% 20%;
+    --input-border: 240 15% 30%;
+    --ring: 0 75% 60%;
   }
 }
 
@@ -94,12 +78,20 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sans text-foreground;
+    @apply font-sans font-semibold text-foreground;
   }
-  /* Ensure links have a consistent base color */
   a {
     @apply text-primary hover:text-primary/80 transition-colors;
+  }
+  /* Custom red line accent */
+  .red-line-accent {
+    @apply relative pl-6;
+  }
+  .red-line-accent::before {
+    @apply content-[''] absolute left-0 top-1/2 -translate-y-1/2 w-4 h-0.5 bg-primary;
   }
 }

@@ -1,50 +1,58 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image'; // Keep for potential background pattern
+import Image from 'next/image';
 
 export function Hero() {
   return (
-    <section 
-      className="relative bg-inlogic-dark-bg text-inlogic-text-light py-24 md:py-32 lg:py-40 overflow-hidden"
-      style={{ backgroundImage: "url('https://placehold.co/1920x1080/1A237E/1A237E.png?text=.')", backgroundSize: 'cover', backgroundPosition: 'center' }} // Placeholder for subtle pattern
-      data-ai-hint="abstract network background dark tech particles"
-    >
-      <div 
-        className="absolute inset-0 bg-black/50" // Semi-transparent overlay for text readability
-      ></div>
-      <div className="container mx-auto px-4 text-center sm:text-left max-w-screen-xl relative z-10">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight text-white">
-              Trusted IT Support & <span className="text-primary">Consulting Services</span>
+    <section id="home" className="py-20 md:py-28 lg:py-32 bg-background">
+      <div className="container mx-auto px-4 max-w-screen-xl">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="text-center md:text-left">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-foreground mb-6">
+              Btruss: Elevating Your <span className="text-primary">Digital Strategy</span>
             </h1>
-            <p className="mt-6 md:mt-8 text-lg sm:text-xl text-gray-300 max-w-xl">
-              At Btruss IT Solutions, our mission is to provide you with IT solutions that transform your business. Since 20XX, we've focused on linking instructive insights with industry expertise to solve complex issues.
+            <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto md:mx-0 mb-8">
+              From vision to digital reality, we partner with businesses to craft innovative IT solutions, enhance healthcare services, streamline financial processes, and secure futures. Discover how Btruss transforms challenges into opportunities.
             </p>
-            <div className="mt-8 md:mt-10">
-              <Button 
-                size="lg" 
-                variant="default" // Default is red
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-md font-semibold shadow-md hover:shadow-lg transition-transform hover:scale-105 text-base" 
-                asChild
-              >
-                <Link href="#about-us">View Company Profile</Link>
-              </Button>
+            <Button 
+              size="lg" 
+              className="bg-foreground text-background hover:bg-foreground/80 px-8 py-3 rounded-md font-semibold shadow-md hover:shadow-lg transition-transform hover:scale-105 text-base" 
+              asChild
+            >
+              <Link href="#contact">Book a Meeting</Link>
+            </Button>
+          </div>
+          
+          <div className="grid grid-cols-2 gap-4">
+            <div className="col-span-2 sm:col-span-1">
+              <Image 
+                src="https://placehold.co/600x400.png" 
+                alt="Modern office collaboration"
+                data-ai-hint="modern office team"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-xl aspect-video object-cover w-full h-auto transform hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="col-span-2 sm:col-span-1 flex flex-col gap-4">
+              <Image 
+                src="https://placehold.co/300x200.png" 
+                alt="UX design process"
+                data-ai-hint="ux design process"
+                width={300}
+                height={200}
+                className="rounded-lg shadow-xl aspect-video object-cover w-full h-auto transform hover:scale-105 transition-transform duration-300"
+              />
+              <Image 
+                src="https://placehold.co/300x180.png" 
+                alt="Data analytics dashboard"
+                data-ai-hint="data analytics"
+                width={300}
+                height={180}
+                className="rounded-lg shadow-xl aspect-[16/10] object-cover w-full h-auto transform hover:scale-105 transition-transform duration-300"
+              />
             </div>
           </div>
-          {/* Optional: Right side can have an image or remain empty for focus on text */}
-          {/* 
-          <div className="hidden md:block">
-            <Image 
-              src="https://placehold.co/600x400.png" 
-              alt="IT Consulting"
-              data-ai-hint="modern office technology abstract"
-              width={600}
-              height={400}
-              className="rounded-lg shadow-xl"
-            />
-          </div>
-          */}
         </div>
       </div>
     </section>

@@ -1,4 +1,3 @@
-
 "use client";
 
 import * as React from "react";
@@ -8,29 +7,29 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/s
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "#about-us", label: "About Us" },
-  { href: "#services", label: "Services Overview" },
-  { href: "#products", label: "Our Services" }, // Changed label, href remains #products
-  { href: "#faq", label: "FAQ" },
-  { href: "#contact-cta", label: "Contact Us" },
-];
+interface NavLink {
+  href: string;
+  label: string;
+}
 
-export function MobileNav() {
+interface MobileNavProps {
+  navLinks: NavLink[];
+}
+
+export function MobileNav({ navLinks }: MobileNavProps) {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="sm:hidden text-foreground hover:bg-accent/20">
+        <Button variant="ghost" size="icon" className="md:hidden text-foreground hover:bg-accent/10">
           <Menu className="h-6 w-6" />
           <span className="sr-only">Open menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-full max-w-xs bg-background p-0 text-foreground border-l border-border/50">
+      <SheetContent side="right" className="w-full max-w-xs bg-background p-0 text-foreground border-l border-border/30">
         <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between p-6 border-b border-border/50">
+          <div className="flex items-center justify-between p-6 border-b border-border/30">
             <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
               <Image 
                 src="/btruss-logo.png" 
@@ -41,7 +40,7 @@ export function MobileNav() {
               />
             </Link>
             <SheetClose asChild>
-              <Button variant="ghost" size="icon" className="text-foreground hover:bg-accent/20">
+              <Button variant="ghost" size="icon" className="text-foreground hover:bg-accent/10">
                 <X className="h-6 w-6" />
                 <span className="sr-only">Close menu</span>
               </Button>
@@ -52,7 +51,7 @@ export function MobileNav() {
               <SheetClose key={link.href} asChild>
                 <Link
                   href={link.href}
-                  className="block text-lg font-medium text-foreground hover:text-primary transition-colors"
+                  className="block text-lg font-medium text-foreground/90 hover:text-primary transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
@@ -60,7 +59,7 @@ export function MobileNav() {
               </SheetClose>
             ))}
           </nav>
-          <div className="p-6 border-t border-border/50">
+          <div className="p-6 border-t border-border/30">
             <SheetClose asChild>
               <Button 
                 variant="default" 
@@ -68,7 +67,7 @@ export function MobileNav() {
                 asChild
                 onClick={() => setIsOpen(false)}
               >
-                <Link href="#contact-cta">Book a Demo</Link>
+                <Link href="#contact">Book a Meeting</Link>
               </Button>
             </SheetClose>
           </div>

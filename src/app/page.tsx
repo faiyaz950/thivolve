@@ -1,13 +1,12 @@
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Hero } from '@/components/sections/hero';
-import { AboutUs } from '@/components/sections/about-us'; // "Why Choose Us"
+import { AboutUs } from '@/components/sections/about-us';
+import { VideoSection } from '@/components/sections/video-section';
+import { ServicesOverview } from '@/components/sections/services-overview';
+import { OurWork } from '@/components/sections/our-work';
 import { PartnersBanner } from '@/components/sections/partners-banner';
-import { ServicesOverview } from '@/components/sections/services-overview'; // "Explore All Services"
-import { OurProducts } from '@/components/sections/our-products'; // "Our Products"
-import { FAQ } from '@/components/sections/faq';
-import { CallToAction } from '@/components/sections/call-to-action';
-
+import { ContactForm } from '@/components/sections/contact-form';
 
 export default function HomePage() {
   return (
@@ -16,11 +15,11 @@ export default function HomePage() {
       <main className="flex-grow">
         <Hero />
         <AboutUs />
-        <PartnersBanner />
+        <VideoSection />
         <ServicesOverview />
-        <OurProducts />
-        <FAQ />
-        <CallToAction />
+        <OurWork />
+        <PartnersBanner />
+        <ContactForm />
       </main>
       <Footer />
     </div>

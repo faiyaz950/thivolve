@@ -1,38 +1,22 @@
 "use client";
 
-// This component is effectively replaced by the CallToAction section for the "Inlogic" design.
-// However, it might still be linked from somewhere or used if "Contact Us" has a dedicated page.
-// For now, I'll keep its styling consistent with the new dark theme if it were to be used.
-
 import { useEffect } from 'react';
-import { useActionState } from 'react'; // Corrected import
-// import { useFormStatus } from 'react-dom'; // Not used in this simplified version
+import { useActionState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactFormSchema, type ContactFormValues } from '@/lib/schemas';
-import { submitContactForm, type FormState } from '@/app/actions'; // Assuming actions.ts is still relevant
+import { submitContactForm, type FormState } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 const initialState: FormState = {
   message: '',
   status: 'idle',
 };
-
-// SubmitButton can be simplified or removed if not using useFormStatus
-// function SubmitButton() {
-//   const { pending } = useFormStatus();
-//   return (
-//     <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-base py-3 rounded-md transition-transform hover:scale-105">
-//       {pending ? 'Submitting...' : 'Send Message'}
-//     </Button>
-//   );
-// }
 
 export function ContactForm() {
   const [state, formAction] = useActionState(submitContactForm, initialState);
@@ -43,7 +27,6 @@ export function ContactForm() {
     defaultValues: {
       name: '',
       email: '',
-      service: '',
       message: '',
     },
   });
@@ -51,107 +34,120 @@ export function ContactForm() {
   useEffect(() => {
     if (state.status === 'success') {
       toast({
-        title: "Success!",
+        title: "Message Sent!",
         description: state.message,
       });
       form.reset();
     } else if (state.status === 'error') {
       toast({
-        title: "Error",
+        title: "Error Sending Message",
         description: state.message || "An error occurred. Please try again.",
         variant: "destructive",
       });
     }
   }, [state, toast, form]);
-
-  const services = [
-    { value: 'it_services', label: 'IT Services' },
-    { value: 'healthcare_services', label: 'Healthcare Services' },
-    { value: 'credit_card_sales', label: 'Credit Card Sales' },
-    { value: 'insurance_sales', label: 'Insurance Sales' },
-    { value: 'ai_services', label: 'AI Services' },
-    { value: 'resource_outsource', label: 'Resource Outsource' },
-    { value: 'other', label: 'Other Inquiry' },
+  
+  // Placeholder contact details
+  const contactDetails = [
+    { icon: Mail, text: "info@btruss.com", href: "mailto:info@btruss.com" },
+    { icon: Phone, text: "+91 123 456 7890", href: "tel:+911234567890" },
+    { icon: MapPin, text: "123 Innovation Drive, Tech Park, Bangalore, India", href: "#" },
   ];
 
   return (
-    <section id="contact-page-form" className="py-16 md:py-24 bg-inlogic-dark-bg text-inlogic-text-light">
-      <div className="container mx-auto px-4 max-w-xl">
-        <Card className="shadow-xl rounded-lg bg-inlogic-card-dark border-border/50">
-          <CardHeader className="text-center p-8">
-            <CardTitle className="text-3xl sm:text-4xl font-bold text-foreground">Full Contact Form</CardTitle>
-            <CardDescription className="mt-3 text-lg text-muted-foreground">
-              Use this form for detailed inquiries. For quick demos, see the section above.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="p-8 pt-0">
-            <form action={formAction} className="space-y-6" onSubmit={form.handleSubmit(() => formAction(new FormData(form.control._formValues)))}>
-              <div>
-                <Label htmlFor="name" className="text-foreground font-medium mb-1.5 block">Full Name</Label>
-                <Input 
-                  id="name" 
-                  {...form.register('name')} 
-                  placeholder="John Doe" 
-                  className="bg-background border-border focus:border-primary focus:ring-primary rounded-md text-base"
-                />
-                {form.formState.errors.name && (
-                  <p className="text-sm text-destructive mt-1">{form.formState.errors.name.message}</p>
-                )}
-              </div>
+    <section id="contact" className="py-16 md:py-24 bg-secondary text-foreground">
+      <div className="container mx-auto px-4 max-w-screen-lg">
+        <div className="text-left mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 red-line-accent">Contact Us</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl">
+            Get a hold of our team to help you with our services. We&apos;re here to answer any questions you may have.
+          </p>
+        </div>
 
-              <div>
-                <Label htmlFor="email" className="text-foreground font-medium mb-1.5 block">Email Address</Label>
-                <Input 
-                  id="email" 
-                  type="email" 
-                  {...form.register('email')} 
-                  placeholder="you@example.com" 
-                  className="bg-background border-border focus:border-primary focus:ring-primary rounded-md text-base"
-                />
-                {form.formState.errors.email && (
-                  <p className="text-sm text-destructive mt-1">{form.formState.errors.email.message}</p>
-                )}
-              </div>
+        <div className="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 className="text-2xl font-semibold text-foreground mb-6">Get in Touch</h3>
+            <p className="text-muted-foreground mb-6">
+              Whether you have a question about our services, want to discuss a project, or just want to say hello, we&apos;d love to hear from you.
+            </p>
+            <div className="space-y-4">
+              {contactDetails.map((item, index) => (
+                <a 
+                  key={index} 
+                  href={item.href} 
+                  className="flex items-center text-muted-foreground hover:text-primary transition-colors group"
+                  target={item.href.startsWith('mailto:') || item.href.startsWith('tel:') ? '_blank' : '_self'}
+                  rel="noopener noreferrer"
+                >
+                  <item.icon className="w-5 h-5 mr-3 text-primary flex-shrink-0" />
+                  <span>{item.text}</span>
+                </a>
+              ))}
+            </div>
+          </div>
 
-              <div>
-                <Label htmlFor="service" className="text-foreground font-medium mb-1.5 block">Service of Interest</Label>
-                <Select onValueChange={(value) => form.setValue('service', value)} value={form.watch('service')}>
-                  <SelectTrigger id="service" className="bg-background border-border focus:border-primary focus:ring-primary text-foreground rounded-md text-base">
-                    <SelectValue placeholder="Select a service" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-popover text-popover-foreground border-border rounded-md">
-                    {services.map(service => (
-                      <SelectItem key={service.value} value={service.value} className="focus:bg-primary/20 focus:text-primary rounded-sm">
-                        {service.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                 <input type="hidden" {...form.register('service')} />
-              </div>
+          <form
+            action={formAction}
+            // @ts-ignore TODO: Fix this type error, react-hook-form and useActionState type mismatch
+            onSubmit={form.handleSubmit(data => formAction(new FormData(document.getElementById('contact-btruss-form') as HTMLFormElement)))}
+            className="space-y-6 p-8 bg-card rounded-lg shadow-xl border border-border/50"
+            id="contact-btruss-form"
+          >
+            <div>
+              <Label htmlFor="name" className="block text-sm font-medium text-foreground/90 mb-1">Full Name</Label>
+              <Input 
+                id="name" 
+                {...form.register('name')} 
+                placeholder="Your Name" 
+                className="bg-background border-input-border focus:border-primary focus:ring-primary rounded-md"
+              />
+              {form.formState.errors.name && (
+                <p className="text-sm text-destructive mt-1">{form.formState.errors.name.message}</p>
+              )}
+            </div>
 
-              <div>
-                <Label htmlFor="message" className="text-foreground font-medium mb-1.5 block">Message</Label>
-                <Textarea 
-                  id="message" 
-                  {...form.register('message')} 
-                  placeholder="Your detailed message..." 
-                  rows={5} 
-                  className="bg-background border-border focus:border-primary focus:ring-primary rounded-md text-base"
-                />
-                {form.formState.errors.message && (
-                  <p className="text-sm text-destructive mt-1">{form.formState.errors.message.message}</p>
-                )}
-              </div>
-              
-              <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-base py-3 rounded-md transition-transform hover:scale-105">
-                Send Message
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
+            <div>
+              <Label htmlFor="email" className="block text-sm font-medium text-foreground/90 mb-1">Email Address</Label>
+              <Input 
+                id="email" 
+                type="email" 
+                {...form.register('email')} 
+                placeholder="you@example.com" 
+                className="bg-background border-input-border focus:border-primary focus:ring-primary rounded-md"
+              />
+              {form.formState.errors.email && (
+                <p className="text-sm text-destructive mt-1">{form.formState.errors.email.message}</p>
+              )}
+            </div>
+            
+            {/* Service field is optional as per schema, so can be removed if not needed for this simplified form */}
+             <input type="hidden" {...form.register('service')} value="general_inquiry" />
+
+
+            <div>
+              <Label htmlFor="message" className="block text-sm font-medium text-foreground/90 mb-1">Message</Label>
+              <Textarea 
+                id="message" 
+                {...form.register('message')} 
+                placeholder="How can we help you?" 
+                rows={5} 
+                className="bg-background border-input-border focus:border-primary focus:ring-primary rounded-md"
+              />
+              {form.formState.errors.message && (
+                <p className="text-sm text-destructive mt-1">{form.formState.errors.message.message}</p>
+              )}
+            </div>
+            
+            <Button 
+              type="submit" 
+              className="w-full bg-foreground text-background hover:bg-foreground/80 text-base py-3 rounded-md transition-transform hover:scale-105"
+              disabled={form.formState.isSubmitting}
+            >
+              {form.formState.isSubmitting ? 'Sending...' : 'Send Message'}
+            </Button>
+          </form>
+        </div>
       </div>
     </section>
   );
 }
-
