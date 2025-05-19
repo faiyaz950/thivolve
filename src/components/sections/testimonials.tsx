@@ -8,7 +8,7 @@ const testimonials = [
     company: "Tech Solutions Inc.",
     avatarFallback: "AS",
     avatarSrc: "https://placehold.co/100x100.png",
-    avatarHint: "male portrait professional"
+    avatarHint: "professional headshot smiling South Asian man business suit warm approachable studio lighting"
   },
   {
     id: '2',
@@ -17,7 +17,7 @@ const testimonials = [
     company: "Wellness Clinic Group",
     avatarFallback: "PS",
     avatarSrc: "https://placehold.co/100x100.png",
-    avatarHint: "female portrait doctor"
+    avatarHint: "friendly portrait female doctor Indian descent white coat stethoscope exuding compassion soft background"
   },
   {
     id: '3',
@@ -26,7 +26,7 @@ const testimonials = [
     company: "E-commerce Innovators",
     avatarFallback: "RP",
     avatarSrc: "https://placehold.co/100x100.png",
-    avatarHint: "male portrait business"
+    avatarHint: "headshot young confident businessman smart casual attire looking at camera blurred office background"
   },
    {
     id: '4',
@@ -35,7 +35,7 @@ const testimonials = [
     company: "Future Secure Ltd.",
     avatarFallback: "MI",
     avatarSrc: "https://placehold.co/100x100.png",
-    avatarHint: "female portrait smiling"
+    avatarHint: "portrait smiling professional woman dark hair blazer competence friendliness subtle office environment"
   }
 ];
 

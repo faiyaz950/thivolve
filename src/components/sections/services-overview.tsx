@@ -16,6 +16,7 @@ export function ServicesOverview() {
         <VideoPlayer 
           src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" 
           poster="https://placehold.co/1280x720.png"
+          posterAiHint="dynamic abstract visual collage diverse company services futuristic IT network caring healthcare symbol secure financial graph protective insurance shield modern interconnected theme"
           className="mb-12"
         />
 

@@ -23,7 +23,7 @@ export function AboutUs() {
             <Image 
               src="https://placehold.co/500x500.png" 
               alt="Our dedicated team at Btruss Digital Hub" 
-              data-ai-hint="diverse team office"
+              data-ai-hint="vibrant diverse team professionals various tasks collaborating focused bright open-concept modern office natural light plants"
               layout="fill"
               objectFit="cover"
             />

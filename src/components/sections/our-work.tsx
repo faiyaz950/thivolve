@@ -9,7 +9,7 @@ const projects = [
     title: "Innovative Web Platform",
     description: "Developed a scalable web platform for a leading e-commerce client, enhancing user engagement by 40%.",
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "web platform interface",
+    imageHint: "clean intuitive dashboard UI e-commerce web platform product listings analytics light theme professional",
     tags: ["Web Development", "UX/UI Design", "E-commerce"]
   },
   {
@@ -17,7 +17,7 @@ const projects = [
     title: "Mobile Health App",
     description: "Created a user-friendly mobile application for healthcare providers to streamline patient management.",
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "mobile app health",
+    imageHint: "mockup user-friendly mobile healthcare app smartphone patient vitals appointment scheduling calm color palette",
     tags: ["Mobile App", "Healthcare", "Flutter"]
   },
   {
@@ -25,7 +25,7 @@ const projects = [
     title: "Digital Marketing Campaign",
     description: "Executed a successful digital marketing strategy for a startup, achieving a 200% ROI in 6 months.",
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "marketing analytics dashboard",
+    imageHint: "vibrant digital marketing campaign results tablet growth charts key performance indicators dynamic visuals",
     tags: ["Digital Marketing", "SEO", "Social Media"]
   }
 ];

@@ -28,7 +28,7 @@ export function Hero() {
             <Image 
               src="https://placehold.co/600x375.png" 
               alt="Team collaboration with sticky notes" 
-              data-ai-hint="team collaboration"
+              data-ai-hint="diverse team enthusiastically collaborating modern office large monitor colorful charts bright large windows cinematic"
               layout="fill"
               objectFit="cover"
               priority
@@ -39,7 +39,7 @@ export function Hero() {
               <Image 
                 src="https://placehold.co/400x225.png" 
                 alt="Modern office meeting" 
-                data-ai-hint="business meeting"
+                data-ai-hint="professionals insightful discussion tablet innovative design mockups contemporary meeting space warm lighting"
                 layout="fill"
                 objectFit="cover"
               />
@@ -48,7 +48,7 @@ export function Hero() {
               <Image 
                 src="https://placehold.co/400x225.png" 
                 alt="Developer working on code" 
-                data-ai-hint="developer coding"
+                data-ai-hint="focused software developer coding multi-monitor setup minimalist modern workspace subtle screen reflections"
                 layout="fill"
                 objectFit="cover"
               />
