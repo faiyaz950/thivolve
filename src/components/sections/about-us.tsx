@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export function AboutUs() {
   return (
-    <section id="about-us" className="py-16 md:py-24 bg-background">
+    <section id="about-us" className="py-16 md:py-24 bg-card"> {/* Changed to bg-card for contrast */}
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -15,7 +15,12 @@ export function AboutUs() {
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               With a foundation built on expertise, integrity, and a client-centric approach, we specialize in a diverse array of services, including cutting-edge IT solutions, compassionate healthcare support, secure financial services, and comprehensive insurance sales. We are committed to excellence in everything we do.
             </p>
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10" asChild>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-accent text-accent hover:bg-accent/10 hover:text-accent-foreground" 
+              asChild
+            >
               <Link href="#contact">Learn More</Link>
             </Button>
           </div>

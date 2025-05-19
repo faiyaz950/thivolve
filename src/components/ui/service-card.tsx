@@ -12,21 +12,21 @@ interface ServiceCardProps {
 
 export function ServiceCard({ icon: Icon, title, description, subServices, className }: ServiceCardProps) {
   return (
-    <Card className={`flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300 bg-card ${className}`}>
-      <CardHeader className="flex flex-row items-start space-x-4 pb-3">
+    <Card className={`flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300 bg-card rounded-xl ${className}`}>
+      <CardHeader className="flex flex-row items-start space-x-4 pb-3 pt-6 px-6">
         <div className="bg-primary/10 p-3 rounded-lg">
-          <Icon className="w-6 h-6 text-primary" />
+          <Icon className="w-7 h-7 text-primary" /> {/* Increased icon size slightly */}
         </div>
         <CardTitle className="text-xl font-semibold text-foreground pt-2">{title}</CardTitle>
       </CardHeader>
-      <CardContent className="flex-grow">
-        <CardDescription className="text-sm text-muted-foreground mb-4">{description}</CardDescription>
+      <CardContent className="flex-grow px-6 pb-6">
+        <CardDescription className="text-base text-muted-foreground mb-4 leading-relaxed">{description}</CardDescription> {/* Increased text size and line height */}
         {subServices && subServices.length > 0 && (
-          <div>
+          <div className="mt-auto"> {/* Pushes subservices to the bottom if card content is taller */}
             <h4 className="font-medium text-xs text-foreground uppercase tracking-wider mb-2">Key Offerings:</h4>
             <div className="flex flex-wrap gap-2">
               {subServices.map((subService) => (
-                <Badge key={subService} variant="secondary" className="bg-secondary text-secondary-foreground hover:bg-secondary/80">
+                <Badge key={subService} variant="secondary" className="bg-accent/10 text-accent font-medium"> {/* Changed badge style */}
                   {subService}
                 </Badge>
               ))}

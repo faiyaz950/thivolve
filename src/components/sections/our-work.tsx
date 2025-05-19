@@ -17,7 +17,7 @@ const projects = [
     title: "Mobile Health App",
     description: "Created a user-friendly mobile application for healthcare providers to streamline patient management.",
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "mockup user-friendly mobile healthcare app smartphone patient vitals appointment scheduling calm color palette",
+    imageHint: "mockup user-friendly mobile healthcare app smartphone patient vitals appointment scheduling calm color palette teal blue accents",
     tags: ["Mobile App", "Healthcare", "Flutter"]
   },
   {
@@ -25,14 +25,14 @@ const projects = [
     title: "Digital Marketing Campaign",
     description: "Executed a successful digital marketing strategy for a startup, achieving a 200% ROI in 6 months.",
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "vibrant digital marketing campaign results tablet growth charts key performance indicators dynamic visuals",
+    imageHint: "vibrant digital marketing campaign results tablet growth charts key performance indicators dynamic visuals teal blue accents",
     tags: ["Digital Marketing", "SEO", "Social Media"]
   }
 ];
 
 export function OurWork() {
   return (
-    <section id="our-work" className="py-16 md:py-24 bg-secondary">
+    <section id="our-work" className="py-16 md:py-24 bg-background"> {/* Changed to bg-background */}
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Our Portfolio</h2>
@@ -42,7 +42,7 @@ export function OurWork() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <Card key={project.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card key={project.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-card rounded-xl">
               <CardHeader className="p-0">
                 <div className="relative aspect-video">
                   <Image 
@@ -59,7 +59,7 @@ export function OurWork() {
                 <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map(tag => (
-                    <span key={tag} className="text-xs bg-primary/10 text-primary font-medium px-2 py-1 rounded-full">{tag}</span>
+                    <span key={tag} className="text-xs bg-accent/10 text-accent font-medium px-2 py-1 rounded-full">{tag}</span>
                   ))}
                 </div>
               </CardContent>
@@ -72,7 +72,12 @@ export function OurWork() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10" asChild>
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="border-accent text-accent hover:bg-accent/10 hover:text-accent-foreground" 
+            asChild
+          >
             <Link href="#contact">Start Your Project With Us</Link>
           </Button>
         </div>

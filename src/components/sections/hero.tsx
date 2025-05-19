@@ -17,10 +17,13 @@ export function Hero() {
             It&apos;s either you be part of the change or be at the front making it all happen. Btruss Digital Hub is where creative genius meets strategic mastery, all wrapped up in a warm, friendly atmosphere that feels just like home.
           </p>
           <div className="flex space-x-4">
-            <Button size="lg" className="bg-foreground text-background hover:bg-foreground/80 px-8 py-3 rounded-md font-semibold shadow-md hover:shadow-lg transition-all" asChild>
+            <Button 
+              size="lg" 
+              className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 rounded-md font-semibold shadow-md hover:shadow-lg transition-all" 
+              asChild
+            >
               <Link href="#contact">BOOK A MEETING</Link>
             </Button>
-            {/* Optional secondary button can be added here if needed */}
           </div>
         </div>
         <div className="md:mt-0 mt-12 space-y-6">
