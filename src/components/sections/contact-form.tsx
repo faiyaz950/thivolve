@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from 'react';
-import { useActionState } from 'react'; // Changed from react-dom
+import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -23,14 +23,14 @@ const initialState: FormState = {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+    <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-base py-3">
       {pending ? 'Submitting...' : 'Send Message'}
     </Button>
   );
 }
 
 export function ContactForm() {
-  const [state, formAction] = useActionState(submitContactForm, initialState); // Changed to useActionState
+  const [state, formAction] = useActionState(submitContactForm, initialState);
   const { toast } = useToast();
 
   const form = useForm<ContactFormValues>({
@@ -57,8 +57,6 @@ export function ContactForm() {
         variant: "destructive",
       });
       state.issues?.forEach(issue => {
-         // This is a basic way to show field-specific errors.
-         // For a more robust solution, you'd map issues to form fields.
         console.error("Validation Issue:", issue);
       });
     }
@@ -75,22 +73,22 @@ export function ContactForm() {
   return (
     <section id="contact" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 max-w-2xl">
-        <Card className="shadow-xl">
-          <CardHeader className="text-center">
-            <CardTitle className="text-3xl sm:text-4xl font-bold text-primary">Get in Touch</CardTitle>
-            <CardDescription className="mt-2 text-lg text-muted-foreground">
-              Have questions or want to discuss a project? We're here to help.
+        <Card className="shadow-xl rounded-xl">
+          <CardHeader className="text-center p-8">
+            <CardTitle className="text-3xl sm:text-4xl font-bold text-foreground">Get in Touch</CardTitle>
+            <CardDescription className="mt-3 text-lg text-muted-foreground">
+              Have questions or want to discuss a project? We&apos;re here to help.
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-8 pt-0">
             <form action={formAction} className="space-y-6" onSubmit={form.handleSubmit(() => formAction(new FormData(form.control._formValues)))}>
               <div>
-                <Label htmlFor="name" className="text-foreground">Full Name</Label>
+                <Label htmlFor="name" className="text-foreground font-medium">Full Name</Label>
                 <Input 
                   id="name" 
                   {...form.register('name')} 
                   placeholder="John Doe" 
-                  className="mt-1 bg-card"
+                  className="mt-1.5 bg-card border-border focus:border-primary focus:ring-primary"
                 />
                 {form.formState.errors.name && (
                   <p className="text-sm text-destructive mt-1">{form.formState.errors.name.message}</p>
@@ -101,13 +99,13 @@ export function ContactForm() {
               </div>
 
               <div>
-                <Label htmlFor="email" className="text-foreground">Email Address</Label>
+                <Label htmlFor="email" className="text-foreground font-medium">Email Address</Label>
                 <Input 
                   id="email" 
                   type="email" 
                   {...form.register('email')} 
                   placeholder="you@example.com" 
-                  className="mt-1 bg-card"
+                  className="mt-1.5 bg-card border-border focus:border-primary focus:ring-primary"
                 />
                 {form.formState.errors.email && (
                   <p className="text-sm text-destructive mt-1">{form.formState.errors.email.message}</p>
@@ -118,9 +116,9 @@ export function ContactForm() {
               </div>
 
               <div>
-                <Label htmlFor="service" className="text-foreground">Service of Interest (Optional)</Label>
+                <Label htmlFor="service" className="text-foreground font-medium">Service of Interest (Optional)</Label>
                 <Select onValueChange={(value) => form.setValue('service', value)} value={form.watch('service')}>
-                  <SelectTrigger id="service" className="mt-1 bg-card">
+                  <SelectTrigger id="service" className="mt-1.5 bg-card border-border focus:border-primary focus:ring-primary text-foreground">
                     <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
                   <SelectContent>
@@ -135,13 +133,13 @@ export function ContactForm() {
               </div>
 
               <div>
-                <Label htmlFor="message" className="text-foreground">Message</Label>
+                <Label htmlFor="message" className="text-foreground font-medium">Message</Label>
                 <Textarea 
                   id="message" 
                   {...form.register('message')} 
                   placeholder="Your message..." 
                   rows={5} 
-                  className="mt-1 bg-card"
+                  className="mt-1.5 bg-card border-border focus:border-primary focus:ring-primary"
                 />
                 {form.formState.errors.message && (
                   <p className="text-sm text-destructive mt-1">{form.formState.errors.message.message}</p>

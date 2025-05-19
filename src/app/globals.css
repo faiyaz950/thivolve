@@ -4,37 +4,37 @@
 
 @layer base {
   :root {
-    --background: 231 48% 94%; /* #E8EAF6 */
-    --foreground: 200 15% 19%; /* #263238 */
+    --background: 0 0% 100%; /* white */
+    --foreground: 0 0% 13%; /* near black #212121 */
 
     --card: 0 0% 100%; /* white */
-    --card-foreground: 200 15% 19%; /* #263238 */
+    --card-foreground: 0 0% 13%; /* near black */
 
     --popover: 0 0% 100%; /* white */
-    --popover-foreground: 200 15% 19%; /* #263238 */
+    --popover-foreground: 0 0% 13%; /* near black */
 
-    --primary: 235 62% 30%; /* #1A237E */
+    --primary: 0 78% 50%; /* red #DC2626 */
     --primary-foreground: 0 0% 100%; /* white */
 
-    --secondary: 231 30% 88%; /* #D0D4E8 */
-    --secondary-foreground: 235 62% 30%; /* #1A237E */
+    --secondary: 0 0% 96%; /* light gray #F5F5F5 */
+    --secondary-foreground: 0 0% 13%; /* near black */
 
-    --muted: 231 30% 88%; /* #D0D4E8 */
-    --muted-foreground: 200 15% 40%; /* #546E7A */
+    --muted: 0 0% 94%; /* slightly darker light gray #F0F0F0 */
+    --muted-foreground: 0 0% 40%; /* medium gray #666666 */
 
-    --accent: 174 45% 52%; /* #4DB6AC */
+    --accent: 0 78% 50%; /* red #DC2626 */
     --accent-foreground: 0 0% 100%; /* white */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 231 20% 85%; /* #CACEE5 */
-    --input: 231 20% 85%; /* #CACEE5 */
-    --ring: 174 45% 52%; /* #4DB6AC */
+    --border: 0 0% 87%; /* light gray border #DDD */
+    --input: 0 0% 87%; /* light gray input border */
+    --ring: 0 78% 50%; /* red */
 
     --radius: 0.5rem;
 
-    /* Default sidebar variables - not actively used in this design but kept for completeness */
+    /* Sidebar variables - keeping them for completeness */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -46,36 +46,35 @@
   }
 
   .dark {
-    /* Keeping dark mode variables as a fallback, though the design is light-themed */
-    --background: 200 15% 10%; /* Darker background */
-    --foreground: 231 48% 94%; /* Light foreground */
+    /* Dark mode variables - updated to complement the new light theme style */
+    --background: 0 0% 8%; /* very dark gray */
+    --foreground: 0 0% 90%; /* light gray */
 
-    --card: 200 15% 15%;
-    --card-foreground: 231 48% 94%;
+    --card: 0 0% 12%; /* dark gray */
+    --card-foreground: 0 0% 90%; 
 
-    --popover: 200 15% 15%;
-    --popover-foreground: 231 48% 94%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 90%;
 
-    --primary: 174 45% 52%; /* Accent becomes primary in dark */
-    --primary-foreground: 200 15% 10%;
+    --primary: 0 78% 55%; /* slightly brighter red for dark mode */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 200 15% 25%;
-    --secondary-foreground: 231 48% 94%;
+    --secondary: 0 0% 15%; /* dark gray */
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 200 15% 25%;
-    --muted-foreground: 231 30% 70%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 235 62% 40%; /* Primary becomes accent in dark */
+    --accent: 0 78% 55%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 200 15% 25%;
-    --input: 200 15% 25%;
-    --ring: 174 45% 52%;
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 0 78% 55%;
 
-    /* Default dark sidebar variables */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

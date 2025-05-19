@@ -7,7 +7,8 @@ const testimonials = [
     author: "Aarav Sharma",
     company: "Tech Solutions Inc.",
     avatarFallback: "AS",
-    avatarSrc: "https://placehold.co/100x100.png"
+    avatarSrc: "https://placehold.co/100x100.png",
+    avatarHint: "male portrait professional"
   },
   {
     id: '2',
@@ -15,7 +16,8 @@ const testimonials = [
     author: "Priya Singh",
     company: "Wellness Clinic Group",
     avatarFallback: "PS",
-    avatarSrc: "https://placehold.co/100x100.png"
+    avatarSrc: "https://placehold.co/100x100.png",
+    avatarHint: "female portrait doctor"
   },
   {
     id: '3',
@@ -23,7 +25,8 @@ const testimonials = [
     author: "Rohan Patel",
     company: "E-commerce Innovators",
     avatarFallback: "RP",
-    avatarSrc: "https://placehold.co/100x100.png"
+    avatarSrc: "https://placehold.co/100x100.png",
+    avatarHint: "male portrait business"
   },
    {
     id: '4',
@@ -31,16 +34,17 @@ const testimonials = [
     author: "Meera Iyer",
     company: "Future Secure Ltd.",
     avatarFallback: "MI",
-    avatarSrc: "https://placehold.co/100x100.png"
+    avatarSrc: "https://placehold.co/100x100.png",
+    avatarHint: "female portrait smiling"
   }
 ];
 
 export function Testimonials() {
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-secondary">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary">What Our Clients Say</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">What Our Clients Say</h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">
             Real stories from satisfied partners who trust Btruss Services.
           </p>
@@ -54,6 +58,7 @@ export function Testimonials() {
               company={testimonial.company}
               avatarSrc={testimonial.avatarSrc}
               avatarFallback={testimonial.avatarFallback}
+              avatarHint={testimonial.avatarHint}
             />
           ))}
         </div>
