@@ -1,36 +1,39 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { Globe, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react'; // Added social icons
+import { Globe, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const footerSections = [
     {
-      title: "Products",
-      links: [
-        { label: "Event Management", href: "#products" },
-        { label: "Survey Management", href: "#products" },
-        { label: "Certification System", href: "#products" },
-        { label: "Awards System", href: "#products" },
+      title: "Our Services", // Changed title from "Products"
+      links: [ // Updated links to reflect services
+        { label: "IT Services", href: "#products" }, // Points to the updated section
+        { label: "Healthcare Services", href: "#products" },
+        { label: "Credit Card Sales", href: "#products" },
+        { label: "Insurance Sales", href: "#products" },
+        { label: "AI Services", href: "#products" },
+        { label: "Resource Outsource", href: "#products" },
       ],
     },
     {
-      title: "Services",
+      title: "Key Areas", // Renamed from "Services" for clarity
       links: [
-        { label: "IT Services", href: "#services" },
-        { label: "AI Solutions", href: "#services" },
+        { label: "IT Solutions", href: "#services" }, // Points to general services overview
+        { label: "AI Innovation", href: "#services" },
         { label: "Healthcare Support", href: "#services" },
-        { label: "Digital Marketing", href: "#services" },
-        { label: "Resource Outsource", href: "#services" },
+        { label: "Digital Marketing", href: "#services" }, // This is a sub-service of IT
+        { label: "Resource Outsourcing", href: "#services" },
       ],
     },
     {
       title: "Company",
       links: [
         { label: "About Us", href: "#about-us" },
-        { label: "Careers", href: "#" }, // Placeholder
-        { label: "Blog", href: "#" }, // Placeholder
+        { label: "Careers", href: "#" }, 
+        { label: "Blog", href: "#" }, 
         { label: "Contact", href: "#contact-cta" },
       ],
     },
@@ -88,11 +91,6 @@ export function Footer() {
                 <social.icon className="w-5 h-5" />
               </Link>
             ))}
-            {/* Language selector can be added here if needed */}
-            {/* <div className="flex items-center text-muted-foreground hover:text-primary transition-colors cursor-pointer">
-              <Globe className="w-5 h-5 mr-1" />
-              <span>English</span>
-            </div> */}
           </div>
         </div>
       </div>

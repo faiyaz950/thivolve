@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -10,8 +11,8 @@ import Image from "next/image";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "#about-us", label: "About Us" },
-  { href: "#services", label: "Services" },
-  { href: "#products", label: "Products" },
+  { href: "#services", label: "Services Overview" },
+  { href: "#products", label: "Our Services" }, // Changed label, href remains #products
   { href: "#faq", label: "FAQ" },
   { href: "#contact-cta", label: "Contact Us" },
 ];
@@ -62,7 +63,7 @@ export function MobileNav() {
           <div className="p-6 border-t border-border/50">
             <SheetClose asChild>
               <Button 
-                variant="default" // This will be red by default
+                variant="default" 
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-transform hover:scale-105"
                 asChild
                 onClick={() => setIsOpen(false)}
