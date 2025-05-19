@@ -4,10 +4,10 @@ import Link from 'next/link';
 
 export function AboutUs() {
   return (
-    <section id="about-us" className="py-16 md:py-24 bg-card"> {/* Changed to bg-card for contrast */}
+    <section id="about-us" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 max-w-screen-xl">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="order-2 md:order-1">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">About Btruss Digital Hub</h2>
             <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
               At Btruss Services Pvt Ltd, we are more than just a service provider; we are your strategic partner in navigating the complexities of the digital and business landscape. Our mission is to empower your organization with innovative, reliable, and tailored solutions that drive growth, efficiency, and peace of mind.
@@ -17,18 +17,18 @@ export function AboutUs() {
             </p>
             <Button 
               size="lg" 
-              variant="outline" 
-              className="border-accent text-accent hover:bg-accent/10 hover:text-accent-foreground" 
+              variant="default" 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8" 
               asChild
             >
               <Link href="#contact">Learn More</Link>
             </Button>
           </div>
-          <div className="relative aspect-square rounded-xl overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-105">
+          <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl order-1 md:order-2">
             <Image 
-              src="https://placehold.co/500x500.png" 
-              alt="Our dedicated team at Btruss Digital Hub" 
-              data-ai-hint="vibrant diverse team professionals various tasks collaborating focused bright open-concept modern office natural light plants"
+              src="https://placehold.co/600x450.png" 
+              alt="Team collaborating in a modern Btruss office" 
+              data-ai-hint="modern office diverse team discussion bright natural light"
               layout="fill"
               objectFit="cover"
             />

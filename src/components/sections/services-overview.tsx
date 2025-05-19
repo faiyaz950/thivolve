@@ -1,73 +1,109 @@
-import { VideoPlayer } from '@/components/ui/video-player';
-import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ServiceCard } from '@/components/ui/service-card';
-import { MonitorSmartphone, HeartPulse, CreditCard, ShieldCheck } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Briefcase, HeartPulse, CreditCard, ShieldCheck, Tv, Bot, Palette, Search, Users, Building, ShoppingCart, Utensils } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
-const services = [
+interface ServiceItem {
+  icon: LucideIcon;
+  name: string;
+}
+
+interface ServiceCardProps {
+  bgColorClass: string;
+  textColorClass: string;
+  title: string;
+  items: ServiceItem[];
+  href: string;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ bgColorClass, textColorClass, title, items, href }) => (
+  <Link href={href} className={`group block rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col ${bgColorClass} ${textColorClass}`}>
+    <h3 className="text-2xl md:text-3xl font-bold mb-4">{title}</h3>
+    <ul className="space-y-2 mb-6 flex-grow">
+      {items.map((item) => (
+        <li key={item.name} className="flex items-center">
+          <item.icon className="w-5 h-5 mr-3_5 shrink-0" />
+          <span className="text-sm md:text-base">{item.name}</span>
+        </li>
+      ))}
+    </ul>
+    <div className="mt-auto text-right">
+      <ArrowRight className="w-8 h-8 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-transform duration-300" />
+    </div>
+  </Link>
+);
+
+const servicesData = [
   {
-    icon: MonitorSmartphone,
+    bgColorClass: "bg-careem-blue", // Specific blue from globals.css variable
+    textColorClass: "text-white",
     title: "IT Services",
-    description: "We leverage technology to provide cutting-edge solutions that elevate your business. From startups to enterprises, we craft IT solutions that deliver results.",
-    subServices: ["Mobile Application Development", "Website Development", "Web Application Development", "Digital Marketing", "Graphic Designing Services"]
+    items: [
+      { icon: Tv, name: "Web Development" },
+      { icon: Bot, name: "Mobile App Development" },
+      { icon: Palette, name: "Graphic Designing" },
+      { icon: Search, name: "Digital Marketing" },
+    ],
+    href: "#contact",
   },
   {
-    icon: HeartPulse,
+    bgColorClass: "bg-careem-light-green", // Specific light green
+    textColorClass: "text-careem-text-primary", // Dark text on light green
     title: "Healthcare Services",
-    description: "Our healthcare solutions prioritize quality and accessibility, supporting individuals and organizations with care that improves lives. We’re committed to innovative approaches that ensure a healthier tomorrow for all."
+    items: [
+      { icon: Users, name: "Patient Management" },
+      { icon: Building, name: "Clinic Solutions" },
+      { icon: HeartPulse, name: "Wellness Programs" },
+    ],
+    href: "#contact",
   },
   {
-    icon: CreditCard,
+    bgColorClass: "bg-careem-purple", // Specific purple
+    textColorClass: "text-white",
     title: "Credit Card Sales",
-    description: "We provide secure, convenient payment solutions to help businesses thrive. Our credit card sales services streamline transactions, offering fast and reliable systems that enhance customer satisfaction and boost revenue."
+    items: [
+      { icon: CreditCard, name: "Payment Gateways" },
+      { icon: ShoppingCart, name: "Merchant Accounts" },
+      { icon: Briefcase, name: "Business Cards" },
+    ],
+    href: "#contact",
   },
   {
-    icon: ShieldCheck,
+    bgColorClass: "bg-careem-dark-blue", // Specific dark blue
+    textColorClass: "text-white",
     title: "Insurance Sales",
-    description: "Protecting your future is our priority. We offer comprehensive insurance plans tailored to your needs, providing peace of mind through expert guidance and dependable coverage for life’s uncertainties."
-  }
+    items: [
+      { icon: ShieldCheck, name: "Business Insurance" },
+      { icon: HeartPulse, name: "Health Coverage" }, // Re-using, consider specific insurance icons
+      { icon: Utensils, name: "Liability Protection" }, // Utensils as generic placeholder, replace if better found
+    ],
+    href: "#contact",
+  },
 ];
 
 export function ServicesOverview() {
   return (
-    <section id="services" className="py-16 md:py-24 bg-secondary">
+    <section id="services" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 max-w-screen-xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Our Comprehensive Services</h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-            At Btruss Services Pvt Ltd, we’re dedicated to delivering innovative and reliable solutions that empower our clients across multiple industries. With a focus on excellence, we offer a diverse range of services tailored to your needs, blending technology, care, and expertise to drive success and security.
-          </p>
+        <div className="text-left mb-12 md:mb-16 max-w-xl">
+           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Comprehensive Solutions</h2>
+           <p className="text-lg text-muted-foreground">
+             Driving success with tailored services in IT, Healthcare, Finance, and Insurance.
+           </p>
         </div>
-        
-        <VideoPlayer 
-          src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" 
-          poster="https://placehold.co/1280x720.png"
-          posterAiHint="dynamic abstract visual collage diverse company services futuristic IT network caring healthcare symbol secure financial graph protective insurance shield modern interconnected theme teal blue accents"
-          className="mb-16 rounded-xl" // Added rounded-xl
-        />
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
-          {services.map((service) => (
-            <ServiceCard
-              key={service.title}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-              subServices={service.subServices}
-            />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          {servicesData.map((service) => (
+            <ServiceCard key={service.title} {...service} />
           ))}
         </div>
-        
-        <div className="text-center">
-           <p className="text-lg text-muted-foreground mb-6 max-w-3xl mx-auto">
-            Btruss Services Pvt Ltd is your trusted partner, combining innovation and dedication to meet your goals. Whether it’s advancing your digital strategy, improving healthcare, simplifying payments, or securing your future, we’re here to deliver with excellence.
-          </p>
+         <div className="text-center mt-16">
           <Button 
             size="lg" 
-            className="bg-accent hover:bg-accent/90 text-accent-foreground" 
+            variant="default"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-3 text-base" 
             asChild
           >
-            <Link href="#contact">Discuss Your Project</Link>
+            <Link href="#contact">Discuss Your Needs</Link>
           </Button>
         </div>
       </div>

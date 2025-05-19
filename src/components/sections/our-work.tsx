@@ -2,47 +2,48 @@ import Image from 'next/image';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 const projects = [
   {
     id: 1,
-    title: "Innovative Web Platform",
-    description: "Developed a scalable web platform for a leading e-commerce client, enhancing user engagement by 40%.",
+    title: "E-commerce Platform Overhaul",
+    description: "Transformed a client's online store, boosting user engagement and sales through modern UX.",
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "clean intuitive dashboard UI e-commerce web platform product listings analytics light theme professional",
-    tags: ["Web Development", "UX/UI Design", "E-commerce"]
+    imageHint: "e-commerce dashboard modern UI clean product listings",
+    tags: ["Web Development", "UX/UI", "E-commerce"]
   },
   {
     id: 2,
-    title: "Mobile Health App",
-    description: "Created a user-friendly mobile application for healthcare providers to streamline patient management.",
+    title: "Healthcare Patient Portal",
+    description: "Developed a secure and intuitive portal for patients to manage appointments and records.",
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "mockup user-friendly mobile healthcare app smartphone patient vitals appointment scheduling calm color palette teal blue accents",
-    tags: ["Mobile App", "Healthcare", "Flutter"]
+    imageHint: "mobile app healthcare patient portal user-friendly interface",
+    tags: ["Mobile App", "Healthcare", "Security"]
   },
   {
     id: 3,
-    title: "Digital Marketing Campaign",
-    description: "Executed a successful digital marketing strategy for a startup, achieving a 200% ROI in 6 months.",
+    title: "Startup Marketing Success",
+    description: "Launched a targeted digital marketing campaign leading to significant growth for a new venture.",
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "vibrant digital marketing campaign results tablet growth charts key performance indicators dynamic visuals teal blue accents",
-    tags: ["Digital Marketing", "SEO", "Social Media"]
+    imageHint: "digital marketing analytics growth chart startup success",
+    tags: ["Digital Marketing", "Strategy", "Startups"]
   }
 ];
 
 export function OurWork() {
   return (
-    <section id="our-work" className="py-16 md:py-24 bg-background"> {/* Changed to bg-background */}
+    <section id="our-work" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 max-w-screen-xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Our Portfolio</h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover a selection of projects that showcase our commitment to quality, innovation, and client success.
-          </p>
+        <div className="flex justify-between items-center mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Our Work</h2>
+          <Link href="#" className="text-primary font-semibold hover:underline flex items-center group">
+            View all <ArrowRight className="ml-1 h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <Card key={project.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-card rounded-xl">
+            <Card key={project.id} className="flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 bg-card rounded-xl">
               <CardHeader className="p-0">
                 <div className="relative aspect-video">
                   <Image 
@@ -56,30 +57,20 @@ export function OurWork() {
               </CardHeader>
               <CardContent className="flex-grow p-6">
                 <CardTitle className="text-xl font-semibold text-foreground mb-2">{project.title}</CardTitle>
-                <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
+                <p className="text-sm text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
                   {project.tags.map(tag => (
-                    <span key={tag} className="text-xs bg-accent/10 text-accent font-medium px-2 py-1 rounded-full">{tag}</span>
+                    <span key={tag} className="text-xs bg-secondary text-secondary-foreground font-medium px-2.5 py-1 rounded-full">{tag}</span>
                   ))}
                 </div>
               </CardContent>
               <CardFooter className="p-6 pt-0">
-                 {/* <Button variant="link" className="p-0 text-primary hover:text-primary/80" asChild>
-                   <Link href={`/work/${project.id}`}>View Case Study</Link>
-                 </Button> */}
+                 <Button variant="link" className="p-0 text-primary hover:text-primary/80 font-semibold" asChild>
+                   <Link href="#">Read more</Link>
+                 </Button>
               </CardFooter>
             </Card>
           ))}
-        </div>
-        <div className="text-center mt-12">
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="border-accent text-accent hover:bg-accent/10 hover:text-accent-foreground" 
-            asChild
-          >
-            <Link href="#contact">Start Your Project With Us</Link>
-          </Button>
         </div>
       </div>
     </section>

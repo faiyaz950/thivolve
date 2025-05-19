@@ -6,15 +6,20 @@ import { ServicesOverview } from '@/components/sections/services-overview';
 import { OurWork } from '@/components/sections/our-work';
 import { Testimonials } from '@/components/sections/testimonials';
 import { ContactForm } from '@/components/sections/contact-form';
+import { BtrussPlusBanner } from '@/components/sections/btruss-plus-banner';
+import { InnovateWithBtruss } from '@/components/sections/innovate-with-btruss';
+
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Header />
       <main className="flex-grow">
         <Hero />
+        <ServicesOverview /> {/* This is the 4-card layout now */}
+        <BtrussPlusBanner />
         <AboutUs />
-        <ServicesOverview />
+        <InnovateWithBtruss />
         <OurWork />
         <Testimonials />
         <ContactForm />

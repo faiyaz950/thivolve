@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from 'react';
-import { useActionState } from 'react'; // Changed from react-dom
+import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -23,7 +23,7 @@ const initialState: FormState = {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full bg-accent hover:bg-accent/90 text-accent-foreground text-base py-3">
+    <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-base py-3 rounded-md">
       {pending ? 'Submitting...' : 'Send Message'}
     </Button>
   );
@@ -56,9 +56,7 @@ export function ContactForm() {
         description: state.message || "An error occurred. Please try again.",
         variant: "destructive",
       });
-      state.issues?.forEach(issue => {
-        console.error("Validation Issue:", issue);
-      });
+      // Removed console.error for validation issues as they are displayed below fields
     }
   }, [state, toast, form]);
 
@@ -72,8 +70,8 @@ export function ContactForm() {
 
   return (
     <section id="contact" className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto px-4 max-w-2xl">
-        <Card className="shadow-xl rounded-xl bg-card"> {/* Ensure card background is distinct */}
+      <div className="container mx-auto px-4 max-w-xl"> {/* Narrower for a more focused form */}
+        <Card className="shadow-xl rounded-xl bg-card border-border/50">
           <CardHeader className="text-center p-8">
             <CardTitle className="text-3xl sm:text-4xl font-bold text-foreground">Get in Touch</CardTitle>
             <CardDescription className="mt-3 text-lg text-muted-foreground">
@@ -83,12 +81,12 @@ export function ContactForm() {
           <CardContent className="p-8 pt-0">
             <form action={formAction} className="space-y-6" onSubmit={form.handleSubmit(() => formAction(new FormData(form.control._formValues)))}>
               <div>
-                <Label htmlFor="name" className="text-foreground font-medium">Full Name</Label>
+                <Label htmlFor="name" className="text-foreground font-medium mb-1.5 block">Full Name</Label>
                 <Input 
                   id="name" 
                   {...form.register('name')} 
                   placeholder="John Doe" 
-                  className="mt-1.5 bg-background border-border focus:border-accent focus:ring-accent" /* Use bg-background for inputs */
+                  className="bg-background border-border focus:border-primary focus:ring-primary rounded-md"
                 />
                 {form.formState.errors.name && (
                   <p className="text-sm text-destructive mt-1">{form.formState.errors.name.message}</p>
@@ -99,13 +97,13 @@ export function ContactForm() {
               </div>
 
               <div>
-                <Label htmlFor="email" className="text-foreground font-medium">Email Address</Label>
+                <Label htmlFor="email" className="text-foreground font-medium mb-1.5 block">Email Address</Label>
                 <Input 
                   id="email" 
                   type="email" 
                   {...form.register('email')} 
                   placeholder="you@example.com" 
-                  className="mt-1.5 bg-background border-border focus:border-accent focus:ring-accent"
+                  className="bg-background border-border focus:border-primary focus:ring-primary rounded-md"
                 />
                 {form.formState.errors.email && (
                   <p className="text-sm text-destructive mt-1">{form.formState.errors.email.message}</p>
@@ -116,14 +114,14 @@ export function ContactForm() {
               </div>
 
               <div>
-                <Label htmlFor="service" className="text-foreground font-medium">Service of Interest (Optional)</Label>
+                <Label htmlFor="service" className="text-foreground font-medium mb-1.5 block">Service of Interest (Optional)</Label>
                 <Select onValueChange={(value) => form.setValue('service', value)} value={form.watch('service')}>
-                  <SelectTrigger id="service" className="mt-1.5 bg-background border-border focus:border-accent focus:ring-accent text-foreground">
+                  <SelectTrigger id="service" className="bg-background border-border focus:border-primary focus:ring-primary text-foreground rounded-md">
                     <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
-                  <SelectContent className="bg-popover text-popover-foreground"> {/* Ensure popover colors match theme */}
+                  <SelectContent className="bg-popover text-popover-foreground border-border rounded-md">
                     {services.map(service => (
-                      <SelectItem key={service.value} value={service.value} className="focus:bg-accent/20">
+                      <SelectItem key={service.value} value={service.value} className="focus:bg-primary/10 focus:text-primary rounded-sm">
                         {service.label}
                       </SelectItem>
                     ))}
@@ -133,13 +131,13 @@ export function ContactForm() {
               </div>
 
               <div>
-                <Label htmlFor="message" className="text-foreground font-medium">Message</Label>
+                <Label htmlFor="message" className="text-foreground font-medium mb-1.5 block">Message</Label>
                 <Textarea 
                   id="message" 
                   {...form.register('message')} 
                   placeholder="Your message..." 
                   rows={5} 
-                  className="mt-1.5 bg-background border-border focus:border-accent focus:ring-accent"
+                  className="bg-background border-border focus:border-primary focus:ring-primary rounded-md"
                 />
                 {form.formState.errors.message && (
                   <p className="text-sm text-destructive mt-1">{form.formState.errors.message.message}</p>
