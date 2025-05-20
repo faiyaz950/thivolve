@@ -35,19 +35,20 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="home" className="py-20 md:py-28 lg:py-32 bg-background container mx-auto px-4 max-w-screen-xl">
+    <section id="home" className="py-20 md:py-28 lg:py-32 bg-background text-foreground">
+      <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left">
             <h1 className="mb-6">
               <span
                 className="block text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight leading-tight text-transparent"
-                style={{ WebkitTextStroke: '1px hsl(var(--primary))', MozTextStroke: '1px hsl(var(--primary))', textStroke: '1px hsl(var(--primary))' }}
+                style={{ WebkitTextStroke: '1.5px hsl(var(--primary))', MozTextStroke: '1.5px hsl(var(--primary))', textStroke: '1.5px hsl(var(--primary))' }}
               >
                 We Help Business
               </span>
               <span
                 className={cn(
-                  "block text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight leading-tight mt-1 sm:mt-2 transition-opacity duration-500 ease-in-out",
+                  "block text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight leading-tight mt-1 sm:mt-2 transition-opacity duration-500 ease-in-out",
                   isVisible ? "opacity-100" : "opacity-0"
                 )}
               >
@@ -97,6 +98,7 @@ export function Hero() {
             </div>
           </div>
         </div>
+      </div>
     </section>
   );
 }
