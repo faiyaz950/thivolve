@@ -39,7 +39,7 @@ export function Hero() {
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left">
-            <h1 className="mb-6">
+            <h1 className="mb-2"> {/* Changed mb-6 to mb-2 */}
               <span
                 className="block text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-primary"
               >
@@ -50,7 +50,7 @@ export function Hero() {
                   "block text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground tracking-tight leading-tight mt-1 sm:mt-2 transition-opacity duration-500 ease-in-out",
                   isVisible ? "opacity-100" : "opacity-0"
                 )}
-                style={{ minHeight: '2.5em' }} // Approximate height for 2 lines to prevent layout shift
+                style={{ minHeight: '2.5em' }} 
               >
                 {animatedSentences[currentIndex]}
               </span>
