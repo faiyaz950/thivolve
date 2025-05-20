@@ -41,8 +41,7 @@ export function Hero() {
           <div className="text-center md:text-left">
             <h1 className="mb-6">
               <span
-                className="block text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight leading-tight text-transparent"
-                style={{ WebkitTextStroke: '1.5px hsl(var(--primary))', MozTextStroke: '1.5px hsl(var(--primary))', textStroke: '1.5px hsl(var(--primary))' }}
+                className="block text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-primary"
               >
                 We Help Business
               </span>
