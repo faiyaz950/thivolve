@@ -14,19 +14,19 @@ const navLinks = [
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/95 backdrop-blur-sm shadow-sm">
-      <div className="container flex h-20 max-w-screen-xl items-center justify-between mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container flex h-20 max-w-screen-xl items-center justify-between mx-auto px-4 sm:px-6 lg:px-8 gap-4">
         <Link href="/" className="flex items-center">
           <Image
-            src="/btruss-logo.png" 
-            alt="Btruss Logo"
-            width={130}
-            height={32}
-            className="h-8 w-auto"
+            src="/btrussslogo.png"
+            alt="Btruss Logo" // If the image doesn't display, consider moving it to the public directory and updating the src path accordingly.
+            width={135}
+            height={35}
+            className=""
             priority
           />
         </Link>
 
-        <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+        <nav className="hidden md:flex flex-grow justify-center items-center space-x-6 lg:space-x-8">
           {navLinks.map((link) => (
             <Link
               key={link.label}

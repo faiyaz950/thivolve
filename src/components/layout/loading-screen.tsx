@@ -39,11 +39,11 @@ export function LoadingScreen({ className, show = true, ...props }: LoadingScree
     >
       <div className="animate-scale-in" style={{ animationDelay: '0.3s' }}> {/* Logo scales in after screen fades in */}
         <Image
-          src="/btruss-logo.png"
+          src="/btrusssl.png"
           alt="Btruss Logo"
-          width={200}
-          height={60} 
-          className="h-16 w-auto"
+          width={300}
+          height={70} 
+          className=""
           priority
         />
       </div>
