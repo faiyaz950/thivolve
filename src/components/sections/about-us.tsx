@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -9,7 +10,7 @@ export function AboutUs() {
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Thinking Outside the Box with Btruss</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 red-line-accent">Thinking Outside the Box with Btruss</h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
               At Btruss, we believe innovation is key to unlocking potential. We are a modern IT, healthcare, and financial services company, specializing in crafting bespoke solutions that drive growth and efficiency. Our team thrives on tackling complex challenges with creative strategies, ensuring our clients stay ahead in a dynamic landscape.
             </p>
