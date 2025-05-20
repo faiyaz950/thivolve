@@ -47,7 +47,7 @@ export function Hero() {
               </span>
               <span
                 className={cn(
-                  "block text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight leading-tight mt-1 sm:mt-2 transition-opacity duration-500 ease-in-out",
+                  "block text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground tracking-tight leading-tight mt-1 sm:mt-2 transition-opacity duration-500 ease-in-out",
                   isVisible ? "opacity-100" : "opacity-0"
                 )}
               >
