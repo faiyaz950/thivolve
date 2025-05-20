@@ -82,8 +82,9 @@ export default {
           '0%': { opacity: '1' },
           '100%': { opacity: '0', visibility: 'hidden' },
         },
-        scaleIn: {
-          '0%': { opacity: '0', transform: 'scale(0.8)' },
+        scaleIn: { // Updated for pop effect
+          '0%': { opacity: '0', transform: 'scale(0.3)' },
+          '70%': { opacity: '1', transform: 'scale(1.05)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
   		},
@@ -92,7 +93,7 @@ export default {
   			'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fadeIn 0.5s ease-out forwards',
         'fade-out': 'fadeOut 0.5s ease-out forwards',
-        'scale-in': 'scaleIn 0.5s ease-out forwards',
+        'scale-in': 'scaleIn 0.8s ease-out forwards', // Adjusted duration for slower increase
   		}
   	}
   },
