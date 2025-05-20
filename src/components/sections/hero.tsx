@@ -9,7 +9,10 @@ export function Hero() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left">
             <h1 className="mb-6">
-              <span className="block text-5xl sm:text-6xl lg:text-7xl font-bold text-primary tracking-tight leading-tight">
+              <span 
+                className="block text-5xl sm:text-6xl lg:text-7xl font-bold text-transparent tracking-tight leading-tight"
+                style={{ WebkitTextStroke: '1px hsl(var(--primary))', MozTextStroke: '1px hsl(var(--primary))', textStroke: '1px hsl(var(--primary))' }}
+              >
                 We Help Business
               </span>
               <span className="block text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight leading-tight mt-1 sm:mt-2">
