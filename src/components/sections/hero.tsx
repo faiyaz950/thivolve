@@ -17,12 +17,33 @@ const animatedSentences = [
 export function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [typedText, setTypedText] = useState('');
+  const heroMainHeadline = "We Help Business";
 
   useEffect(() => {
+    // Typing animation for "We Help Business"
+    let currentHeroText = '';
+    let charIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (charIndex < heroMainHeadline.length) {
+        currentHeroText += heroMainHeadline[charIndex];
+        setTypedText(currentHeroText);
+        charIndex++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 150); // Adjust typing speed (ms per character)
+
+    // Cleanup for typing animation
+    return () => clearInterval(typingInterval);
+  }, [heroMainHeadline]); // Runs once when heroMainHeadline (which is const) is defined
+
+  useEffect(() => {
+    // Animation for cycling sentences
     const displayDuration = 3000; // Time each sentence is fully visible (ms)
     const fadeDuration = 500;    // Duration of fade animation (ms)
 
-    const interval = setInterval(() => {
+    const sentenceInterval = setInterval(() => {
       setIsVisible(false); // Start fade out
 
       setTimeout(() => {
@@ -31,19 +52,20 @@ export function Hero() {
       }, fadeDuration);
     }, displayDuration + fadeDuration); // Total time for one sentence cycle
 
-    return () => clearInterval(interval); // Cleanup interval on component unmount
-  }, []);
+    // Cleanup for sentence animation
+    return () => clearInterval(sentenceInterval);
+  }, []); // Runs once on mount for sentence animation
 
   return (
     <section id="home" className="py-20 md:py-28 lg:py-32 bg-background text-foreground">
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left">
-            <h1 className="mb-2"> {/* Changed mb-6 to mb-2 */}
+            <h1 className="mb-2"> {/* Adjusted from mb-6 */}
               <span
                 className="block text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-primary"
               >
-                We Help Business
+                {typedText}
               </span>
               <span
                 className={cn(
