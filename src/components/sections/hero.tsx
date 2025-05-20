@@ -50,6 +50,7 @@ export function Hero() {
                   "block text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground tracking-tight leading-tight mt-1 sm:mt-2 transition-opacity duration-500 ease-in-out",
                   isVisible ? "opacity-100" : "opacity-0"
                 )}
+                style={{ minHeight: '2.5em' }} // Approximate height for 2 lines to prevent layout shift
               >
                 {animatedSentences[currentIndex]}
               </span>
@@ -67,34 +68,38 @@ export function Hero() {
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            <div className="col-span-2 sm:col-span-1">
-              <Image
-                src="/one.png"
-                alt="Btruss related image"
-                data-ai-hint="modern office team"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-xl aspect-video object-cover w-full h-auto transform hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="col-span-2 sm:col-span-1 flex flex-col gap-4">
-              <Image
-                src="/two.png"
-                alt="Btruss related image"
-                data-ai-hint="ux design process"
-                width={300}
-                height={200}
-                className="rounded-lg shadow-xl aspect-video object-cover w-full h-auto transform hover:scale-105 transition-transform duration-300"
-              />
-              <Image
-                src="/three.png"
-                alt="Data analytics dashboard"
-                data-ai-hint="data analytics"
-                width={300}
-                height={180}
-                className="rounded-lg shadow-xl aspect-[16/10] object-cover w-full h-auto transform hover:scale-105 transition-transform duration-300"
-              />
-            </div>
+            <Image
+              src="https://placehold.co/300x200.png"
+              alt="Modern office team collaborating"
+              data-ai-hint="modern office team"
+              width={300}
+              height={200}
+              className="rounded-lg shadow-xl aspect-video object-cover w-full h-auto transform hover:scale-105 transition-transform duration-300"
+            />
+            <Image
+              src="https://placehold.co/300x200.png"
+              alt="UX design process sketch"
+              data-ai-hint="ux design process"
+              width={300}
+              height={200}
+              className="rounded-lg shadow-xl aspect-video object-cover w-full h-auto transform hover:scale-105 transition-transform duration-300"
+            />
+            <Image
+              src="https://placehold.co/300x200.png"
+              alt="Data analytics dashboard"
+              data-ai-hint="data analytics"
+              width={300}
+              height={200}
+              className="rounded-lg shadow-xl aspect-video object-cover w-full h-auto transform hover:scale-105 transition-transform duration-300"
+            />
+            <Image
+              src="https://placehold.co/300x200.png"
+              alt="Business strategy session"
+              data-ai-hint="business strategy"
+              width={300}
+              height={200}
+              className="rounded-lg shadow-xl aspect-video object-cover w-full h-auto transform hover:scale-105 transition-transform duration-300"
+            />
           </div>
         </div>
       </div>

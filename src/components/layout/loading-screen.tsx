@@ -22,7 +22,7 @@ export function LoadingScreen({ className, show = true, ...props }: LoadingScree
     >
       <div className="animate-scale-in" style={{ animationDelay: '0.3s' }}> {/* This will use the updated scaleIn animation */}
         <Image
-          src="/btrusss.png"
+          src="/btrusssl.png"
           alt="Btruss Logo"
           width={300}
           height={70} 
