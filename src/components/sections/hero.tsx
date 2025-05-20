@@ -9,8 +9,8 @@ export function Hero() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left">
             <h1 className="mb-6">
-              <span 
-                className="block text-5xl sm:text-6xl lg:text-7xl font-bold text-transparent tracking-tight leading-tight"
+              <span
+                className="block text-6xl sm:text-7xl lg:text-8xl font-extrabold text-transparent tracking-tight leading-tight"
                 style={{ WebkitTextStroke: '1px hsl(var(--primary))', MozTextStroke: '1px hsl(var(--primary))', textStroke: '1px hsl(var(--primary))' }}
               >
                 We Help Business
@@ -22,18 +22,18 @@ export function Hero() {
             <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto md:mx-0 mb-8">
               From vision to digital reality, we partner with businesses to craft innovative IT solutions, enhance healthcare services, streamline financial processes, and secure futures. Discover how Btruss transforms challenges into opportunities.
             </p>
-            <Button 
-              size="lg" 
-              className="bg-foreground text-background hover:bg-foreground/80 px-8 py-3 rounded-md font-semibold shadow-md hover:shadow-lg transition-transform hover:scale-105 text-base" 
+            <Button
+              size="lg"
+              className="bg-foreground text-background hover:bg-foreground/80 px-8 py-3 rounded-md font-semibold shadow-md hover:shadow-lg transition-transform hover:scale-105 text-base"
               asChild
             >
               <Link href="#contact">Book a Meeting</Link>
             </Button>
           </div>
-          
+
           <div className="grid grid-cols-2 gap-4">
             <div className="col-span-2 sm:col-span-1">
-              <Image 
+              <Image
                 src="/one.png"
                 alt="Btruss related image"
                 data-ai-hint="modern office team"
