@@ -33,10 +33,9 @@ export function VideoSection() {
         ></iframe>
       </div>
       <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight shadow-text">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white/90 mb-6 leading-tight shadow-text">
           Btruss: Your Partner in <span className="text-primary">Digital Transformation</span>
         </h2>
-        {/* Removed paragraph: "Leveraging cutting-edge technology to build innovative solutions for a smarter future." */}
       </div>
       <style jsx>{`
         .shadow-text {
@@ -46,3 +45,4 @@ export function VideoSection() {
     </section>
   );
 }
+
