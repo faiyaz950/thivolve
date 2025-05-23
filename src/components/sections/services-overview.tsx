@@ -56,9 +56,9 @@ export function ServicesOverview() {
   return (
     <section id="services" className="py-16 md:py-24 bg-background text-foreground">
       <div className="container mx-auto px-4 max-w-screen-xl">
-        <div className="text-left mb-12 md:mb-16 max-w-3xl">
+        <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-3 red-line-accent">Our Services</h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground mx-auto max-w-2xl">
             How Btruss empowers your growth. At Btruss Services Pvt Ltd, we’re dedicated to delivering innovative and reliable solutions that empower our clients across multiple industries.
           </p>
         </div>
