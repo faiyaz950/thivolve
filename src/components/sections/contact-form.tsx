@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect } from 'react';
-import { useFormState } from 'react-dom'; // Corrected import for useFormState
+import { useActionState } from 'react'; // Changed from react-dom
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactFormSchema, type ContactFormValues } from '@/lib/schemas';
@@ -20,7 +20,7 @@ const initialState: FormState = {
 };
 
 export function ContactForm() {
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [state, formAction] = useActionState(submitContactForm, initialState); // Changed here
   const { toast } = useToast();
 
   const form = useForm<ContactFormValues>({
