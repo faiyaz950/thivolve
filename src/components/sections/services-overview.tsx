@@ -1,7 +1,7 @@
 
 import { CheckCircle2, Smartphone, Globe, LineChart, Palette, Users, HeartPulse, CreditCard, ShieldCheck, BrainCircuit } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import Image from 'next/image';
+// Removed Image import as it's no longer used in this component
 
 interface ServiceItem {
   icon: LucideIcon;
@@ -70,51 +70,37 @@ export function ServicesOverview() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
-          <div className="md:col-span-7 space-y-8">
-            {btrussMainServices.map((service) => {
-              const MainIcon = serviceIcons[service.title] || CheckCircle2;
-              return (
-                <div 
-                  key={service.title} 
-                  className="p-6 rounded-lg border border-border/70 shadow-sm bg-card transform hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out"
-                >
-                  <div className="flex items-start mb-3">
-                    <MainIcon className="w-7 h-7 text-primary mr-4 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="text-xl font-semibold text-foreground mb-1">{service.title}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{service.details}</p>
-                    </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {btrussMainServices.map((service) => {
+            const MainIcon = serviceIcons[service.title] || CheckCircle2;
+            return (
+              <div
+                key={service.title}
+                className="p-6 rounded-lg border border-border/70 shadow-sm bg-card transform hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out flex flex-col" // Added flex flex-col for consistent card height
+              >
+                <div className="flex items-start mb-3">
+                  <MainIcon className="w-7 h-7 text-primary mr-4 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-1">{service.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{service.details}</p>
                   </div>
-                  {service.subServices && (
-                    <ul className="space-y-2.5 pl-11 mt-3">
-                      {service.subServices.map((sub) => (
-                        <li key={sub.title} className="flex items-start text-sm">
-                          <sub.icon className="w-4 h-4 text-primary mr-2.5 mt-0.5 flex-shrink-0" />
-                          <div>
-                            <span className="font-medium text-foreground/90">{sub.title}:</span>
-                            <span className="text-muted-foreground ml-1">{sub.description}</span>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
                 </div>
-              );
-            })}
-          </div>
-          <div className="md:col-span-5 sticky top-24">
-             <div className="p-1 bg-gradient-to-br from-primary via-pink-500 to-purple-600 rounded-lg shadow-xl">
-                <Image
-                    src="https://source.unsplash.com/random/500x750/?service,app,mockup,phone"
-                    alt="Btruss Services Mockup"
-                    data-ai-hint="service app mockup phone"
-                    width={500}
-                    height={750}
-                    className="rounded-md object-cover w-full h-auto transform hover:scale-[1.02] transition-transform duration-500"
-                />
-             </div>
-          </div>
+                {service.subServices && (
+                  <ul className="space-y-2.5 pl-11 mt-3">
+                    {service.subServices.map((sub) => (
+                      <li key={sub.title} className="flex items-start text-sm">
+                        <sub.icon className="w-4 h-4 text-primary mr-2.5 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <span className="font-medium text-foreground/90">{sub.title}:</span>
+                          <span className="text-muted-foreground ml-1">{sub.description}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
