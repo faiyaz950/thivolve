@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useRef } from 'react'; // Keep useRef if you might need to interact with video programmatically, otherwise it can be removed.
+import { useRef } from 'react'; 
 
 export function VideoSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -12,14 +12,17 @@ export function VideoSection() {
         ref={videoRef}
         className="absolute top-0 left-0 w-full h-full object-cover"
         poster="https://source.unsplash.com/1920x1080/?tech,services,montage"
-        data-ai-hint="tech services montage"
+        data-ai-hint="tech services montage" // This hint is for the poster image
         loop
         muted
         playsInline
-        autoPlay // Added for automatic playback
+        autoPlay 
       >
-        {/* Replace with your actual video source for Btruss Services Showcase */}
-        <source src="https://placehold.co/1920x1080.mp4/000000/FFFFFF?text=Btruss+Services+Showcase" type="video/mp4" />
+        {/* Replace with your actual AI-generated video source for Btruss Services Showcase */}
+        <source 
+          src="https://placehold.co/1920x1080.mp4/000000/FFFFFF?text=AI+Generated+Btruss+Services" 
+          type="video/mp4" 
+        />
         Your browser does not support the video tag.
       </video>
       <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
@@ -29,7 +32,6 @@ export function VideoSection() {
         <p className="text-lg md:text-xl text-gray-200 max-w-2xl mb-8 shadow-text">
           Leveraging cutting-edge technology to build innovative solutions for a smarter future.
         </p>
-        {/* Play button and associated logic have been removed */}
       </div>
       <style jsx>{`
         .shadow-text {
