@@ -14,7 +14,7 @@ const navLinks = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/95 backdrop-blur-sm shadow-sm">
+    <header className="sticky top-0 z-50 w-full transition-colors duration-300">
       <div className="container flex h-20 max-w-screen-xl items-center justify-between mx-auto px-4 sm:px-6 lg:px-8 gap-4">
         <Link href="/" className="flex items-center">
           <Image
@@ -22,7 +22,7 @@ export function Header() {
             alt="Btruss Logo"
             width={130}
             height={32}
-            className="h-8 w-auto"
+            className="h-8 w-auto" // You might need to adjust if your logo itself has a background
             priority
           />
         </Link>
@@ -32,7 +32,7 @@ export function Header() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+              className="text-sm font-medium text-white/90 hover:text-white transition-colors"
             >
               {link.label}
             </Link>
@@ -40,10 +40,15 @@ export function Header() {
         </nav>
 
         <div className="flex items-center space-x-2">
-          <Button variant="default" className="hidden md:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 transition-transform hover:scale-105" asChild>
+          <Button
+            variant="outline"
+            className="hidden md:inline-flex border-white text-white bg-transparent hover:bg-white hover:text-black transition-colors hover:scale-105"
+            asChild
+          >
             <Link href="#contact">Book a Meeting</Link>
           </Button>
-          <MobileNav navLinks={navLinks} />
+          {/* MobileNav trigger is a Button inside MobileNav component, its styling might need adjustment if icon color is an issue */}
+          <MobileNav navLinks={navLinks} triggerClassName="text-white hover:bg-white/20" />
         </div>
       </div>
     </header>

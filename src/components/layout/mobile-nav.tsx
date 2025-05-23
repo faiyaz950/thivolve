@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -6,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 interface NavLink {
   href: string;
@@ -14,15 +16,23 @@ interface NavLink {
 
 interface MobileNavProps {
   navLinks: NavLink[];
+  triggerClassName?: string;
 }
 
-export function MobileNav({ navLinks }: MobileNavProps) {
+export function MobileNav({ navLinks, triggerClassName }: MobileNavProps) {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden text-foreground hover:bg-accent/10">
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className={cn(
+            "md:hidden text-foreground hover:bg-accent/10",
+            triggerClassName
+          )}
+        >
           <Menu className="h-6 w-6" />
           <span className="sr-only">Open menu</span>
         </Button>
