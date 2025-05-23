@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { MobileNav } from './mobile-nav';
@@ -13,15 +14,17 @@ const navLinks = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/95 backdrop-blur-sm shadow-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-border/20 backdrop-blur-sm shadow-sm 
+                     bg-gradient-to-r from-background via-secondary to-background 
+                     bg-[length:200%_200%] animate-animated-gradient">
       <div className="container flex h-20 max-w-screen-xl items-center justify-between mx-auto px-4 sm:px-6 lg:px-8 gap-4">
         <Link href="/" className="flex items-center">
           <Image
-            src="/btrussslogo.png"
-            alt="Btruss Logo" // If the image doesn't display, consider moving it to the public directory and updating the src path accordingly.
-            width={135}
-            height={35}
-            className=""
+            src="/btruss-logo.png"
+            alt="Btruss Logo"
+            width={130}
+            height={32}
+            className="h-8 w-auto" // Adjusted for consistent height
             priority
           />
         </Link>
