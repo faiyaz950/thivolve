@@ -14,58 +14,67 @@ const animatedSentences = [
   'Generate More Sales',
 ];
 
+const heroMainHeadlineText = "WE HELP BUSINESS";
+
 export function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-  const [typedText, setTypedText] = useState('');
-  const heroMainHeadline = "We Help Business";
+  
+  const [mainHeadlineLetters, setMainHeadlineLetters] = useState<{ char: string; show: boolean }[]>(
+    heroMainHeadlineText.split('').map(char => ({ char, show: false }))
+  );
 
   useEffect(() => {
-    // Typing animation for "We Help Business"
-    let currentHeroText = '';
-    let charIndex = 0;
-    const typingInterval = setInterval(() => {
-      if (charIndex < heroMainHeadline.length) {
-        currentHeroText += heroMainHeadline[charIndex];
-        setTypedText(currentHeroText);
-        charIndex++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 150); // Adjust typing speed (ms per character)
-
-    // Cleanup for typing animation
-    return () => clearInterval(typingInterval);
-  }, [heroMainHeadline]); // Runs once when heroMainHeadline (which is const) is defined
+    mainHeadlineLetters.forEach((_, index) => {
+      setTimeout(() => {
+        setMainHeadlineLetters(prev => {
+          const newLetters = [...prev];
+          if (newLetters[index]) {
+            newLetters[index].show = true;
+          }
+          return newLetters;
+        });
+      }, index * 100); // 100ms delay between each letter
+    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Run once on mount
 
   useEffect(() => {
-    // Animation for cycling sentences
-    const displayDuration = 3000; // Time each sentence is fully visible (ms)
-    const fadeDuration = 500;    // Duration of fade animation (ms)
+    const displayDuration = 3000; 
+    const fadeDuration = 500;    
 
     const sentenceInterval = setInterval(() => {
-      setIsVisible(false); // Start fade out
-
+      setIsVisible(false); 
       setTimeout(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % animatedSentences.length);
-        setIsVisible(true); // Start fade in for the new sentence
+        setIsVisible(true); 
       }, fadeDuration);
-    }, displayDuration + fadeDuration); // Total time for one sentence cycle
+    }, displayDuration + fadeDuration); 
 
-    // Cleanup for sentence animation
     return () => clearInterval(sentenceInterval);
-  }, []); // Runs once on mount for sentence animation
+  }, []); 
 
   return (
     <section id="home" className="py-20 md:py-28 lg:py-32 bg-background text-foreground">
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left">
-            <h1 className="mb-2"> {/* Adjusted from mb-6 */}
+            <h1 className="mb-2"> 
               <span
-                className="block text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-primary"
+                className="block text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-primary mb-1 sm:mb-2"
               >
-                {typedText}
+                {mainHeadlineLetters.map((item, index) => (
+                  <span
+                    key={index}
+                    className={cn(
+                      "inline-block",
+                      item.show ? "animate-letter-in" : "opacity-0"
+                    )}
+                    style={{ animationFillMode: 'forwards' }}
+                  >
+                    {item.char === " " ? "\u00A0" : item.char}
+                  </span>
+                ))}
               </span>
               <span
                 className={cn(

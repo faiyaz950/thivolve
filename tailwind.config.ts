@@ -82,10 +82,15 @@ export default {
           '0%': { opacity: '1' },
           '100%': { opacity: '0', visibility: 'hidden' },
         },
-        scaleIn: { // Updated for pop effect
+        scaleIn: { 
           '0%': { opacity: '0', transform: 'scale(0.3)' },
           '70%': { opacity: '1', transform: 'scale(1.05)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        'letter-in': {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '60%': { opacity: '1', transform: 'translateY(-5px)' },
+          '100%': { opacity: '1', transform: 'translateY(0px)' },
         },
   		},
   		animation: {
@@ -93,7 +98,8 @@ export default {
   			'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fadeIn 0.5s ease-out forwards',
         'fade-out': 'fadeOut 0.5s ease-out forwards',
-        'scale-in': 'scaleIn 0.8s ease-out forwards', // Adjusted duration for slower increase
+        'scale-in': 'scaleIn 0.8s ease-out forwards',
+        'letter-in': 'letter-in 0.6s ease-out forwards',
   		}
   	}
   },
