@@ -11,50 +11,47 @@ interface ServiceItem {
 interface MainService {
   title: string;
   details: string;
-  subServices?: ServiceItem[]; // This will now be unused here but kept for potential future structure
+  icon: LucideIcon;
 }
 
 const btrussMainServices: MainService[] = [
   {
     title: "IT Services",
     details: "We leverage technology to provide cutting-edge solutions that elevate your business. Our offerings include:",
+    icon: Server,
   },
   {
     title: "Healthcare Services",
     details: "Our healthcare solutions prioritize quality and accessibility, supporting individuals and organizations with care that improves lives.",
+    icon: HeartPulse,
   },
   {
     title: "Credit Card Sales",
     details: "We provide secure, convenient payment solutions to help businesses thrive, streamlining transactions for enhanced customer satisfaction.",
+    icon: CreditCard,
   },
   {
     title: "Insurance Sales",
     details: "Protecting your future is our priority. We offer comprehensive insurance plans tailored to provide peace of mind.",
+    icon: ShieldCheck,
   },
   {
     title: "AI Services",
     details: "Leveraging cutting-edge AI to create intelligent solutions for data analysis, automation, and actionable business insights.",
+    icon: BrainCircuit,
   },
   {
     title: "Resource Outsource",
     details: "Supplying skilled professionals and critical expertise for both short-term and long-term projects, boosting your team's capacity.",
+    icon: Users,
   }
 ];
 
 export function ServicesOverview() {
-  const serviceIcons: Record<string, LucideIcon> = {
-    "IT Services": Server,
-    "Healthcare Services": HeartPulse,
-    "Credit Card Sales": CreditCard,
-    "Insurance Sales": ShieldCheck,
-    "AI Services": BrainCircuit,
-    "Resource Outsource": Users,
-  };
-
   return (
     <section
       id="services"
-      className="py-16 md:py-24 text-foreground bg-gradient-to-br from-white to-destructive/30"
+      className="py-16 md:py-24 text-foreground bg-gradient-to-b from-background to-primary/10"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="text-center mb-12 md:mb-16">
@@ -66,11 +63,11 @@ export function ServicesOverview() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {btrussMainServices.map((service) => {
-            const MainIcon = serviceIcons[service.title] || CheckCircle2;
+            const MainIcon = service.icon || CheckCircle2;
             return (
               <div
                 key={service.title}
-                className="p-6 rounded-lg border border-border/70 shadow-sm bg-card transform hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out flex flex-col"
+                className="p-6 rounded-lg border border-border/70 shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out flex flex-col bg-card"
               >
                 <div className="flex items-start mb-3">
                   <MainIcon className="w-7 h-7 text-primary mr-4 mt-1 flex-shrink-0" />
