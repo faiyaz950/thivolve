@@ -71,9 +71,9 @@ export function OurWork() {
       className="py-16 md:py-24 bg-background text-foreground"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">
-        <div className="mb-12 md:mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 red-line-accent">Our Work</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl">
+          <p className="text-lg text-muted-foreground mx-auto max-w-2xl">
             View what we have been up to. We take pride in delivering impactful solutions that drive success for our clients.
           </p>
         </div>
