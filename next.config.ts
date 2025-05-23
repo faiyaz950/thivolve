@@ -28,6 +28,12 @@ const nextConfig: NextConfig = {
         hostname: 'source.unsplash.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'image.shutterstock.com', // Added for the new background image
+        port: '',
+        pathname: '/**',
       }
     ],
   },

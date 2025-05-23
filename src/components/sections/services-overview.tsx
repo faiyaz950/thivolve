@@ -1,5 +1,5 @@
 
-import { CheckCircle2, Smartphone, Globe, LineChart, Palette, Users, HeartPulse, CreditCard, ShieldCheck, BrainCircuit } from 'lucide-react';
+import { Smartphone, Globe, LineChart, Palette, Users, HeartPulse, CreditCard, ShieldCheck, BrainCircuit, CheckCircle2, Server, Cloud, Shield, BarChart2, Code } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 interface ServiceItem {
@@ -11,14 +11,13 @@ interface ServiceItem {
 interface MainService {
   title: string;
   details: string;
-  subServices?: ServiceItem[];
+  subServices?: ServiceItem[]; // This will now be unused here but kept for potential future structure
 }
 
 const btrussMainServices: MainService[] = [
   {
     title: "IT Services",
     details: "We leverage technology to provide cutting-edge solutions that elevate your business. Our offerings include:",
-    // Sub-services removed as per user request
   },
   {
     title: "Healthcare Services",
@@ -42,10 +41,9 @@ const btrussMainServices: MainService[] = [
   }
 ];
 
-
 export function ServicesOverview() {
   const serviceIcons: Record<string, LucideIcon> = {
-    "IT Services": Smartphone,
+    "IT Services": Server, // Changed from Smartphone to Server for broader IT
     "Healthcare Services": HeartPulse,
     "Credit Card Sales": CreditCard,
     "Insurance Sales": ShieldCheck,
@@ -54,7 +52,16 @@ export function ServicesOverview() {
   };
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-background text-foreground">
+    <section 
+      id="services" 
+      className="py-16 md:py-24 bg-background text-foreground"
+      style={{ 
+        backgroundImage: "url('https://image.shutterstock.com/image-vector/abstract-red-lines-dots-pattern-600w-2122693829.jpg')", 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-3">Our Services</h2>
@@ -78,20 +85,7 @@ export function ServicesOverview() {
                     <p className="text-muted-foreground text-sm leading-relaxed">{service.details}</p>
                   </div>
                 </div>
-                {/* Conditional rendering for subServices remains, but IT Services won't have them */}
-                {service.subServices && (
-                  <ul className="space-y-2.5 pl-11 mt-3">
-                    {service.subServices.map((subItem) => (
-                      <li key={subItem.title} className="flex items-start text-sm">
-                        <subItem.icon className="w-4 h-4 text-primary mr-2.5 mt-0.5 flex-shrink-0" />
-                        <div>
-                          <span className="font-medium text-foreground/90">{subItem.title}:</span>
-                          <span className="text-muted-foreground ml-1">{subItem.description}</span>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                {/* Sub-services list is intentionally removed from IT Services as per previous request */}
               </div>
             );
           })}

@@ -1,7 +1,8 @@
+
 "use client";
 
 import { useEffect } from 'react';
-import { useActionState } from 'react';
+import { useFormState } from 'react-dom'; // Corrected import for useFormState
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactFormSchema, type ContactFormValues } from '@/lib/schemas';
@@ -19,7 +20,7 @@ const initialState: FormState = {
 };
 
 export function ContactForm() {
-  const [state, formAction] = useActionState(submitContactForm, initialState);
+  const [state, formAction] = useFormState(submitContactForm, initialState);
   const { toast } = useToast();
 
   const form = useForm<ContactFormValues>({
@@ -47,7 +48,6 @@ export function ContactForm() {
     }
   }, [state, toast, form]);
   
-  // Placeholder contact details
   const contactDetails = [
     { icon: Mail, text: "info@btruss.com", href: "mailto:info@btruss.com" },
     { icon: Phone, text: "+91 123 456 7890", href: "tel:+911234567890" },
@@ -55,7 +55,16 @@ export function ContactForm() {
   ];
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-secondary text-foreground">
+    <section 
+      id="contact" 
+      className="py-16 md:py-24 bg-secondary text-foreground"
+      style={{ 
+        backgroundImage: "url('https://image.shutterstock.com/image-vector/abstract-red-lines-dots-pattern-600w-2122693829.jpg')", 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <div className="container mx-auto px-4 max-w-screen-lg">
         <div className="text-left mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 red-line-accent">Contact Us</h2>
@@ -88,8 +97,13 @@ export function ContactForm() {
 
           <form
             action={formAction}
-            // @ts-ignore TODO: Fix this type error, react-hook-form and useActionState type mismatch
-            onSubmit={form.handleSubmit(data => formAction(new FormData(document.getElementById('contact-btruss-form') as HTMLFormElement)))}
+            onSubmit={form.handleSubmit(data => {
+                const formData = new FormData();
+                Object.keys(data).forEach(key => {
+                  formData.append(key, (data as any)[key]);
+                });
+                formAction(formData);
+              })}
             className="space-y-6 p-8 bg-card rounded-lg shadow-xl border border-border/50"
             id="contact-btruss-form"
           >
@@ -120,7 +134,6 @@ export function ContactForm() {
               )}
             </div>
             
-            {/* Service field is optional as per schema, so can be removed if not needed for this simplified form */}
              <input type="hidden" {...form.register('service')} value="general_inquiry" />
 
 
