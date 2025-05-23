@@ -42,21 +42,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ imageUrl, aiHint, category, t
 
 const projectsData: ProjectCardProps[] = [
   {
-    imageUrl: 'https://source.unsplash.com/400x300/?web,app,dashboard',
+    imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3ZWIlMjBhcHAlMjBkYXNoYm9hcmR8ZW58MHx8fHwxNzQ4MDM5NjM4fDA&ixlib=rb-4.1.0&q=80&w=1080',
     aiHint: 'web app dashboard',
     category: 'Web Application',
     title: 'Enterprise Resource Planning System for Manufacturing Client',
     href: '#',
   },
   {
-    imageUrl: 'https://source.unsplash.com/400x300/?mobile,app,healthcare',
+    imageUrl: 'https://images.unsplash.com/photo-1550792436-181701c71f63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtb2JpbGUlMjBhcHAlMjBoZWFsdGhjYXJlfGVufDB8fHx8MTc0ODAzOTYzOHww&ixlib=rb-4.1.0&q=80&w=1080',
     aiHint: 'mobile app healthcare',
     category: 'Mobile Development',
     title: 'Telehealth Mobile App for Remote Patient Monitoring',
     href: '#',
   },
   {
-    imageUrl: 'https://source.unsplash.com/400x300/?digital,marketing,campaign',
+    imageUrl: 'https://images.unsplash.com/photo-1504270997636-07ddfbd48945?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxkaWdpdGFsJTIwbWFya2V0aW5nJTIwY2FtcGFpZ258ZW58MHx8fHwxNzQ4MDM5NjM4fDA&ixlib=rb-4.1.0&q=80&w=1080',
     aiHint: 'digital marketing campaign',
     category: 'Digital Marketing',
     title: 'Successful SEO & Content Strategy for E-commerce Brand',
