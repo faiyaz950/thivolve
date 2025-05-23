@@ -2,8 +2,9 @@
 "use client";
 
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { MobileNav } from '@/components/layout/mobile-nav'; // Ensure MobileNav is imported
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -38,14 +39,21 @@ const heroImages = [
   },
 ];
 
+// NavLinks definition moved from Header.tsx
+const navLinks = [
+  { href: "#home", label: "Home" },
+  { href: "#about-us", label: "About Us" },
+  { href: "#services", label: "Services" },
+  { href: "#our-work", label: "Our Work" },
+  { href: "#contact", label: "Contact Us" },
+];
+
 export function Hero() {
   const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
   const [isSentenceVisible, setIsSentenceVisible] = useState(true);
-
   const [mainHeadlineLetters, setMainHeadlineLetters] = useState<{ char: string; show: boolean }[]>(
     heroMainHeadlineText.split('').map(char => ({ char, show: false }))
   );
-
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -58,7 +66,7 @@ export function Hero() {
           }
           return newLetters;
         });
-      }, index * 100 + 500) // Start animation after 500ms delay
+      }, index * 100 + 500)
     );
     return () => timers.forEach(clearTimeout);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -67,7 +75,6 @@ export function Hero() {
   useEffect(() => {
     const displayDuration = 3000;
     const fadeDuration = 500;
-
     const sentenceInterval = setInterval(() => {
       setIsSentenceVisible(false);
       setTimeout(() => {
@@ -75,24 +82,62 @@ export function Hero() {
         setIsSentenceVisible(true);
       }, fadeDuration);
     }, displayDuration + fadeDuration);
-
     return () => clearInterval(sentenceInterval);
   }, []);
 
   useEffect(() => {
     const imageSliderInterval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
-    }, 5000); // Change image every 5 seconds
+    }, 5000);
     return () => clearInterval(imageSliderInterval);
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen text-white flex items-center justify-center">
+    <section id="home" className="relative min-h-screen text-white flex flex-col items-center justify-center overflow-hidden">
+      {/* Integrated Header Bar */}
+      <div className="absolute top-0 left-0 right-0 z-30 w-full bg-transparent transition-colors duration-300">
+        <div className="container flex h-20 max-w-screen-xl items-center justify-between mx-auto px-4 sm:px-6 lg:px-8 gap-4">
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/btruss-logo.png"
+              alt="Btruss Logo"
+              width={130}
+              height={32}
+              className="h-8 w-auto"
+              priority
+            />
+          </Link>
+
+          <nav className="hidden md:flex flex-grow justify-center items-center space-x-6 lg:space-x-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-sm font-medium text-white/90 hover:text-white transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center space-x-2">
+            <Button
+              variant="outline"
+              className="hidden md:inline-flex border-white text-white bg-transparent hover:bg-white hover:text-black transition-colors hover:scale-105"
+              asChild
+            >
+              <Link href="#contact">Book a Meeting</Link>
+            </Button>
+            <MobileNav navLinks={navLinks} triggerClassName="text-white hover:bg-white/20" />
+          </div>
+        </div>
+      </div>
+
       {/* Background Image Slider */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-black/60 z-10"></div> {/* Dark overlay for text legibility */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <div className="absolute inset-0 bg-black/60 z-10"></div> {/* Dark overlay */}
         <div
-          className="flex transition-transform duration-700 ease-in-out h-full z-0"
+          className="flex transition-transform duration-700 ease-in-out h-full"
           style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
         >
           {heroImages.map((image, index) => (
@@ -125,8 +170,8 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Foreground Text Content */}
-      <div className="relative z-20 container mx-auto px-4 max-w-screen-lg text-center py-20 md:py-28">
+      {/* Foreground Text Content - ensure this is above the overlay if needed, or that overlay has sufficient z-index */}
+      <div className="relative z-20 container mx-auto px-4 max-w-screen-lg text-center py-20 md:py-28 flex-grow flex flex-col justify-center mt-10 sm:mt-0"> {/* Added mt for spacing from new header bar */}
         <div className="max-w-3xl mx-auto">
           <h1 className="mb-2">
             <span
@@ -138,9 +183,8 @@ export function Hero() {
                   className={cn(
                     "inline-block",
                     item.show ? "animate-letter-in" : "opacity-0",
-                    // "WE HELP " (including space at index 7) is 8 characters long.
-                    // Indices 0-7 are "WE HELP ", index 8 onwards is "BUSINESS".
-                    index < 8 ? "text-neutral-100" : "text-primary" 
+                     // "WE HELP " (including space at index 7) is 8 characters long.
+                    index < 8 ? "text-neutral-100" : "text-primary"
                   )}
                   style={{ animationFillMode: 'forwards', animationDelay: `${index * 0.05}s` }}
                 >
