@@ -1,3 +1,4 @@
+
 import { CheckCircle2, Smartphone, Globe, LineChart, Palette, Users, HeartPulse, CreditCard, ShieldCheck, BrainCircuit } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import Image from 'next/image';
@@ -102,7 +103,7 @@ export function ServicesOverview() {
           <div className="md:col-span-5 sticky top-24">
              <div className="p-1 bg-gradient-to-br from-primary via-pink-500 to-purple-600 rounded-lg shadow-xl">
                 <Image
-                    src="https://placehold.co/500x750.png"
+                    src="https://source.unsplash.com/500x750/?service,app,mockup,phone"
                     alt="Btruss Services Mockup"
                     data-ai-hint="service app mockup phone"
                     width={500}

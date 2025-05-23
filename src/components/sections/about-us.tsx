@@ -29,7 +29,7 @@ export function AboutUs() {
           </div>
           <div>
             <Image
-              src="https://placehold.co/600x450.png"
+              src="https://source.unsplash.com/600x450/?creative,collaboration"
               alt="Creative team brainstorming"
               data-ai-hint="creative collaboration"
               width={600}

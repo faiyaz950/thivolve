@@ -1,3 +1,4 @@
+
 "use client";
 
 import { PlayCircle } from 'lucide-react';
@@ -44,7 +45,7 @@ export function VideoSection() {
       <video
         ref={videoRef}
         className="absolute top-0 left-0 w-full h-full object-cover"
-        poster="https://placehold.co/1920x1080.png"
+        poster="https://source.unsplash.com/1920x1080/?tech,services,montage"
         data-ai-hint="tech services montage"
         loop
         muted

@@ -1,12 +1,13 @@
+
 import Image from 'next/image';
 
 const partnerLogos = [
-  { src: "https://placehold.co/150x60/000000/FFFFFF.png?text=Client1", alt: "Client 1 Logo", hint: "company logo monochrome" },
-  { src: "https://placehold.co/150x60/000000/FFFFFF.png?text=Client2", alt: "Client 2 Logo", hint: "tech client logo" },
-  { src: "https://placehold.co/150x60/000000/FFFFFF.png?text=Client3", alt: "Client 3 Logo", hint: "partner logo simple" },
-  { src: "https://placehold.co/150x60/000000/FFFFFF.png?text=Client4", alt: "Client 4 Logo", hint: "corporate partner logo" },
-  { src: "https://placehold.co/150x60/000000/FFFFFF.png?text=Client5", alt: "Client 5 Logo", hint: "startup logo minimalist" },
-  { src: "https://placehold.co/150x60/000000/FFFFFF.png?text=Client6", alt: "Client 6 Logo", hint: "enterprise client brand" },
+  { src: "https://source.unsplash.com/150x60/?company,logo,monochrome", alt: "Client 1 Logo", hint: "company logo monochrome" },
+  { src: "https://source.unsplash.com/150x60/?tech,client,logo", alt: "Client 2 Logo", hint: "tech client logo" },
+  { src: "https://source.unsplash.com/150x60/?partner,logo,simple", alt: "Client 3 Logo", hint: "partner logo simple" },
+  { src: "https://source.unsplash.com/150x60/?corporate,partner,logo", alt: "Client 4 Logo", hint: "corporate partner logo" },
+  { src: "https://source.unsplash.com/150x60/?startup,logo,minimalist", alt: "Client 5 Logo", hint: "startup logo minimalist" },
+  { src: "https://source.unsplash.com/150x60/?enterprise,client,brand", alt: "Client 6 Logo", hint: "enterprise client brand" },
 ];
 
 export function PartnersBanner() {

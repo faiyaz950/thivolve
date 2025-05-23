@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -41,21 +42,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ imageUrl, aiHint, category, t
 
 const projectsData: ProjectCardProps[] = [
   {
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://source.unsplash.com/400x300/?web,app,dashboard',
     aiHint: 'web app dashboard',
     category: 'Web Application',
     title: 'Enterprise Resource Planning System for Manufacturing Client',
     href: '#',
   },
   {
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://source.unsplash.com/400x300/?mobile,app,healthcare',
     aiHint: 'mobile app healthcare',
     category: 'Mobile Development',
     title: 'Telehealth Mobile App for Remote Patient Monitoring',
     href: '#',
   },
   {
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://source.unsplash.com/400x300/?digital,marketing,campaign',
     aiHint: 'digital marketing campaign',
     category: 'Digital Marketing',
     title: 'Successful SEO & Content Strategy for E-commerce Brand',
