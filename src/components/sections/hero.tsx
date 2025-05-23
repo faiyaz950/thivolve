@@ -130,14 +130,17 @@ export function Hero() {
         <div className="max-w-3xl mx-auto">
           <h1 className="mb-2">
             <span
-              className="block text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-primary mb-2 sm:mb-3"
+              className="block text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-2 sm:mb-3"
             >
               {mainHeadlineLetters.map((item, index) => (
                 <span
                   key={index}
                   className={cn(
                     "inline-block",
-                    item.show ? "animate-letter-in" : "opacity-0"
+                    item.show ? "animate-letter-in" : "opacity-0",
+                    // "WE HELP " (including space at index 7) is 8 characters long.
+                    // Indices 0-7 are "WE HELP ", index 8 onwards is "BUSINESS".
+                    index < 8 ? "text-neutral-100" : "text-primary" 
                   )}
                   style={{ animationFillMode: 'forwards', animationDelay: `${index * 0.05}s` }}
                 >
@@ -150,7 +153,7 @@ export function Hero() {
                 "block text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-100 tracking-tight leading-tight mt-1 sm:mt-2 transition-opacity duration-500 ease-in-out",
                 isSentenceVisible ? "opacity-100" : "opacity-0"
               )}
-              style={{ minHeight: '2.5em' }} // Adjust minHeight based on typical sentence height
+              style={{ minHeight: '2.5em' }} 
             >
               {animatedSentences[currentSentenceIndex]}
             </span>
