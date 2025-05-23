@@ -128,9 +128,9 @@ export function Hero() {
       {/* Foreground Text Content */}
       <div className="relative z-20 container mx-auto px-4 max-w-screen-lg text-center py-20 md:py-28">
         <div className="max-w-3xl mx-auto">
-          <h1 className="mb-4">
+          <h1 className="mb-2">
             <span
-              className="block text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-2 sm:mb-3"
+              className="block text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-primary mb-2 sm:mb-3"
             >
               {mainHeadlineLetters.map((item, index) => (
                 <span
@@ -156,7 +156,7 @@ export function Hero() {
             </span>
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-neutral-200 max-w-xl mx-auto mb-10 leading-relaxed">
-            From vision to digital reality, we partner with businesses to craft innovative IT solutions, enhance healthcare services, streamline financial processes, and secure futures. Discover how Btruss transforms challenges into opportunities.
+            Btruss transforms your vision into reality with innovative IT, healthcare, finance, and security solutions.
           </p>
           <Button
             size="lg"
@@ -170,5 +170,3 @@ export function Hero() {
     </section>
   );
 }
-
-    
