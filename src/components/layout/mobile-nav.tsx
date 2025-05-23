@@ -29,7 +29,7 @@ export function MobileNav({ navLinks, triggerClassName }: MobileNavProps) {
           variant="ghost" 
           size="icon" 
           className={cn(
-            "md:hidden text-foreground hover:bg-accent/10",
+            "md:hidden text-white hover:bg-white/20", // Ensure trigger is white
             triggerClassName
           )}
         >
@@ -37,20 +37,23 @@ export function MobileNav({ navLinks, triggerClassName }: MobileNavProps) {
           <span className="sr-only">Open menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-full max-w-xs bg-background p-0 text-foreground border-l border-border/30">
+      <SheetContent 
+        side="right" 
+        className="w-full max-w-xs bg-neutral-900/90 backdrop-blur-md p-0 text-white border-l border-neutral-700" // Dark, semi-transparent background for sheet
+      >
         <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between p-6 border-b border-border/30">
+          <div className="flex items-center justify-between p-6 border-b border-neutral-700">
             <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
               <Image 
                 src="/btruss-logo.png" 
                 alt="Btruss Logo" 
                 width={120} 
                 height={30}
-                className="h-8 w-auto"
+                className="h-8 w-auto" // Ensure logo visibility
               />
             </Link>
             <SheetClose asChild>
-              <Button variant="ghost" size="icon" className="text-foreground hover:bg-accent/10">
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
                 <X className="h-6 w-6" />
                 <span className="sr-only">Close menu</span>
               </Button>
@@ -61,7 +64,7 @@ export function MobileNav({ navLinks, triggerClassName }: MobileNavProps) {
               <SheetClose key={link.href} asChild>
                 <Link
                   href={link.href}
-                  className="block text-lg font-medium text-foreground/90 hover:text-primary transition-colors"
+                  className="block text-lg font-medium text-white/90 hover:text-primary transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
@@ -69,7 +72,7 @@ export function MobileNav({ navLinks, triggerClassName }: MobileNavProps) {
               </SheetClose>
             ))}
           </nav>
-          <div className="p-6 border-t border-border/30">
+          <div className="p-6 border-t border-neutral-700">
             <SheetClose asChild>
               <Button 
                 variant="default" 

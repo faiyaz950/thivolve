@@ -14,7 +14,7 @@ const navLinks = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full transition-colors duration-300">
+    <header className="sticky top-0 z-50 w-full bg-black/30 backdrop-blur-md transition-colors duration-300">
       <div className="container flex h-20 max-w-screen-xl items-center justify-between mx-auto px-4 sm:px-6 lg:px-8 gap-4">
         <Link href="/" className="flex items-center">
           <Image
@@ -22,7 +22,7 @@ export function Header() {
             alt="Btruss Logo"
             width={130}
             height={32}
-            className="h-8 w-auto" // You might need to adjust if your logo itself has a background
+            className="h-8 w-auto" // Ensure your logo looks good on a semi-transparent dark background
             priority
           />
         </Link>
@@ -47,7 +47,6 @@ export function Header() {
           >
             <Link href="#contact">Book a Meeting</Link>
           </Button>
-          {/* MobileNav trigger is a Button inside MobileNav component, its styling might need adjustment if icon color is an issue */}
           <MobileNav navLinks={navLinks} triggerClassName="text-white hover:bg-white/20" />
         </div>
       </div>
