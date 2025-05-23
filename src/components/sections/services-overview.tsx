@@ -43,7 +43,7 @@ const btrussMainServices: MainService[] = [
 
 export function ServicesOverview() {
   const serviceIcons: Record<string, LucideIcon> = {
-    "IT Services": Server, // Changed from Smartphone to Server for broader IT
+    "IT Services": Server,
     "Healthcare Services": HeartPulse,
     "Credit Card Sales": CreditCard,
     "Insurance Sales": ShieldCheck,
@@ -52,15 +52,9 @@ export function ServicesOverview() {
   };
 
   return (
-    <section 
-      id="services" 
-      className="py-16 md:py-24 bg-background text-foreground"
-      style={{ 
-        backgroundImage: "url('https://image.shutterstock.com/image-vector/abstract-red-lines-dots-pattern-600w-2122693829.jpg')", 
-        backgroundSize: 'cover', 
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+    <section
+      id="services"
+      className="py-16 md:py-24 text-foreground bg-gradient-to-br from-white to-destructive/30"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="text-center mb-12 md:mb-16">
@@ -85,7 +79,6 @@ export function ServicesOverview() {
                     <p className="text-muted-foreground text-sm leading-relaxed">{service.details}</p>
                   </div>
                 </div>
-                {/* Sub-services list is intentionally removed from IT Services as per previous request */}
               </div>
             );
           })}
