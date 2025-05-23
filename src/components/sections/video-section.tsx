@@ -1,30 +1,37 @@
 
 "use client";
 
-import { useRef } from 'react'; 
+// Note: For true background video behavior with YouTube (especially looping and autplaying reliably across all browsers),
+// you might need to use the YouTube Iframe Player API for more control.
+// This basic iframe embed attempts to achieve a similar effect with URL parameters.
 
 export function VideoSection() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  // Replace 'YOUR_YOUTUBE_VIDEO_ID' with the actual ID of your YouTube video
+  // For example, if your video URL is https://www.youtube.com/watch?v=dQw4w9WgXcQ, the ID is dQw4w9WgXcQ
+  const youtubeVideoId = "YOUR_YOUTUBE_VIDEO_ID"; 
+
+  // Parameters for YouTube embed:
+  // autoplay=1: Attempt to autoplay (requires mute=1 in most modern browsers)
+  // mute=1: Mute the video
+  // loop=1&playlist=${youtubeVideoId}: Loop the video (playlist parameter is needed for single video loop)
+  // controls=0: Hide player controls
+  // showinfo=0: Hide video title and uploader (deprecated, but good for robustness)
+  // modestbranding=1: Reduce YouTube logo
+  // rel=0: Do not show related videos at the end
+  const youtubeEmbedUrl = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3`;
 
   return (
     <section className="relative w-full h-[30rem] md:h-[40rem] lg:h-[50rem] overflow-hidden group">
-      <video
-        ref={videoRef}
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        poster="https://source.unsplash.com/1920x1080/?tech,services,montage"
-        data-ai-hint="tech services montage" // This hint is for the poster image
-        loop
-        muted
-        playsInline
-        autoPlay 
-      >
-        {/* Replace with your actual AI-generated video source for Btruss Services Showcase */}
-        <source 
-          src="https://placehold.co/1920x1080.mp4/000000/FFFFFF?text=AI+Generated+Btruss+Services" 
-          type="video/mp4" 
-        />
-        Your browser does not support the video tag.
-      </video>
+      <div className="absolute top-0 left-0 w-full h-full">
+        <iframe
+          src={youtubeEmbedUrl}
+          title="Btruss Services Showcase"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          className="w-full h-full"
+        ></iframe>
+      </div>
       <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight shadow-text">
           Btruss: Your Partner in <span className="text-primary">Digital Transformation</span>
