@@ -21,12 +21,13 @@ export function AboutUs() {
               We are service-oriented, committed to providing local solutions that are not only innovative but also reliable and impactful. Our core business spans IT development, healthcare support, credit card and insurance sales, AI integration, and resource outsourcing.
             </p>
              <Button
-              variant="link"
-              className="text-primary font-semibold p-0 h-auto text-base hover:underline"
+              variant="default" // Changed from "link"
+              size="lg" // Added for better prominence
+              className="bg-primary text-primary-foreground hover:bg-primary/90 transition-transform hover:scale-105 group" // Added classes for styling and hover
               asChild
             >
               <Link href="#services">
-                EXPLORE OUR SERVICES <ArrowRight className="ml-2 h-5 w-5" />
+                Explore Our Services <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
           </div>
