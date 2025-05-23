@@ -100,7 +100,7 @@ export function Hero() {
 
           <div className="grid grid-cols-2 gap-4">
             <Image
-              src="https://placehold.co/300x200.png"
+              src="https://images.unsplash.com/photo-1698047682129-c3e217ac08b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtb2Rlcm4lMjBvZmZpY2UlMjB0ZWFtfGVufDB8fHx8MTc0Nzk5ODc4NXww&ixlib=rb-4.1.0&q=80&w=1080"
               alt="Modern office team collaborating"
               data-ai-hint="modern office team"
               width={300}
@@ -108,7 +108,7 @@ export function Hero() {
               className="rounded-lg shadow-xl aspect-video object-cover w-full h-auto transform hover:scale-105 transition-transform duration-300"
             />
             <Image
-              src="https://placehold.co/300x200.png"
+              src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx1eCUyMGRlc2lnbiUyMHByb2Nlc3N8ZW58MHx8fHwxNzQ3OTk4Nzg1fDA&ixlib=rb-4.1.0&q=80&w=1080"
               alt="UX design process sketch"
               data-ai-hint="ux design process"
               width={300}
@@ -116,7 +116,7 @@ export function Hero() {
               className="rounded-lg shadow-xl aspect-video object-cover w-full h-auto transform hover:scale-105 transition-transform duration-300"
             />
             <Image
-              src="https://placehold.co/300x200.png"
+              src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkYXRhJTIwYW5hbHl0aWNzfGVufDB8fHx8MTc0Nzk0NzE0OHww&ixlib=rb-4.1.0&q=80&w=1080"
               alt="Data analytics dashboard"
               data-ai-hint="data analytics"
               width={300}
@@ -124,7 +124,7 @@ export function Hero() {
               className="rounded-lg shadow-xl aspect-video object-cover w-full h-auto transform hover:scale-105 transition-transform duration-300"
             />
             <Image
-              src="https://placehold.co/300x200.png"
+              src="https://images.unsplash.com/photo-1529119368496-2dfda6ec2804?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc0Nzk5ODc4NXww&ixlib=rb-4.1.0&q=80&w=1080"
               alt="Business strategy session"
               data-ai-hint="business strategy"
               width={300}
