@@ -12,15 +12,9 @@ const partnerLogos = [
 
 export function PartnersBanner() {
   return (
-    <section 
-      id="partners" 
-      className="py-16 md:py-20 bg-background"
-      style={{ 
-        backgroundImage: "url('https://image.shutterstock.com/image-vector/abstract-red-lines-dots-pattern-600w-2122693829.jpg')", 
-        backgroundSize: 'cover', 
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+    <section
+      id="partners"
+      className="py-16 md:py-20 bg-background text-foreground"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-foreground mb-12 md:mb-16">
@@ -34,7 +28,7 @@ export function PartnersBanner() {
                 alt={logo.alt}
                 width={150}
                 height={60}
-                className="object-contain h-10 md:h-12 w-auto" 
+                className="object-contain h-10 md:h-12 w-auto"
                 data-ai-hint={logo.hint}
               />
             </div>

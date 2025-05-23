@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect } from 'react';
-import { useActionState } from 'react'; // Changed from react-dom
+import { useActionState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactFormSchema, type ContactFormValues } from '@/lib/schemas';
@@ -20,7 +20,7 @@ const initialState: FormState = {
 };
 
 export function ContactForm() {
-  const [state, formAction] = useActionState(submitContactForm, initialState); // Changed here
+  const [state, formAction] = useActionState(submitContactForm, initialState);
   const { toast } = useToast();
 
   const form = useForm<ContactFormValues>({
@@ -47,7 +47,7 @@ export function ContactForm() {
       });
     }
   }, [state, toast, form]);
-  
+
   const contactDetails = [
     { icon: Mail, text: "info@btruss.com", href: "mailto:info@btruss.com" },
     { icon: Phone, text: "+91 123 456 7890", href: "tel:+911234567890" },
@@ -55,15 +55,9 @@ export function ContactForm() {
   ];
 
   return (
-    <section 
-      id="contact" 
-      className="py-16 md:py-24 bg-secondary text-foreground"
-      style={{ 
-        backgroundImage: "url('https://image.shutterstock.com/image-vector/abstract-red-lines-dots-pattern-600w-2122693829.jpg')", 
-        backgroundSize: 'cover', 
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+    <section
+      id="contact"
+      className="py-16 md:py-24 bg-background text-foreground"
     >
       <div className="container mx-auto px-4 max-w-screen-lg">
         <div className="text-left mb-12 md:mb-16">
@@ -81,9 +75,9 @@ export function ContactForm() {
             </p>
             <div className="space-y-4">
               {contactDetails.map((item, index) => (
-                <a 
-                  key={index} 
-                  href={item.href} 
+                <a
+                  key={index}
+                  href={item.href}
                   className="flex items-center text-muted-foreground hover:text-primary transition-colors group"
                   target={item.href.startsWith('mailto:') || item.href.startsWith('tel:') ? '_blank' : '_self'}
                   rel="noopener noreferrer"
@@ -109,10 +103,10 @@ export function ContactForm() {
           >
             <div>
               <Label htmlFor="name" className="block text-sm font-medium text-foreground/90 mb-1">Full Name</Label>
-              <Input 
-                id="name" 
-                {...form.register('name')} 
-                placeholder="Your Name" 
+              <Input
+                id="name"
+                {...form.register('name')}
+                placeholder="Your Name"
                 className="bg-background border-input-border focus:border-primary focus:ring-primary rounded-md"
               />
               {form.formState.errors.name && (
@@ -122,37 +116,37 @@ export function ContactForm() {
 
             <div>
               <Label htmlFor="email" className="block text-sm font-medium text-foreground/90 mb-1">Email Address</Label>
-              <Input 
-                id="email" 
-                type="email" 
-                {...form.register('email')} 
-                placeholder="you@example.com" 
+              <Input
+                id="email"
+                type="email"
+                {...form.register('email')}
+                placeholder="you@example.com"
                 className="bg-background border-input-border focus:border-primary focus:ring-primary rounded-md"
               />
               {form.formState.errors.email && (
                 <p className="text-sm text-destructive mt-1">{form.formState.errors.email.message}</p>
               )}
             </div>
-            
+
              <input type="hidden" {...form.register('service')} value="general_inquiry" />
 
 
             <div>
               <Label htmlFor="message" className="block text-sm font-medium text-foreground/90 mb-1">Message</Label>
-              <Textarea 
-                id="message" 
-                {...form.register('message')} 
-                placeholder="How can we help you?" 
-                rows={5} 
+              <Textarea
+                id="message"
+                {...form.register('message')}
+                placeholder="How can we help you?"
+                rows={5}
                 className="bg-background border-input-border focus:border-primary focus:ring-primary rounded-md"
               />
               {form.formState.errors.message && (
                 <p className="text-sm text-destructive mt-1">{form.formState.errors.message.message}</p>
               )}
             </div>
-            
-            <Button 
-              type="submit" 
+
+            <Button
+              type="submit"
               className="w-full bg-foreground text-background hover:bg-foreground/80 text-base py-3 rounded-md transition-transform hover:scale-105"
               disabled={form.formState.isSubmitting}
             >

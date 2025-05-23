@@ -66,15 +66,9 @@ const projectsData: ProjectCardProps[] = [
 
 export function OurWork() {
   return (
-    <section 
-      id="our-work" 
-      className="py-16 md:py-24 bg-secondary"
-      style={{ 
-        backgroundImage: "url('https://image.shutterstock.com/image-vector/abstract-red-lines-dots-pattern-600w-2122693829.jpg')", 
-        backgroundSize: 'cover', 
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+    <section
+      id="our-work"
+      className="py-16 md:py-24 bg-background text-foreground"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="mb-12 md:mb-16">

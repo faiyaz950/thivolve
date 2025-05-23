@@ -6,15 +6,9 @@ import { ArrowRight } from 'lucide-react';
 
 export function AboutUs() {
   return (
-    <section 
-      id="about-us" 
-      className="py-16 md:py-24 bg-secondary text-foreground"
-      style={{ 
-        backgroundImage: "url('https://image.shutterstock.com/image-vector/abstract-red-lines-dots-pattern-600w-2122693829.jpg')", 
-        backgroundSize: 'cover', 
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+    <section
+      id="about-us"
+      className="py-16 md:py-24 bg-background text-foreground"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">

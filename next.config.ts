@@ -29,12 +29,6 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
-      {
-        protocol: 'https',
-        hostname: 'image.shutterstock.com', // Added for the new background image
-        port: '',
-        pathname: '/**',
-      }
     ],
   },
 };
