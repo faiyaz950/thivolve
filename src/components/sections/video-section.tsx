@@ -8,7 +8,7 @@
 export function VideoSection() {
   // Replace 'YOUR_YOUTUBE_VIDEO_ID' with the actual ID of your YouTube video
   // For example, if your video URL is https://www.youtube.com/watch?v=dQw4w9WgXcQ, the ID is dQw4w9WgXcQ
-  const youtubeVideoId = "YOUR_YOUTUBE_VIDEO_ID"; 
+  const youtubeVideoId = "QyhwSYhX09s"; 
 
   // Parameters for YouTube embed:
   // autoplay=1: Attempt to autoplay (requires mute=1 in most modern browsers)
@@ -48,3 +48,4 @@ export function VideoSection() {
     </section>
   );
 }
+
