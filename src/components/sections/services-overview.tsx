@@ -1,7 +1,6 @@
 
 import { CheckCircle2, Smartphone, Globe, LineChart, Palette, Users, HeartPulse, CreditCard, ShieldCheck, BrainCircuit } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-// Removed Image import as it's no longer used in this component
 
 interface ServiceItem {
   icon: LucideIcon;
@@ -19,13 +18,7 @@ const btrussMainServices: MainService[] = [
   {
     title: "IT Services",
     details: "We leverage technology to provide cutting-edge solutions that elevate your business. Our offerings include:",
-    subServices: [
-      { icon: Smartphone, title: "Mobile Application Development", description: "Seamless, user-friendly apps tailored to your needs." },
-      { icon: Globe, title: "Website Development", description: "Standout online presence with modern, responsive websites." },
-      { icon: Smartphone, title: "Web Application Development", description: "Custom platforms for enhanced operational efficiency." },
-      { icon: LineChart, title: "Digital Marketing", description: "Grow your reach and engage your audience effectively." },
-      { icon: Palette, title: "Graphic Designing Services", description: "Create impactful visuals that define your brand." },
-    ],
+    // Sub-services removed as per user request
   },
   {
     title: "Healthcare Services",
@@ -76,7 +69,7 @@ export function ServicesOverview() {
             return (
               <div
                 key={service.title}
-                className="p-6 rounded-lg border border-border/70 shadow-sm bg-card transform hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out flex flex-col" // Added flex flex-col for consistent card height
+                className="p-6 rounded-lg border border-border/70 shadow-sm bg-card transform hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out flex flex-col"
               >
                 <div className="flex items-start mb-3">
                   <MainIcon className="w-7 h-7 text-primary mr-4 mt-1 flex-shrink-0" />
@@ -85,6 +78,7 @@ export function ServicesOverview() {
                     <p className="text-muted-foreground text-sm leading-relaxed">{service.details}</p>
                   </div>
                 </div>
+                {/* Conditional rendering for subServices remains, but IT Services won't have them */}
                 {service.subServices && (
                   <ul className="space-y-2.5 pl-11 mt-3">
                     {service.subServices.map((sub) => (
