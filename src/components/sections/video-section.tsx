@@ -1,44 +1,10 @@
 
 "use client";
 
-import { PlayCircle } from 'lucide-react';
-import { useState, useRef, useEffect } from 'react';
+import { useRef } from 'react'; // Keep useRef if you might need to interact with video programmatically, otherwise it can be removed.
 
 export function VideoSection() {
-  const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (videoRef.current.paused || videoRef.current.ended) {
-        videoRef.current.play();
-        setIsPlaying(true);
-      } else {
-        videoRef.current.pause();
-        setIsPlaying(false);
-      }
-    }
-  };
-
-  useEffect(() => {
-    const videoElement = videoRef.current;
-    if (!videoElement) return;
-
-    const handlePlay = () => setIsPlaying(true);
-    const handlePause = () => setIsPlaying(false);
-    const handleEnded = () => setIsPlaying(false);
-
-    videoElement.addEventListener('play', handlePlay);
-    videoElement.addEventListener('pause', handlePause);
-    videoElement.addEventListener('ended', handleEnded);
-
-    return () => {
-      videoElement.removeEventListener('play', handlePlay);
-      videoElement.removeEventListener('pause', handlePause);
-      videoElement.removeEventListener('ended', handleEnded);
-    };
-  }, []);
-
 
   return (
     <section className="relative w-full h-[30rem] md:h-[40rem] lg:h-[50rem] overflow-hidden group">
@@ -50,8 +16,9 @@ export function VideoSection() {
         loop
         muted
         playsInline
+        autoPlay // Added for automatic playback
       >
-        {/* Replace with your actual video source */}
+        {/* Replace with your actual video source for Btruss Services Showcase */}
         <source src="https://placehold.co/1920x1080.mp4/000000/FFFFFF?text=Btruss+Services+Showcase" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -62,13 +29,7 @@ export function VideoSection() {
         <p className="text-lg md:text-xl text-gray-200 max-w-2xl mb-8 shadow-text">
           Leveraging cutting-edge technology to build innovative solutions for a smarter future.
         </p>
-        <button
-          onClick={togglePlay}
-          aria-label={isPlaying ? "Pause video" : "Play video"}
-          className="p-3 bg-primary/80 hover:bg-primary text-white rounded-full transition-all duration-300 transform group-hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-black/50"
-        >
-          <PlayCircle size={48} className={`transition-transform duration-300 ${isPlaying ? 'rotate-90' : ''}`} />
-        </button>
+        {/* Play button and associated logic have been removed */}
       </div>
       <style jsx>{`
         .shadow-text {
