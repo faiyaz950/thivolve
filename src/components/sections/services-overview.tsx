@@ -57,7 +57,7 @@ export function ServicesOverview() {
     <section id="services" className="py-16 md:py-24 bg-background text-foreground">
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 red-line-accent">Our Services</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3">Our Services</h2>
           <p className="text-lg text-muted-foreground mx-auto max-w-2xl">
             Btruss Services Pvt Ltd empowers your growth by delivering innovative and reliable solutions across multiple industries.
           </p>
@@ -81,7 +81,7 @@ export function ServicesOverview() {
                 {/* Conditional rendering for subServices remains, but IT Services won't have them */}
                 {service.subServices && (
                   <ul className="space-y-2.5 pl-11 mt-3">
-                    {sub.subServices.map((subItem) => (
+                    {service.subServices.map((subItem) => (
                       <li key={subItem.title} className="flex items-start text-sm">
                         <subItem.icon className="w-4 h-4 text-primary mr-2.5 mt-0.5 flex-shrink-0" />
                         <div>
