@@ -59,7 +59,7 @@ export function ServicesOverview() {
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-3 red-line-accent">Our Services</h2>
           <p className="text-lg text-muted-foreground mx-auto max-w-2xl">
-            How Btruss empowers your growth. At Btruss Services Pvt Ltd, we’re dedicated to delivering innovative and reliable solutions that empower our clients across multiple industries.
+            Btruss Services Pvt Ltd empowers your growth by delivering innovative and reliable solutions across multiple industries.
           </p>
         </div>
 
@@ -81,12 +81,12 @@ export function ServicesOverview() {
                 {/* Conditional rendering for subServices remains, but IT Services won't have them */}
                 {service.subServices && (
                   <ul className="space-y-2.5 pl-11 mt-3">
-                    {service.subServices.map((sub) => (
-                      <li key={sub.title} className="flex items-start text-sm">
-                        <sub.icon className="w-4 h-4 text-primary mr-2.5 mt-0.5 flex-shrink-0" />
+                    {sub.subServices.map((subItem) => (
+                      <li key={subItem.title} className="flex items-start text-sm">
+                        <subItem.icon className="w-4 h-4 text-primary mr-2.5 mt-0.5 flex-shrink-0" />
                         <div>
-                          <span className="font-medium text-foreground/90">{sub.title}:</span>
-                          <span className="text-muted-foreground ml-1">{sub.description}</span>
+                          <span className="font-medium text-foreground/90">{subItem.title}:</span>
+                          <span className="text-muted-foreground ml-1">{subItem.description}</span>
                         </div>
                       </li>
                     ))}
