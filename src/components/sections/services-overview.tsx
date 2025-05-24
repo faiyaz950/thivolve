@@ -1,4 +1,3 @@
-
 import { Smartphone, Globe, LineChart, Palette, Users, HeartPulse, CreditCard, ShieldCheck, BrainCircuit, CheckCircle2, Server, Cloud, Shield, BarChart2, Code, MonitorSmartphone } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -46,35 +45,31 @@ export function ServicesOverview() {
   return (
     <section
       id="services"
-      className="py-16 md:py-24 text-foreground bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('https://source.unsplash.com/1600x900/?subtle,light,geometric,background')" }}
-      data-ai-hint="subtle light geometric background"
+      className="py-16 md:py-24 text-foreground bg-[#0A0D1B] relative"
+      style={{ backgroundImage: `url('/backy.png')`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+      data-ai-hint="The background image is set to backy.png from the public folder"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3">Our Services</h2>
-          <p className="text-lg text-muted-foreground mx-auto max-w-2xl">
-            Btruss Services Pvt Ltd empowers your growth by delivering innovative and reliable solutions across multiple industries.
-          </p>
+        <div className="mb-12 md:mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">Our Services</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {btrussMainServices.map((service) => {
             const MainIcon = service.icon || CheckCircle2; // Fallback icon
             return (
               <div
                 key={service.title}
-                className="p-6 rounded-lg border border-border/70 shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out flex flex-col bg-card"
+                className="relative"
               >
-                <div className="flex items-start mb-3">
-                  <div className="bg-primary/10 p-3 rounded-full mr-4 flex-shrink-0 flex items-center justify-center">
-                    <MainIcon className="w-6 h-6 text-primary" />
+                <div className="flex flex-col">
+                  <div className="flex items-center mb-2">
+                    <h3 className="text-xl font-semibold text-white">{service.title}</h3>
+                    <span className="ml-2 text-white text-2xl">→</span>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-primary mb-1.5">{service.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{service.details}</p>
-                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">{service.details}</p>
                 </div>
+                <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500"></div>
               </div>
             );
           })}
