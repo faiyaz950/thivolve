@@ -46,7 +46,7 @@ export function ServicesOverview() {
     <section
       id="services"
       className="py-16 md:py-24 text-foreground bg-[#0A0D1B] relative"
-      style={{ backgroundImage: `url('/backy.png')`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+      style={{ backgroundImage: `url('/servicesbackground.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
       data-ai-hint="The background image is set to backy.png from the public folder"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">

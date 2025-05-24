@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -68,13 +67,11 @@ export function OurWork() {
   return (
     <section
       id="our-work"
-      className="py-16 md:py-24 text-white"
+      className="py-16 md:py-24 text-white bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: "url('https://source.unsplash.com/1600x900/?dark,texture,abstract')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
+        backgroundImage: `url('/backii.png')`,
       }}
+      data-ai-hint="The background image is set to backgrounddd.png from the public folder"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="text-center mb-12 md:mb-16">
@@ -88,7 +85,7 @@ export function OurWork() {
             <ProjectCard key={project.title} {...project} />
           ))}
         </div>
-         <div className="text-center mt-12 md:mt-16">
+        <div className="text-center mt-12 md:mt-16">
           <Button variant="outline" size="lg" asChild className="border-white text-white hover:bg-white/10 hover:border-white/80 transition-colors duration-300">
             <Link href="#">View All Projects</Link>
           </Button>
