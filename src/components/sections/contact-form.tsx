@@ -57,12 +57,13 @@ export function ContactForm() {
   return (
     <section
       id="contact"
-      className="py-16 md:py-24 bg-background text-foreground"
+      className="py-16 md:py-24 bg-cover bg-center text-white"
+      style={{ backgroundImage: "url('/blueee.jpg')" }}
     >
       <div className="container mx-auto px-4 max-w-screen-lg">
         <div className="text-left mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 red-line-accent">Contact Us</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 red-line-accent text-white">Contact Us</h2>
+          <p className="text-lg max-w-2xl text-white/90">
             Get a hold of our team to help you with our services. We&apos;re here to answer any questions you may have.
           </p>
         </div>
@@ -70,14 +71,14 @@ export function ContactForm() {
         <div className="grid md:grid-cols-2 gap-12">
           <div>
             <h3 className="text-2xl font-semibold text-foreground mb-6">Get in Touch</h3>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-white/80 mb-6">
               Whether you have a question about our services, want to discuss a project, or just want to say hello, we&apos;d love to hear from you.
             </p>
             <div className="space-y-4">
               {contactDetails.map((item, index) => (
                 <a
                   key={index}
-                  href={item.href}
+                  href={item.href} className="flex items-center text-white/80 hover:text-white transition-colors group"
                   className="flex items-center text-muted-foreground hover:text-primary transition-colors group"
                   target={item.href.startsWith('mailto:') || item.href.startsWith('tel:') ? '_blank' : '_self'}
                   rel="noopener noreferrer"
@@ -102,7 +103,7 @@ export function ContactForm() {
             id="contact-btruss-form"
           >
             <div>
-              <Label htmlFor="name" className="block text-sm font-medium text-foreground/90 mb-1">Full Name</Label>
+              <Label htmlFor="name" className="block text-sm font-medium text-white mb-1">Full Name</Label>
               <Input
                 id="name"
                 {...form.register('name')}
@@ -115,7 +116,7 @@ export function ContactForm() {
             </div>
 
             <div>
-              <Label htmlFor="email" className="block text-sm font-medium text-foreground/90 mb-1">Email Address</Label>
+              <Label htmlFor="email" className="block text-sm font-medium text-white mb-1">Email Address</Label>
               <Input
                 id="email"
                 type="email"
@@ -132,7 +133,7 @@ export function ContactForm() {
 
 
             <div>
-              <Label htmlFor="message" className="block text-sm font-medium text-foreground/90 mb-1">Message</Label>
+              <Label htmlFor="message" className="block text-sm font-medium text-white mb-1">Message</Label>
               <Textarea
                 id="message"
                 {...form.register('message')}
