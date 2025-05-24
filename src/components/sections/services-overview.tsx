@@ -1,18 +1,19 @@
 
-import { Smartphone, Globe, LineChart, Palette, Users, HeartPulse, CreditCard, ShieldCheck, BrainCircuit, CheckCircle2, Server, Cloud, Shield, BarChart2, Code } from 'lucide-react';
+import { Smartphone, Globe, LineChart, Palette, Users, HeartPulse, CreditCard, ShieldCheck, BrainCircuit, CheckCircle2, Server, Cloud, Shield, BarChart2, Code, MonitorSmartphone } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 interface MainService {
   title: string;
   details: string;
   icon: LucideIcon;
+  subServices?: string[];
 }
 
 const btrussMainServices: MainService[] = [
   {
     title: "IT Services",
     details: "We leverage technology to provide cutting-edge solutions that elevate your business. Our offerings include:",
-    icon: Server,
+    icon: MonitorSmartphone,
   },
   {
     title: "Healthcare Services",
@@ -45,7 +46,9 @@ export function ServicesOverview() {
   return (
     <section
       id="services"
-      className="py-16 md:py-24 text-foreground bg-gradient-to-b from-background to-primary/10"
+      className="py-16 md:py-24 text-foreground bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('https://source.unsplash.com/1600x900/?subtle,light,geometric,background')" }}
+      data-ai-hint="subtle light geometric background"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="text-center mb-12 md:mb-16">
