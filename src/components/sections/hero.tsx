@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { MobileNav } from '@/components/layout/mobile-nav'; // Ensure MobileNav is imported
+import { MobileNav } from '@/components/layout/mobile-nav';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -39,12 +39,11 @@ const heroImages = [
   },
 ];
 
-// NavLinks definition moved from Header.tsx
 const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#about-us", label: "About Us" },
   { href: "#services", label: "Services" },
-  { href: "#our-work", label: "Our Work" },
+  { href: "#our-work-content", label: "Our Work" }, // Updated href
   { href: "#contact", label: "Contact Us" },
 ];
 
@@ -66,11 +65,12 @@ export function Hero() {
           }
           return newLetters;
         });
-      }, index * 100 + 500)
+      }, index * 100 + 500) // Delay before animation starts + staggered delay
     );
     return () => timers.forEach(clearTimeout);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   useEffect(() => {
     const displayDuration = 3000;
@@ -88,22 +88,22 @@ export function Hero() {
   useEffect(() => {
     const imageSliderInterval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
-    }, 5000);
+    }, 5000); // Change image every 5 seconds
     return () => clearInterval(imageSliderInterval);
   }, []);
 
   return (
     <section id="home" className="relative min-h-screen text-white flex flex-col items-center justify-center overflow-hidden">
       {/* Integrated Header Bar */}
-      <div className="absolute top-0 left-0 right-0 z-30 w-full bg-transparent transition-colors duration-300">
+      <div className="absolute top-0 left-0 right-0 z-30 w-full bg-black/30 backdrop-blur-md transition-colors duration-300">
         <div className="container flex h-20 max-w-screen-xl items-center justify-between mx-auto px-4 sm:px-6 lg:px-8 gap-4">
           <Link href="/" className="flex items-center">
             <Image
-              src="/btrussslogo.png"
+              src="/btruss-logo.png"
               alt="Btruss Logo"
-              width={90}
+              width={130}
               height={32}
-              className=""
+              className="h-8 w-auto"
               priority
             />
           </Link>
@@ -141,7 +141,7 @@ export function Hero() {
           style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
         >
           {heroImages.map((image, index) => (
-            <div key={image.src} className="w-full flex-shrink-0 h-full relative">
+            <div key={index} className="w-full flex-shrink-0 h-full relative"> {/* Ensure key is on the direct child of map */}
               <Image
                 src={image.src}
                 alt={image.alt}
@@ -170,8 +170,8 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Foreground Text Content - ensure this is above the overlay if needed, or that overlay has sufficient z-index */}
-      <div className="relative z-20 container mx-auto px-4 max-w-screen-lg text-center py-20 md:py-28 flex-grow flex flex-col justify-center mt-10 sm:mt-0"> {/* Added mt for spacing from new header bar */}
+      {/* Foreground Text Content */}
+      <div className="relative z-20 container mx-auto px-4 max-w-screen-lg text-center py-20 md:py-28 flex-grow flex flex-col justify-center mt-10 sm:mt-0">
         <div className="max-w-3xl mx-auto">
           <h1 className="mb-2">
             <span

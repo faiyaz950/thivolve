@@ -12,12 +12,77 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const initialState: FormState = {
   message: '',
   status: 'idle',
 };
+
+// Copied from former our-work.tsx
+interface ProjectCardProps {
+  imageUrl: string;
+  aiHint: string;
+  category: string;
+  title: string;
+  href: string;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ imageUrl, aiHint, category, title, href }) => {
+  return (
+    <div className="group rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-card border border-border/30 flex flex-col hover:scale-105">
+      <div className="relative w-full aspect-[4/3] overflow-hidden">
+        <Image
+          src={imageUrl}
+          alt={title}
+          data-ai-hint={aiHint}
+          width={400}
+          height={300}
+          className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+      <div className="p-6 flex flex-col flex-grow">
+        <p className="text-sm font-semibold text-primary mb-1 uppercase tracking-wide">{category}</p>
+        <h3 className="text-xl font-semibold text-card-foreground mb-3 line-clamp-2">{title}</h3>
+        <div className="mt-auto">
+          <Button variant="link" asChild className="text-card-foreground/80 hover:text-primary p-0 h-auto font-medium group-hover:translate-x-1 transition-transform">
+            <Link href={href}>
+              VIEW CASE STUDY <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const projectsData: ProjectCardProps[] = [
+  {
+    imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3ZWIlMjBhcHAlMjBkYXNoYm9hcmR8ZW58MHx8fHwxNzQ4MDM5NjM4fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    aiHint: 'web app dashboard',
+    category: 'Web Application',
+    title: 'Enterprise Resource Planning System for Manufacturing Client',
+    href: '#',
+  },
+  {
+    imageUrl: 'https://images.unsplash.com/photo-1550792436-181701c71f63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtb2JpbGUlMjBhcHAlMjBoZWFsdGhjYXJlfGVufDB8fHx8MTc0ODAzOTYzOHww&ixlib=rb-4.1.0&q=80&w=1080',
+    aiHint: 'mobile app healthcare',
+    category: 'Mobile Development',
+    title: 'Telehealth Mobile App for Remote Patient Monitoring',
+    href: '#',
+  },
+  {
+    imageUrl: 'https://images.unsplash.com/photo-1504270997636-07ddfbd48945?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxkaWdpdGFsJTIwbWFya2V0aW5nJTIwY2FtcGFpZ258ZW58MHx8fHwxNzQ4MDM5NjM4fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    aiHint: 'digital marketing campaign',
+    category: 'Digital Marketing',
+    title: 'Successful SEO & Content Strategy for E-commerce Brand',
+    href: '#',
+  },
+];
+// End of content from former our-work.tsx
+
 
 export function ContactForm() {
   const [state, formAction] = useActionState(submitContactForm, initialState);
@@ -56,21 +121,43 @@ export function ContactForm() {
 
   return (
     <section
-      id="contact"
+      id="contact" // Main section ID for "Contact Us" part
       className="py-16 md:py-24 bg-cover bg-center text-white"
-      style={{ backgroundImage: "url('/blueee.jpg')" }}
+      style={{ backgroundImage: "url('/blueee.jpg')" }} // Background for the entire merged section
     >
-      <div className="container mx-auto px-4 max-w-screen-lg">
-        <div className="text-left mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 red-line-accent text-white">Contact Us</h2>
-          <p className="text-lg max-w-2xl text-white/90">
+      <div className="container mx-auto px-4 max-w-screen-xl">
+        {/* "Our Work" Content Start */}
+        <div id="our-work-content" className="mb-16 md:mb-24"> {/* Anchor for "Our Work" nav link */}
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">Our Work</h2>
+            <p className="text-lg text-neutral-200 mx-auto max-w-2xl">
+              View what we have been up to. We take pride in delivering impactful solutions that drive success for our clients.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projectsData.map((project) => (
+              <ProjectCard key={project.title} {...project} />
+            ))}
+          </div>
+          <div className="text-center mt-12 md:mt-16">
+            <Button variant="outline" size="lg" asChild className="border-white text-white hover:bg-white/10 hover:border-white/80 transition-colors duration-300 hover:scale-105">
+              <Link href="#">View All Projects</Link>
+            </Button>
+          </div>
+        </div>
+        {/* "Our Work" Content End */}
+
+        {/* "Contact Us" Content Start */}
+        <div className="text-center mb-12 md:mb-16"> {/* Changed to text-center */}
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-white">Contact Us</h2> {/* Removed red-line-accent */}
+          <p className="text-lg max-w-2xl text-white/90 mx-auto"> {/* Added mx-auto for centering */}
             Get a hold of our team to help you with our services. We&apos;re here to answer any questions you may have.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div>
-            <h3 className="text-2xl font-semibold text-foreground mb-6">Get in Touch</h3>
+        <div className="grid md:grid-cols-2 gap-12 items-start"> {/* Added items-start for better alignment if content heights differ */}
+          <div className="text-center md:text-left"> {/* Centered on small screens, left on medium+ */}
+            <h3 className="text-2xl font-semibold text-white mb-6">Get in Touch</h3>
             <p className="text-white/80 mb-6">
               Whether you have a question about our services, want to discuss a project, or just want to say hello, we&apos;d love to hear from you.
             </p>
@@ -78,8 +165,8 @@ export function ContactForm() {
               {contactDetails.map((item, index) => (
                 <a
                   key={index}
-                  href={item.href} className="flex items-center text-white/80 hover:text-white transition-colors group"
-                  className="flex items-center text-muted-foreground hover:text-primary transition-colors group"
+                  href={item.href} 
+                  className="flex items-center justify-center md:justify-start text-white/80 hover:text-white transition-colors group" // Centered on small, left on medium+
                   target={item.href.startsWith('mailto:') || item.href.startsWith('tel:') ? '_blank' : '_self'}
                   rel="noopener noreferrer"
                 >
@@ -103,12 +190,12 @@ export function ContactForm() {
             id="contact-btruss-form"
           >
             <div>
-              <Label htmlFor="name" className="block text-sm font-medium text-white mb-1">Full Name</Label>
+              <Label htmlFor="name" className="block text-sm font-medium text-card-foreground mb-1">Full Name</Label> {/* Text color changed for card background */}
               <Input
                 id="name"
                 {...form.register('name')}
                 placeholder="Your Name"
-                className="bg-background border-input-border focus:border-primary focus:ring-primary rounded-md"
+                className="bg-background border-input-border focus:border-primary focus:ring-primary rounded-md text-foreground" // Ensuring input text is dark on light bg
               />
               {form.formState.errors.name && (
                 <p className="text-sm text-destructive mt-1">{form.formState.errors.name.message}</p>
@@ -116,13 +203,13 @@ export function ContactForm() {
             </div>
 
             <div>
-              <Label htmlFor="email" className="block text-sm font-medium text-white mb-1">Email Address</Label>
+              <Label htmlFor="email" className="block text-sm font-medium text-card-foreground mb-1">Email Address</Label> {/* Text color changed */}
               <Input
                 id="email"
                 type="email"
                 {...form.register('email')}
                 placeholder="you@example.com"
-                className="bg-background border-input-border focus:border-primary focus:ring-primary rounded-md"
+                className="bg-background border-input-border focus:border-primary focus:ring-primary rounded-md text-foreground" // Ensuring input text is dark
               />
               {form.formState.errors.email && (
                 <p className="text-sm text-destructive mt-1">{form.formState.errors.email.message}</p>
@@ -131,15 +218,14 @@ export function ContactForm() {
 
              <input type="hidden" {...form.register('service')} value="general_inquiry" />
 
-
             <div>
-              <Label htmlFor="message" className="block text-sm font-medium text-white mb-1">Message</Label>
+              <Label htmlFor="message" className="block text-sm font-medium text-card-foreground mb-1">Message</Label> {/* Text color changed */}
               <Textarea
                 id="message"
                 {...form.register('message')}
                 placeholder="How can we help you?"
                 rows={5}
-                className="bg-background border-input-border focus:border-primary focus:ring-primary rounded-md"
+                className="bg-background border-input-border focus:border-primary focus:ring-primary rounded-md text-foreground" // Ensuring input text is dark
               />
               {form.formState.errors.message && (
                 <p className="text-sm text-destructive mt-1">{form.formState.errors.message.message}</p>
@@ -148,13 +234,14 @@ export function ContactForm() {
 
             <Button
               type="submit"
-              className="w-full bg-foreground text-background hover:bg-foreground/80 text-base py-3 rounded-md transition-transform hover:scale-105"
+              className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-base py-3 rounded-md transition-transform hover:scale-105" // Using primary color for button
               disabled={form.formState.isSubmitting}
             >
               {form.formState.isSubmitting ? 'Sending...' : 'Send Message'}
             </Button>
           </form>
         </div>
+        {/* "Contact Us" Content End */}
       </div>
     </section>
   );

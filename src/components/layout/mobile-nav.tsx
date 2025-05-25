@@ -29,7 +29,7 @@ export function MobileNav({ navLinks, triggerClassName }: MobileNavProps) {
           variant="ghost" 
           size="icon" 
           className={cn(
-            "md:hidden text-white hover:bg-white/20", // Ensure trigger is white
+            "md:hidden text-white hover:bg-white/20",
             triggerClassName
           )}
         >
@@ -39,7 +39,7 @@ export function MobileNav({ navLinks, triggerClassName }: MobileNavProps) {
       </SheetTrigger>
       <SheetContent 
         side="right" 
-        className="w-full max-w-xs bg-neutral-900/90 backdrop-blur-md p-0 text-white border-l border-neutral-700" // Dark, semi-transparent background for sheet
+        className="w-full max-w-xs bg-neutral-900/90 backdrop-blur-md p-0 text-white border-l border-neutral-700"
       >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between p-6 border-b border-neutral-700">
@@ -49,7 +49,7 @@ export function MobileNav({ navLinks, triggerClassName }: MobileNavProps) {
                 alt="Btruss Logo" 
                 width={120} 
                 height={30}
-                className="h-8 w-auto" // Ensure logo visibility
+                className="h-8 w-auto"
               />
             </Link>
             <SheetClose asChild>
