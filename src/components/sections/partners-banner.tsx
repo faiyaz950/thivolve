@@ -37,11 +37,7 @@ export function PartnersBanner() {
   return (
     <section
       id="partners"
-      className="py-16 md:py-20 bg-black text-white bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `url('/backii.png')`,
-      }}
-      data-ai-hint="The background image is set to backii.png from the public folder"
+      className="py-16 md:py-20 bg-black text-white"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-white mb-12 md:mb-16">
