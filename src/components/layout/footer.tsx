@@ -32,7 +32,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-secondary text-foreground/80 border-t border-border/30 pt-16 pb-8">
+    <footer className="bg-black text-neutral-300 border-t border-neutral-700 pt-16 pb-8">
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-1 lg:col-span-1 mb-8 md:mb-0">
@@ -42,21 +42,21 @@ export function Footer() {
                 alt="Btruss Logo" 
                 width={130} 
                 height={32}
-                className="h-8 w-auto"
+                className="h-8 w-auto" // Assuming btruss-logo.png is suitable for dark backgrounds or is light.
               />
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+            <p className="text-sm text-neutral-400 leading-relaxed max-w-xs">
               Innovative solutions for a connected world. Btruss delivers excellence in IT, healthcare, and financial services.
             </p>
           </div>
 
           {footerNav.map((section) => (
             <div key={section.title}>
-              <h5 className="font-semibold text-foreground mb-4">{section.title}</h5>
+              <h5 className="font-semibold text-white mb-4">{section.title}</h5>
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    <Link href={link.href} className="text-sm text-neutral-400 hover:text-primary transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -66,13 +66,13 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-border/30 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-sm text-muted-foreground text-center md:text-left">
+        <div className="border-t border-neutral-700 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <p className="text-sm text-neutral-500 text-center md:text-left">
             &copy; {currentYear} Btruss Services Pvt Ltd. All rights reserved.
           </p>
           <div className="flex items-center space-x-4">
             {socialLinks.map((social) => (
-              <Link key={social.label} href={social.href} aria-label={social.label} className="text-muted-foreground hover:text-primary transition-colors">
+              <Link key={social.label} href={social.href} aria-label={social.label} className="text-neutral-400 hover:text-primary transition-colors">
                 <social.icon className="w-5 h-5" />
               </Link>
             ))}
