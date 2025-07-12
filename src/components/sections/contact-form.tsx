@@ -42,11 +42,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ imageUrl, aiHint, category, t
   return (
     <div
       className={cn(
-        "group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-card border border-border/30 flex flex-col transform-gpu",
-        "hover:-translate-y-2",
+        "group relative rounded-xl overflow-hidden shadow-lg hover:shadow-primary/40 transition-all duration-500 bg-neutral-900/50 backdrop-blur-sm border border-white/10 flex flex-col transform-gpu",
+        "hover:-translate-y-2 hover:border-primary/50",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       )}
     >
+      <Link href={href} className="absolute inset-0 z-10" aria-label={`View case study for ${title}`}></Link>
       <div className="relative w-full aspect-[4/3] overflow-hidden">
         <Image
           src={imageUrl}
@@ -56,16 +57,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ imageUrl, aiHint, category, t
           height={300}
           className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
       </div>
-      <div className="p-6 flex flex-col flex-grow">
+      <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
         <p className="text-sm font-semibold text-primary mb-1 uppercase tracking-wider">{category}</p>
-        <h3 className="text-xl font-semibold text-card-foreground mb-4 line-clamp-2 flex-grow">{title}</h3>
-        <Button variant="link" asChild className="text-card-foreground/80 hover:text-primary p-0 h-auto font-medium self-start group-hover:translate-x-1 transition-transform">
-          <Link href={href}>
-            VIEW CASE STUDY <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
+        <h3 className="text-lg font-bold text-white mb-2 leading-tight line-clamp-2">{title}</h3>
+        <div className="flex items-center text-sm font-medium text-white/80 transition-colors group-hover:text-primary z-20 relative">
+          VIEW CASE STUDY <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </div>
       </div>
     </div>
   );
