@@ -102,8 +102,8 @@ export function ServicesOverview() {
     <section
       id="services"
       className="py-16 md:py-24 text-foreground bg-cover bg-center"
-      style={{ backgroundImage: `url('/bullu.png')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
-      data-ai-hint="The background image is set to bullu.png from the public folder"
+      style={{ backgroundImage: `url('/newbgtaar.jpg')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+      data-ai-hint="The background image is set to newbgtaar.jpg from the public folder"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">
         {/* --- Services Content --- */}
@@ -169,5 +169,3 @@ export function ServicesOverview() {
     </section>
   );
 }
-
-    
