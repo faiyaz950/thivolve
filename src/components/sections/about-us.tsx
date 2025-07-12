@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -25,7 +24,7 @@ export function AboutUs() {
             <Button
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white/10 hover:text-white transition-transform hover:scale-105 group"
+              className="border-white text-primary hover:bg-white/10 hover:text-white transition-all duration-300 hover:scale-105 group"
               asChild
             >
               <Link href="#services">
@@ -35,8 +34,8 @@ export function AboutUs() {
           </div>
           <div>
             <Image
-              src="https://source.unsplash.com/600x450/?creative,collaboration"
-              alt="Creative team brainstorming"
+              src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb2xsYWJvcmF0aW9uJTIwZ3JvdXB8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="Creative team collaborating on a project"
               data-ai-hint="creative collaboration"
               width={600}
               height={450}
