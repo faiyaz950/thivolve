@@ -96,7 +96,11 @@ export default {
           '0%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
           '100%': { backgroundPosition: '0% 50%' },
-        }
+        },
+        'infinite-scroll': {
+            from: { transform: 'translateX(0)' },
+            to: { transform: 'translateX(-100%)' },
+        },
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
@@ -106,8 +110,11 @@ export default {
         'scale-in': 'scaleIn 0.8s ease-out forwards', // Updated duration
         'letter-in': 'letter-in 0.6s ease-out forwards',
         'animated-gradient': 'animated-gradient 10s ease infinite',
+        'infinite-scroll': 'infinite-scroll 40s linear infinite',
   		}
   	}
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+
+    

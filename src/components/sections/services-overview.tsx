@@ -1,5 +1,4 @@
-import { Smartphone, Globe, LineChart, Palette, Users, HeartPulse, CreditCard, ShieldCheck, BrainCircuit, CheckCircle2, Server, Cloud, Shield, BarChart2, Code, MonitorSmartphone, ArrowRight } from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 
 interface MainService {
@@ -34,7 +33,6 @@ const btrussMainServices: MainService[] = [
   }
 ];
 
-// Content from former partners-banner.tsx
 const partnerLogos = [
   {
     src: "https://images.unsplash.com/photo-1614959604920-935a03f0116e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nbyUyMG1vbm9jaHJvbWV8ZW58MHx8fHwxNzQ4MDc0ODI1fDA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -97,7 +95,6 @@ const partnerLogos = [
     hint: "enterprise client brand"
   },
 ];
-// End of content from former partners-banner.tsx
 
 
 export function ServicesOverview() {
@@ -105,8 +102,8 @@ export function ServicesOverview() {
     <section
       id="services"
       className="py-16 md:py-24 text-foreground bg-cover bg-center"
-      style={{ backgroundImage: `url('/newbgtaar.jpg')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
-      data-ai-hint="The background image is set to newbgtaar.jpg from the public folder"
+      style={{ backgroundImage: `url('/bullu.png')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+      data-ai-hint="The background image is set to bullu.png from the public folder"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">
         {/* --- Services Content --- */}
@@ -172,3 +169,5 @@ export function ServicesOverview() {
     </section>
   );
 }
+
+    
