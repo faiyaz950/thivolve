@@ -1,44 +1,36 @@
-import { Smartphone, Globe, LineChart, Palette, Users, HeartPulse, CreditCard, ShieldCheck, BrainCircuit, CheckCircle2, Server, Cloud, Shield, BarChart2, Code, MonitorSmartphone } from 'lucide-react';
+import { Smartphone, Globe, LineChart, Palette, Users, HeartPulse, CreditCard, ShieldCheck, BrainCircuit, CheckCircle2, Server, Cloud, Shield, BarChart2, Code, MonitorSmartphone, ArrowRight } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import Image from 'next/image';
 
 interface MainService {
   title: string;
   details: string;
-  icon: LucideIcon;
-  subServices?: string[];
 }
 
 const btrussMainServices: MainService[] = [
   {
     title: "IT Services",
     details: "We leverage technology to provide cutting-edge solutions that elevate your business. Our offerings include:",
-    icon: MonitorSmartphone,
   },
   {
     title: "Healthcare Services",
     details: "Our healthcare solutions prioritize quality and accessibility, supporting individuals and organizations with care that improves lives.",
-    icon: HeartPulse,
   },
   {
     title: "Credit Card Sales",
     details: "We provide secure, convenient payment solutions to help businesses thrive, streamlining transactions for enhanced customer satisfaction.",
-    icon: CreditCard,
   },
   {
     title: "Insurance Sales",
     details: "Protecting your future is our priority. We offer comprehensive insurance plans tailored to provide peace of mind.",
-    icon: ShieldCheck,
   },
   {
     title: "AI Services",
     details: "Leveraging cutting-edge AI to create intelligent solutions for data analysis, automation, and actionable business insights.",
-    icon: BrainCircuit,
   },
   {
     title: "Resource Outsource",
     details: "Supplying skilled professionals and critical expertise for both short-term and long-term projects, boosting your team's capacity.",
-    icon: Users,
   }
 ];
 
@@ -119,24 +111,19 @@ export function ServicesOverview() {
       <div className="container mx-auto px-4 max-w-screen-xl">
         {/* --- Services Content --- */}
         <div className="mb-16 md:mb-24">
-          <div className="mb-12 md:mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">Our Services</h2>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-3">Our Services</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
             {btrussMainServices.map((service) => {
-              const MainIcon = service.icon || CheckCircle2; // Fallback icon
               return (
-                <div
-                  key={service.title}
-                  className="p-6 rounded-lg border border-border/70 shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out flex flex-col bg-card"
-                >
-                  <div className="flex items-center mb-4">
-                    <div className="p-3 rounded-full bg-primary/10 mr-4">
-                      <MainIcon className="w-7 h-7 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-bold text-primary">{service.title}</h3>
-                  </div>
-                  <p className="text-card-foreground/80 text-base leading-relaxed">{service.details}</p>
+                <div key={service.title} className="group">
+                  <h3 className="flex items-center text-xl font-semibold text-white mb-3 transition-colors group-hover:text-primary">
+                    {service.title}
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </h3>
+                  <p className="text-neutral-300 text-base leading-relaxed mb-4">{service.details}</p>
+                  <div className="w-16 h-0.5 bg-primary/70 transition-all duration-300 group-hover:w-24 group-hover:bg-primary"></div>
                 </div>
               );
             })}
