@@ -43,12 +43,12 @@ const partnerLogos = [
     hint: "enterprise client brand"
   },
   {
-    src: "https://images.unsplash.com/photo-1531973576160-7125cd663d86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvbXBhbnklMjBsb2dvfGVufDB8fHx8MTc0ODA3NDgyNXww&ixlib-rb-4.1.0&q=80&w=1080",
+    src: "https://images.unsplash.com/photo-1531973576160-7125cd663d86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvbXBhbnklMjBsb2dvfGVufDB8fHx8MTc0ODA3NDgyNXww&ixlib=rb-4.1.0&q=80&w=1080",
     alt: "Abstract Company Logo",
     hint: "company logo abstract"
   },
   {
-    src: "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWNoJTIwY2xpZW50JTIwbG9nbyxlbnwwfHx8fDE3NDgxNzM0MDZ8MA&ixlib-rb-4.1.0&q=80&w=1080",
+    src: "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWNoJTIwY2xpZW50JTIwbG9nbyxlbnwwfHx8fDE3NDgxNzM0MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     alt: "Tech Company Mark",
     hint: "tech client logo"
   },
@@ -68,7 +68,7 @@ const partnerLogos = [
     hint: "startup logo minimalist"
   },
   {
-    src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxlbnRlcnByaXNlJTIwY2xpZW50JTIwYnJhbmR8ZW58MHx8fHwxNzQ4MDc0ODI2fDA&ixlib-rb-4.1.0&q=80&w=1080",
+    src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxlbnRlcnByaXNlJTIwY2xpZW50JTIwYnJhbmR8ZW58MHx8fHwxNzQ4MDc0ODI2fDA&ixlib=rb-4.1.0&q=80&w=1080",
     alt: "Enterprise Brand Mark",
     hint: "enterprise client brand"
   },
