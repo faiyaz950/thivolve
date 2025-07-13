@@ -8,8 +8,8 @@ export function AboutUs() {
     <section
       id="about-us"
       className="py-16 md:py-24 bg-cover bg-center text-white"
-      style={{ backgroundImage: "url('/bluebg.jpg')" }}
-      data-ai-hint="The background image is set to bluebg.jpg from the public folder"
+      style={{ backgroundImage: "url('/bluebgm.jpg')" }}
+      data-ai-hint="The background image is set to bluebgm.jpg from the public folder"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
