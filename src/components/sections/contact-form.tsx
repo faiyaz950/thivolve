@@ -158,8 +158,8 @@ export function ContactForm() {
     <section
       id="contact"
       className="py-16 md:py-24 bg-cover bg-center text-white"
-      style={{ backgroundImage: "url('/bullu.png')" }}
-      data-ai-hint="The background image is set to bullu.png from the public folder"
+      style={{ backgroundImage: "url('/tiger.png')" }}
+      data-ai-hint="The background image is set to tiger.png from the public folder"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">
         {/* "Our Work" Content Start */}
