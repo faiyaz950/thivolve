@@ -1,6 +1,12 @@
 
-import { ArrowRight } from 'lucide-react';
+"use client";
+
+import { useState } from 'react';
+import { ArrowRight, Eye } from 'lucide-react';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 const services = [
     { slug: 'it-services', title: "IT Services", description: "We leverage technology to provide cutting-edge solutions that elevate your business, from web development to digital marketing." },
@@ -25,6 +31,9 @@ const partnerLogos = [
 
 
 export function ServicesOverview() {
+  const [showAllPartners, setShowAllPartners] = useState(false);
+  const partnersToShow = showAllPartners ? partnerLogos : partnerLogos.slice(0, 1);
+
   return (
     <section
       id="services"
@@ -41,14 +50,14 @@ export function ServicesOverview() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
             {services.map((service) => {
               return (
-                <div key={service.slug} className="group block">
+                <Link key={service.slug} href={`/services/${service.slug}`} className="group block">
                   <h3 className="flex items-center text-xl font-semibold text-white mb-3 transition-colors group-hover:text-primary">
                     {service.title}
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </h3>
                   <p className="text-neutral-300 text-base leading-relaxed mb-4">{service.description}</p>
                   <div className="w-16 h-0.5 bg-primary/70 transition-all duration-300 group-hover:w-24 group-hover:bg-primary"></div>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -60,11 +69,24 @@ export function ServicesOverview() {
             Our Clients and Brands We Partner With
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-            {partnerLogos.slice(0, 9).map((logo, index) => (
+          <div 
+            className={cn(
+              "grid gap-8 transition-all duration-700 ease-in-out",
+              showAllPartners ? "grid-cols-2 md:grid-cols-3" : "grid-cols-1 md:grid-cols-1"
+            )}
+            style={{
+              maxHeight: showAllPartners ? '1000px' : '200px', // Adjust maxHeight for smooth transition
+              opacity: 1,
+            }}
+          >
+            {partnersToShow.map((logo, index) => (
               <div
                 key={index}
-                className="group relative flex items-center justify-center p-6 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 shadow-lg hover:shadow-primary/30 transition-all duration-300 aspect-video hover:-translate-y-1"
+                className={cn(
+                  "group relative flex items-center justify-center p-6 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-lg hover:shadow-primary/30 transition-all duration-300 aspect-video hover:-translate-y-1",
+                   showAllPartners ? 'animate-fade-in' : ''
+                )}
+                style={{animationDelay: `${index * 100}ms`}}
               >
                 <Image
                   src={logo.src}
@@ -77,6 +99,19 @@ export function ServicesOverview() {
               </div>
             ))}
           </div>
+
+           {!showAllPartners && (
+            <div className="text-center mt-12">
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => setShowAllPartners(true)}
+                className="border-white text-primary hover:bg-white/10 hover:text-white transition-all duration-300 hover:scale-105 group"
+              >
+                View All <Eye className="ml-2 h-5 w-5 transition-transform group-hover:rotate-12" />
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </section>
