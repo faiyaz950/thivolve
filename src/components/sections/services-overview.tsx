@@ -2,7 +2,15 @@
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { services } from '@/lib/services-data';
+
+const services = [
+    { slug: 'it-services', title: "IT Services", description: "We leverage technology to provide cutting-edge solutions that elevate your business, from web development to digital marketing." },
+    { slug: 'healthcare-services', title: "Healthcare Services", description: "Our healthcare solutions prioritize quality and accessibility, supporting individuals and organizations with care that improves lives." },
+    { slug: 'credit-card-sales', title: "Credit Card Sales", description: "We provide secure, convenient payment solutions to help businesses thrive, streamlining transactions for enhanced customer satisfaction." },
+    { slug: 'insurance-sales', title: "Insurance Sales", description: "Protecting your future is our priority. We offer comprehensive insurance plans tailored to provide peace of mind." },
+    { slug: 'ai-services', title: "AI Services", description: "Leveraging cutting-edge AI to create intelligent solutions for data analysis, automation, and actionable business insights." },
+    { slug: 'resource-outsource', title: "Resource Outsource", description: "Supplying skilled professionals and critical expertise for both short-term and long-term projects, boosting your team's capacity." }
+];
 
 const partnerLogos = [
   {
@@ -85,14 +93,14 @@ export function ServicesOverview() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
             {services.map((service) => {
               return (
-                <Link href={`/services/${service.slug}`} key={service.slug} className="group">
+                <div key={service.slug} className="group">
                   <h3 className="flex items-center text-xl font-semibold text-white mb-3 transition-colors group-hover:text-primary">
                     {service.title}
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </h3>
                   <p className="text-neutral-300 text-base leading-relaxed mb-4">{service.description}</p>
                   <div className="w-16 h-0.5 bg-primary/70 transition-all duration-300 group-hover:w-24 group-hover:bg-primary"></div>
-                </Link>
+                </div>
               );
             })}
           </div>
