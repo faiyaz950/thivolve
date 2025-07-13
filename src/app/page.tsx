@@ -4,7 +4,8 @@ import { Hero } from '@/components/sections/hero';
 import { AboutUs } from '@/components/sections/about-us';
 import { VideoSection } from '@/components/sections/video-section';
 import { ServicesOverview } from '@/components/sections/services-overview';
-import { ContactForm } from '@/components/sections/contact-form'; // This now includes OurWork content
+import { OurWork } from '@/components/sections/our-work';
+import { ContactForm } from '@/components/sections/contact-form';
 
 export default function HomePage() {
   return (
@@ -15,7 +16,8 @@ export default function HomePage() {
         <AboutUs />
         <VideoSection />
         <ServicesOverview />
-        <ContactForm /> {/* This component now includes the "Our Work" content */}
+        <OurWork />
+        <ContactForm />
       </main>
       <Footer />
     </div>
