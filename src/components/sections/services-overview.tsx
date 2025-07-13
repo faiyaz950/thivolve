@@ -1,37 +1,8 @@
+
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-
-interface MainService {
-  title: string;
-  details: string;
-}
-
-const btrussMainServices: MainService[] = [
-  {
-    title: "IT Services",
-    details: "We leverage technology to provide cutting-edge solutions that elevate your business. Our offerings include:",
-  },
-  {
-    title: "Healthcare Services",
-    details: "Our healthcare solutions prioritize quality and accessibility, supporting individuals and organizations with care that improves lives.",
-  },
-  {
-    title: "Credit Card Sales",
-    details: "We provide secure, convenient payment solutions to help businesses thrive, streamlining transactions for enhanced customer satisfaction.",
-  },
-  {
-    title: "Insurance Sales",
-    details: "Protecting your future is our priority. We offer comprehensive insurance plans tailored to provide peace of mind.",
-  },
-  {
-    title: "AI Services",
-    details: "Leveraging cutting-edge AI to create intelligent solutions for data analysis, automation, and actionable business insights.",
-  },
-  {
-    title: "Resource Outsource",
-    details: "Supplying skilled professionals and critical expertise for both short-term and long-term projects, boosting your team's capacity.",
-  }
-];
+import Link from 'next/link';
+import { services } from '@/lib/services-data';
 
 const partnerLogos = [
   {
@@ -112,16 +83,16 @@ export function ServicesOverview() {
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-3">Our Services</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-            {btrussMainServices.map((service) => {
+            {services.map((service) => {
               return (
-                <div key={service.title} className="group">
+                <Link href={`/services/${service.slug}`} key={service.slug} className="group">
                   <h3 className="flex items-center text-xl font-semibold text-white mb-3 transition-colors group-hover:text-primary">
                     {service.title}
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </h3>
-                  <p className="text-neutral-300 text-base leading-relaxed mb-4">{service.details}</p>
+                  <p className="text-neutral-300 text-base leading-relaxed mb-4">{service.description}</p>
                   <div className="w-16 h-0.5 bg-primary/70 transition-all duration-300 group-hover:w-24 group-hover:bg-primary"></div>
-                </div>
+                </Link>
               );
             })}
           </div>

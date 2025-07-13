@@ -38,11 +38,10 @@ export function Footer() {
           <div className="md:col-span-1 lg:col-span-1 mb-8 md:mb-0">
             <Link href="/" className="inline-block mb-4">
               <Image 
-                src="/btruss-logo.png" 
+                src="/btrusssl.png" 
                 alt="Btruss Logo" 
                 width={130} 
-                height={32}
-                className="h-8 w-auto" // Assuming btruss-logo.png is suitable for dark backgrounds or is light.
+                height={52}
               />
             </Link>
             <p className="text-sm text-neutral-400 leading-relaxed max-w-xs">
