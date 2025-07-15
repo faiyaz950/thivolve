@@ -15,15 +15,13 @@ const services = [
 ];
 
 const partnerLogos = [
+  { src: "https://images.unsplash.com/photo-1531973576160-7125cd663d86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvbXBhbnklMjBsb2dvfGVufDB8fHx8MTc0ODA3NDgyNXww&ixlib=rb-4.1.0&q=80&w=1080", alt: "Visionary Abstract Logo", hint: "abstract company logo" },
   { src: "https://images.unsplash.com/photo-1614959604920-935a03f0116e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nbyUyMG1vbm9jaHJvbWV8ZW58MHx8fHwxNzQ4MDc0ODI1fDA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Innovate Inc. Logo", hint: "company logo monochrome" },
   { src: "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWNoJTIwY2xpZW50JTIwbG9nbyxlbnwwfHx8fDE3NDgxNzM0MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Quantum Tech Logo", hint: "tech client logo" },
   { src: "https://images.unsplash.com/photo-1458819714733-e5ab3d536722?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwYXJ0bmVyJTIwbG9nbyUyMHNpbXBsZXxlbnwwfHx8fDE3NDgwNzQ4MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Apex Solutions Logo", hint: "partner logo simple" },
-  { src: "https://images.unsplash.com/photo-1612222869049-d8ec83637a3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb3Jwb3JhdGUlMjBwYXJ0bmVyJTIwbG9nb3xlbnwwfHx8fDE3NDgwNzQ4MjV8MA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Stellar Corp Logo", hint: "corporate partner logo" },
+  { src: "https://images.unsplash.com/photo-1612222869049-d8ec83637a3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb3Jwb3JhdGUlMjBwYXJ0bmVyJTIwbG9nbyxlbnwwfHx8fDE3NDgwNzQ4MjV8MA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Stellar Corp Logo", hint: "corporate partner logo" },
   { src: "https://images.unsplash.com/photo-1487260211189-670c54da558d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdGFydHVwJTIwbG9nbyUyMG1pbmltYWxpc3R8ZW58MHx8fHwxNzQ4MDc0ODI2fDA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Momentum Startup Logo", hint: "startup logo minimalist" },
   { src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxlbnRlcnByaXNlJTIwY2xpZW50JTIwYnJhbmR8ZW58MHx8fHwxNzQ4MDc0ODI2fDA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Global Trust Enterprise Logo", hint: "enterprise client brand" },
-  { src: "https://images.unsplash.com/photo-1531973576160-7125cd663d86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvbXBhbnklMjBsb2dvfGVufDB8fHx8MTc0ODA3NDgyNXww&ixlib=rb-4.1.0&q=80&w=1080", alt: "Visionary Abstract Logo", hint: "company logo abstract" },
-  { src: "https://source.unsplash.com/150x60/?logo,tech", alt: "FutureNet Logo", hint: "tech logo" },
-  { src: "https://source.unsplash.com/150x60/?logo,finance", alt: "Gold Standard Finance", hint: "finance logo" },
 ];
 
 
@@ -81,7 +79,7 @@ export function ServicesOverview() {
                     alt={logo.alt}
                     width={150}
                     height={60}
-                    className="object-contain h-10 md:h-12 w-auto opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                    className="object-contain h-10 md:h-12 w-auto brightness-0 invert"
                     data-ai-hint={logo.hint}
                   />
                 </div>
