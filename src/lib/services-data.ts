@@ -84,49 +84,49 @@ export const services: Service[] = [
         slug: "website-development",
         title: "Website Development",
         icon: "website-development",
-        description: "Aapke business ke liye modern, responsive aur user-friendly websites banate hain jo aapke brand identity ko perfectly represent karte hain. Hamare expert developers latest technologies use karte hain to ensure करते हैं कि आपकी website fast, secure aur search engine optimized ho.",
+        description: "We build modern, responsive, and user-friendly websites that perfectly represent your brand identity. Our expert developers use the latest technologies to ensure your website is fast, secure, and search engine optimized.",
         backgroundImage: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGV2ZWxvcG1lbnR8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          { title: "Key Features", description: "Responsive Design (Mobile, tablet, desktop), Fast Loading Speed, SEO Friendly Structure, User-Friendly Interface, Security Features (SSL), and Content Management System integration." },
-          { title: "Technologies We Use", description: "Frontend: HTML5, CSS3, JavaScript, React, Angular. Backend: PHP, Node.js, Python, .NET. Databases: MySQL, PostgreSQL, MongoDB. CMS: WordPress, Drupal, Custom solutions." },
-          { title: "Our Process", description: "Our structured process includes Planning & Analysis, Design & Wireframing, Development, Testing, and finally Launch & Support to ensure a seamless delivery." }
+          { title: "Key Features", description: "Fully Responsive Design (mobile, tablet, desktop), Fast Loading Speeds, SEO-Friendly Architecture, User-Friendly Interface, Enhanced Security Features (SSL), and seamless Content Management System (CMS) integration." },
+          { title: "Technologies We Use", description: "Frontend: HTML5, CSS3, JavaScript, React, Angular. Backend: PHP, Node.js, Python, .NET. Databases: MySQL, PostgreSQL, MongoDB. CMS: WordPress, Drupal, and custom solutions." },
+          { title: "Our Process", description: "Our structured process includes Planning & Analysis, Design & Wireframing, Development, rigorous Testing, and finally Launch & ongoing Support to ensure a seamless delivery." }
         ]
       },
       {
         slug: "mobile-application-development",
         title: "Mobile App Development",
         icon: "mobile-application-development",
-        description: "Mobile-first approach ke saath innovative aur engaging mobile applications develop karte hain. Chahe aap startup हों या established business, हमारे mobile apps आपके customers को exceptional experience provide करते हैं।",
+        description: "With a mobile-first approach, we develop innovative and engaging mobile applications. Whether you are a startup or an established business, our mobile apps provide your customers with an exceptional experience.",
         backgroundImage: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
           { title: "Platform Expertise", description: "We specialize in Native iOS (Swift, Objective-C), Native Android (Java, Kotlin), Cross-Platform (React Native, Flutter), and Progressive Web Apps (PWA)." },
-          { title: "App Categories", description: "We build a wide range of applications including E-commerce, Business & Productivity, Educational, Healthcare, Social Networking, Food, Travel, and Gaming apps." },
-          { title: "Development Features", description: "Our apps feature User-Centric Design, Performance Optimization, robust Security Implementation, API Integration, Push Notifications, and Analytics Integration." },
-          { title: "Development Process", description: "We follow a comprehensive process: Concept & Strategy, UI/UX Design, Agile Development, rigorous Testing, App Store Deployment, and ongoing Maintenance." }
+          { title: "App Categories", description: "We build a wide range of applications including E-commerce, Business & Productivity, Educational, Healthcare, Social Networking, Food & Restaurant, Travel, and Gaming apps." },
+          { title: "Development Features", description: "Our apps feature User-Centric Design, Performance Optimization, robust Security Implementation, API Integration, Push Notifications, and powerful Analytics Integration." },
+          { title: "Development Process", description: "We follow a comprehensive process: Concept & Strategy, UI/UX Design, Agile Development, rigorous Testing, App Store Deployment, and continuous Maintenance." }
         ]
       },
       {
         slug: "digital-marketing",
         title: "Digital Marketing",
         icon: "digital-marketing",
-        description: "Aapke business को online visibility increase करने के लिए result-driven digital marketing strategies implement करते हैं। Organic traffic बढ़ाने से लेकर conversion optimization तक, हमारी team आपके marketing goals achieve करने में help करती है।",
+        description: "We implement result-driven digital marketing strategies to increase your business's online visibility. From boosting organic traffic to conversion optimization, our team helps you achieve your marketing goals.",
         backgroundImage: "https://images.unsplash.com/photo-1557862921-37829c790f19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          { title: "SEO Services", description: "We offer On-Page SEO, Off-Page SEO, Technical SEO, Local SEO, E-commerce SEO, and comprehensive SEO Audits to boost your organic rankings." },
-          { title: "Digital Marketing Services", description: "Our services include Search Engine Marketing (SEM), Social Media Marketing (Facebook, Instagram, etc.), Content Marketing, Email Marketing, Pay-Per-Click (PPC), and Online Reputation Management." },
-          { title: "Our Approach", description: "Our data-driven approach involves Market Research, Strategy Development, Implementation, continuous Monitoring, detailed Reporting, and ongoing Optimization." },
-          { title: "Key Benefits", description: "Partnering with us leads to increased organic traffic, higher conversion rates & ROI, enhanced brand visibility, improved customer engagement, and data-driven decision making." }
+          { title: "SEO Services", description: "We offer On-Page SEO (content optimization, meta tags), Off-Page SEO (link building, guest posting), Technical SEO, Local SEO, E-commerce SEO, and comprehensive SEO Audits." },
+          { title: "Digital Marketing Services", description: "Our services include Search Engine Marketing (SEM), Social Media Marketing (Facebook, Instagram), Content Marketing, Email Marketing, Pay-Per-Click (PPC), and Online Reputation Management." },
+          { title: "Our Approach", description: "Our data-driven approach involves Market Research, Strategy Development, Implementation, continuous Monitoring, detailed Reporting, and ongoing Optimization for best results." },
+          { title: "Key Benefits", description: "Partnering with us leads to increased organic traffic, higher conversion rates, enhanced brand visibility, improved customer engagement, and data-driven decision making." }
         ]
       },
       {
         slug: "graphics-designing",
         title: "Graphics Designing",
         icon: "graphics-designing",
-        description: "Professional graphic design services jo aapke brand को visually appealing aur memorable banate हैं। Creative concepts से लेकर final execution तक, हमारे designers आपके vision को reality में convert करते हैं।",
+        description: "We provide professional graphic design services that make your brand visually appealing and memorable. From creative concepts to final execution, our designers convert your vision into reality.",
         backgroundImage: "https://images.unsplash.com/photo-1626785774573-4b799315345d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxncmFwaGljcyUyMGRlc2lnbmluZ3xlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          { title: "Design Services", description: "We provide Logo Design, complete Brand Identity packages, Print Design (brochures, flyers), Web Design (UI/UX), Social Media Graphics, Packaging Design, and Marketing Materials." },
-          { title: "Logo Design Process", description: "Our logo process includes a detailed Brief & Research, Concept Development, client feedback and Refinement, Finalization, and creating Brand Guidelines for consistent use." },
+          { title: "Design Services", description: "We provide Logo Design, complete Brand Identity packages, Print Design (brochures, flyers), Web Design (UI/UX), Social Media Graphics, Packaging Design, and other Marketing Materials." },
+          { title: "Logo Design Process", description: "Our logo process includes a detailed Brief & Research, Concept Development, client Feedback & Refinement, Finalization, and creating Brand Guidelines for consistent use." },
           { title: "Design Expertise", description: "Our team is proficient in Adobe Creative Suite (Photoshop, Illustrator, InDesign), UI/UX Tools (Figma, Sketch), Print Production, Brand Strategy, Typography, and Color Theory." },
           { title: "Deliverables", description: "We provide final designs in multiple formats (Vector, high-res images), Print-Ready Files, Web-Optimized Graphics, comprehensive Brand Guidelines, and editable Source Files." }
         ]

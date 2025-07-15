@@ -240,7 +240,7 @@ export function ServicePageClient({ service }: { service: Service }) {
               </TabsList>
 
               {details.map((detail) => (
-                <TabsContent key={detail.slug} value={detail.slug} className="mt-10">
+                <TabsContent key={detail.slug} value={detail.slug} className="mt-10 mb-10">
                   <div className="group relative overflow-hidden rounded-3xl bg-neutral-900 shadow-xl border border-neutral-800">
                     <div className="relative h-80 overflow-hidden">
                       <Image
@@ -294,23 +294,22 @@ export function ServicePageClient({ service }: { service: Service }) {
           </div>
         </section>
 
-        <section className="py-20 bg-gradient-to-r from-red-600 to-red-800 text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/20"></div>
+        <section className="py-20 bg-gradient-to-r from-black via-blue-950/50 to-black text-white relative overflow-hidden">
           <div className="container mx-auto px-4 max-w-4xl text-center relative z-10">
             <div className="space-y-8">
               <h2 className="text-4xl md:text-5xl font-bold">Ready to Start Your Project?</h2>
-              <p className="text-xl text-red-100 max-w-2xl mx-auto">
+              <p className="text-xl text-blue-100 max-w-2xl mx-auto">
                 Let's discuss how our expertise in {serviceCategoryTitle} can elevate your business to the next level.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                  <Link href="/#contact">
-                  <Button className="bg-white text-red-600 px-8 py-3 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center space-x-2">
+                  <Button variant="outline" className="border-2 border-white text-white bg-transparent px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-black transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center space-x-2">
                     <span>Get a Free Consultation</span>
                     <ArrowRight className="w-5 h-5" />
                   </Button>
                 </Link>
                 <Link href="/#our-work">
-                  <Button variant="outline" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-red-600 transition-all duration-300">
+                  <Button variant="outline" className="border-2 border-white text-white bg-transparent px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300">
                     View Portfolio
                   </Button>
                 </Link>
