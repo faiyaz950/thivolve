@@ -84,52 +84,51 @@ export const services: Service[] = [
         slug: "website-development",
         title: "Website Development",
         icon: "website-development",
-        description: "We create modern, responsive, and SEO-friendly websites tailored to your brand. Our expertise covers e-commerce, portfolios, and complex web applications, ensuring high performance and user engagement.",
+        description: "Aapke business ke liye modern, responsive aur user-friendly websites banate hain jo aapke brand identity ko perfectly represent karte hain. Hamare expert developers latest technologies use karte hain to ensure करते हैं कि आपकी website fast, secure aur search engine optimized ho.",
         backgroundImage: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGV2ZWxvcG1lbnR8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          { title: "Static & Dynamic Websites", description: "We build fast, secure static sites for portfolios and brochures, as well as interactive, CMS-driven dynamic sites for blogs, corporate portals, and complex business applications. Our dynamic solutions allow for easy content management and scalability." },
-          { title: "E-commerce Solutions", description: "Our team creates feature-rich online stores with secure payment gateways, intuitive inventory management, and a seamless user experience to maximize your sales. We integrate with major platforms and build custom solutions." },
-          { title: "Modern Tech Stack", description: "We leverage cutting-edge technologies like React, Next.js for server-side rendering, and Node.js for robust back-end services to build scalable, high-performance, and maintainable web applications for the future." },
-          { title: "SEO-Friendly Architecture", description: "Every website is built from the ground up with search engine optimization best practices in mind, including semantic HTML, fast load times, and mobile-first design, ensuring your business achieves maximum visibility." }
+          { title: "Key Features", description: "Responsive Design (Mobile, tablet, desktop), Fast Loading Speed, SEO Friendly Structure, User-Friendly Interface, Security Features (SSL), and Content Management System integration." },
+          { title: "Technologies We Use", description: "Frontend: HTML5, CSS3, JavaScript, React, Angular. Backend: PHP, Node.js, Python, .NET. Databases: MySQL, PostgreSQL, MongoDB. CMS: WordPress, Drupal, Custom solutions." },
+          { title: "Our Process", description: "Our structured process includes Planning & Analysis, Design & Wireframing, Development, Testing, and finally Launch & Support to ensure a seamless delivery." }
         ]
       },
       {
         slug: "mobile-application-development",
         title: "Mobile App Development",
         icon: "mobile-application-development",
-        description: "Engage your customers on the go with our native and hybrid mobile apps. We build intuitive, high-performance applications for both iOS and Android platforms, from concept to launch.",
+        description: "Mobile-first approach ke saath innovative aur engaging mobile applications develop karte hain. Chahe aap startup हों या established business, हमारे mobile apps आपके customers को exceptional experience provide करते हैं।",
         backgroundImage: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          { title: "Native Android Development", description: "Building robust, scalable, and high-performance apps for the world's most popular mobile OS using modern technologies like Kotlin and Java with Android Studio. We ensure apps are optimized for a wide range of devices." },
-          { title: "Native iOS Development", description: "Crafting seamless, elegant, and powerful experiences for Apple's ecosystem using the latest Swift and SwiftUI frameworks with Xcode. Our focus is on quality, performance, and adherence to Apple's design guidelines." },
-          { title: "Cross-Platform (React Native)", description: "Delivering cost-effective solutions by using a single codebase in React Native to target multiple platforms (iOS & Android) without compromising on a native look and feel or user experience." },
-          { title: "Cross-Platform (Flutter)", description: "Creating beautiful, natively compiled applications for mobile, web, and desktop from a single, unified codebase with Flutter. This ensures a consistent and fluid user interface across all platforms." }
+          { title: "Platform Expertise", description: "We specialize in Native iOS (Swift, Objective-C), Native Android (Java, Kotlin), Cross-Platform (React Native, Flutter), and Progressive Web Apps (PWA)." },
+          { title: "App Categories", description: "We build a wide range of applications including E-commerce, Business & Productivity, Educational, Healthcare, Social Networking, Food, Travel, and Gaming apps." },
+          { title: "Development Features", description: "Our apps feature User-Centric Design, Performance Optimization, robust Security Implementation, API Integration, Push Notifications, and Analytics Integration." },
+          { title: "Development Process", description: "We follow a comprehensive process: Concept & Strategy, UI/UX Design, Agile Development, rigorous Testing, App Store Deployment, and ongoing Maintenance." }
         ]
       },
       {
         slug: "digital-marketing",
         title: "Digital Marketing",
         icon: "digital-marketing",
-        description: "Expand your reach with our data-driven digital marketing strategies. We specialize in SEO, SEM, content marketing, and social media to boost your online visibility, generate qualified leads, and grow your revenue.",
+        description: "Aapke business को online visibility increase करने के लिए result-driven digital marketing strategies implement करते हैं। Organic traffic बढ़ाने से लेकर conversion optimization तक, हमारी team आपके marketing goals achieve करने में help करती है।",
         backgroundImage: "https://images.unsplash.com/photo-1557862921-37829c790f19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          { title: "Search Engine Optimization (SEO)", description: "Improving your website's organic ranking and visibility through comprehensive on-page, off-page, and technical SEO strategies. We focus on keyword research, quality content, and link building to drive sustainable traffic." },
-          { title: "Search Engine Marketing (SEM)", description: "Driving immediate, targeted traffic and maximizing ROI through expert management of Google Ads, Bing Ads, and other pay-per-click (PPC) campaigns. We optimize for conversions and provide detailed reporting." },
-          { title: "Content Marketing Strategy", description: "Creating and distributing valuable, relevant, and consistent content (blogs, videos, case studies, infographics) to attract, engage, and retain your target audience, establishing you as an industry leader." },
-          { title: "Social Media Management", description: "Building and managing your brand's presence across relevant social media platforms to foster community, drive engagement, and support business objectives. We handle everything from content creation to community management." }
+          { title: "SEO Services", description: "We offer On-Page SEO, Off-Page SEO, Technical SEO, Local SEO, E-commerce SEO, and comprehensive SEO Audits to boost your organic rankings." },
+          { title: "Digital Marketing Services", description: "Our services include Search Engine Marketing (SEM), Social Media Marketing (Facebook, Instagram, etc.), Content Marketing, Email Marketing, Pay-Per-Click (PPC), and Online Reputation Management." },
+          { title: "Our Approach", description: "Our data-driven approach involves Market Research, Strategy Development, Implementation, continuous Monitoring, detailed Reporting, and ongoing Optimization." },
+          { title: "Key Benefits", description: "Partnering with us leads to increased organic traffic, higher conversion rates & ROI, enhanced brand visibility, improved customer engagement, and data-driven decision making." }
         ]
       },
       {
         slug: "graphics-designing",
         title: "Graphics Designing",
         icon: "graphics-designing",
-        description: "Our creative team translates your brand's essence into compelling visual identities, from logos and marketing materials to polished UI/UX designs that create a lasting impression and enhance user experience.",
+        description: "Professional graphic design services jo aapke brand को visually appealing aur memorable banate हैं। Creative concepts से लेकर final execution तक, हमारे designers आपके vision को reality में convert करते हैं।",
         backgroundImage: "https://images.unsplash.com/photo-1626785774573-4b799315345d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxncmFwaGljcyUyMGRlc2lnbmluZ3xlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          { title: "Brand Identity & Logo Design", description: "Developing a memorable and cohesive visual identity system, including logos, color palettes, and typography, that powerfully represents your brand's core values and resonates with your target audience." },
-          { title: "Marketing & Advertising Graphics", description: "Designing eye-catching and effective visuals for digital and print, including social media campaigns, display ads, brochures, banners, and presentations that capture attention and drive action." },
-          { title: "UI/UX Design", description: "Crafting intuitive, user-centered, and beautiful interfaces for websites and mobile applications. We focus on wireframing, prototyping, and user testing to prioritize usability and enhance the overall user experience." },
-          { title: "Custom Illustrations & Icons", description: "Creating unique and ownable visual assets, such as custom illustrations and icon sets, that make your digital products stand out, strengthen your brand, and communicate complex ideas simply." }
+          { title: "Design Services", description: "We provide Logo Design, complete Brand Identity packages, Print Design (brochures, flyers), Web Design (UI/UX), Social Media Graphics, Packaging Design, and Marketing Materials." },
+          { title: "Logo Design Process", description: "Our logo process includes a detailed Brief & Research, Concept Development, client feedback and Refinement, Finalization, and creating Brand Guidelines for consistent use." },
+          { title: "Design Expertise", description: "Our team is proficient in Adobe Creative Suite (Photoshop, Illustrator, InDesign), UI/UX Tools (Figma, Sketch), Print Production, Brand Strategy, Typography, and Color Theory." },
+          { title: "Deliverables", description: "We provide final designs in multiple formats (Vector, high-res images), Print-Ready Files, Web-Optimized Graphics, comprehensive Brand Guidelines, and editable Source Files." }
         ]
       }
     ]
