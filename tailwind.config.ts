@@ -110,7 +110,7 @@ export default {
         'scale-in': 'scaleIn 0.8s ease-out forwards',
         'letter-in': 'letter-in 0.6s ease-out forwards',
         'animated-gradient': 'animated-gradient 10s ease infinite',
-        'infinite-scroll': 'infinite-scroll 40s linear infinite',
+        'infinite-scroll': 'infinite-scroll 25s linear infinite',
   		}
   	}
   },
