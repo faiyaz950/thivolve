@@ -16,20 +16,6 @@ interface ServicePageProps {
   };
 }
 
-// Cannot be used with 'use client'
-// export async function generateMetadata({ params }: ServicePageProps) {
-//   const service = services.find(s => s.slug === params.slug);
-//   if (!service) {
-//     return {
-//       title: 'Service Not Found',
-//     }
-//   }
-//   return {
-//     title: `${service.title} | Btruss Digital Hub`,
-//     description: service.description,
-//   }
-// }
-
 const getIcon = (iconName: string | undefined) => {
     const iconClass = "w-12 h-12 text-primary";
     if (!iconName) return <Sparkles className={iconClass} />;
@@ -57,7 +43,16 @@ const getIcon = (iconName: string | undefined) => {
 export default function ServicePage({ params }: ServicePageProps) {
   const service = services.find(s => s.slug === params.slug);
   const [activeSection, setActiveSection] = useState<string>('');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  useEffect(() => {
+    if (!service?.hero?.images) return;
+    const imageSliderInterval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % (service.hero.images.length || 1));
+    }, 5000);
+    return () => clearInterval(imageSliderInterval);
+  }, [service]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -68,7 +63,7 @@ export default function ServicePage({ params }: ServicePageProps) {
           }
         });
       },
-      { rootMargin: '-30% 0px -70% 0px' } // Adjust threshold to trigger when section is in middle of viewport
+      { rootMargin: '-30% 0px -70% 0px' }
     );
 
     Object.values(sectionRefs.current).forEach((ref) => {
@@ -93,7 +88,7 @@ export default function ServicePage({ params }: ServicePageProps) {
             <div className="container mx-auto px-4 h-20 flex items-center justify-between max-w-screen-xl">
                  <Link href="/" className="flex items-center">
                     <Image
-                    src="/btrusssl.png"
+                    src="/btrussslogo.png"
                     alt="Btruss Logo"
                     width={120}
                     height={30}
@@ -107,23 +102,53 @@ export default function ServicePage({ params }: ServicePageProps) {
         </header>
 
       <main className="flex-grow">
-        <section className="relative py-24 md:py-32 bg-black text-white overflow-hidden">
-            <div className="absolute inset-0 z-0">
-                <Image
-                    src={service.details[0]?.backgroundImage || "https://images.unsplash.com/photo-1531297484001-80022131f5a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2h8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080"}
-                    alt="Service background"
-                    fill
-                    className="object-cover opacity-30"
-                    data-ai-hint="abstract tech background"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
-            </div>
-             <div className="relative container mx-auto px-4 max-w-screen-lg text-center z-10">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight animate-fade-in" style={{ animationDelay: '200ms' }}>{service.title}</h1>
-                <p className="mt-6 text-lg sm:text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '400ms' }}>
-                   {service.description}
-                </p>
-            </div>
+        <section className="relative h-[60vh] md:h-[70vh] text-white flex flex-col items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 w-full h-full z-0">
+            <div className="absolute inset-0 bg-black/60 z-10"></div>
+            {service.hero?.images && (
+              <>
+                <div
+                  className="flex transition-transform duration-700 ease-in-out h-full"
+                  style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+                >
+                  {service.hero.images.map((image, index) => (
+                    <div key={index} className="w-full flex-shrink-0 h-full relative">
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        data-ai-hint={image.hint}
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                        priority={index === 0}
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+                  {service.hero.images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      aria-label={`Go to slide ${index + 1}`}
+                      className={cn(
+                        "w-3 h-3 rounded-full transition-all duration-300 ease-in-out",
+                        index === currentImageIndex ? "bg-primary scale-125" : "bg-white/50 hover:bg-white/80"
+                      )}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+          <div className="relative z-20 container mx-auto px-4 max-w-screen-lg text-center">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight animate-fade-in" style={{ animationDelay: '200ms' }}>
+              {service.hero?.title || service.title}
+            </h1>
+            <p className="mt-6 text-lg sm:text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '400ms' }}>
+              {service.hero?.description || service.description}
+            </p>
+          </div>
         </section>
 
         <section className="py-16 md:py-24 bg-background">
@@ -220,4 +245,4 @@ export default function ServicePage({ params }: ServicePageProps) {
   );
 }
 
-    
+  
