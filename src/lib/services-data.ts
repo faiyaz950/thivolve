@@ -12,15 +12,18 @@ export interface ServiceDetail {
   subDetails?: SubDetail[];
 }
 
-export interface ServiceHero {
+export interface HeroSlide {
   title: string;
-  animatedTitles?: string[];
   description: string;
-  images: {
+  image: {
     src: string;
     alt: string;
     hint: string;
-  }[];
+  };
+}
+
+export interface ServiceHero {
+  slides: HeroSlide[];
 }
 
 export interface Service {
@@ -37,34 +40,42 @@ export const services: Service[] = [
     title: "IT Services",
     description: "From custom software to stunning websites, we provide comprehensive IT services to build and enhance your digital presence.",
     hero: {
-      title: "Innovative IT Solutions",
-      animatedTitles: [
-        "Custom Web Development",
-        "Modern Mobile Applications",
-        "Effective Digital Marketing",
-        "Creative Graphics Designing"
-      ],
-      description: "We craft digital experiences that drive growth, engagement, and success for your brand.",
-      images: [
+      slides: [
         {
-          src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGV2ZWxvcG1lbnR8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-          alt: "Team working on website development",
-          hint: "website development team"
+          title: "Custom Web Development",
+          description: "We craft responsive, high-performance websites and complex web applications that drive user engagement and deliver business results.",
+          image: {
+            src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGV2ZWxvcG1lbnR8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+            alt: "Team working on website development",
+            hint: "website development team"
+          }
         },
         {
-          src: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-          alt: "Mobile application development interface",
-          hint: "mobile app development"
+          title: "Modern Mobile Applications",
+          description: "Engage your customers on the go with our intuitive, high-performance native and hybrid mobile apps for both iOS and Android.",
+          image: {
+            src: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+            alt: "Mobile application development interface",
+            hint: "mobile app development"
+          }
         },
         {
-          src: "https://images.unsplash.com/photo-1557862921-37829c790f19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-          alt: "Digital marketing strategy session",
-          hint: "digital marketing"
+          title: "Effective Digital Marketing",
+          description: "Expand your reach and generate qualified leads with our data-driven digital marketing, SEO, and content strategies.",
+          image: {
+            src: "https://images.unsplash.com/photo-1557862921-37829c790f19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+            alt: "Digital marketing strategy session",
+            hint: "digital marketing"
+          }
         },
         {
-          src: "https://images.unsplash.com/photo-1626785774573-4b799315345d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxncmFwaGljcyUyMGRlc2lnbmluZ3xlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-          alt: "Graphic designer working on a project",
-          hint: "graphics designing"
+          title: "Creative Graphics Designing",
+          description: "Our creative team translates your brand's essence into compelling visual identities, from logos to polished UI/UX designs.",
+          image: {
+            src: "https://images.unsplash.com/photo-1626785774573-4b799315345d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxncmFwaGljcyUyMGRlc2lnbmluZ3xlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+            alt: "Graphic designer working on a project",
+            hint: "graphics designing"
+          }
         }
       ]
     },
@@ -128,18 +139,24 @@ export const services: Service[] = [
     title: "Healthcare Services",
     description: "Specialized support solutions for the healthcare industry, focusing on quality, efficiency, and compassionate care.",
     hero: {
-      title: "Empowering Health with Compassionate Solutions",
-      description: "We provide the backbone for modern healthcare services, ensuring efficiency and quality care.",
-      images: [
+      slides: [
         {
-          src: "https://images.unsplash.com/photo-1576091160550-2173dba9996a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoZWFsdGhjYXJlfGVufDB8fHx8MTc0ODAzOTYzOHww&ixlib=rb-4.1.0&q=80&w=1080",
-          alt: "Doctor using a laptop",
-          hint: "healthcare technology"
+          title: "Empowering Modern Healthcare",
+          description: "We provide the essential backbone for healthcare services, ensuring efficiency, compliance, and quality patient care.",
+          image: {
+            src: "https://images.unsplash.com/photo-1576091160550-2173dba9996a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoZWFsdGhjYXJlfGVufDB8fHx8MTc0ODAzOTYzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+            alt: "Doctor using a laptop",
+            hint: "healthcare technology"
+          }
         },
         {
-          src: "https://images.unsplash.com/photo-1584820844314-19a93a45c7b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx0ZWxlaGVhbHRofGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-          alt: "Telehealth consultation on a tablet",
-          hint: "telehealth"
+          title: "Seamless Telehealth Support",
+          description: "Our technical and administrative support ensures that virtual consultations are smooth and reliable for both patients and doctors.",
+          image: {
+            src: "https://images.unsplash.com/photo-1584820844314-19a93a45c7b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx0ZWxlaGVhbHRofGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib-rb-4.1.0&q=80&w=1080",
+            alt: "Telehealth consultation on a tablet",
+            hint: "telehealth"
+          }
         }
       ]
     },
@@ -160,7 +177,7 @@ export const services: Service[] = [
         slug: "patient-support",
         title: "Patient Support Services",
         description: "Offering compassionate and efficient patient support, including appointment scheduling, inquiry handling, and follow-ups to enhance patient satisfaction.",
-        backgroundImage: "https://images.unsplash.com/photo-1530497111126-7f21e8740f31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxwYXRpZW50JTIwc3VwcG9ydHxlbnwwfHx8fDE3NDgzOTMzODd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1530497111126-7f21e8740f31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxwYXRpZW50JTIwc3VwcG9ydHxlbnwwfHx8fDE3NDgzOTMzODd8MA&ixlib-rb-4.1.0&q=80&w=1080",
       }
     ]
   },
@@ -169,18 +186,24 @@ export const services: Service[] = [
     title: "Credit Card Sales",
     description: "Expert sales solutions to connect customers with the right financial products to meet their needs.",
     hero: {
-      title: "Connecting Customers with Financial Freedom",
-      description: "Our expert teams drive secure and convenient payment solutions for today's market.",
-      images: [
+      slides: [
         {
-          src: "https://images.unsplash.com/photo-1601597111158-2f8e6308fe83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjcmVkaXQlMjBjYXJkfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-          alt: "Person holding a credit card",
-          hint: "credit card"
+          title: "Connecting Customers with Financial Freedom",
+          description: "Our expert teams drive secure and convenient payment solutions for today's dynamic market.",
+          image: {
+            src: "https://images.unsplash.com/photo-1601597111158-2f8e6308fe83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjcmVkaXQlMjBjYXJkfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+            alt: "Person holding a credit card",
+            hint: "credit card"
+          }
         },
         {
-          src: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxsZWFkJTIwZ2VuZXJhdGlvbnxlbnwwfHx8fDE3NDgzOTMzODd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-          alt: "Sales team in a meeting",
-          hint: "sales team"
+          title: "Driving Growth Through Lead Generation",
+          description: "We generate high-quality leads for sales teams, ensuring a steady pipeline of potential customers.",
+          image: {
+            src: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxsZWFkJTIwZ2VuZXJhdGlvbnxlbnwwfHx8fDE3NDgzOTMzODd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+            alt: "Sales team in a meeting",
+            hint: "sales team"
+          }
         }
       ]
     },
@@ -201,7 +224,7 @@ export const services: Service[] = [
         slug: "lead-generation-cc",
         title: "Lead Generation",
         description: "Utilizing digital and traditional marketing techniques to generate high-quality leads for credit card sales teams, ensuring a steady pipeline of potential customers.",
-        backgroundImage: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxsZWFkJTIwZ2VuZXJhdGlvbnxlbnwwfHx8fDE3NDgzOTMzODd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxsZWFkJTIwZ2VuZXJhdGlvbnxlbnwwfHx8fDE3NDgzOTMzODd8MA&ixlib-rb-4.1.0&q=80&w=1080",
       }
     ]
   },
@@ -210,18 +233,24 @@ export const services: Service[] = [
     title: "Insurance Sales",
     description: "Comprehensive insurance solutions to provide financial security and peace of mind for individuals and businesses.",
      hero: {
-      title: "Protecting Your Future with Confidence",
-      description: "We offer comprehensive, tailored insurance plans that provide security and peace of mind.",
-      images: [
+      slides: [
         {
-          src: "https://images.unsplash.com/photo-1560520455-f2a05a8d3b36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2V8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-          alt: "Family protected under an umbrella illustration",
-          hint: "insurance protection"
+          title: "Protecting Your Future with Confidence",
+          description: "We offer comprehensive, tailored insurance plans that provide lasting security and peace of mind.",
+          image: {
+            src: "https://images.unsplash.com/photo-1560520455-f2a05a8d3b36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2V8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+            alt: "Family protected under an umbrella illustration",
+            hint: "insurance protection"
+          }
         },
         {
-          src: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjcnBvcmF0ZSUyMGluc3VyYW5jZXxlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-          alt: "Business professionals signing a document",
-          hint: "corporate insurance"
+          title: "Corporate Insurance Solutions",
+          description: "Customized group insurance plans and corporate solutions to help businesses protect their employees and assets.",
+          image: {
+            src: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjcnBvcmF0ZSUyMGluc3VyYW5jZXxlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+            alt: "Business professionals signing a document",
+            hint: "corporate insurance"
+          }
         }
       ]
     },
@@ -251,18 +280,24 @@ export const services: Service[] = [
     title: "AI Services",
     description: "Harnessing the power of Artificial Intelligence to automate processes, derive insights, and drive innovation.",
     hero: {
-      title: "Intelligent Automation and Actionable Insights",
-      description: "Leverage our cutting-edge AI solutions to unlock data-driven strategies and boost efficiency.",
-      images: [
+      slides: [
         {
-          src: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-          alt: "Abstract artificial intelligence concept",
-          hint: "artificial intelligence"
+          title: "Intelligent Automation & Insights",
+          description: "Leverage our cutting-edge AI solutions to unlock data-driven strategies and boost operational efficiency.",
+          image: {
+            src: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+            alt: "Abstract artificial intelligence concept",
+            hint: "artificial intelligence"
+          }
         },
         {
-          src: "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwYW5hbHlzaXN8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-          alt: "Team analyzing data on a screen",
-          hint: "data analysis team"
+          title: "Unlock the Power of Your Data",
+          description: "Our data analysis services transform complex datasets into clear, actionable insights that drive business growth.",
+          image: {
+            src: "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwYW5hbHlzaXN8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+            alt: "Team analyzing data on a screen",
+            hint: "data analysis team"
+          }
         }
       ]
     },
@@ -295,18 +330,24 @@ export const services: Service[] = [
     title: "Resource Outsource",
     description: "Providing skilled professionals and flexible staffing solutions to augment your team and scale your operations.",
     hero: {
-      title: "Augment Your Team with Expert Talent",
-      description: "Scale your operations seamlessly with our flexible staffing and outsourcing solutions.",
-      images: [
+      slides: [
         {
-          src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZXNvdXJjZSUyMG91dHNvdXJjaW5nfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-          alt: "Business team in a meeting",
-          hint: "team meeting"
+          title: "Augment Your Team with Expert Talent",
+          description: "Scale your operations seamlessly with our flexible staffing and expert talent outsourcing solutions.",
+          image: {
+            src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZXNvdXJjZSUyMG91dHNvdXJjaW5nfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+            alt: "Business team in a meeting",
+            hint: "team meeting"
+          }
         },
         {
-          src: "https://images.unsplash.com/photo-1556740758-90de374c12ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZWNydWl0bWVudCUyMHByb2Nlc3N8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-          alt: "Recruitment process with sticky notes",
-          hint: "recruitment process"
+          title: "Streamline Your Recruitment Process",
+          description: "Our Recruitment Process Outsourcing (RPO) finds the best talent while you focus on your core business.",
+          image: {
+            src: "https://images.unsplash.com/photo-1556740758-90de374c12ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZWNydWl0bWVudCUyMHByb2Nlc3N8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+            alt: "Recruitment process with sticky notes",
+            hint: "recruitment process"
+          }
         }
       ]
     },

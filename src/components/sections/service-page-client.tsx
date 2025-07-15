@@ -1,7 +1,7 @@
 
 "use client";
 
-import type { Service } from '@/lib/services-data';
+import type { Service, ServiceHero } from '@/lib/services-data';
 import { useState, useEffect, useRef } from 'react';
 import { ArrowRight, CheckCircle, Code, Megaphone, Palette, Smartphone, Sparkles, Wand2, Bot, DatabaseZap, Menu, X } from 'lucide-react';
 import Link from 'next/link';
@@ -23,11 +23,18 @@ const getIcon = (iconName: string | undefined) => {
   }
 };
 
+const navLinks = [
+    { href: "/#home", label: "Home" },
+    { href: "/#about-us", label: "About Us" },
+    { href: "/#services", label: "Services" },
+    { href: "/#our-work", label: "Our Work" },
+    { href: "/#contact", label: "Contact Us" },
+];
+
 export function ServicePageClient({ service }: { service: Service }) {
   const [activeSection, setActiveSection] = useState('');
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
-  const [isTitleVisible, setIsTitleVisible] = useState(true);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [isContentVisible, setIsContentVisible] = useState(true);
   const [scrollY, setScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
@@ -40,27 +47,21 @@ export function ServicePageClient({ service }: { service: Service }) {
   }, [service]);
 
   useEffect(() => {
-    if (!service?.hero?.images || service.hero.images.length === 0) return;
-    const imageSliderInterval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % (service.hero?.images.length || 1));
-    }, 5000);
-    return () => clearInterval(imageSliderInterval);
-  }, [service]);
+    if (!service?.hero?.slides || service.hero.slides.length === 0) return;
 
-  useEffect(() => {
-    if (!service?.hero?.animatedTitles || service.hero.animatedTitles.length === 0) return;
-    const displayDuration = 3000;
+    const displayDuration = 4000;
     const fadeDuration = 500;
-    const titleInterval = setInterval(() => {
-      setIsTitleVisible(false);
+
+    const slideInterval = setInterval(() => {
+      setIsContentVisible(false);
       setTimeout(() => {
-        setCurrentTitleIndex(prevIndex => (prevIndex + 1) % (service.hero?.animatedTitles?.length || 1));
-        setIsTitleVisible(true);
+        setCurrentSlideIndex(prevIndex => (prevIndex + 1) % (service.hero?.slides.length || 1));
+        setIsContentVisible(true);
       }, fadeDuration);
     }, displayDuration + fadeDuration);
-    return () => clearInterval(titleInterval);
-  }, [service]);
 
+    return () => clearInterval(slideInterval);
+  }, [service]);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -103,6 +104,7 @@ export function ServicePageClient({ service }: { service: Service }) {
   }
 
   const { hero, details, title: serviceCategoryTitle } = service;
+  const currentSlide = hero?.slides[currentSlideIndex];
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-900 text-white overflow-x-hidden">
@@ -118,33 +120,41 @@ export function ServicePageClient({ service }: { service: Service }) {
             />
           </Link>
           
-          <div className="hidden md:flex items-center space-x-8">
-            <nav className="flex space-x-6">
-              <Link href="/#services" className="text-white/80 hover:text-white transition-colors font-medium">Services</Link>
-              <Link href="/#about-us" className="text-white/80 hover:text-white transition-colors font-medium">About</Link>
-              <Link href="/#contact" className="text-white/80 hover:text-white transition-colors font-medium">Contact</Link>
+          <div className="hidden md:flex flex-grow justify-center items-center">
+             <nav className="flex space-x-6 lg:space-x-8">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="text-sm font-medium text-white/90 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
             </nav>
-            <Link href="/#contact">
-              <button className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2.5 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-medium">
-                Contact Us
-              </button>
-            </Link>
           </div>
 
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex items-center">
+             <Link href="/#contact" className="hidden md:inline-block">
+                <button className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2.5 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-medium">
+                  Contact Us
+                </button>
+              </Link>
+              <button 
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors ml-2"
+              >
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+          </div>
         </div>
 
         {isMenuOpen && (
           <div className="md:hidden bg-black/80 backdrop-blur-lg border-t border-gray-700">
             <nav className="container mx-auto px-4 py-4 space-y-2">
-              <Link href="/#services" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white/80 hover:text-white transition-colors">Services</Link>
-              <Link href="/#about-us" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white/80 hover:text-white transition-colors">About</Link>
-              <Link href="/#contact" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white/80 hover:text-white transition-colors">Contact</Link>
+              {navLinks.map((link) => (
+                 <Link key={link.href} href={link.href} onClick={() => setIsMenuOpen(false)} className="block py-2 text-white/80 hover:text-white transition-colors">{link.label}</Link>
+              ))}
               <Link href="/#contact">
                 <button onClick={() => setIsMenuOpen(false)} className="w-full mt-4 bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-full font-medium">
                   Contact Us
@@ -162,19 +172,21 @@ export function ServicePageClient({ service }: { service: Service }) {
             style={{ transform: `translateY(${scrollY * 0.5}px)` }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60 z-10"></div>
-            {hero && hero.images.length > 0 && (
+            {hero && hero.slides.length > 0 && (
               <div className="relative h-full overflow-hidden">
-                <div
+                 <div
                   className="flex transition-transform duration-1000 ease-out h-full"
-                  style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+                  style={{ transform: `translateX(-${currentSlideIndex * 100}%)` }}
                 >
-                  {hero.images.map((image, index) => (
+                  {hero.slides.map((slide, index) => (
                     <div key={index} className="w-full flex-shrink-0 h-full relative">
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        className="w-full h-full object-cover scale-105 transition-transform duration-700"
-                        data-ai-hint={image.hint}
+                      <Image
+                        src={slide.image.src}
+                        alt={slide.image.alt}
+                        data-ai-hint={slide.image.hint}
+                        fill
+                        className="object-cover scale-105"
+                        priority={index === 0}
                       />
                     </div>
                   ))}
@@ -185,50 +197,45 @@ export function ServicePageClient({ service }: { service: Service }) {
 
           <div className="relative z-20 h-full flex items-center justify-center">
             <div className="container mx-auto px-4 max-w-4xl text-center text-white">
-              <div 
-                className="animate-fade-in-up"
-                style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
+               <div 
+                className="animate-fade-in-up transition-opacity duration-500 ease-in-out"
+                style={{ animationDelay: '0.2s', animationFillMode: 'both', opacity: isContentVisible ? 1 : 0 }}
               >
                 <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                  <span className="bg-gradient-to-r from-red-400 via-primary to-red-400 bg-clip-text text-transparent transition-opacity duration-500 ease-in-out" style={{ minHeight: '1.2em', display: 'inline-block', opacity: isTitleVisible ? 1 : 0 }}>
-                    {hero?.animatedTitles && hero.animatedTitles.length > 0 ? hero.animatedTitles[currentTitleIndex] : hero?.title}
+                  <span className="bg-gradient-to-r from-red-400 via-primary to-red-400 bg-clip-text text-transparent" style={{ minHeight: '1.2em', display: 'inline-block' }}>
+                    {currentSlide?.title}
                   </span>
                 </h1>
               </div>
               <div 
-                className="animate-fade-in-up"
-                style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
+                className="animate-fade-in-up transition-opacity duration-500 ease-in-out"
+                style={{ animationDelay: '0.4s', animationFillMode: 'both', opacity: isContentVisible ? 1 : 0 }}
               >
-                <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto">
-                  {hero?.description}
+                <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto" style={{minHeight: '4.5rem'}}>
+                  {currentSlide?.description}
                 </p>
-              </div>
-              <div 
-                className="animate-fade-in-up"
-                style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
-              >
-                 <Link href="/#contact">
-                    <button className="bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 inline-flex items-center space-x-2">
-                      <span>Get Started</span>
-                      <ArrowRight className="w-5 h-5" />
-                    </button>
-                  </Link>
               </div>
             </div>
           </div>
 
-          {hero && hero.images.length > 1 && (
+          {hero && hero.slides.length > 1 && (
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
-              {hero.images.map((_, index) => (
+              {hero.slides.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentImageIndex(index)}
+                  onClick={() => {
+                      setIsContentVisible(false);
+                      setTimeout(() => {
+                        setCurrentSlideIndex(index);
+                        setIsContentVisible(true);
+                      }, 500);
+                  }}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentImageIndex 
+                    index === currentSlideIndex
                       ? 'bg-white scale-125' 
                       : 'bg-white/50 hover:bg-white/80'
                   }`}
-                  aria-label={`Go to image ${index + 1}`}
+                  aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
             </div>
@@ -283,10 +290,11 @@ export function ServicePageClient({ service }: { service: Service }) {
                     >
                       <div className="group relative overflow-hidden rounded-3xl bg-neutral-900 shadow-xl hover:shadow-2xl transition-all duration-500 border border-neutral-800">
                         <div className="relative h-80 overflow-hidden">
-                          <img
+                          <Image
                             src={detail.backgroundImage}
                             alt={`${detail.title} background`}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-110"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                           
