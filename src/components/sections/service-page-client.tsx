@@ -10,6 +10,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { notFound } from 'next/navigation';
 
 const getIcon = (iconName: string | undefined, className: string) => {
   const iconProps = { className };
@@ -33,34 +34,48 @@ const navLinks = [
     { href: "/#contact", label: "Contact Us" },
 ];
 
+export default function ModernServicesPage({ params }: { params: { slug: string } }) {
+  const service = services.find(s => s.slug === params.slug);
+
+  if (!service) {
+    notFound();
+  }
+
+  return <ServicePageClient service={service} />;
+}
+
+
 export function ServicePageClient({ service }: { service: Service }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isContentVisible, setIsContentVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
   
   useEffect(() => {
     setIsVisible(true);
-    setCurrentYear(new Date().getFullYear());
   }, []);
 
   useEffect(() => {
     if (!service?.hero?.slides || service.hero.slides.length === 0) return;
 
     const displayDuration = 4000;
-    const fadeDuration = 500;
 
     const slideInterval = setInterval(() => {
       setIsContentVisible(false);
       setTimeout(() => {
         setCurrentSlideIndex(prevIndex => (prevIndex + 1) % (service.hero?.slides.length || 1));
         setIsContentVisible(true);
-      }, fadeDuration);
-    }, displayDuration + fadeDuration);
+      }, 500); // fade duration
+    }, displayDuration);
 
     return () => clearInterval(slideInterval);
   }, [service]);
+
 
   if (!service) {
     return (
@@ -294,28 +309,34 @@ export function ServicePageClient({ service }: { service: Service }) {
             
             <Tabs defaultValue={details[0].slug} className="w-full">
               {/* Enhanced tab list */}
-              <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-transparent p-0 mb-16">
-                {details.map((detail, index) => (
-                  <TabsTrigger
-                    key={detail.slug}
-                    value={detail.slug}
-                    className={`group bg-gradient-to-br from-neutral-800/80 to-neutral-900/80 border border-neutral-700/50 data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary/90 data-[state=active]:to-red-500/90 data-[state=active]:text-white data-[state=active]:border-primary/50 data-[state=active]:shadow-lg data-[state=active]:shadow-primary/25 text-white h-auto p-6 rounded-2xl transition-all duration-300 hover:bg-gradient-to-br hover:from-neutral-700/80 hover:to-neutral-800/80 hover:scale-105 hover:shadow-xl backdrop-blur-sm animate-fade-in-up`}
-                    style={{ animationDelay: `${index * 150}ms` }}
-                  >
-                    <div className="flex flex-col items-center text-center gap-4">
-                      <div className="transform group-hover:scale-110 group-data-[state=active]:scale-110 transition-transform duration-300">
-                        {getIcon(detail.icon, "w-8 h-8 text-primary group-data-[state=active]:text-white transition-colors duration-300")}
+              <div className="mb-20">
+                <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-transparent p-0">
+                  {details.map((detail, index) => (
+                    <TabsTrigger
+                      key={detail.slug}
+                      value={detail.slug}
+                      className={`group bg-gradient-to-br from-neutral-800/80 to-neutral-900/80 border border-neutral-700/50 data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary/90 data-[state=active]:to-red-500/90 data-[state=active]:text-white data-[state=active]:border-primary/50 data-[state=active]:shadow-lg data-[state=active]:shadow-primary/25 text-white h-auto p-8 rounded-2xl transition-all duration-300 hover:bg-gradient-to-br hover:from-neutral-700/80 hover:to-neutral-800/80 hover:scale-105 hover:shadow-xl backdrop-blur-sm animate-fade-in-up`}
+                      style={{ animationDelay: `${index * 150}ms` }}
+                    >
+                      <div className="flex flex-col items-center text-center gap-4">
+                        <div className="transform group-hover:scale-110 group-data-[state=active]:scale-110 transition-transform duration-300">
+                          {getIcon(detail.icon, "w-8 h-8 text-primary group-data-[state=active]:text-white transition-colors duration-300")}
+                        </div>
+                        <span className="font-semibold text-sm md:text-base leading-tight">{detail.title}</span>
                       </div>
-                      <span className="font-semibold text-sm md:text-base leading-tight">{detail.title}</span>
-                    </div>
-                  </TabsTrigger>
-                ))}
-              </TabsList>
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </div>
 
-              {/* Enhanced tab content with better spacing */}
-              <div className="pb-12">
+              {/* Enhanced tab content with clear separation */}
+              <div className="space-y-8">
                 {details.map((detail, index) => (
-                  <TabsContent key={detail.slug} value={detail.slug} className="mt-10 mb-10 animate-fade-in-up">
+                  <TabsContent 
+                    key={detail.slug} 
+                    value={detail.slug} 
+                    className="mt-0 mb-10 pb-12 animate-fade-in-up"
+                  >
                     <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-neutral-900/90 to-black/90 shadow-2xl border border-neutral-800/50 backdrop-blur-sm hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
                       {/* Enhanced image section */}
                       <div className="relative h-80 md:h-96 overflow-hidden">
@@ -466,7 +487,7 @@ export function ServicePageClient({ service }: { service: Service }) {
             </div>
           </div>
           <div className="border-t border-gray-800/50 pt-8 text-center text-gray-400 animate-fade-in-up">
-            <p>&copy; {currentYear} Btruss. All rights reserved.</p>
+            {currentYear && <p>© {currentYear} Btruss. All rights reserved.</p>}
           </div>
         </div>
       </footer>
