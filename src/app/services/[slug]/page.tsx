@@ -1,61 +1,84 @@
-
 "use client";
 
-import { services, type Service } from '@/lib/services-data';
+import { useState, useEffect, useRef } from 'react';
 import { notFound } from 'next/navigation';
-import { Footer } from '@/components/layout/footer';
-import { ArrowRight, CheckCircle, Code, Megaphone, Palette, Smartphone, Sparkles, Wand2, Bot, DatabaseZap } from 'lucide-react';
+import { services, Service, ServiceDetail } from '@/lib/services-data';
+import { ArrowRight, CheckCircle, Code, Megaphone, Palette, Smartphone, Sparkles, Wand2, Bot, DatabaseZap, Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { useEffect, useState, useRef } from 'react';
-import { cn } from '@/lib/utils';
-
-interface ServicePageProps {
-  params: {
-    slug: string;
-  };
-}
 
 const getIcon = (iconName: string | undefined) => {
-    const iconClass = "w-12 h-12 text-primary";
-    if (!iconName) return <Sparkles className={iconClass} />;
-    
-    switch (iconName) {
-        case 'website-development':
-            return <Code className={iconClass} />;
-        case 'mobile-application-development':
-            return <Smartphone className={iconClass} />;
-        case 'digital-marketing':
-            return <Megaphone className={iconClass} />;
-        case 'graphics-designing':
-            return <Palette className={iconClass} />;
-        case 'ai-automation':
-            return <Bot className={iconClass} />;
-        case 'data-analysis':
-             return <DatabaseZap className={iconClass} />;
-        case 'custom-ai':
-            return <Wand2 className={iconClass} />;
-        default:
-            return <Sparkles className={iconClass} />;
-    }
+  const iconClass = "w-12 h-12 text-white drop-shadow-lg";
+  
+  switch (iconName) {
+    case 'website-development': return <Code className={iconClass} />;
+    case 'mobile-application-development': return <Smartphone className={iconClass} />;
+    case 'digital-marketing': return <Megaphone className={iconClass} />;
+    case 'graphics-designing': return <Palette className={iconClass} />;
+    case 'ai-automation': return <Bot className={iconClass} />;
+    case 'data-analysis': return <DatabaseZap className={iconClass} />;
+    case 'custom-ai': return <Wand2 className={iconClass} />;
+    default: return <Sparkles className={iconClass} />;
+  }
 };
 
-export default function ServicePage({ params }: ServicePageProps) {
-  const service = services.find(s => s.slug === params.slug);
-  const [activeSection, setActiveSection] = useState<string>('');
+export default function ModernServicesPage({ params }: { params: { slug: string } }) {
+  const [service, setService] = useState<Service | null>(null);
+  const [activeSection, setActiveSection] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+  const [isTitleVisible, setIsTitleVisible] = useState(true);
+  const [scrollY, setScrollY] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    if (!service?.hero?.images) return;
+    const foundService = services.find(s => s.slug === params.slug);
+    if (!foundService) {
+      notFound();
+    }
+    setService(foundService);
+    if (foundService?.details?.[0]?.slug) {
+      setActiveSection(foundService.details[0].slug);
+    }
+  }, [params.slug]);
+
+  // Image slider effect
+  useEffect(() => {
+    if (!service?.hero?.images || service.hero.images.length === 0) return;
     const imageSliderInterval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % (service.hero.images.length || 1));
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % (service.hero?.images.length || 1));
     }, 5000);
     return () => clearInterval(imageSliderInterval);
   }, [service]);
 
+  // Animated Title effect
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    if (!service?.hero?.animatedTitles || service.hero.animatedTitles.length === 0) return;
+    const displayDuration = 3000;
+    const fadeDuration = 500;
+    const titleInterval = setInterval(() => {
+      setIsTitleVisible(false);
+      setTimeout(() => {
+        setCurrentTitleIndex(prevIndex => (prevIndex + 1) % (service.hero?.animatedTitles?.length || 1));
+        setIsTitleVisible(true);
+      }, fadeDuration);
+    }, displayDuration + fadeDuration);
+    return () => clearInterval(titleInterval);
+  }, [service]);
+
+
+  // Scroll tracking for parallax effects
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Intersection observer for active section tracking
+  useEffect(() => {
+    if (!service) return;
+    observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -63,186 +86,344 @@ export default function ServicePage({ params }: ServicePageProps) {
           }
         });
       },
-      { rootMargin: '-30% 0px -70% 0px' }
+      { rootMargin: '-20% 0px -80% 0px' }
     );
 
     Object.values(sectionRefs.current).forEach((ref) => {
-      if (ref) observer.observe(ref);
+      if (ref) observerRef.current?.observe(ref);
     });
 
     return () => {
-      Object.values(sectionRefs.current).forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
+      if (observerRef.current) {
+        Object.values(sectionRefs.current).forEach((ref) => {
+          if (ref) observerRef.current?.unobserve(ref);
+        });
+      }
     };
   }, [service]);
 
-
   if (!service) {
-    notFound();
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="h-12 w-12 animate-spin rounded-full border-4 border-solid border-primary border-t-transparent"></div>
+      </div>
+    );
   }
 
+  const { hero, details, title: serviceCategoryTitle } = service;
+
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground">
-        <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border">
-            <div className="container mx-auto px-4 h-20 flex items-center justify-between max-w-screen-xl">
-                 <Link href="/" className="flex items-center">
-                    <Image
-                    src="/btrussslogo.png"
-                    alt="Btruss Logo"
-                    width={120}
-                    height={30}
-                    priority
-                    />
-                </Link>
-                <Link href="/#contact" className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-primary rounded-md hover:bg-primary/90 transition-colors">
-                    Contact Us
-                </Link>
+    <div className="flex flex-col min-h-screen bg-gray-50 text-gray-900 overflow-x-hidden">
+      <header className="fixed top-0 z-50 w-full bg-black/20 backdrop-blur-md transition-colors duration-300">
+        <div className="container mx-auto px-4 h-20 flex items-center justify-between max-w-screen-xl">
+           <Link href="/" className="flex items-center space-x-2">
+            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">B</span>
             </div>
-        </header>
+            <span className="text-xl font-bold text-white">
+              Btruss
+            </span>
+          </Link>
+          
+          <div className="hidden md:flex items-center space-x-8">
+            <nav className="flex space-x-6">
+              <Link href="/#services" className="text-white/80 hover:text-white transition-colors font-medium">Services</Link>
+              <Link href="/#about-us" className="text-white/80 hover:text-white transition-colors font-medium">About</Link>
+              <Link href="/#contact" className="text-white/80 hover:text-white transition-colors font-medium">Contact</Link>
+            </nav>
+            <Link href="/#contact">
+              <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-medium">
+                Contact Us
+              </button>
+            </Link>
+          </div>
+
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
+          >
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {isMenuOpen && (
+          <div className="md:hidden bg-black/80 backdrop-blur-lg border-t border-gray-700">
+            <nav className="container mx-auto px-4 py-4 space-y-2">
+              <Link href="/#services" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white/80 hover:text-white transition-colors">Services</Link>
+              <Link href="/#about-us" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white/80 hover:text-white transition-colors">About</Link>
+              <Link href="/#contact" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white/80 hover:text-white transition-colors">Contact</Link>
+              <Link href="/#contact">
+                <button onClick={() => setIsMenuOpen(false)} className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-medium">
+                  Contact Us
+                </button>
+              </Link>
+            </nav>
+          </div>
+        )}
+      </header>
 
       <main className="flex-grow">
-        <section className="relative h-[60vh] md:h-[70vh] text-white flex flex-col items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 w-full h-full z-0">
-            <div className="absolute inset-0 bg-black/60 z-10"></div>
-            {service.hero?.images && (
-              <>
+        <section className="relative h-screen overflow-hidden">
+          <div 
+            className="absolute inset-0 w-full h-full"
+            style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60 z-10"></div>
+            {hero && hero.images.length > 0 && (
+              <div className="relative h-full overflow-hidden">
                 <div
-                  className="flex transition-transform duration-700 ease-in-out h-full"
+                  className="flex transition-transform duration-1000 ease-out h-full"
                   style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
                 >
-                  {service.hero.images.map((image, index) => (
+                  {hero.images.map((image, index) => (
                     <div key={index} className="w-full flex-shrink-0 h-full relative">
-                      <Image
+                      <img
                         src={image.src}
                         alt={image.alt}
+                        className="w-full h-full object-cover scale-105 transition-transform duration-700"
                         data-ai-hint={image.hint}
-                        fill
-                        className="object-cover"
-                        sizes="100vw"
-                        priority={index === 0}
                       />
                     </div>
                   ))}
                 </div>
-                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
-                  {service.hero.images.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImageIndex(index)}
-                      aria-label={`Go to slide ${index + 1}`}
-                      className={cn(
-                        "w-3 h-3 rounded-full transition-all duration-300 ease-in-out",
-                        index === currentImageIndex ? "bg-primary scale-125" : "bg-white/50 hover:bg-white/80"
-                      )}
-                    />
-                  ))}
-                </div>
-              </>
+              </div>
             )}
           </div>
-          <div className="relative z-20 container mx-auto px-4 max-w-screen-lg text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight animate-fade-in" style={{ animationDelay: '200ms' }}>
-              {service.hero?.title || service.title}
-            </h1>
-            <p className="mt-6 text-lg sm:text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '400ms' }}>
-              {service.hero?.description || service.description}
-            </p>
+
+          <div className="relative z-20 h-full flex items-center justify-center">
+            <div className="container mx-auto px-4 max-w-4xl text-center text-white">
+              <div 
+                className="animate-fade-in-up"
+                style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
+              >
+                <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                  <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent transition-opacity duration-500 ease-in-out" style={{ minHeight: '1.2em', display: 'inline-block', opacity: isTitleVisible ? 1 : 0 }}>
+                    {hero?.animatedTitles && hero.animatedTitles.length > 0 ? hero.animatedTitles[currentTitleIndex] : hero?.title}
+                  </span>
+                </h1>
+              </div>
+              <div 
+                className="animate-fade-in-up"
+                style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
+              >
+                <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto">
+                  {hero?.description}
+                </p>
+              </div>
+              <div 
+                className="animate-fade-in-up"
+                style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
+              >
+                 <Link href="/#contact">
+                    <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 inline-flex items-center space-x-2">
+                      <span>Get Started</span>
+                      <ArrowRight className="w-5 h-5" />
+                    </button>
+                  </Link>
+              </div>
+            </div>
+          </div>
+
+          {hero && hero.images.length > 1 && (
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+              {hero.images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentImageIndex 
+                      ? 'bg-white scale-125' 
+                      : 'bg-white/50 hover:bg-white/80'
+                  }`}
+                  aria-label={`Go to image ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
+        </section>
+
+        <section id="service-details" className="py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-screen-xl">
+            <div className="grid lg:grid-cols-12 gap-12">
+              <aside className="lg:col-span-3">
+                <div className="sticky top-28">
+                  <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-2xl text-white mb-8">
+                    <h3 className="text-xl font-bold mb-2">Our {serviceCategoryTitle}</h3>
+                    <p className="text-blue-100">Comprehensive digital solutions</p>
+                  </div>
+                  
+                  <nav className="space-y-2">
+                    {details.map((detail, index) => (
+                      <a
+                        key={detail.slug}
+                        href={`#${detail.slug}`}
+                        className={`group block p-4 rounded-xl transition-all duration-300 border-2 ${
+                          activeSection === detail.slug
+                            ? 'bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-blue-700'
+                            : 'border-transparent hover:bg-gray-50 hover:border-gray-200'
+                        }`}
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold transition-all duration-300 ${
+                            activeSection === detail.slug
+                              ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
+                              : 'bg-gray-200 text-gray-600 group-hover:bg-blue-200'
+                          }`}>
+                            {index + 1}
+                          </div>
+                          <span className="font-medium">{detail.title}</span>
+                        </div>
+                      </a>
+                    ))}
+                  </nav>
+                </div>
+              </aside>
+
+              <div className="lg:col-span-9">
+                <div className="space-y-24">
+                  {details.map((detail) => (
+                    <div
+                      key={detail.slug}
+                      id={detail.slug}
+                      ref={(el) => (sectionRefs.current[detail.slug] = el)}
+                      className="scroll-mt-24"
+                    >
+                      <div className="group relative overflow-hidden rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100">
+                        <div className="relative h-80 overflow-hidden">
+                          <img
+                            src={detail.backgroundImage}
+                            alt={`${detail.title} background`}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                          
+                          <div className="absolute inset-0 flex items-end p-8">
+                            <div className="text-white">
+                              <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                                {getIcon(detail.icon)}
+                              </div>
+                              <h2 className="text-4xl font-bold mb-2">{detail.title}</h2>
+                              <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="p-8">
+                          <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                            {detail.description}
+                          </p>
+
+                          {detail.subDetails && detail.subDetails.length > 0 && (
+                            <div className="grid md:grid-cols-2 gap-4">
+                              {detail.subDetails.map((subDetail, i) => (
+                                <div key={i} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                                  <div className="w-6 h-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <CheckCircle className="w-4 h-4 text-white" />
+                                  </div>
+                                  <span className="text-gray-700 font-medium">{subDetail}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-background">
-            <div className="container mx-auto px-4 max-w-screen-xl">
-                <div className="grid md:grid-cols-12 gap-8 lg:gap-16">
-                    <aside className="md:col-span-3 lg:col-span-3">
-                         <div className="sticky top-28">
-                            <h3 className="text-lg font-semibold text-primary mb-4 red-line-accent">Offerings</h3>
-                            <ul className="space-y-2">
-                                {service.details.map(detail => (
-                                    <li key={detail.slug}>
-                                        <a href={`#${detail.slug}`} 
-                                           className={cn(
-                                                "flex items-center p-3 rounded-md transition-all duration-300 text-base font-medium border-l-4",
-                                                activeSection === detail.slug 
-                                                    ? 'bg-primary/10 text-primary border-primary' 
-                                                    : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground border-transparent'
-                                           )}
-                                        >
-                                            <span>{detail.title}</span>
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </aside>
-
-                    <div className="md:col-span-9 lg:col-span-9">
-                         <div className="space-y-20">
-                            {service.details.map((detail, index) => (
-                                <div
-                                  key={detail.slug}
-                                  id={detail.slug}
-                                  ref={(el) => (sectionRefs.current[detail.slug] = el)}
-                                  className="scroll-mt-24"
-                                >
-                                    <div className="relative overflow-hidden rounded-xl shadow-lg border border-border/20 bg-card">
-                                      <div className="relative min-h-[250px] md:min-h-[350px] flex items-end p-8 bg-black/50 text-white">
-                                        <div className="absolute inset-0 z-0 animate-parallax">
-                                            <Image 
-                                                src={detail.backgroundImage} 
-                                                alt={`${detail.title} background`}
-                                                fill
-                                                className="object-cover transition-transform duration-500"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-                                        </div>
-
-                                        <div className="relative z-10">
-                                            <div className="mb-4">{getIcon(detail.icon)}</div>
-                                            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{detail.title}</h2>
-                                        </div>
-                                      </div>
-
-                                      <div className="p-8 space-y-6">
-                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                          {detail.description}
-                                        </p>
-                                        
-                                        {detail.subDetails && detail.subDetails.length > 0 && (
-                                            <div className="grid sm:grid-cols-2 gap-6 pt-4 border-t border-border">
-                                                {detail.subDetails.map((subDetail, i) => (
-                                                    <div key={i} className="flex items-start space-x-3">
-                                                        <CheckCircle className="w-5 h-5 text-primary mt-1 flex-shrink-0"/>
-                                                        <p className="text-foreground/90">{subDetail}</p>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        )}
-                                      </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
+        <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="container mx-auto px-4 max-w-4xl text-center relative z-10">
+            <div className="space-y-8">
+              <h2 className="text-4xl md:text-5xl font-bold">Ready to Start Your Project?</h2>
+              <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+                Let's discuss how our expertise in {serviceCategoryTitle} can elevate your business to the next level.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                 <Link href="/#contact">
+                  <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center space-x-2">
+                    <span>Get a Free Consultation</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                </Link>
+                <Link href="/#our-work">
+                  <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300">
+                    View Portfolio
+                  </button>
+                </Link>
+              </div>
             </div>
-        </section>
-
-        <section className="py-16 md:py-24 bg-muted/30 border-t border-border">
-             <div className="container mx-auto px-4 max-w-screen-md text-center">
-                 <h2 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
-                 <p className="text-muted-foreground mb-8 text-lg">
-                    Let's discuss how our expertise in {service.title} can elevate your business.
-                 </p>
-                 <Link href="/#contact" className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white bg-primary rounded-md hover:bg-primary/90 transition-transform hover:scale-105 shadow-lg">
-                     Get a Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
-                 </Link>
-             </div>
+          </div>
         </section>
       </main>
-      <Footer />
+
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-4 max-w-screen-xl">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <Link href="/" className="flex items-center space-x-2 mb-4">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold">B</span>
+                </div>
+                <span className="text-xl font-bold">Btruss</span>
+              </Link>
+              <p className="text-gray-400">
+                Transforming businesses through innovative digital solutions.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">Services</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><Link href="/services/it-services" className="hover:text-white transition-colors">IT Services</Link></li>
+                <li><Link href="/services/healthcare-services" className="hover:text-white transition-colors">Healthcare</Link></li>
+                <li><Link href="/services/ai-services" className="hover:text-white transition-colors">AI Solutions</Link></li>
+                <li><Link href="/services/resource-outsource" className="hover:text-white transition-colors">Outsourcing</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">Company</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><Link href="/#about-us" className="hover:text-white transition-colors">About</Link></li>
+                <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
+                <li><Link href="/#our-work" className="hover:text-white transition-colors">Our Work</Link></li>
+                <li><Link href="/#contact" className="hover:text-white transition-colors">Contact</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">Connect</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">LinkedIn</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Twitter</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">GitHub</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
+            <p>&copy; {new Date().getFullYear()} Btruss. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+      <style jsx>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out;
+        }
+      `}</style>
     </div>
   );
 }
-
-  

@@ -10,6 +10,7 @@ export interface ServiceDetail {
 
 export interface ServiceHero {
   title: string;
+  animatedTitles?: string[];
   description: string;
   images: {
     src: string;
@@ -32,7 +33,13 @@ export const services: Service[] = [
     title: "IT Services",
     description: "From custom software to stunning websites, we provide comprehensive IT services to build and enhance your digital presence.",
     hero: {
-      title: "Innovative IT Solutions for Modern Business",
+      title: "Innovative IT Solutions",
+      animatedTitles: [
+        "Custom Web Development",
+        "Modern Mobile Applications",
+        "Effective Digital Marketing",
+        "Creative Graphics Designing"
+      ],
       description: "We craft digital experiences that drive growth, engagement, and success for your brand.",
       images: [
         {
@@ -46,12 +53,12 @@ export const services: Service[] = [
           hint: "mobile app development"
         },
         {
-          src: "https://images.unsplash.com/photo-1557862921-37829c790f19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+          src: "https://images.unsplash.com/photo-1557862921-37829c790f19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
           alt: "Digital marketing strategy session",
           hint: "digital marketing"
         },
         {
-          src: "https://images.unsplash.com/photo-1626785774573-4b799315345d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxncmFwaGljcyUyMGRlc2lnbmluZ3xlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+          src: "https://images.unsplash.com/photo-1626785774573-4b799315345d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxncmFwaGljcyUyMGRlc2lnbmluZ3xlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
           alt: "Graphic designer working on a project",
           hint: "graphics designing"
         }
