@@ -2,7 +2,8 @@
 import { services, type Service } from '@/lib/services-data';
 import { notFound } from 'next/navigation';
 import { Footer } from '@/components/layout/footer';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { ArrowRight, CheckCircle2, Code, Megaphone, Palette, Smartphone, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -12,14 +13,12 @@ interface ServicePageProps {
   };
 }
 
-// Generate static pages for each service at build time
 export function generateStaticParams() {
   return services.map((service) => ({
     slug: service.slug,
   }));
 }
 
-// Generate metadata for each service page
 export async function generateMetadata({ params }: ServicePageProps) {
   const service = services.find(s => s.slug === params.slug);
   if (!service) {
@@ -33,6 +32,21 @@ export async function generateMetadata({ params }: ServicePageProps) {
   }
 }
 
+const getIcon = (slug: string) => {
+    switch (slug) {
+        case 'website-development':
+            return <Code className="w-8 h-8 text-primary" />;
+        case 'mobile-application-development':
+            return <Smartphone className="w-8 h-8 text-primary" />;
+        case 'digital-marketing':
+            return <Megaphone className="w-8 h-8 text-primary" />;
+        case 'graphics-designing':
+            return <Palette className="w-8 h-8 text-primary" />;
+        default:
+            return <Sparkles className="w-8 h-8 text-primary" />;
+    }
+};
+
 export default function ServicePage({ params }: ServicePageProps) {
   const service = services.find(s => s.slug === params.slug);
 
@@ -42,7 +56,6 @@ export default function ServicePage({ params }: ServicePageProps) {
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
-        {/* Simple Header */}
         <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border">
             <div className="container mx-auto px-4 h-20 flex items-center justify-between max-w-screen-xl">
                  <Link href="/" className="flex items-center">
@@ -61,7 +74,6 @@ export default function ServicePage({ params }: ServicePageProps) {
         </header>
 
       <main className="flex-grow">
-        {/* Hero Section */}
         <section className="relative py-24 md:py-32 bg-cover bg-center text-white" style={{ backgroundImage: "url('/service-hero-bg.jpg')" }} data-ai-hint="abstract blue background">
              <div className="absolute inset-0 bg-black/60"></div>
              <div className="relative container mx-auto px-4 max-w-screen-lg text-center">
@@ -72,35 +84,67 @@ export default function ServicePage({ params }: ServicePageProps) {
             </div>
         </section>
 
-        {/* Details Section */}
         <section className="py-16 md:py-24 bg-white text-foreground">
             <div className="container mx-auto px-4 max-w-screen-xl">
-                <div className="max-w-4xl mx-auto">
-                     <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">What We Offer</h2>
-                     <div className="space-y-10">
-                        {service.details.map((detail, index) => (
-                            <div 
-                                key={index} 
-                                className="flex flex-col md:flex-row items-start gap-8 p-8 rounded-xl shadow-lg border border-border/70 hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 animate-fade-in"
-                                style={{ animationDelay: `${200 * (index + 1)}ms` }}
+                <div className="grid md:grid-cols-5 gap-16">
+                    <div className="md:col-span-3">
+                         <h2 className="text-3xl sm:text-4xl font-bold mb-8">What We Offer</h2>
+                         <Accordion type="single" collapsible className="w-full space-y-6">
+                            {service.details.map((detail, index) => (
+                                <AccordionItem 
+                                    key={detail.slug} 
+                                    value={detail.slug}
+                                    className="border-none"
                                 >
-                                <div className="flex-shrink-0">
-                                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary">
-                                        <CheckCircle2 className="w-8 h-8 text-primary" />
+                                    <div 
+                                        className="bg-cover bg-center rounded-xl shadow-lg border border-border/70 overflow-hidden transition-all duration-300 animate-fade-in hover:shadow-primary/20" 
+                                        style={{ backgroundImage: `url(${detail.backgroundImage})`, animationDelay: `${200 * (index + 1)}ms`}}
+                                    >
+                                        <div className="bg-black/60 p-6 backdrop-blur-sm">
+                                            <AccordionTrigger className="w-full text-left text-white hover:no-underline">
+                                                <div className="flex items-center gap-4">
+                                                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary">
+                                                        {getIcon(detail.slug)}
+                                                    </div>
+                                                    <div>
+                                                        <h3 className="text-2xl font-semibold">{detail.title}</h3>
+                                                    </div>
+                                                </div>
+                                            </AccordionTrigger>
+                                            <AccordionContent className="pt-4 text-neutral-200">
+                                                <p className="mb-4 leading-relaxed">{detail.description}</p>
+                                                <ul className="space-y-2 list-inside list-disc pl-2">
+                                                    {detail.subDetails?.map((sub, i) => (
+                                                        <li key={i} className="leading-relaxed">{sub}</li>
+                                                    ))}
+                                                </ul>
+                                            </AccordionContent>
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <h3 className="text-2xl font-semibold mb-3">{detail.title}</h3>
-                                    <p className="text-muted-foreground leading-relaxed">{detail.description}</p>
-                                </div>
-                            </div>
-                        ))}
+                                </AccordionItem>
+                            ))}
+                        </Accordion>
                     </div>
+
+                    <aside className="md:col-span-2">
+                         <div className="sticky top-28 bg-muted/30 p-8 rounded-xl border border-border">
+                            <h3 className="text-2xl font-bold mb-6">All Services</h3>
+                            <ul className="space-y-3">
+                                {services.map(s => (
+                                    <li key={s.slug}>
+                                        <Link href={`/services/${s.slug}`} className={`flex items-center justify-between p-4 rounded-md transition-colors text-lg font-medium ${s.slug === params.slug ? 'bg-primary text-primary-foreground' : 'bg-background hover:bg-accent hover:text-accent-foreground'}`}>
+                                            <span>{s.title}</span>
+                                            <ArrowRight className="h-5 w-5" />
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </aside>
                 </div>
             </div>
         </section>
 
-        {/* CTA Section */}
         <section className="py-16 md:py-20 bg-muted/50">
              <div className="container mx-auto px-4 max-w-screen-md text-center">
                  <h2 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
@@ -117,3 +161,5 @@ export default function ServicePage({ params }: ServicePageProps) {
     </div>
   );
 }
+
+    
