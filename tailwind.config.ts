@@ -99,7 +99,7 @@ export default {
         },
         'infinite-scroll': {
             from: { transform: 'translateX(0)' },
-            to: { transform: 'translateX(-100%)' },
+            to: { transform: 'translateX(-50%)' },
         },
   		},
   		animation: {
@@ -107,7 +107,7 @@ export default {
   			'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fadeIn 0.5s ease-out forwards',
         'fade-out': 'fadeOut 0.5s ease-out forwards',
-        'scale-in': 'scaleIn 0.8s ease-out forwards', // Updated duration
+        'scale-in': 'scaleIn 0.8s ease-out forwards',
         'letter-in': 'letter-in 0.6s ease-out forwards',
         'animated-gradient': 'animated-gradient 10s ease infinite',
         'infinite-scroll': 'infinite-scroll 40s linear infinite',

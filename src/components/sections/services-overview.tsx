@@ -1,12 +1,9 @@
 
 "use client";
 
-import { ArrowRight, Eye } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
-import { cn } from '@/lib/utils';
-
 
 const services = [
     { slug: 'it-services', title: "IT Services", description: "We leverage technology to provide cutting-edge solutions that elevate your business, from web development to digital marketing." },
@@ -31,9 +28,6 @@ const partnerLogos = [
 
 
 export function ServicesOverview() {
-    const [showAll, setShowAll] = useState(false);
-
-    const logosToShow = showAll ? partnerLogos : partnerLogos.slice(0, 1);
   return (
     <section
       id="services"
@@ -70,44 +64,30 @@ export function ServicesOverview() {
           </h2>
 
           <div
-            className={cn(
-                "grid gap-8 transition-all duration-700 ease-in-out",
-                showAll
-                ? "grid-cols-2 md:grid-cols-3"
-                : "grid-cols-1"
-            )}
-            >
-            {logosToShow.map((logo, index) => (
-              <div
-                key={index}
-                className={cn(
-                    "group relative flex items-center justify-center p-6 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-lg hover:shadow-primary/30 transition-all duration-300 aspect-video hover:-translate-y-1",
-                    !showAll && index > 0 ? "hidden" : "animate-fade-in",
-                    showAll ? "animate-scale-in" : ""
-                )}
-                style={{animationDelay: `${index * 100}ms`}}
-              >
-                <Image
-                  src={logo.src}
-                  alt={logo.alt}
-                  width={150}
-                  height={60}
-                  className="object-contain h-10 w-auto opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                  data-ai-hint={logo.hint}
-                />
-              </div>
-            ))}
-          </div>
-          {!showAll && (
-            <div className="text-center mt-12">
-              <button
-                onClick={() => setShowAll(true)}
-                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-foreground bg-primary hover:bg-primary/90"
-              >
-                View All
-              </button>
+            className="relative w-full overflow-hidden"
+            style={{
+              maskImage: 'linear-gradient(to right, transparent, white 20%, white 80%, transparent)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent, white 20%, white 80%, transparent)',
+            }}
+          >
+            <div className="flex w-max animate-infinite-scroll">
+              {[...partnerLogos, ...partnerLogos].map((logo, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-64 mx-4 flex items-center justify-center p-6 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 shadow-lg hover:shadow-primary/30 transition-all duration-300 aspect-video hover:-translate-y-1"
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={150}
+                    height={60}
+                    className="object-contain h-10 md:h-12 w-auto opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                    data-ai-hint={logo.hint}
+                  />
+                </div>
+              ))}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </section>
