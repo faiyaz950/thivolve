@@ -175,7 +175,7 @@ export function ServicePageClient({ service }: { service: Service }) {
                 className="transition-opacity duration-500 ease-in-out"
                 style={{ opacity: isContentVisible ? 1 : 0 }}
               >
-                <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight whitespace-nowrap">
+                <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
                   {currentSlide ? renderSplitColorTitle(currentSlide.title) : ''}
                 </h1>
               </div>
@@ -240,7 +240,7 @@ export function ServicePageClient({ service }: { service: Service }) {
               </TabsList>
 
               {details.map((detail) => (
-                <TabsContent key={detail.slug} value={detail.slug}>
+                <TabsContent key={detail.slug} value={detail.slug} className="mt-10">
                   <div className="group relative overflow-hidden rounded-3xl bg-neutral-900 shadow-xl border border-neutral-800">
                     <div className="relative h-80 overflow-hidden">
                       <Image
