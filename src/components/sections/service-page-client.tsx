@@ -42,9 +42,19 @@ export function ServicePageClient({ service }: { service: Service }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [currentYear, setCurrentYear] = useState<number | null>(null);
+  const [particleStyles, setParticleStyles] = useState<React.CSSProperties[]>([]);
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
+    
+    const styles = Array.from({ length: 20 }).map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      animationDelay: `${Math.random() * 3}s`,
+      animationDuration: `${2 + Math.random() * 2}s`
+    }));
+    setParticleStyles(styles);
+
   }, []);
   
   useEffect(() => {
@@ -182,16 +192,11 @@ export function ServicePageClient({ service }: { service: Service }) {
             
             {/* Animated particles */}
             <div className="absolute inset-0 z-5">
-              {[...Array(20)].map((_, i) => (
+              {particleStyles.map((style, i) => (
                 <div
                   key={i}
                   className="absolute w-1 h-1 bg-white/30 rounded-full animate-pulse"
-                  style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    animationDelay: `${Math.random() * 3}s`,
-                    animationDuration: `${2 + Math.random() * 2}s`
-                  }}
+                  style={style}
                 />
               ))}
             </div>
