@@ -11,6 +11,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { notFound } from 'next/navigation';
+import { services } from '@/lib/services-data';
+
 
 const getIcon = (iconName: string | undefined, className: string) => {
   const iconProps = { className };
@@ -33,17 +35,6 @@ const navLinks = [
     { href: "/#our-work", label: "Our Work" },
     { href: "/#contact", label: "Contact Us" },
 ];
-
-export default function ModernServicesPage({ params }: { params: { slug: string } }) {
-  const service = services.find(s => s.slug === params.slug);
-
-  if (!service) {
-    notFound();
-  }
-
-  return <ServicePageClient service={service} />;
-}
-
 
 export function ServicePageClient({ service }: { service: Service }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -335,7 +326,7 @@ export function ServicePageClient({ service }: { service: Service }) {
                   <TabsContent 
                     key={detail.slug} 
                     value={detail.slug} 
-                    className="mt-0 mb-10 pb-12 animate-fade-in-up"
+                    className="mt-10 mb-10 pb-20 animate-fade-in-up"
                   >
                     <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-neutral-900/90 to-black/90 shadow-2xl border border-neutral-800/50 backdrop-blur-sm hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
                       {/* Enhanced image section */}
@@ -516,3 +507,5 @@ export function ServicePageClient({ service }: { service: Service }) {
     </div>
   );
 }
+
+    
