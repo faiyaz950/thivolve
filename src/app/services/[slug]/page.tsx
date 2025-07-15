@@ -4,9 +4,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { notFound } from 'next/navigation';
 import { services, Service } from '@/lib/services-data';
-import { ArrowRight, CheckCircle, Code, Megaphone, Palette, Smartphone, Sparkles, Wand2, Bot, DatabaseZap, Menu, X } from 'lucide-react';
+import { ArrowRight, CheckCircle, Code, Megaphone, Palette, Smartphone, Sparkles, Wand2, Bot, DatabaseZap, Menu, X, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const getIcon = (iconName: string | undefined) => {
   const iconClass = "w-12 h-12 text-white drop-shadow-lg";
@@ -45,7 +46,6 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
     }
   }, [params.slug]);
 
-  // Image slider effect
   useEffect(() => {
     if (!service?.hero?.images || service.hero.images.length === 0) return;
     const imageSliderInterval = setInterval(() => {
@@ -54,7 +54,6 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
     return () => clearInterval(imageSliderInterval);
   }, [service]);
 
-  // Animated Title effect
   useEffect(() => {
     if (!service?.hero?.animatedTitles || service.hero.animatedTitles.length === 0) return;
     const displayDuration = 3000;
@@ -70,14 +69,12 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
   }, [service]);
 
 
-  // Scroll tracking for parallax effects
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Intersection observer for active section tracking
   useEffect(() => {
     if (!service) return;
     observerRef.current = new IntersectionObserver(
@@ -106,7 +103,7 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
 
   if (!service) {
     return (
-      <div className="flex h-screen items-center justify-center">
+      <div className="flex h-screen items-center justify-center bg-gray-900">
         <div className="h-12 w-12 animate-spin rounded-full border-4 border-solid border-primary border-t-transparent"></div>
       </div>
     );
@@ -115,7 +112,7 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
   const { hero, details, title: serviceCategoryTitle } = service;
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 text-gray-900 overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-gray-900 text-white overflow-x-hidden">
       <header className="fixed top-0 z-50 w-full bg-black/20 backdrop-blur-md transition-colors duration-300">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between max-w-screen-xl">
            <Link href="/" className="flex items-center space-x-2">
@@ -245,7 +242,7 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
           )}
         </section>
 
-        <section id="service-details" className="py-20 bg-white">
+        <section id="service-details" className="py-20 bg-gray-900">
           <div className="container mx-auto px-4 max-w-screen-xl">
             <div className="grid lg:grid-cols-12 gap-12">
               <aside className="lg:col-span-3">
@@ -262,19 +259,19 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
                         href={`#${detail.slug}`}
                         className={`group block p-4 rounded-xl transition-all duration-300 border-2 ${
                           activeSection === detail.slug
-                            ? 'bg-gradient-to-r from-red-50 to-red-100/50 border-red-200 text-red-700'
-                            : 'border-transparent hover:bg-gray-50 hover:border-gray-200'
+                            ? 'bg-gradient-to-r from-red-900/50 to-red-800/50 border-red-700 text-white'
+                            : 'border-transparent hover:bg-neutral-800 hover:border-neutral-700'
                         }`}
                       >
                         <div className="flex items-center space-x-3">
                           <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold transition-all duration-300 ${
                             activeSection === detail.slug
                               ? 'bg-gradient-to-r from-red-600 to-red-700 text-white'
-                              : 'bg-gray-200 text-gray-600 group-hover:bg-red-200'
+                              : 'bg-neutral-700 text-neutral-300 group-hover:bg-red-800 group-hover:text-white'
                           }`}>
                             {index + 1}
                           </div>
-                          <span className="font-medium">{detail.title}</span>
+                          <span className="font-medium text-neutral-300 group-hover:text-white">{detail.title}</span>
                         </div>
                       </a>
                     ))}
@@ -283,7 +280,7 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
               </aside>
 
               <div className="lg:col-span-9">
-                <div className="space-y-24">
+                <div className="space-y-16">
                   {details.map((detail) => (
                     <div
                       key={detail.slug}
@@ -291,7 +288,7 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
                       ref={(el) => (sectionRefs.current[detail.slug] = el)}
                       className="scroll-mt-24"
                     >
-                      <div className="group relative overflow-hidden rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100">
+                      <div className="group relative overflow-hidden rounded-3xl bg-neutral-900 shadow-xl hover:shadow-2xl transition-all duration-500 border border-neutral-800">
                         <div className="relative h-80 overflow-hidden">
                           <img
                             src={detail.backgroundImage}
@@ -312,21 +309,28 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
                         </div>
 
                         <div className="p-8">
-                          <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                          <p className="text-lg text-gray-300 leading-relaxed mb-8">
                             {detail.description}
                           </p>
 
                           {detail.subDetails && detail.subDetails.length > 0 && (
-                            <div className="grid md:grid-cols-2 gap-4">
-                              {detail.subDetails.map((subDetail, i) => (
-                                <div key={i} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                                  <div className="w-6 h-6 bg-gradient-to-r from-red-600 to-red-700 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <CheckCircle className="w-4 h-4 text-white" />
-                                  </div>
-                                  <span className="text-gray-700 font-medium">{subDetail}</span>
-                                </div>
-                              ))}
-                            </div>
+                             <Accordion type="single" collapsible className="w-full">
+                                {detail.subDetails.map((subDetail, i) => (
+                                    <AccordionItem key={i} value={`item-${i}`} className="border-neutral-800">
+                                        <AccordionTrigger className="text-lg font-medium text-white/90 hover:text-primary hover:no-underline [&[data-state=open]]:text-primary">
+                                            <div className="flex items-center">
+                                                <div className="w-6 h-6 bg-gradient-to-r from-red-600 to-red-700 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                                    <CheckCircle className="w-4 h-4 text-white" />
+                                                </div>
+                                                <span>{subDetail.title}</span>
+                                            </div>
+                                        </AccordionTrigger>
+                                        <AccordionContent className="pt-2 pl-10 text-base text-gray-400">
+                                            {subDetail.description}
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                ))}
+                            </Accordion>
                           )}
                         </div>
                       </div>
