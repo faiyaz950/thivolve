@@ -15,13 +15,13 @@ const services = [
 ];
 
 const partnerLogos = [
-  { src: "https://images.unsplash.com/photo-1531973576160-7125cd663d86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvbXBhbnklMjBsb2dvfGVufDB8fHx8MTc0ODA3NDgyNXww&ixlib=rb-4.1.0&q=80&w=1080", alt: "Visionary Abstract Logo", hint: "abstract company logo" },
-  { src: "https://images.unsplash.com/photo-1614959604920-935a03f0116e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nbyUyMG1vbm9jaHJvbWV8ZW58MHx8fHwxNzQ4MDc0ODI1fDA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Innovate Inc. Logo", hint: "company logo monochrome" },
-  { src: "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWNoJTIwY2xpZW50JTIwbG9nbyxlbnwwfHx8fDE3NDgxNzM0MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Quantum Tech Logo", hint: "tech client logo" },
-  { src: "https://images.unsplash.com/photo-1458819714733-e5ab3d536722?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwYXJ0bmVyJTIwbG9nbyUyMHNpbXBsZXxlbnwwfHx8fDE3NDgwNzQ4MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Apex Solutions Logo", hint: "partner logo simple" },
-  { src: "https://images.unsplash.com/photo-1612222869049-d8ec83637a3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb3Jwb3JhdGUlMjBwYXJ0bmVyJTIwbG9nbyxlbnwwfHx8fDE3NDgwNzQ4MjV8MA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Stellar Corp Logo", hint: "corporate partner logo" },
-  { src: "https://images.unsplash.com/photo-1487260211189-670c54da558d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdGFydHVwJTIwbG9nbyUyMG1pbmltYWxpc3R8ZW58MHx8fHwxNzQ4MDc0ODI2fDA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Momentum Startup Logo", hint: "startup logo minimalist" },
-  { src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxlbnRlcnByaXNlJTIwY2xpZW50JTIwYnJhbmR8ZW58MHx8fHwxNzQ4MDc0ODI2fDA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Global Trust Enterprise Logo", hint: "enterprise client brand" },
+  { src: "https://images.unsplash.com/photo-1618236122998-3a2b7ae7e1df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhYnN0cmFjdCUyMGxvZ298ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Abstract Sphere Logo", hint: "abstract logo" },
+  { src: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsb2dvfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080", alt: "Geometric Company Logo", hint: "company logo" },
+  { src: "https://images.unsplash.com/photo-1549268393-2144e991ba42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtb25vZ3JhbSUyMGxvZ298ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Monogram Logo", hint: "monogram logo" },
+  { src: "https://images.unsplash.com/photo-1606135887196-99e693e5a5c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtaW5pbWFsaXN0JTIwbG9nb3xlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Minimalist Brand Logo", hint: "minimalist logo" },
+  { src: "https://images.unsplash.com/photo-1611117775522-5a3371954152?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzeW1ib2wlMjBsb2dvfGVufDB8fHx8MTc0ODM5MzQyMnww&ixlib=rb-4.1.0&q=80&w=1080", alt: "Symbolic Tech Logo", hint: "symbol logo" },
+  { src: "https://images.unsplash.com/photo-1524311518928-857c436c6413?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmaW5hbmNlJTIwbG9nb3xlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Finance Corp Logo", hint: "finance logo" },
+  { src: "https://images.unsplash.com/photo-1622359997463-13abb42a63e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxoZWFsdGhjYXJlJTIwbG9nb3xlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Healthcare Brand Logo", hint: "healthcare logo" },
 ];
 
 
@@ -79,7 +79,7 @@ export function ServicesOverview() {
                     alt={logo.alt}
                     width={150}
                     height={60}
-                    className="object-contain h-10 md:h-12 w-auto brightness-0 invert"
+                    className="object-contain h-12 md:h-16 w-auto brightness-0 invert"
                     data-ai-hint={logo.hint}
                   />
                 </div>
