@@ -1,25 +1,27 @@
 
 "use client";
 
-import type { Service, ServiceHero } from '@/lib/services-data';
+import type { Service } from '@/lib/services-data';
 import { useState, useEffect, useRef } from 'react';
 import { ArrowRight, CheckCircle, Code, Megaphone, Palette, Smartphone, Sparkles, Wand2, Bot, DatabaseZap, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
-const getIcon = (iconName: string | undefined) => {
-  const iconClass = "w-12 h-12 text-white drop-shadow-lg";
-  
+const getIcon = (iconName: string | undefined, className: string) => {
+  const iconProps = { className };
   switch (iconName) {
-    case 'website-development': return <Code className={iconClass} />;
-    case 'mobile-application-development': return <Smartphone className={iconClass} />;
-    case 'digital-marketing': return <Megaphone className={iconClass} />;
-    case 'graphics-designing': return <Palette className={iconClass} />;
-    case 'ai-automation': return <Bot className={iconClass} />;
-    case 'data-analysis': return <DatabaseZap className={iconClass} />;
-    case 'custom-ai': return <Wand2 className={iconClass} />;
-    default: return <Sparkles className={iconClass} />;
+    case 'website-development': return <Code {...iconProps} />;
+    case 'mobile-application-development': return <Smartphone {...iconProps} />;
+    case 'digital-marketing': return <Megaphone {...iconProps} />;
+    case 'graphics-designing': return <Palette {...iconProps} />;
+    case 'ai-automation': return <Bot {...iconProps} />;
+    case 'data-analysis': return <DatabaseZap {...iconProps} />;
+    case 'custom-ai': return <Wand2 {...iconProps} />;
+    default: return <Sparkles {...iconProps} />;
   }
 };
 
@@ -32,20 +34,11 @@ const navLinks = [
 ];
 
 export function ServicePageClient({ service }: { service: Service }) {
-  const [activeSection, setActiveSection] = useState('');
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isContentVisible, setIsContentVisible] = useState(true);
   const [scrollY, setScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
-  useEffect(() => {
-    if (service?.details?.[0]?.slug) {
-      setActiveSection(service.details[0].slug);
-    }
-  }, [service]);
-
+  
   useEffect(() => {
     if (!service?.hero?.slides || service.hero.slides.length === 0) return;
 
@@ -69,32 +62,6 @@ export function ServicePageClient({ service }: { service: Service }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (!service) return;
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: '-20% 0px -80% 0px' }
-    );
-
-    Object.values(sectionRefs.current).forEach((ref) => {
-      if (ref) observerRef.current?.observe(ref);
-    });
-
-    return () => {
-      if (observerRef.current) {
-        Object.values(sectionRefs.current).forEach((ref) => {
-          if (ref) observerRef.current?.unobserve(ref);
-        });
-      }
-    };
-  }, [service]);
-
   if (!service) {
     return (
       <div className="flex h-screen items-center justify-center bg-gray-900">
@@ -105,6 +72,18 @@ export function ServicePageClient({ service }: { service: Service }) {
 
   const { hero, details, title: serviceCategoryTitle } = service;
   const currentSlide = hero?.slides[currentSlideIndex];
+
+  const renderSplitColorTitle = (title: string) => {
+    const middleIndex = Math.ceil(title.length / 2);
+    const firstHalf = title.slice(0, middleIndex);
+    const secondHalf = title.slice(middleIndex);
+    return (
+      <>
+        <span className="text-white">{firstHalf}</span>
+        <span className="text-primary">{secondHalf}</span>
+      </>
+    );
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-900 text-white overflow-x-hidden">
@@ -134,13 +113,15 @@ export function ServicePageClient({ service }: { service: Service }) {
             </nav>
           </div>
 
-          <div className="flex items-center">
-             <Link href="/#contact" className="hidden md:inline-block">
-                <button className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2.5 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-medium">
-                  Contact Us
-                </button>
-              </Link>
-              <button 
+          <div className="flex items-center space-x-2">
+            <Button
+              variant="outline"
+              className="hidden md:inline-flex border-white text-white bg-transparent hover:bg-white hover:text-black transition-colors"
+              asChild
+            >
+              <Link href="#contact">Book a Meeting</Link>
+            </Button>
+            <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors ml-2"
               >
@@ -155,11 +136,14 @@ export function ServicePageClient({ service }: { service: Service }) {
               {navLinks.map((link) => (
                  <Link key={link.href} href={link.href} onClick={() => setIsMenuOpen(false)} className="block py-2 text-white/80 hover:text-white transition-colors">{link.label}</Link>
               ))}
-              <Link href="/#contact">
-                <button onClick={() => setIsMenuOpen(false)} className="w-full mt-4 bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-full font-medium">
-                  Contact Us
-                </button>
-              </Link>
+              <Button 
+                variant="outline" 
+                className="w-full mt-4 border-white text-white" 
+                asChild
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Link href="#contact">Book a Meeting</Link>
+              </Button>
             </nav>
           </div>
         )}
@@ -201,17 +185,15 @@ export function ServicePageClient({ service }: { service: Service }) {
                 className="animate-fade-in-up transition-opacity duration-500 ease-in-out"
                 style={{ animationDelay: '0.2s', animationFillMode: 'both', opacity: isContentVisible ? 1 : 0 }}
               >
-                <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                  <span className="bg-gradient-to-r from-red-400 via-primary to-red-400 bg-clip-text text-transparent" style={{ minHeight: '1.2em', display: 'inline-block' }}>
-                    {currentSlide?.title}
-                  </span>
+                <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight whitespace-nowrap">
+                  {currentSlide ? renderSplitColorTitle(currentSlide.title) : ''}
                 </h1>
               </div>
               <div 
                 className="animate-fade-in-up transition-opacity duration-500 ease-in-out"
                 style={{ animationDelay: '0.4s', animationFillMode: 'both', opacity: isContentVisible ? 1 : 0 }}
               >
-                <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto" style={{minHeight: '4.5rem'}}>
+                <p className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto" style={{minHeight: '4.5rem'}}>
                   {currentSlide?.description}
                 </p>
               </div>
@@ -232,7 +214,7 @@ export function ServicePageClient({ service }: { service: Service }) {
                   }}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === currentSlideIndex
-                      ? 'bg-white scale-125' 
+                      ? 'bg-primary scale-125' 
                       : 'bg-white/50 hover:bg-white/80'
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
@@ -244,102 +226,81 @@ export function ServicePageClient({ service }: { service: Service }) {
 
         <section id="service-details" className="py-20 bg-gray-900">
           <div className="container mx-auto px-4 max-w-screen-xl">
-            <div className="grid lg:grid-cols-12 gap-12">
-              <aside className="lg:col-span-3">
-                <div className="sticky top-28">
-                  <div className="bg-gradient-to-br from-red-600 to-red-800 p-6 rounded-2xl text-white mb-8 shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">Our {serviceCategoryTitle}</h3>
-                    <p className="text-red-100">Comprehensive digital solutions</p>
-                  </div>
-                  
-                  <nav className="space-y-2">
-                    {details.map((detail, index) => (
-                      <a
-                        key={detail.slug}
-                        href={`#${detail.slug}`}
-                        className={`group block p-4 rounded-xl transition-all duration-300 border-2 ${
-                          activeSection === detail.slug
-                            ? 'bg-gradient-to-r from-red-900/50 to-red-800/50 border-red-700 text-white'
-                            : 'border-transparent hover:bg-neutral-800 hover:border-neutral-700'
-                        }`}
-                      >
-                        <div className="flex items-center space-x-3">
-                          <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold transition-all duration-300 ${
-                            activeSection === detail.slug
-                              ? 'bg-gradient-to-r from-red-600 to-red-700 text-white'
-                              : 'bg-neutral-700 text-neutral-300 group-hover:bg-red-800 group-hover:text-white'
-                          }`}>
-                            {index + 1}
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">Our {serviceCategoryTitle}</h2>
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                Explore our comprehensive digital solutions designed to elevate your business.
+              </p>
+            </div>
+            
+            <Tabs defaultValue={details[0].slug} className="w-full">
+              <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 gap-4 bg-transparent p-0 mb-10">
+                {details.map((detail) => (
+                  <TabsTrigger
+                    key={detail.slug}
+                    value={detail.slug}
+                    className="group bg-neutral-800/50 border border-neutral-700 data-[state=active]:bg-primary/90 data-[state=active]:text-primary-foreground data-[state=active]:border-primary text-white h-auto p-4 rounded-xl transition-all hover:bg-neutral-700"
+                  >
+                    <div className="flex flex-col items-center text-center gap-3">
+                      {getIcon(detail.icon, "w-8 h-8 text-primary group-data-[state=active]:text-white transition-colors")}
+                      <span className="font-semibold">{detail.title}</span>
+                    </div>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+
+              {details.map((detail) => (
+                <TabsContent key={detail.slug} value={detail.slug}>
+                  <div className="group relative overflow-hidden rounded-3xl bg-neutral-900 shadow-xl border border-neutral-800">
+                    <div className="relative h-80 overflow-hidden">
+                      <Image
+                        src={detail.backgroundImage}
+                        alt={`${detail.title} background`}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                      <div className="absolute inset-0 flex items-end p-8">
+                        <div className="text-white">
+                          <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                            {getIcon(detail.icon, "w-12 h-12 text-white drop-shadow-lg")}
                           </div>
-                          <span className="font-medium text-neutral-300 group-hover:text-white">{detail.title}</span>
-                        </div>
-                      </a>
-                    ))}
-                  </nav>
-                </div>
-              </aside>
-
-              <div className="lg:col-span-9">
-                <div className="space-y-16">
-                  {details.map((detail) => (
-                    <div
-                      key={detail.slug}
-                      id={detail.slug}
-                      ref={(el) => (sectionRefs.current[detail.slug] = el)}
-                      className="scroll-mt-24"
-                    >
-                      <div className="group relative overflow-hidden rounded-3xl bg-neutral-900 shadow-xl hover:shadow-2xl transition-all duration-500 border border-neutral-800">
-                        <div className="relative h-80 overflow-hidden">
-                          <Image
-                            src={detail.backgroundImage}
-                            alt={`${detail.title} background`}
-                            fill
-                            className="object-cover transition-transform duration-700 group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                          
-                          <div className="absolute inset-0 flex items-end p-8">
-                            <div className="text-white">
-                              <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                                {getIcon(detail.icon)}
-                              </div>
-                              <h2 className="text-4xl font-bold mb-2">{detail.title}</h2>
-                              <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-primary rounded-full"></div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="p-8">
-                          <p className="text-lg text-gray-300 leading-relaxed mb-8">
-                            {detail.description}
-                          </p>
-
-                          {detail.subDetails && detail.subDetails.length > 0 && (
-                             <Accordion type="single" collapsible className="w-full">
-                                {detail.subDetails.map((subDetail, i) => (
-                                    <AccordionItem key={i} value={`item-${i}`} className="border-neutral-800">
-                                        <AccordionTrigger className="text-lg font-medium text-white/90 hover:text-primary hover:no-underline [&[data-state=open]]:text-primary">
-                                            <div className="flex items-center">
-                                                <div className="w-6 h-6 bg-gradient-to-r from-red-600 to-red-700 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
-                                                    <CheckCircle className="w-4 h-4 text-white" />
-                                                </div>
-                                                <span>{subDetail.title}</span>
-                                            </div>
-                                        </AccordionTrigger>
-                                        <AccordionContent className="pt-2 pl-10 text-base text-gray-400">
-                                            {subDetail.description}
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                ))}
-                            </Accordion>
-                          )}
+                          <h2 className="text-4xl font-bold mb-2">{detail.title}</h2>
+                          <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-primary rounded-full"></div>
                         </div>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+
+                    <div className="p-8">
+                      <p className="text-lg text-gray-300 leading-relaxed mb-8">
+                        {detail.description}
+                      </p>
+
+                      {detail.subDetails && detail.subDetails.length > 0 && (
+                         <Accordion type="single" collapsible className="w-full">
+                            {detail.subDetails.map((subDetail, i) => (
+                                <AccordionItem key={i} value={`item-${i}`} className="border-neutral-800">
+                                    <AccordionTrigger className="text-lg font-medium text-white/90 hover:text-primary hover:no-underline [&[data-state=open]]:text-primary">
+                                        <div className="flex items-center text-left">
+                                            <div className="w-6 h-6 bg-gradient-to-r from-red-600 to-red-700 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                                <CheckCircle className="w-4 h-4 text-white" />
+                                            </div>
+                                            <span>{subDetail.title}</span>
+                                        </div>
+                                    </AccordionTrigger>
+                                    <AccordionContent className="pt-2 pl-10 text-base text-gray-400">
+                                        {subDetail.description}
+                                    </AccordionContent>
+                                </AccordionItem>
+                            ))}
+                        </Accordion>
+                      )}
+                    </div>
+                  </div>
+                </TabsContent>
+              ))}
+            </Tabs>
+
           </div>
         </section>
 
@@ -353,15 +314,15 @@ export function ServicePageClient({ service }: { service: Service }) {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                  <Link href="/#contact">
-                  <button className="bg-white text-red-600 px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center space-x-2">
+                  <Button className="bg-white text-red-600 px-8 py-3 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center space-x-2">
                     <span>Get a Free Consultation</span>
                     <ArrowRight className="w-5 h-5" />
-                  </button>
+                  </Button>
                 </Link>
                 <Link href="/#our-work">
-                  <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-red-600 transition-all duration-300">
+                  <Button variant="outline" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-red-600 transition-all duration-300">
                     View Portfolio
-                  </button>
+                  </Button>
                 </Link>
               </div>
             </div>

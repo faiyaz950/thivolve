@@ -95,20 +95,20 @@ export const services: Service[] = [
       },
       {
         slug: "mobile-application-development",
-        title: "Mobile Application Development",
+        title: "Mobile App Development",
         icon: "mobile-application-development",
         description: "Engage your customers on the go with our native and hybrid mobile apps. We build intuitive, high-performance applications for both iOS and Android platforms, from concept to launch.",
         backgroundImage: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
           { title: "Native Android Development", description: "Building robust, scalable, and high-performance apps for the world's most popular mobile OS using modern technologies like Kotlin and Java with Android Studio." },
           { title: "Native iOS Development", description: "Crafting seamless, elegant, and powerful experiences for Apple's ecosystem using the latest Swift and SwiftUI frameworks with Xcode." },
-          { title: "Cross-Platform with React Native", description: "Delivering cost-effective solutions by using a single codebase to target multiple platforms (iOS & Android) without compromising on quality or user experience." },
-          { title: "High-Performance with Flutter", description: "Creating beautiful, natively compiled applications for mobile, web, and desktop from a single, unified codebase, ensuring a consistent and fluid user interface." }
+          { title: "Cross-Platform (React Native)", description: "Delivering cost-effective solutions by using a single codebase to target multiple platforms (iOS & Android) without compromising on quality or user experience." },
+          { title: "Cross-Platform (Flutter)", description: "Creating beautiful, natively compiled applications for mobile, web, and desktop from a single, unified codebase, ensuring a consistent and fluid user interface." }
         ]
       },
       {
         slug: "digital-marketing",
-        title: "Digital Marketing & SEO",
+        title: "Digital Marketing",
         icon: "digital-marketing",
         description: "Expand your reach with our data-driven digital marketing strategies. We specialize in SEO, SEM, content marketing, and social media to boost your online visibility, generate qualified leads, and grow your revenue.",
         backgroundImage: "https://images.unsplash.com/photo-1557862921-37829c790f19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
@@ -153,7 +153,7 @@ export const services: Service[] = [
           title: "Seamless Telehealth Support",
           description: "Our technical and administrative support ensures that virtual consultations are smooth and reliable for both patients and doctors.",
           image: {
-            src: "https://images.unsplash.com/photo-1584820844314-19a93a45c7b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx0ZWxlaGVhbHRofGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib-rb-4.1.0&q=80&w=1080",
+            src: "https://images.unsplash.com/photo-1584820844314-19a93a45c7b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx0ZWxlaGVhbHRofGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
             alt: "Telehealth consultation on a tablet",
             hint: "telehealth"
           }
@@ -177,7 +177,7 @@ export const services: Service[] = [
         slug: "patient-support",
         title: "Patient Support Services",
         description: "Offering compassionate and efficient patient support, including appointment scheduling, inquiry handling, and follow-ups to enhance patient satisfaction.",
-        backgroundImage: "https://images.unsplash.com/photo-1530497111126-7f21e8740f31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxwYXRpZW50JTIwc3VwcG9ydHxlbnwwfHx8fDE3NDgzOTMzODd8MA&ixlib-rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1530497111126-7f21e8740f31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxwYXRpZW50JTIwc3VwcG9ydHxlbnwwfHx8fDE3NDgzOTMzODd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       }
     ]
   },
@@ -224,7 +224,7 @@ export const services: Service[] = [
         slug: "lead-generation-cc",
         title: "Lead Generation",
         description: "Utilizing digital and traditional marketing techniques to generate high-quality leads for credit card sales teams, ensuring a steady pipeline of potential customers.",
-        backgroundImage: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxsZWFkJTIwZ2VuZXJhdGlvbnxlbnwwfHx8fDE3NDgzOTMzODd8MA&ixlib-rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxsZWFkJTIwZ2VuZXJhdGlvbnxlbnwwfHx8fDE3NDgzOTMzODd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       }
     ]
   },
@@ -247,7 +247,7 @@ export const services: Service[] = [
           title: "Corporate Insurance Solutions",
           description: "Customized group insurance plans and corporate solutions to help businesses protect their employees and assets.",
           image: {
-            src: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjcnBvcmF0ZSUyMGluc3VyYW5jZXxlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+            src: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjcnBvcmF0ZSUyMGluc3VyYW5jZXxlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
             alt: "Business professionals signing a document",
             hint: "corporate insurance"
           }
@@ -307,7 +307,7 @@ export const services: Service[] = [
         icon: "ai-automation",
         title: "AI-Powered Automation",
         description: "We develop custom AI models to automate repetitive tasks, streamline workflows, and increase operational efficiency across your business.",
-        backgroundImage: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib-rb-4.1.0&q=80&w=1080",
       },
       {
         slug: "data-analysis",
@@ -321,7 +321,7 @@ export const services: Service[] = [
         icon: "custom-ai",
         title: "Custom AI Solutions",
         description: "From natural language processing (NLP) for chatbots to computer vision for image analysis, we build bespoke AI solutions to solve your unique challenges.",
-        backgroundImage: "https://images.unsplash.com/photo-1593349480503-68153e4c843e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjvbnN1bSUyMGFpJTIwc29sdXRpb25zfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1593349480503-68153e4c843e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjvbnN1bSUyMGFpJTIwc29sdXRpb25zfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib-rb-4.1.0&q=80&w=1080",
       }
     ]
   },
