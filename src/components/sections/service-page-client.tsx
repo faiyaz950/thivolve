@@ -2,7 +2,7 @@
 "use client";
 
 import type { Service } from '@/lib/services-data';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowRight, CheckCircle, Code, Megaphone, Palette, Smartphone, Sparkles, Wand2, Bot, DatabaseZap, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -36,7 +36,6 @@ const navLinks = [
 export function ServicePageClient({ service }: { service: Service }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isContentVisible, setIsContentVisible] = useState(true);
-  const [scrollY, setScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   useEffect(() => {
@@ -55,12 +54,6 @@ export function ServicePageClient({ service }: { service: Service }) {
 
     return () => clearInterval(slideInterval);
   }, [service]);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   if (!service) {
     return (
@@ -151,10 +144,7 @@ export function ServicePageClient({ service }: { service: Service }) {
 
       <main className="flex-grow">
         <section className="relative h-screen overflow-hidden">
-          <div 
-            className="absolute inset-0 w-full h-full"
-            style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-          >
+          <div className="absolute inset-0 w-full h-full">
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60 z-10"></div>
             {hero && hero.slides.length > 0 && (
               <div className="relative h-full overflow-hidden">
@@ -182,16 +172,16 @@ export function ServicePageClient({ service }: { service: Service }) {
           <div className="relative z-20 h-full flex items-center justify-center">
             <div className="container mx-auto px-4 max-w-4xl text-center text-white">
                <div 
-                className="animate-fade-in-up transition-opacity duration-500 ease-in-out"
-                style={{ animationDelay: '0.2s', animationFillMode: 'both', opacity: isContentVisible ? 1 : 0 }}
+                className="transition-opacity duration-500 ease-in-out"
+                style={{ opacity: isContentVisible ? 1 : 0 }}
               >
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight whitespace-nowrap">
                   {currentSlide ? renderSplitColorTitle(currentSlide.title) : ''}
                 </h1>
               </div>
               <div 
-                className="animate-fade-in-up transition-opacity duration-500 ease-in-out"
-                style={{ animationDelay: '0.4s', animationFillMode: 'both', opacity: isContentVisible ? 1 : 0 }}
+                className="transition-opacity duration-500 ease-in-out"
+                style={{ opacity: isContentVisible ? 1 : 0 }}
               >
                 <p className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto" style={{minHeight: '4.5rem'}}>
                   {currentSlide?.description}
@@ -378,23 +368,6 @@ export function ServicePageClient({ service }: { service: Service }) {
           </div>
         </div>
       </footer>
-
-      <style jsx>{`
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fade-in-up {
-          animation: fade-in-up 0.8s ease-out;
-        }
-      `}</style>
     </div>
   );
 }

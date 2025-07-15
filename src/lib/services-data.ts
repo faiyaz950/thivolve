@@ -87,10 +87,10 @@ export const services: Service[] = [
         description: "We create modern, responsive, and SEO-friendly websites tailored to your brand. Our expertise covers e-commerce, portfolios, and complex web applications, ensuring high performance and user engagement.",
         backgroundImage: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGV2ZWxvcG1lbnR8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          { title: "Static & Dynamic Websites", description: "We build fast, secure static sites for portfolios and brochures, as well as interactive, CMS-driven dynamic sites for blogs, corporate portals, and complex business applications." },
-          { title: "E-commerce Solutions", description: "Our team creates feature-rich online stores with secure payment gateways, intuitive inventory management, and a seamless user experience to maximize your sales." },
-          { title: "Modern Tech Stack", description: "We leverage cutting-edge technologies like React, Next.js, and Node.js to build scalable, high-performance, and maintainable web applications for the future." },
-          { title: "SEO-Friendly Architecture", description: "Every website is built from the ground up with search engine optimization best practices in mind, ensuring your business achieves maximum visibility on search engines." }
+          { title: "Static & Dynamic Websites", description: "We build fast, secure static sites for portfolios and brochures, as well as interactive, CMS-driven dynamic sites for blogs, corporate portals, and complex business applications. Our dynamic solutions allow for easy content management and scalability." },
+          { title: "E-commerce Solutions", description: "Our team creates feature-rich online stores with secure payment gateways, intuitive inventory management, and a seamless user experience to maximize your sales. We integrate with major platforms and build custom solutions." },
+          { title: "Modern Tech Stack", description: "We leverage cutting-edge technologies like React, Next.js for server-side rendering, and Node.js for robust back-end services to build scalable, high-performance, and maintainable web applications for the future." },
+          { title: "SEO-Friendly Architecture", description: "Every website is built from the ground up with search engine optimization best practices in mind, including semantic HTML, fast load times, and mobile-first design, ensuring your business achieves maximum visibility." }
         ]
       },
       {
@@ -100,10 +100,10 @@ export const services: Service[] = [
         description: "Engage your customers on the go with our native and hybrid mobile apps. We build intuitive, high-performance applications for both iOS and Android platforms, from concept to launch.",
         backgroundImage: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          { title: "Native Android Development", description: "Building robust, scalable, and high-performance apps for the world's most popular mobile OS using modern technologies like Kotlin and Java with Android Studio." },
-          { title: "Native iOS Development", description: "Crafting seamless, elegant, and powerful experiences for Apple's ecosystem using the latest Swift and SwiftUI frameworks with Xcode." },
-          { title: "Cross-Platform (React Native)", description: "Delivering cost-effective solutions by using a single codebase to target multiple platforms (iOS & Android) without compromising on quality or user experience." },
-          { title: "Cross-Platform (Flutter)", description: "Creating beautiful, natively compiled applications for mobile, web, and desktop from a single, unified codebase, ensuring a consistent and fluid user interface." }
+          { title: "Native Android Development", description: "Building robust, scalable, and high-performance apps for the world's most popular mobile OS using modern technologies like Kotlin and Java with Android Studio. We ensure apps are optimized for a wide range of devices." },
+          { title: "Native iOS Development", description: "Crafting seamless, elegant, and powerful experiences for Apple's ecosystem using the latest Swift and SwiftUI frameworks with Xcode. Our focus is on quality, performance, and adherence to Apple's design guidelines." },
+          { title: "Cross-Platform (React Native)", description: "Delivering cost-effective solutions by using a single codebase in React Native to target multiple platforms (iOS & Android) without compromising on a native look and feel or user experience." },
+          { title: "Cross-Platform (Flutter)", description: "Creating beautiful, natively compiled applications for mobile, web, and desktop from a single, unified codebase with Flutter. This ensures a consistent and fluid user interface across all platforms." }
         ]
       },
       {
@@ -113,10 +113,10 @@ export const services: Service[] = [
         description: "Expand your reach with our data-driven digital marketing strategies. We specialize in SEO, SEM, content marketing, and social media to boost your online visibility, generate qualified leads, and grow your revenue.",
         backgroundImage: "https://images.unsplash.com/photo-1557862921-37829c790f19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          { title: "Search Engine Optimization (SEO)", description: "Improving your website's organic ranking and visibility through comprehensive on-page, off-page, and technical SEO strategies tailored to your business goals." },
-          { title: "Search Engine Marketing (SEM)", description: "Driving immediate, targeted traffic and maximizing ROI through expert management of Google Ads, Bing Ads, and other pay-per-click (PPC) campaigns." },
-          { title: "Content Marketing Strategy", description: "Creating and distributing valuable, relevant, and consistent content (blogs, videos, case studies) to attract, engage, and retain your target audience." },
-          { title: "Social Media Management", description: "Building and managing your brand's presence across relevant social media platforms to foster community, drive engagement, and support business objectives." }
+          { title: "Search Engine Optimization (SEO)", description: "Improving your website's organic ranking and visibility through comprehensive on-page, off-page, and technical SEO strategies. We focus on keyword research, quality content, and link building to drive sustainable traffic." },
+          { title: "Search Engine Marketing (SEM)", description: "Driving immediate, targeted traffic and maximizing ROI through expert management of Google Ads, Bing Ads, and other pay-per-click (PPC) campaigns. We optimize for conversions and provide detailed reporting." },
+          { title: "Content Marketing Strategy", description: "Creating and distributing valuable, relevant, and consistent content (blogs, videos, case studies, infographics) to attract, engage, and retain your target audience, establishing you as an industry leader." },
+          { title: "Social Media Management", description: "Building and managing your brand's presence across relevant social media platforms to foster community, drive engagement, and support business objectives. We handle everything from content creation to community management." }
         ]
       },
       {
@@ -126,10 +126,10 @@ export const services: Service[] = [
         description: "Our creative team translates your brand's essence into compelling visual identities, from logos and marketing materials to polished UI/UX designs that create a lasting impression and enhance user experience.",
         backgroundImage: "https://images.unsplash.com/photo-1626785774573-4b799315345d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxncmFwaGljcyUyMGRlc2lnbmluZ3xlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          { title: "Brand Identity & Logo Design", description: "Developing a memorable and cohesive visual identity system, including logos, color palettes, and typography, that powerfully represents your brand's core values." },
-          { title: "Marketing & Advertising Graphics", description: "Designing eye-catching and effective visuals for digital and print, including social media campaigns, display ads, brochures, and banners." },
-          { title: "UI/UX Design", description: "Crafting intuitive, user-centered, and beautiful interfaces for websites and mobile applications that prioritize usability and enhance the overall user experience." },
-          { title: "Custom Illustrations & Icons", description: "Creating unique and ownable visual assets, such as custom illustrations and icon sets, that make your digital products stand out from the competition." }
+          { title: "Brand Identity & Logo Design", description: "Developing a memorable and cohesive visual identity system, including logos, color palettes, and typography, that powerfully represents your brand's core values and resonates with your target audience." },
+          { title: "Marketing & Advertising Graphics", description: "Designing eye-catching and effective visuals for digital and print, including social media campaigns, display ads, brochures, banners, and presentations that capture attention and drive action." },
+          { title: "UI/UX Design", description: "Crafting intuitive, user-centered, and beautiful interfaces for websites and mobile applications. We focus on wireframing, prototyping, and user testing to prioritize usability and enhance the overall user experience." },
+          { title: "Custom Illustrations & Icons", description: "Creating unique and ownable visual assets, such as custom illustrations and icon sets, that make your digital products stand out, strengthen your brand, and communicate complex ideas simply." }
         ]
       }
     ]
@@ -307,7 +307,7 @@ export const services: Service[] = [
         icon: "ai-automation",
         title: "AI-Powered Automation",
         description: "We develop custom AI models to automate repetitive tasks, streamline workflows, and increase operational efficiency across your business.",
-        backgroundImage: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib-rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
       },
       {
         slug: "data-analysis",
@@ -321,7 +321,7 @@ export const services: Service[] = [
         icon: "custom-ai",
         title: "Custom AI Solutions",
         description: "From natural language processing (NLP) for chatbots to computer vision for image analysis, we build bespoke AI solutions to solve your unique challenges.",
-        backgroundImage: "https://images.unsplash.com/photo-1593349480503-68153e4c843e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjvbnN1bSUyMGFpJTIwc29sdXRpb25zfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib-rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1593349480503-68153e4c843e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjvbnN1bSUyMGFpJTIwc29sdXRpb25zfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
       }
     ]
   },
