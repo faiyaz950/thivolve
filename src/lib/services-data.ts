@@ -2,6 +2,7 @@
 export interface ServiceDetail {
   slug: string;
   title: string;
+  icon?: string;
   description: string;
   backgroundImage: string;
   subDetails?: string[];
@@ -23,6 +24,7 @@ export const services: Service[] = [
       {
         slug: "website-development",
         title: "Website Development",
+        icon: "website-development",
         description: "We create modern, responsive, and SEO-friendly websites tailored to your brand. Our expertise covers both static and dynamic sites, ensuring high performance and user engagement.",
         backgroundImage: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGV2ZWxvcG1lbnR8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
@@ -35,30 +37,33 @@ export const services: Service[] = [
       {
         slug: "mobile-application-development",
         title: "Mobile Application Development",
+        icon: "mobile-application-development",
         description: "Engage your customers on the go with our native and hybrid mobile apps. We build intuitive, high-performance applications for both iOS and Android platforms.",
         backgroundImage: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          "Native Android Development: Building robust and scalable apps using Kotlin, Java, and Android Studio.",
-          "Native iOS Development: Crafting seamless experiences for Apple devices with Swift, SwiftUI, and Xcode.",
-          "Hybrid App Development: Cost-effective solutions using single codebases like React Native and Flutter to target multiple platforms.",
-          "Full Development Lifecycle: From UI/UX design and development to testing and App Store deployment."
+          "Native Android (Kotlin/Java): Building robust and scalable apps using the latest Android technologies.",
+          "Native iOS (Swift/SwiftUI): Crafting seamless experiences for Apple devices with modern development practices.",
+          "Hybrid - React Native: Cost-effective solutions using a single codebase to target multiple platforms without compromising quality.",
+          "Hybrid - Flutter: High-performance, cross-platform apps with beautiful, natively compiled interfaces."
         ]
       },
       {
         slug: "digital-marketing",
         title: "Digital Marketing & SEO",
+        icon: "digital-marketing",
         description: "Expand your reach with our data-driven digital marketing strategies. We specialize in SEO, SEM, content marketing, and social media to boost your online visibility and generate leads.",
         backgroundImage: "https://images.unsplash.com/photo-1557862921-37829c790f19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
           "Search Engine Optimization (SEO): Improving your website's ranking on search engines through on-page, off-page, and technical SEO.",
-          "Search Engine Marketing (SEM): Running targeted pay-per-click (PPC) campaigns on Google Ads and other platforms to drive immediate traffic.",
-          "Content Marketing: Creating valuable and relevant content (blogs, articles, videos) to attract and retain a clearly defined audience.",
+          "Search Engine Marketing (SEM): Running targeted pay-per-click (PPC) campaigns on Google Ads to drive immediate traffic.",
+          "Content Marketing Strategy: Creating valuable content (blogs, videos, infographics) to attract and retain your target audience.",
           "Social Media Management: Building and managing your brand's presence on social media platforms to engage with your community."
         ]
       },
       {
         slug: "graphics-designing",
         title: "Graphics Designing",
+        icon: "graphics-designing",
         description: "Our creative team crafts compelling visual identities, logos, marketing materials, and UI/UX designs that resonate with your audience and elevate your brand.",
         backgroundImage: "https://images.unsplash.com/photo-1626785774573-4b799315345d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxncmFwaGljcyUyMGRlc2lnbmluZ3xlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
@@ -152,18 +157,21 @@ export const services: Service[] = [
     details: [
       {
         slug: "ai-automation",
+        icon: "ai-automation",
         title: "AI-Powered Automation",
         description: "We develop custom AI models to automate repetitive tasks, streamline workflows, and increase operational efficiency across your business.",
         backgroundImage: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
       },
       {
         slug: "data-analysis",
+        icon: "data-analysis",
         title: "Data Analysis & Insights",
         description: "Leveraging machine learning to analyze complex datasets, identify trends, and provide actionable insights that inform strategic business decisions.",
         backgroundImage: "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwYW5hbHlzaXN8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       },
       {
         slug: "custom-ai",
+        icon: "custom-ai",
         title: "Custom AI Solutions",
         description: "From natural language processing (NLP) for chatbots to computer vision for image analysis, we build bespoke AI solutions to solve your unique challenges.",
         backgroundImage: "https://images.unsplash.com/photo-1593349480503-68153e4c843e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjvbnN1bSUyMGFpJTIwc29sdXRpb25zfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",

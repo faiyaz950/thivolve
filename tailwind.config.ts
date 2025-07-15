@@ -101,6 +101,10 @@ export default {
             from: { transform: 'translateX(0)' },
             to: { transform: 'translateX(-50%)' },
         },
+        'parallax-scroll': {
+          '0%': { transform: 'translateY(-10%)' },
+          '100%': { transform: 'translateY(10%)' },
+        }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
@@ -111,6 +115,7 @@ export default {
         'letter-in': 'letter-in 0.6s ease-out forwards',
         'animated-gradient': 'animated-gradient 10s ease infinite',
         'infinite-scroll': 'infinite-scroll 25s linear infinite',
+        'parallax': 'parallax-scroll 15s ease-in-out infinite alternate',
   		}
   	}
   },
