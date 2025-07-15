@@ -1,10 +1,12 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
 import { notFound } from 'next/navigation';
-import { services, Service, ServiceDetail } from '@/lib/services-data';
+import { services, Service } from '@/lib/services-data';
 import { ArrowRight, CheckCircle, Code, Megaphone, Palette, Smartphone, Sparkles, Wand2, Bot, DatabaseZap, Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const getIcon = (iconName: string | undefined) => {
   const iconClass = "w-12 h-12 text-white drop-shadow-lg";
@@ -117,12 +119,13 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
       <header className="fixed top-0 z-50 w-full bg-black/20 backdrop-blur-md transition-colors duration-300">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between max-w-screen-xl">
            <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">B</span>
-            </div>
-            <span className="text-xl font-bold text-white">
-              Btruss
-            </span>
+            <Image
+                src="/btrusssl.png"
+                alt="Btruss Logo"
+                width={120}
+                height={30}
+                priority
+            />
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
@@ -132,7 +135,7 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
               <Link href="/#contact" className="text-white/80 hover:text-white transition-colors font-medium">Contact</Link>
             </nav>
             <Link href="/#contact">
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-medium">
+              <button className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2.5 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-medium">
                 Contact Us
               </button>
             </Link>
@@ -153,7 +156,7 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
               <Link href="/#about-us" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white/80 hover:text-white transition-colors">About</Link>
               <Link href="/#contact" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white/80 hover:text-white transition-colors">Contact</Link>
               <Link href="/#contact">
-                <button onClick={() => setIsMenuOpen(false)} className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-medium">
+                <button onClick={() => setIsMenuOpen(false)} className="w-full mt-4 bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-full font-medium">
                   Contact Us
                 </button>
               </Link>
@@ -197,7 +200,7 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
                 style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
               >
                 <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                  <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent transition-opacity duration-500 ease-in-out" style={{ minHeight: '1.2em', display: 'inline-block', opacity: isTitleVisible ? 1 : 0 }}>
+                  <span className="bg-gradient-to-r from-red-400 via-primary to-red-400 bg-clip-text text-transparent transition-opacity duration-500 ease-in-out" style={{ minHeight: '1.2em', display: 'inline-block', opacity: isTitleVisible ? 1 : 0 }}>
                     {hero?.animatedTitles && hero.animatedTitles.length > 0 ? hero.animatedTitles[currentTitleIndex] : hero?.title}
                   </span>
                 </h1>
@@ -215,7 +218,7 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
                 style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
               >
                  <Link href="/#contact">
-                    <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 inline-flex items-center space-x-2">
+                    <button className="bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 inline-flex items-center space-x-2">
                       <span>Get Started</span>
                       <ArrowRight className="w-5 h-5" />
                     </button>
@@ -247,9 +250,9 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
             <div className="grid lg:grid-cols-12 gap-12">
               <aside className="lg:col-span-3">
                 <div className="sticky top-28">
-                  <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-2xl text-white mb-8">
+                  <div className="bg-gradient-to-br from-red-600 to-red-800 p-6 rounded-2xl text-white mb-8 shadow-lg">
                     <h3 className="text-xl font-bold mb-2">Our {serviceCategoryTitle}</h3>
-                    <p className="text-blue-100">Comprehensive digital solutions</p>
+                    <p className="text-red-100">Comprehensive digital solutions</p>
                   </div>
                   
                   <nav className="space-y-2">
@@ -259,15 +262,15 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
                         href={`#${detail.slug}`}
                         className={`group block p-4 rounded-xl transition-all duration-300 border-2 ${
                           activeSection === detail.slug
-                            ? 'bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-blue-700'
+                            ? 'bg-gradient-to-r from-red-50 to-red-100/50 border-red-200 text-red-700'
                             : 'border-transparent hover:bg-gray-50 hover:border-gray-200'
                         }`}
                       >
                         <div className="flex items-center space-x-3">
                           <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold transition-all duration-300 ${
                             activeSection === detail.slug
-                              ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
-                              : 'bg-gray-200 text-gray-600 group-hover:bg-blue-200'
+                              ? 'bg-gradient-to-r from-red-600 to-red-700 text-white'
+                              : 'bg-gray-200 text-gray-600 group-hover:bg-red-200'
                           }`}>
                             {index + 1}
                           </div>
@@ -303,7 +306,7 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
                                 {getIcon(detail.icon)}
                               </div>
                               <h2 className="text-4xl font-bold mb-2">{detail.title}</h2>
-                              <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
+                              <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-primary rounded-full"></div>
                             </div>
                           </div>
                         </div>
@@ -317,7 +320,7 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
                             <div className="grid md:grid-cols-2 gap-4">
                               {detail.subDetails.map((subDetail, i) => (
                                 <div key={i} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                                  <div className="w-6 h-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                  <div className="w-6 h-6 bg-gradient-to-r from-red-600 to-red-700 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                                     <CheckCircle className="w-4 h-4 text-white" />
                                   </div>
                                   <span className="text-gray-700 font-medium">{subDetail}</span>
@@ -335,23 +338,23 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
           </div>
         </section>
 
-        <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-r from-red-600 to-red-800 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="container mx-auto px-4 max-w-4xl text-center relative z-10">
             <div className="space-y-8">
               <h2 className="text-4xl md:text-5xl font-bold">Ready to Start Your Project?</h2>
-              <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+              <p className="text-xl text-red-100 max-w-2xl mx-auto">
                 Let's discuss how our expertise in {serviceCategoryTitle} can elevate your business to the next level.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                  <Link href="/#contact">
-                  <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center space-x-2">
+                  <button className="bg-white text-red-600 px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center space-x-2">
                     <span>Get a Free Consultation</span>
                     <ArrowRight className="w-5 h-5" />
                   </button>
                 </Link>
                 <Link href="/#our-work">
-                  <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300">
+                  <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-red-600 transition-all duration-300">
                     View Portfolio
                   </button>
                 </Link>
@@ -366,10 +369,12 @@ export default function ModernServicesPage({ params }: { params: { slug: string 
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <Link href="/" className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">B</span>
-                </div>
-                <span className="text-xl font-bold">Btruss</span>
+                 <Image
+                    src="/btrusssl.png"
+                    alt="Btruss Logo"
+                    width={100}
+                    height={25}
+                  />
               </Link>
               <p className="text-gray-400">
                 Transforming businesses through innovative digital solutions.

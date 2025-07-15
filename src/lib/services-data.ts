@@ -48,7 +48,7 @@ export const services: Service[] = [
           hint: "website development team"
         },
         {
-          src: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+          src: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
           alt: "Mobile application development interface",
           hint: "mobile app development"
         },
@@ -69,52 +69,52 @@ export const services: Service[] = [
         slug: "website-development",
         title: "Website Development",
         icon: "website-development",
-        description: "We create modern, responsive, and SEO-friendly websites tailored to your brand. Our expertise covers both static and dynamic sites, ensuring high performance and user engagement.",
+        description: "We create modern, responsive, and SEO-friendly websites tailored to your brand. Our expertise covers e-commerce, portfolios, and complex web applications, ensuring high performance and user engagement.",
         backgroundImage: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGV2ZWxvcG1lbnR8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          "Static Websites: Fast, secure, and reliable sites ideal for portfolios, brochures, and information-based content.",
-          "Dynamic Websites: Feature-rich, interactive websites with content management systems (CMS), e-commerce functionality, and user accounts.",
+          "Static & Dynamic Websites: Fast, secure sites for portfolios and brochures, or interactive CMS-driven sites for blogs and businesses.",
+          "E-commerce Solutions: Building feature-rich online stores with secure payment gateways and intuitive inventory management.",
           "Modern Tech Stack: Utilizing React, Next.js, and other modern frameworks to build scalable and maintainable web applications.",
-          "SEO-Friendly Architecture: Built from the ground up with search engine optimization best practices in mind."
+          "SEO-Friendly Architecture: Built from the ground up with search engine optimization best practices to maximize visibility."
         ]
       },
       {
         slug: "mobile-application-development",
         title: "Mobile Application Development",
         icon: "mobile-application-development",
-        description: "Engage your customers on the go with our native and hybrid mobile apps. We build intuitive, high-performance applications for both iOS and Android platforms.",
+        description: "Engage your customers on the go with our native and hybrid mobile apps. We build intuitive, high-performance applications for both iOS and Android platforms, from concept to launch.",
         backgroundImage: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          "Native Android (Kotlin/Java): Building robust and scalable apps using the latest Android technologies.",
-          "Native iOS (Swift/SwiftUI): Crafting seamless experiences for Apple devices with modern development practices.",
-          "Hybrid - React Native: Cost-effective solutions using a single codebase to target multiple platforms without compromising quality.",
-          "Hybrid - Flutter: High-performance, cross-platform apps with beautiful, natively compiled interfaces."
+          "Native Android Development: Building robust and scalable apps for the world's most popular mobile OS using Kotlin and Java.",
+          "Native iOS Development: Crafting seamless experiences for Apple's ecosystem using the latest Swift and SwiftUI technologies.",
+          "Cross-Platform with React Native: Cost-effective solutions using a single codebase to target multiple platforms without compromising quality.",
+          "High-Performance with Flutter: Beautiful, natively compiled apps for mobile, web, and desktop from a single codebase."
         ]
       },
       {
         slug: "digital-marketing",
         title: "Digital Marketing & SEO",
         icon: "digital-marketing",
-        description: "Expand your reach with our data-driven digital marketing strategies. We specialize in SEO, SEM, content marketing, and social media to boost your online visibility and generate leads.",
+        description: "Expand your reach with our data-driven digital marketing strategies. We specialize in SEO, SEM, content marketing, and social media to boost your online visibility, generate qualified leads, and grow your revenue.",
         backgroundImage: "https://images.unsplash.com/photo-1557862921-37829c790f19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          "Search Engine Optimization (SEO): Improving your website's ranking on search engines through on-page, off-page, and technical SEO.",
-          "Search Engine Marketing (SEM): Running targeted pay-per-click (PPC) campaigns on Google Ads to drive immediate traffic.",
-          "Content Marketing Strategy: Creating valuable content (blogs, videos, infographics) to attract and retain your target audience.",
-          "Social Media Management: Building and managing your brand's presence on social media platforms to engage with your community."
+          "Search Engine Optimization (SEO): Improving your website's organic ranking through on-page, off-page, and technical SEO.",
+          "Search Engine Marketing (SEM): Driving immediate, targeted traffic through expert management of Google Ads & PPC campaigns.",
+          "Content Marketing Strategy: Creating valuable content (blogs, videos, case studies) to attract, engage, and retain your target audience.",
+          "Social Media Management: Building and managing your brand's presence across relevant platforms to foster community and drive engagement."
         ]
       },
       {
         slug: "graphics-designing",
         title: "Graphics Designing",
         icon: "graphics-designing",
-        description: "Our creative team crafts compelling visual identities, logos, marketing materials, and UI/UX designs that resonate with your audience and elevate your brand.",
+        description: "Our creative team translates your brand's essence into compelling visual identities, from logos and marketing materials to polished UI/UX designs that create a lasting impression and enhance user experience.",
         backgroundImage: "https://images.unsplash.com/photo-1626785774573-4b799315345d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxncmFwaGljcyUyMGRlc2lnbmluZ3xlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
-          "Brand Identity & Logo Design: Creating a memorable and cohesive visual identity that represents your brand's values.",
-          "Marketing & Advertising Graphics: Designing eye-catching visuals for social media, print ads, banners, and brochures.",
-          "UI/UX Design: Crafting intuitive and user-friendly interfaces for websites and mobile applications that provide an exceptional user experience.",
-          "Illustration and Iconography: Custom illustrations and icons to make your digital products unique and engaging."
+          "Brand Identity & Logo Design: Creating a memorable and cohesive visual identity that represents your brand's core values.",
+          "Marketing & Advertising Graphics: Designing eye-catching visuals for social media campaigns, print ads, banners, and brochures.",
+          "UI/UX Design: Crafting intuitive and beautiful interfaces for websites and mobile apps that prioritize user experience.",
+          "Custom Illustrations & Icons: Creating unique visual assets that make your digital products stand out from the competition."
         ]
       }
     ]
@@ -328,5 +328,3 @@ export const services: Service[] = [
     ]
   }
 ];
-
-  
