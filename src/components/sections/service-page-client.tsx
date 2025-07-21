@@ -146,7 +146,7 @@ export function ServicePageClient({ service }: { service: Service }) {
               style={{ animationDelay: '500ms' }}
               asChild
             >
-              <Link href="#contact">Book a Meeting</Link>
+              <Link href="/#contact">Book a Meeting</Link>
             </Button>
             <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -340,6 +340,7 @@ export function ServicePageClient({ service }: { service: Service }) {
                         <Image
                           src={detail.backgroundImage}
                           alt={`${detail.title} background`}
+                          data-ai-hint={detail.backgroundImage.split('/').pop()?.split('?')[0].replace(/-/g, ' ') || 'background'}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-110"
                         />
@@ -364,7 +365,7 @@ export function ServicePageClient({ service }: { service: Service }) {
                       </div>
 
                       {/* Enhanced content section */}
-                      <div className="p-8 md:p-12">
+                      <div className="p-8 md:p-12 pb-12 md:pb-20">
                         <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8 max-w-4xl">
                           {detail.description}
                         </p>
@@ -484,7 +485,7 @@ export function ServicePageClient({ service }: { service: Service }) {
             </div>
           </div>
           <div className="border-t border-gray-800/50 pt-8 text-center text-gray-400 animate-fade-in-up">
-            {currentYear && <p>© {currentYear} Btruss. All rights reserved.</p>}
+            {currentYear !== null && <p>© {currentYear} Btruss. All rights reserved.</p>}
           </div>
         </div>
       </footer>
