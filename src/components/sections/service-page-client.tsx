@@ -294,17 +294,17 @@ export function ServicePageClient({ service }: { service: Service }) {
           </div>
 
           <div className="container mx-auto px-4 max-w-screen-xl relative z-10">
-            <div className="text-center mb-16 animate-fade-in-up">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
-                Our <span className="bg-gradient-to-r from-primary via-red-500 to-orange-500 bg-clip-text text-transparent">{serviceCategoryTitle}</span>
-              </h2>
-              <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                Explore our comprehensive digital solutions designed to elevate your business to new heights.
-              </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-primary to-red-500 mx-auto mt-6 rounded-full"></div>
-            </div>
-            
             <Tabs defaultValue={details[0].slug} className="w-full">
+              <div className="text-center mb-16 animate-fade-in-up">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+                  Our <span className="bg-gradient-to-r from-primary via-red-500 to-orange-500 bg-clip-text text-transparent">{serviceCategoryTitle}</span>
+                </h2>
+                <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                  Explore our comprehensive digital solutions designed to elevate your business to new heights.
+                </p>
+                <div className="w-24 h-1 bg-gradient-to-r from-primary to-red-500 mx-auto mt-6 rounded-full"></div>
+              </div>
+
               {/* Enhanced tab list */}
               <div className="mb-20">
                 <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-transparent p-0">
@@ -327,12 +327,12 @@ export function ServicePageClient({ service }: { service: Service }) {
               </div>
 
               {/* Enhanced tab content with clear separation */}
-              <div className="space-y-8">
-                {details.map((detail, index) => (
+              <div>
+                {details.map((detail) => (
                   <TabsContent 
                     key={detail.slug} 
                     value={detail.slug} 
-                    className="mt-10 mb-10 pb-20 animate-fade-in-up"
+                    className="mt-0 animate-fade-in-up"
                   >
                     <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-neutral-900/90 to-black/90 shadow-2xl border border-neutral-800/50 backdrop-blur-sm hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
                       {/* Enhanced image section */}
