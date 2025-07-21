@@ -29,8 +29,8 @@ const getIcon = (iconName: string | undefined, className: string) => {
 };
 
 const navLinks = [
-    { href: "/#home", label: "Home" },
-    { href: "/#about-us", label: "About Us" },
+    { href: "/", label: "Home" },
+    { href: "/about-us", label: "About Us" },
     { href: "/#services", label: "Services" },
     { href: "/#our-work", label: "Our Work" },
     { href: "/#contact", label: "Contact Us" },
@@ -46,7 +46,9 @@ export function ServicePageClient({ service }: { service: Service }) {
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
-    
+  }, []);
+  
+  useEffect(() => {
     const styles = Array.from({ length: 20 }).map(() => ({
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
@@ -54,7 +56,6 @@ export function ServicePageClient({ service }: { service: Service }) {
       animationDuration: `${2 + Math.random() * 2}s`
     }));
     setParticleStyles(styles);
-
   }, []);
   
   useEffect(() => {
@@ -467,7 +468,7 @@ export function ServicePageClient({ service }: { service: Service }) {
             <div className="animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <h3 className="font-semibold mb-6 text-lg">Company</h3>
               <ul className="space-y-3 text-gray-400">
-                <li><Link href="/#about-us" className="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">About</Link></li>
+                <li><Link href="/about-us" className="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">About</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">Careers</Link></li>
                 <li><Link href="/#our-work" className="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">Our Work</Link></li>
                 <li><Link href="/#contact" className="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">Contact</Link></li>

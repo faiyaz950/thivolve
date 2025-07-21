@@ -40,11 +40,11 @@ const heroImages = [
 ];
 
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#about-us", label: "About Us" },
-  { href: "#services", label: "Services" },
-  { href: "#our-work", label: "Our Work" },
-  { href: "#contact", label: "Contact Us" },
+  { href: "/", label: "Home" },
+  { href: "/about-us", label: "About Us" },
+  { href: "/#services", label: "Services" },
+  { href: "/#our-work", label: "Our Work" },
+  { href: "/#contact", label: "Contact Us" },
 ];
 
 export function Hero() {
@@ -216,3 +216,5 @@ export function Hero() {
     </section>
   );
 }
+
+    
