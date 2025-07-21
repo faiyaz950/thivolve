@@ -45,10 +45,7 @@ export function ServicePageClient({ service }: { service: Service }) {
   const [particleStyles, setParticleStyles] = useState<React.CSSProperties[]>([]);
 
   useEffect(() => {
-    setCurrentYear(new Date().getFullYear());
-  }, []);
-  
-  useEffect(() => {
+    // Generate particle styles only on the client
     const styles = Array.from({ length: 20 }).map(() => ({
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
@@ -56,6 +53,9 @@ export function ServicePageClient({ service }: { service: Service }) {
       animationDuration: `${2 + Math.random() * 2}s`
     }));
     setParticleStyles(styles);
+    
+    // Set current year only on client
+    setCurrentYear(new Date().getFullYear());
   }, []);
   
   useEffect(() => {
@@ -513,5 +513,3 @@ export function ServicePageClient({ service }: { service: Service }) {
     </div>
   );
 }
-
-    
