@@ -45,7 +45,7 @@ export function ServicePageClient({ service }: { service: Service }) {
   const [particleStyles, setParticleStyles] = useState<React.CSSProperties[]>([]);
 
   useEffect(() => {
-    // Generate particle styles only on the client
+    // Generate particle styles only on the client to avoid hydration errors
     const styles = Array.from({ length: 20 }).map(() => ({
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
@@ -294,20 +294,19 @@ export function ServicePageClient({ service }: { service: Service }) {
           </div>
 
           <div className="container mx-auto px-4 max-w-screen-xl relative z-10">
-            <Tabs defaultValue={details[0].slug} className="w-full">
-              <div className="text-center mb-16 animate-fade-in-up">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
-                  Our <span className="bg-gradient-to-r from-primary via-red-500 to-orange-500 bg-clip-text text-transparent">{serviceCategoryTitle}</span>
-                </h2>
-                <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                  Explore our comprehensive digital solutions designed to elevate your business to new heights.
-                </p>
-                <div className="w-24 h-1 bg-gradient-to-r from-primary to-red-500 mx-auto mt-6 rounded-full"></div>
-              </div>
+            <div className="text-center mb-16 animate-fade-in-up">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+                Our <span className="bg-gradient-to-r from-primary via-red-500 to-orange-500 bg-clip-text text-transparent">{serviceCategoryTitle}</span>
+              </h2>
+              <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                Explore our comprehensive digital solutions designed to elevate your business to new heights.
+              </p>
+              <div className="w-24 h-1 bg-gradient-to-r from-primary to-red-500 mx-auto mt-6 rounded-full"></div>
+            </div>
 
-              {/* Enhanced tab list */}
-              <div className="mb-20">
-                <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-transparent p-0">
+            <Tabs defaultValue={details[0].slug} className="w-full">
+              <div className="my-16">
+                <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 gap-4 bg-transparent p-0">
                   {details.map((detail, index) => (
                     <TabsTrigger
                       key={detail.slug}
@@ -326,7 +325,6 @@ export function ServicePageClient({ service }: { service: Service }) {
                 </TabsList>
               </div>
 
-              {/* Enhanced tab content with clear separation */}
               <div>
                 {details.map((detail) => (
                   <TabsContent 
@@ -365,7 +363,7 @@ export function ServicePageClient({ service }: { service: Service }) {
                       </div>
 
                       {/* Enhanced content section */}
-                      <div className="p-8 md:p-12 pb-12 md:pb-20">
+                      <div className="p-8 md:p-12 pb-20">
                         <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8 max-w-4xl">
                           {detail.description}
                         </p>
