@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -7,6 +6,7 @@ import { Eye, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 interface ProjectCardProps {
   imageUrl: string;
@@ -102,13 +102,18 @@ const allProjectsData = [
 ];
 
 export function OurWork() {
+  const { ref, isVisible } = useScrollAnimation();
   const [showAllProjects, setShowAllProjects] = useState(false);
   const projectsToShow = showAllProjects ? allProjectsData : allProjectsData.slice(0, 3);
 
   return (
     <section
       id="our-work"
-      className="py-16 md:py-24 bg-cover bg-center text-white"
+      ref={ref}
+      className={cn(
+        "py-16 md:py-24 bg-cover bg-center text-white animate-on-scroll",
+        isVisible && "is-visible"
+      )}
       style={{ backgroundImage: "url('/tiger.png')" }}
       data-ai-hint="The background image is set to tiger.png from the public folder"
     >

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect } from 'react';
@@ -13,6 +12,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import { cn } from '@/lib/utils';
 
 const initialState: FormState = {
   message: '',
@@ -20,6 +21,7 @@ const initialState: FormState = {
 };
 
 export function ContactForm() {
+  const { ref, isVisible } = useScrollAnimation();
   const [state, formAction] = useActionState(submitContactForm, initialState);
   const { toast } = useToast();
 
@@ -57,7 +59,11 @@ export function ContactForm() {
   return (
     <section
       id="contact"
-      className="py-16 md:py-24 bg-cover bg-center text-white"
+      ref={ref}
+      className={cn(
+        "py-16 md:py-24 bg-cover bg-center text-white animate-on-scroll",
+        isVisible && "is-visible"
+      )}
       style={{ backgroundImage: "url('/bluebg.jpg')" }}
       data-ai-hint="The background image is set to bluebg.jpg from the public folder"
     >

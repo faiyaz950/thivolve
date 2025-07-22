@@ -1,11 +1,15 @@
-
 "use client";
+
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import { cn } from '@/lib/utils';
 
 // Note: For true background video behavior with YouTube (especially looping and autplaying reliably across all browsers),
 // you might need to use the YouTube Iframe Player API for more control.
 // This basic iframe embed attempts to achieve a similar effect with URL parameters.
 
 export function VideoSection() {
+  const { ref, isVisible } = useScrollAnimation();
+  
   // Replace 'YOUR_YOUTUBE_VIDEO_ID' with the actual ID of your YouTube video
   // For example, if your video URL is https://www.youtube.com/watch?v=dQw4w9WgXcQ, the ID is dQw4w9WgXcQ
   const youtubeVideoId = "QsY8fnvMn6c"; 
@@ -21,7 +25,13 @@ export function VideoSection() {
   const youtubeEmbedUrl = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3`;
 
   return (
-    <section className="relative w-full h-[30rem] md:h-[40rem] lg:h-[50rem] overflow-hidden group">
+    <section 
+      ref={ref}
+      className={cn(
+        "relative w-full h-[30rem] md:h-[40rem] lg:h-[50rem] overflow-hidden group animate-on-scroll",
+        isVisible && "is-visible"
+      )}
+    >
       <div className="absolute top-0 left-0 w-full h-full">
         <iframe
           src={youtubeEmbedUrl}
@@ -43,4 +53,3 @@ export function VideoSection() {
     </section>
   );
 }
-

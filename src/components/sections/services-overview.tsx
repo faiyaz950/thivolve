@@ -1,9 +1,10 @@
-
 "use client";
 
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import { cn } from '@/lib/utils';
 
 const services = [
     { slug: 'it-services', title: "IT Services", description: "We leverage technology to provide cutting-edge solutions that elevate your business, from web development to digital marketing." },
@@ -26,10 +27,16 @@ const partnerLogos = [
 
 
 export function ServicesOverview() {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
     <section
       id="services"
-      className="py-16 md:py-24 text-foreground bg-cover bg-center"
+      ref={ref}
+      className={cn(
+        "py-16 md:py-24 text-foreground bg-cover bg-center animate-on-scroll",
+        isVisible && "is-visible"
+      )}
       style={{ backgroundImage: `url('/newbgtaar.jpg')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
       data-ai-hint="The background image is set to newbgtaar.jpg from the public folder"
     >

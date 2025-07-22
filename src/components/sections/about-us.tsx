@@ -1,13 +1,23 @@
+"use client";
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import { cn } from '@/lib/utils';
 
 export function AboutUs() {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
     <section
       id="about-us"
-      className="py-16 md:py-24 bg-cover bg-center text-white"
+      ref={ref}
+      className={cn(
+        "py-16 md:py-24 bg-cover bg-center text-white animate-on-scroll",
+        isVisible && "is-visible"
+      )}
       style={{ backgroundImage: "url('/bluebgm.jpg')" }}
       data-ai-hint="The background image is set to bluebgm.jpg from the public folder"
     >
