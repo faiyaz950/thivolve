@@ -45,7 +45,6 @@ export function ServicePageClient({ service }: { service: Service }) {
   const [particleStyles, setParticleStyles] = useState<React.CSSProperties[]>([]);
 
   useEffect(() => {
-    // Generate particle styles only on the client to avoid hydration errors
     const styles = Array.from({ length: 20 }).map(() => ({
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
@@ -54,7 +53,6 @@ export function ServicePageClient({ service }: { service: Service }) {
     }));
     setParticleStyles(styles);
     
-    // Set current year only on client
     setCurrentYear(new Date().getFullYear());
   }, []);
   
@@ -113,12 +111,12 @@ export function ServicePageClient({ service }: { service: Service }) {
            <Link href="/" className="flex items-center space-x-2 group">
             <div className="transform group-hover:scale-110 transition-transform duration-300">
               <Image
-                  src="/btrusssl.png"
+                  src="/btrussslogo.png"
                   alt="Btruss Logo"
                   width={120}
                   height={30}
                   priority
-                  className="filter drop-shadow-lg"
+                  className="drop-shadow-lg"
               />
             </div>
           </Link>
@@ -470,5 +468,3 @@ export function ServicePageClient({ service }: { service: Service }) {
     </div>
   );
 }
-
-    

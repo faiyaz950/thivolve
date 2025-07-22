@@ -25,6 +25,7 @@ export function Header() {
               width={120}
               height={30}
               priority
+              className="drop-shadow-lg"
             />
           </Link>
 
