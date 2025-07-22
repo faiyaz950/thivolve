@@ -53,7 +53,9 @@ export function StatsSection() {
     <section
       ref={ref}
       id="stats"
-      className="py-16 md:py-24 bg-neutral-900 text-white overflow-hidden"
+      className="py-16 md:py-24 bg-cover bg-center text-white overflow-hidden"
+      style={{ backgroundImage: "url('/darkblack.png')" }}
+      data-ai-hint="The background image is set to darkblack.png from the public folder"
     >
       <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="text-center mb-12 md:mb-16">
