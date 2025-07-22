@@ -49,7 +49,7 @@ export function MobileNav({ navLinks, triggerClassName }: MobileNavProps) {
                 alt="Btruss Logo" 
                 width={120} 
                 height={30}
-                className="h-8 w-auto drop-shadow-lg"
+                className="h-8 w-auto drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"
               />
             </Link>
             <SheetClose asChild>

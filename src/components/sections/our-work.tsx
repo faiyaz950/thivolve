@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -56,55 +57,32 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ imageUrl, aiHint, category, t
   );
 };
 
-const allProjectsData = [
+const projectsData = [
   {
     imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3ZWIlMjBhcHAlMjBkYXNoYm9hcmR8ZW58MHx8fHwxNzQ4MDM5NjM4fDA&ixlib=rb-4.1.0&q=80&w=1080',
     aiHint: 'web app dashboard',
     category: 'Web Application',
     title: 'Enterprise Resource Planning System for Manufacturing Client',
-    href: '#',
+    href: '/portfolio',
   },
   {
     imageUrl: 'https://images.unsplash.com/photo-1550792436-181701c71f63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtb2JpbGUlMjBhcHAlMjBoZWFsdGhjYXJlfGVufDB8fHx8MTc0ODAzOTYzOHww&ixlib=rb-4.1.0&q=80&w=1080',
     aiHint: 'mobile app healthcare',
     category: 'Mobile Development',
     title: 'Telehealth Mobile App for Remote Patient Monitoring',
-    href: '#',
+    href: '/portfolio',
   },
   {
     imageUrl: 'https://images.unsplash.com/photo-1504270997636-07ddfbd48945?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxkaWdpdGFsJTIwbWFya2V0aW5nJTIwY2FtcGFpZ258ZW58MHx8fHwxNzQ4MDM5NjM4fDA&ixlib=rb-4.1.0&q=80&w=1080',
     aiHint: 'digital marketing campaign',
     category: 'Digital Marketing',
     title: 'Successful SEO & Content Strategy for E-commerce Brand',
-    href: '#',
-  },
-  {
-    imageUrl: 'https://source.unsplash.com/400x300/?ai,robotics',
-    aiHint: 'ai robotics',
-    category: 'AI Integration',
-    title: 'Automated Warehouse Logistics with AI-Powered Robotics',
-    href: '#',
-  },
-  {
-    imageUrl: 'https://source.unsplash.com/400x300/?finance,app',
-    aiHint: 'finance app',
-    category: 'Fintech',
-    title: 'Personal Finance Management App with Budgeting Tools',
-    href: '#',
-  },
-  {
-    imageUrl: 'https://source.unsplash.com/400x300/?cloud,security',
-    aiHint: 'cloud security',
-    category: 'Cybersecurity',
-    title: 'Cloud Infrastructure Security Overhaul for a Tech Startup',
-    href: '#',
+    href: '/portfolio',
   },
 ];
 
 export function OurWork() {
   const { ref, isVisible } = useScrollAnimation();
-  const [showAllProjects, setShowAllProjects] = useState(false);
-  const projectsToShow = showAllProjects ? allProjectsData : allProjectsData.slice(0, 3);
 
   return (
     <section
@@ -125,22 +103,22 @@ export function OurWork() {
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectsToShow.map((project, index) => (
+          {projectsData.map((project, index) => (
             <ProjectCard key={project.title} {...project} index={index} />
           ))}
         </div>
-        {!showAllProjects && (
-          <div className="text-center mt-12 md:mt-16">
+        <div className="text-center mt-12 md:mt-16">
             <Button 
               variant="outline" 
               size="lg" 
-              onClick={() => setShowAllProjects(true)}
               className="border-white text-primary hover:bg-white/10 hover:text-white transition-all duration-300 hover:scale-105 group"
+              asChild
             >
-              View All Projects <Eye className="ml-2 h-5 w-5 transition-transform group-hover:rotate-12" />
+              <Link href="/portfolio">
+                View All Projects <Eye className="ml-2 h-5 w-5 transition-transform group-hover:rotate-12" />
+              </Link>
             </Button>
           </div>
-        )}
       </div>
     </section>
   );

@@ -43,7 +43,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
   { href: "/#services", label: "Services" },
-  { href: "/#our-work", label: "Our Work" },
+  { href: "/portfolio", label: "Our Work" },
   { href: "/#contact", label: "Contact Us" },
 ];
 
@@ -104,7 +104,7 @@ export function Hero() {
               width={120}
               height={30}
               priority
-              className="drop-shadow-lg"
+              className="drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"
             />
           </Link>
 

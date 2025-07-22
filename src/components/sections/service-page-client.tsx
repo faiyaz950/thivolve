@@ -32,7 +32,7 @@ const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about-us", label: "About Us" },
     { href: "/#services", label: "Services" },
-    { href: "/#our-work", label: "Our Work" },
+    { href: "/portfolio", label: "Our Work" },
     { href: "/#contact", label: "Contact Us" },
 ];
 
@@ -116,7 +116,7 @@ export function ServicePageClient({ service }: { service: Service }) {
                   width={120}
                   height={30}
                   priority
-                  className="drop-shadow-lg"
+                  className="drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"
               />
             </div>
           </Link>
@@ -378,7 +378,7 @@ export function ServicePageClient({ service }: { service: Service }) {
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </Button>
                 </Link>
-                <Link href="/#our-work">
+                <Link href="/portfolio">
                   <Button variant="outline" className="border-2 border-white text-white bg-transparent px-10 py-4 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
                     View Portfolio
                   </Button>
@@ -428,7 +428,7 @@ export function ServicePageClient({ service }: { service: Service }) {
               <ul className="space-y-3 text-gray-400">
                 <li><Link href="/about-us" className="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">About</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">Careers</Link></li>
-                <li><Link href="/#our-work" className="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">Our Work</Link></li>
+                <li><Link href="/portfolio" className="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">Our Work</Link></li>
                 <li><Link href="/#contact" className="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">Contact</Link></li>
               </ul>
             </div>

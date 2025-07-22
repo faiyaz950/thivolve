@@ -24,19 +24,19 @@ export function Footer() {
 
   const footerNav = [
     { title: "Company", links: [
-      { label: "About Us", href: "#about-us" },
+      { label: "About Us", href: "/about-us" },
       { label: "Careers", href: "#" },
       { label: "Press", href: "#" },
     ]},
     { title: "Services", links: [
-      { label: "IT Solutions", href: "#services" },
-      { label: "Healthcare Support", href: "#services" },
-      { label: "Financial Services", href: "#services" },
+      { label: "IT Solutions", href: "/services/it-services" },
+      { label: "Healthcare Support", href: "/services/healthcare-services" },
+      { label: "Financial Services", href: "/services/credit-card-sales" },
     ]},
      { title: "Resources", links: [
       { label: "Blog", href: "#" },
-      { label: "Case Studies", href: "#our-work" },
-      { label: "Support", href: "#contact" },
+      { label: "Case Studies", href: "/portfolio" },
+      { label: "Support", href: "/#contact" },
     ]},
   ];
 
