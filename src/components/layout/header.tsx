@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -51,8 +52,8 @@ export function Header() {
             <Image
               src="/whitelogo.png"
               alt="Btruss Logo"
-              width={120}
-              height={30}
+              width={150}
+              height={38}
               priority
               className="relative drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all duration-500 group-hover:scale-105"
             />

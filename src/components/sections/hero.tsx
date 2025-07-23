@@ -6,7 +6,8 @@ import { Button } from '@/components/ui/button';
 import { MobileNav } from '@/components/layout/mobile-nav';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { ArrowRight, Star, Sparkles } from 'lucide-react';
+import { ArrowRight, Star, Sparkles, Menu } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 const heroMainHeadlineText = "WE HELP BUSINESS";
 const animatedSentences = [
@@ -24,17 +25,17 @@ const heroImages = [
     hint: "modern office team"
   },
   {
-    src: "https://images.unsplash.com/photo-1587440871875-191322ee64b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx1eCUyMGRlc2lnbiUyMHByb2Nlc3N8ZW58MHx8fHwxNzQ3OTk4Nzg1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    src: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx1eCUyMGRlc2lnbiUyMHByb2Nlc3N8ZW58MHx8fHwxNzQ4ODUwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     alt: "UX design process sketch",
     hint: "ux design process"
   },
   {
-    src: "https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkYXRhJTIwYW5hbHl0aWNzfGVufDB8fHx8MTc0Nzk0NzE0OHww&ixlib=rb-4.1.0&q=80&w=1080",
+    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwYW5hbHl0aWNzfGVufDB8fHx8MTc0ODg1MDAwMHww&ixlib=rb-4.1.0&q=80&w=1080",
     alt: "Data analytics dashboard",
     hint: "data analytics"
   },
   {
-    src: "https://images.unsplash.com/photo-1529119368496-2dfda6ec2804?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc0Nzk5ODc4NXww&ixlib=rb-4.1.0&q=80&w=1080",
+    src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc0ODg1MDAwMHww&ixlib=rb-4.1.0&q=80&w=1080",
     alt: "Business strategy session",
     hint: "business strategy"
   },
@@ -55,11 +56,16 @@ export function Hero() {
     heroMainHeadlineText.split('').map(char => ({ char, show: false }))
   );
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const heroRef = useScrollAnimation({ threshold: 0.1 });
 
+  // Animation for main headline letters - starts immediately when component mounts
   useEffect(() => {
-    setIsLoaded(true);
-    const timers = mainHeadlineLetters.map((_, index) =>
+    // Show all letters immediately first (fallback)
+    setMainHeadlineLetters(heroMainHeadlineText.split('').map(char => ({ char, show: true })));
+    
+    // Then animate them in sequence
+    const timers = heroMainHeadlineText.split('').map((_, index) =>
       setTimeout(() => {
         setMainHeadlineLetters(prev => {
           const newLetters = [...prev];
@@ -68,11 +74,10 @@ export function Hero() {
           }
           return newLetters;
         });
-      }, index * 80 + 800) // Slightly faster animation
+      }, index * 60 + 200) // Faster animation
     );
     return () => timers.forEach(clearTimeout);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, []); // Empty dependency array to run only once on mount
 
   useEffect(() => {
     const displayDuration = 3500;
@@ -90,102 +95,148 @@ export function Hero() {
   useEffect(() => {
     const imageSliderInterval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
-    }, 6000); // Slower transition for better UX
+    }, 6000);
     return () => clearInterval(imageSliderInterval);
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen text-white flex flex-col items-center justify-center overflow-hidden">
-      {/* Enhanced Background with Multiple Layers */}
-      <div className="absolute inset-0 w-full h-full z-0">
-        {/* Primary gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/80 z-10"></div>
-        
-        {/* Secondary gradient for depth */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 z-10"></div>
-        
-        {/* Animated mesh gradient background */}
-        <div className="absolute inset-0 z-5">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse opacity-60" style={{ animationDuration: '6s' }} />
-          <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-primary/5 rounded-full filter blur-3xl animate-pulse opacity-40" style={{ animationDuration: '8s', animationDelay: '2s' }} />
-          <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-white/5 rounded-full filter blur-3xl animate-pulse opacity-30" style={{ animationDuration: '10s', animationDelay: '4s' }} />
-        </div>
-
-        {/* Image Slider */}
-        <div
-          className="flex transition-transform duration-1000 ease-in-out h-full"
-          style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
-        >
+    <section 
+      ref={heroRef.ref}
+      className="relative min-h-screen flex flex-col overflow-hidden bg-black"
+    >
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        {/* Hero Image Slider */}
+        <div className="absolute inset-0">
           {heroImages.map((image, index) => (
-            <div key={index} className="w-full flex-shrink-0 h-full relative">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                data-ai-hint={image.hint}
-                fill
-                className="object-cover transition-all duration-1000"
-                sizes="100vw"
-                priority={index === 0}
-              />
-            </div>
+            <Image
+              key={index}
+              src={image.src}
+              alt={image.alt}
+              fill
+              className={cn(
+                "object-cover transition-all duration-1000",
+                index === currentImageIndex ? "opacity-20" : "opacity-0"
+              )}
+              priority={index === 0}
+            />
           ))}
         </div>
 
-        {/* Enhanced grid pattern */}
-        <div className="absolute inset-0 opacity-[0.03] z-10" style={{
+        {/* Multi-layer gradients */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+
+        {/* Animated mesh gradient */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }} />
+        </div>
+
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: `radial-gradient(circle at 25px 25px, white 1px, transparent 0)`,
           backgroundSize: '50px 50px'
         }} />
       </div>
 
       {/* Enhanced Header Bar */}
-      <div className="absolute top-0 left-0 right-0 z-30 w-full bg-gradient-to-b from-black/40 via-black/20 to-transparent backdrop-blur-md border-b border-white/5 transition-all duration-300">
-        <div className="container flex h-20 max-w-screen-xl items-center justify-between mx-auto px-4 sm:px-6 lg:px-8 gap-4">
-          <Link href="/" className="flex items-center group">
-            <div className="relative">
-              <Image
-                src="/btrussslogo.png"
-                alt="Btruss Logo"
-                width={120}
-                height={30}
-                priority
-                className="drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.5)] transition-all duration-300"
-              />
-              <div className="absolute inset-0 bg-primary/10 rounded-lg opacity-0 group-hover:opacity-100 blur-xl transition-all duration-300" />
-            </div>
-          </Link>
+      <header className="relative z-50 w-full">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent backdrop-blur-xl border-b border-white/5" />
+        
+        <div className="relative container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo - Only whitelogo.png without text */}
+            <Link href="/" className="relative group">
+              <div className="flex items-center">
+                <div className="relative">
+                  <Image
+                    src="/whitelogo.png"
+                    alt="Btruss Logo"
+                    width={45}
+                    height={45}
+                    className="w-11 h-11 object-contain transition-all duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary/60 rounded-full animate-ping" />
+                </div>
+              </div>
+            </Link>
 
-          <nav className="hidden md:flex flex-grow justify-center items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="relative text-sm font-medium text-white/90 hover:text-white transition-all duration-300 group"
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="relative group py-2 px-1 text-neutral-300 hover:text-white transition-all duration-300"
+                >
+                  <span className="relative z-10 font-medium">{link.label}</span>
+                  <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-primary/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </Link>
+              ))}
+            </nav>
+
+            {/* CTA & Mobile Menu */}
+            <div className="flex items-center space-x-4">
+              <Button
+                variant="outline"
+                className="hidden sm:flex border-primary/40 text-white hover:bg-primary/10 hover:border-primary/60 transition-all duration-300 hover:scale-105"
+                asChild
               >
-                <span className="relative z-10">{link.label}</span>
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
-              </Link>
-            ))}
-          </nav>
+                <Link href="#contact">
+                  Book a Meeting
+                </Link>
+              </Button>
 
-          <div className="flex items-center space-x-3">
-            <Button
-              variant="outline"
-              className="hidden md:inline-flex border-2 border-white/30 text-white bg-white/5 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 backdrop-blur-sm group"
-              asChild
-            >
-              <Link href="#contact" className="flex items-center gap-2">
-                <span>Book a Meeting</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
-            </Button>
-            <MobileNav navLinks={navLinks} triggerClassName="text-white hover:bg-white/10 border border-white/20" />
+              {/* Mobile Menu Button */}
+              <Button
+                variant="ghost" 
+                size="icon"
+                className="md:hidden text-white hover:bg-white/10"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                <Menu className="h-6 w-6" />
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Enhanced Navigation Dots */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-4 z-20">
+        {/* Mobile Navigation */}
+        <div className={cn(
+          "md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-xl border-b border-white/10 transition-all duration-300 transform origin-top",
+          mobileMenuOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"
+        )}>
+          <nav className="container mx-auto px-6 py-6">
+            <div className="flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-white hover:text-primary transition-colors duration-300 py-2 text-lg font-medium"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="pt-4 border-t border-white/10">
+                <Button
+                  variant="outline"
+                  className="w-full border-primary/40 text-white hover:bg-primary/10 hover:border-primary/60"
+                  asChild
+                >
+                  <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>
+                    Book a Meeting
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      {/* Navigation Dots */}
+      <div className="absolute top-1/2 right-6 transform -translate-y-1/2 z-40 flex flex-col space-y-3">
         {heroImages.map((_, index) => (
           <button
             key={index}
@@ -193,147 +244,129 @@ export function Hero() {
             aria-label={`Go to slide ${index + 1}`}
             className={cn(
               "relative w-3 h-3 rounded-full transition-all duration-500 ease-in-out group",
-              index === currentImageIndex 
-                ? "bg-primary scale-125 shadow-lg shadow-primary/50" 
-                : "bg-white/40 hover:bg-white/70 hover:scale-110"
+              index === currentImageIndex
+                ? "bg-primary scale-125 shadow-lg shadow-primary/30"
+                : "bg-white/20 hover:bg-primary/60 hover:scale-110"
             )}
           >
             {index === currentImageIndex && (
-              <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-50" />
+              <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-75" />
             )}
           </button>
         ))}
       </div>
 
-      {/* Enhanced Main Content */}
-      <div className="relative z-20 container mx-auto px-4 max-w-screen-lg text-center py-20 md:py-28 flex-grow flex flex-col justify-center mt-16 sm:mt-8">
-        <div className="max-w-4xl mx-auto">
-          {/* Enhanced Headline */}
-          <div className={cn(
-            "transition-all duration-1000 delay-300",
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}>
-            <h1 className="mb-6">
-              <span className="block text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-4">
-                {mainHeadlineLetters.map((item, index) => (
-                  <span
-                    key={index}
-                    className={cn(
-                      "inline-block drop-shadow-lg",
-                      item.show ? "animate-letter-in" : "opacity-0",
-                      index < 8 ? "text-white" : "text-primary"
-                    )}
-                    style={{ animationFillMode: 'forwards', animationDelay: `${index * 0.05}s` }}
-                  >
-                    {item.char === " " ? "\u00A0" : item.char}
-                  </span>
-                ))}
-              </span>
-              
-              {/* Enhanced Animated Sentence */}
-              <div className="relative">
+      {/* Main Content */}
+      <div className="relative z-20 flex-1 flex items-center justify-center px-6">
+        <div className="text-center max-w-5xl mx-auto">
+          {/* Headline - Always visible with animation */}
+          <div className="relative mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-tight drop-shadow-2xl">
+              {mainHeadlineLetters.map((item, index) => (
                 <span
+                  key={index}
                   className={cn(
-                    "block text-xl sm:text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-primary tracking-tight leading-tight transition-all duration-700 ease-in-out",
-                    isSentenceVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                    "inline-block transition-all duration-500 transform-gpu",
+                    item.show ? "opacity-100 translate-y-0 scale-100" : "opacity-30 translate-y-4 scale-95"
                   )}
-                  style={{ minHeight: '2.5em' }}
+                  style={{ transitionDelay: `${index * 60}ms` }}
                 >
-                  {animatedSentences[currentSentenceIndex]}
+                  {item.char === " " ? "\u00A0" : item.char}
                 </span>
-                
-                {/* Animated underline */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent transition-all duration-700"
-                     style={{ width: isSentenceVisible ? '60%' : '0%' }} />
-              </div>
+              ))}
             </h1>
 
-            {/* Enhanced Description */}
-            <div className="relative max-w-2xl mx-auto mb-10">
-              <p className="text-lg sm:text-xl text-neutral-300 leading-relaxed font-light">
-                Btruss transforms your vision into reality with innovative{' '}
-                <span className="text-primary font-medium">IT solutions</span>,{' '}
-                <span className="text-primary font-medium">healthcare technology</span>,{' '}
-                <span className="text-primary font-medium">finance systems</span>, and{' '}
-                <span className="text-primary font-medium">security services</span>.
-              </p>
-              
-              {/* Decorative accent */}
-              <div className="flex justify-center items-center gap-3 mt-6">
-                <div className="w-2 h-2 bg-primary/60 rounded-full animate-pulse" />
-                <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-primary/60 to-transparent animate-pulse" />
-                <div className="w-2 h-2 bg-primary/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-              </div>
-            </div>
+            {/* Decorative elements */}
+            <div className="absolute -top-6 -left-6 w-4 h-4 bg-primary rounded-full animate-ping" />
+            <div className="absolute -top-4 -right-8 w-3 h-3 bg-primary/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+          </div>
 
-            {/* Enhanced CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                size="lg"
-                className="group relative bg-primary text-white hover:bg-primary/90 px-8 py-4 rounded-xl font-semibold shadow-xl hover:shadow-2xl hover:shadow-primary/40 transition-all duration-300 hover:scale-105 text-base sm:text-lg overflow-hidden"
-                asChild
-              >
-                <Link href="#contact" className="flex items-center gap-3">
-                  {/* Button glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-white/10 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  <span className="relative z-10">Book a Meeting</span>
-                  <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  
-                  {/* Sparkle effect */}
-                  <div className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Sparkles className="w-4 h-4 animate-spin" style={{ animationDuration: '3s' }} />
-                  </div>
-                </Link>
-              </Button>
-
-              <Button
-                variant="outline"
-                size="lg"
-                className="group border-2 border-white/30 text-white bg-white/5 hover:bg-white/10 hover:border-primary/60 transition-all duration-300 hover:scale-105 px-8 py-4 rounded-xl font-semibold backdrop-blur-sm"
-                asChild
-              >
-                <Link href="/portfolio" className="flex items-center gap-3">
-                  <span>View Our Work</span>
-                  <div className="flex gap-1">
-                    {[1, 2, 3].map((star) => (
-                      <Star
-                        key={star}
-                        className="w-4 h-4 text-yellow-400 fill-current opacity-0 group-hover:opacity-100 transition-all duration-300"
-                        style={{ transitionDelay: `${star * 100}ms` }}
-                      />
-                    ))}
-                  </div>
-                </Link>
-              </Button>
-            </div>
-
-            {/* Trust Indicators */}
-            <div className={cn(
-              "mt-12 transition-all duration-1000 delay-1000",
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          {/* Animated Sentence */}
+          <div className="relative mb-12">
+            <h2 className={cn(
+              "text-2xl md:text-3xl lg:text-4xl font-bold text-primary transition-all duration-600 transform-gpu",
+              isSentenceVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             )}>
-              <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-neutral-400">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  <span>50+ Happy Clients</span>
+              {animatedSentences[currentSentenceIndex]}
+            </h2>
+
+            {/* Animated underline */}
+            <div className={cn(
+              "absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 bg-gradient-to-r from-transparent via-primary to-transparent transition-all duration-600",
+              isSentenceVisible ? "w-32 opacity-100" : "w-0 opacity-0"
+            )} />
+          </div>
+
+          {/* Description */}
+          <p className="text-lg md:text-xl text-neutral-300 leading-relaxed font-light mb-12 max-w-4xl mx-auto">
+            Btruss transforms your vision into reality with innovative{' '}
+            <span className="text-primary font-medium">IT solutions</span>,{' '}
+            <span className="text-primary font-medium">healthcare technology</span>,{' '}
+            <span className="text-primary font-medium">finance systems</span>, and{' '}
+            <span className="text-primary font-medium">security services</span>.
+          </p>
+
+          {/* Decorative accent */}
+          <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-12 animate-pulse" />
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+            <Button
+              size="lg"
+              className="group relative bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white border-0 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 px-8 py-6 text-lg"
+              asChild
+            >
+              <Link href="#contact" className="flex items-center gap-3">
+                <span className="font-semibold">Book a Meeting</span>
+                <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
+              </Link>
+            </Button>
+
+            <Button
+              variant="outline"
+              size="lg"
+              className="group relative border-2 border-primary/40 text-white hover:bg-primary/10 hover:text-white hover:border-primary/60 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 backdrop-blur-sm bg-gradient-to-r from-primary/10 to-transparent px-8 py-6 text-lg"
+              asChild
+            >
+              <Link href="/portfolio" className="flex items-center gap-3">
+                <span className="font-semibold">View Our Work</span>
+                <div className="flex items-center gap-1">
+                  {[1, 2, 3].map((star) => (
+                    <Star
+                      key={star}
+                      className="h-4 w-4 fill-primary text-primary transition-all duration-300 group-hover:scale-110"
+                      style={{ animationDelay: `${star * 100}ms` }}
+                    />
+                  ))}
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
-                  <span>3+ Years Experience</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-                  <span>6 Industries Served</span>
-                </div>
+              </Link>
+            </Button>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-neutral-400">
+            <div className="flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-primary animate-pulse" />
+              <span className="font-medium">50+ Happy Clients</span>
+            </div>
+            <div className="hidden sm:block w-px h-6 bg-neutral-600" />
+            <div className="flex items-center gap-2">
+              <Star className="h-5 w-5 text-primary fill-primary" />
+              <span className="font-medium">3+ Years Experience</span>
+            </div>
+            <div className="hidden sm:block w-px h-6 bg-neutral-600" />
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 bg-gradient-to-br from-primary to-primary/60 rounded-full flex items-center justify-center">
+                <span className="text-white text-xs font-bold">6</span>
               </div>
+              <span className="font-medium">Industries Served</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Enhanced Bottom Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none z-15" />
+      {/* Bottom Fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent z-10" />
     </section>
   );
 }
