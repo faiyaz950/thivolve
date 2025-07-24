@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -167,17 +168,13 @@ export function Hero() {
             <div className="flex items-center justify-between">
               {/* Enhanced Logo */}
               <Link href="/" className="relative group">
-                <div className="flex items-center">
-                  <div className="relative p-2 rounded-xl bg-gradient-to-br from-primary/20 to-transparent backdrop-blur-sm border border-primary/20 transition-all duration-500 group-hover:border-primary/40 group-hover:scale-110">
-                    <Image
-                      src="/whitelogo.png"
-                      alt="Btruss Logo"
-                      width={50}
-                      height={50}
-                      className="w-20 h-20 object-contain transition-all duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                </div>
+                <Image
+                  src="/whitelogo.png"
+                  alt="Btruss Logo"
+                  width={50}
+                  height={50}
+                  className="w-20 h-20 object-contain transition-all duration-300 group-hover:scale-105"
+                />
               </Link>
 
               {/* Enhanced Desktop Navigation */}
