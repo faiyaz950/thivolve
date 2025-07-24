@@ -1,23 +1,25 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { ArrowRight, CheckCircle, Code, Megaphone, Palette, Smartphone, Sparkles, Wand2, Bot, DatabaseZap, Menu, X, Star, Shield, Globe, Zap, Users, Award, Clock } from 'lucide-react';
+import { ArrowRight, CheckCircle, Code, Megaphone, Palette, Smartphone, Sparkles, Wand2, Bot, DatabaseZap, Menu, X, Star, Shield, Globe, Zap, Users, Award, Clock, Stethoscope, DollarSign, Cpu } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { notFound } from 'next/navigation';
-import { services, type Service } from '@/lib/services-data';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 const getIcon = (iconName: string | undefined, className: string) => {
   const iconProps = { className };
   switch (iconName) {
-    case 'website-development': return <Code {...iconProps} />;
+    case 'it-services': return <Code {...iconProps} />;
     case 'mobile-application-development': return <Smartphone {...iconProps} />;
     case 'digital-marketing': return <Megaphone {...iconProps} />;
     case 'graphics-designing': return <Palette {...iconProps} />;
+    case 'healthcare-services': return <Stethoscope {...iconProps} />;
+    case 'financial-services': return <DollarSign {...iconProps} />;
+    case 'ai-services': return <Cpu {...iconProps} />;
+    case 'resource-outsourcing': return <Users {...iconProps} />;
     case 'ai-automation': return <Bot {...iconProps} />;
     case 'data-analysis': return <DatabaseZap {...iconProps} />;
     case 'custom-ai': return <Wand2 {...iconProps} />;
@@ -32,6 +34,128 @@ const navLinks = [
   { href: "/portfolio", label: "Our Work" },
   { href: "/#contact", label: "Contact Us" },
 ];
+
+// Service data
+const services = {
+  title: "Our Services",
+  hero: {
+    slides: [
+      {
+        title: "Empowering Business Success",
+        description: "Unlock the full potential of your business with our comprehensive services in IT, healthcare, finance, AI, and resource outsourcing.",
+        image: { src: "/hero-slide1.jpg", alt: "Business transformation" },
+      },
+      {
+        title: "Innovative Solutions",
+        description: "Leverage cutting-edge technology and expertise to drive growth and efficiency across your operations.",
+        image: { src: "/hero-slide2.jpg", alt: "Innovative technology" },
+      },
+    ],
+  },
+  details: [
+    {
+      slug: "it-services",
+      title: "IT Services",
+      icon: "it-services",
+      description: "Our IT services are designed to help businesses thrive in the digital age by providing robust, scalable, and user-centric solutions.",
+      backgroundImage: "/it-services-bg.jpg",
+      subDetails: [
+        {
+          title: "Mobile Application Development",
+          description: "We create high-performance, secure mobile apps for Android and iOS using Flutter, React Native, Kotlin, and Swift."
+        },
+        {
+          title: "Website Development",
+          description: "We craft responsive, SEO-optimized websites using React, Angular, Vue.js, and backend technologies like Node.js and Django."
+        },
+        {
+          title: "Full Stack Development",
+          description: "End-to-end solutions with frontend (React, Vue.js) and backend (Node.js, Django, MongoDB) for scalable applications."
+        },
+        {
+          title: "Windows Application Development",
+          description: "Custom Windows apps using .NET, C#, and WPF for enterprise and productivity solutions."
+        },
+        {
+          title: "Digital Marketing and SEO",
+          description: "Data-driven strategies with social media, PPC, and SEO to boost brand visibility and ROI."
+        },
+        {
+          title: "Graphic Designing",
+          description: "Compelling visuals including logos and UI/UX designs using Adobe Photoshop, Illustrator, and Figma."
+        },
+      ],
+    },
+    {
+      slug: "healthcare-services",
+      title: "Healthcare Services",
+      icon: "healthcare-services",
+      description: "Quality diagnostics and insurance solutions delivered to your doorstep for convenience and reliability.",
+      backgroundImage: "/healthcare-bg.jpg",
+      subDetails: [
+        {
+          title: "Health Checkups",
+          description: "Doorstep radiology and pathology tests with partners like Curelo and Healthians for accurate results."
+        },
+        {
+          title: "Health Insurance",
+          description: "Comprehensive plans with ICICI Lombard and Care Insurance, offering cashless treatment and easy claims."
+        },
+      ],
+    },
+    {
+      slug: "financial-services",
+      title: "Financial Services",
+      icon: "financial-services",
+      description: "Accessible financial solutions tailored for individuals and businesses.",
+      backgroundImage: "/financial-bg.jpg",
+      subDetails: [
+        {
+          title: "Credit Card Sales",
+          description: "Credit cards from HDFC, AU, IndusInd, and SBI with rewards and streamlined applications."
+        },
+        {
+          title: "Loans",
+          description: "Personal, business, and home/auto loans with quick approvals and competitive rates."
+        },
+        {
+          title: "Life Insurance and Term Plans",
+          description: "Term and endowment plans with tax benefits and critical illness riders."
+        },
+      ],
+    },
+    {
+      slug: "ai-services",
+      title: "AI Services",
+      icon: "ai-services",
+      description: "Leverage AI to optimize operations and drive innovation with custom solutions.",
+      backgroundImage: "/ai-bg.jpg",
+      subDetails: [
+        {
+          title: "AI Integration",
+          description: "Chatbots, recommendation systems, and predictive analytics using TensorFlow and AWS."
+        },
+        {
+          title: "Model Training",
+          description: "Custom machine learning and deep learning models for NLP and computer vision."
+        },
+      ],
+    },
+    {
+      slug: "resource-outsourcing",
+      title: "Resource Outsourcing",
+      icon: "resource-outsourcing",
+      description: "Skilled professionals to augment your team for short-term and long-term projects.",
+      backgroundImage: "/outsourcing-bg.jpg",
+      subDetails: [
+        {
+          title: "Talent Supply",
+          description: "Vetted developers, designers, and AI specialists for IT, healthcare, and finance projects."
+        },
+      ],
+    },
+  ],
+};
 
 // Service Feature Card Component
 const ServiceFeatureCard = ({ feature, index, isVisible }: {
@@ -81,7 +205,7 @@ const ServiceFeatureCard = ({ feature, index, isVisible }: {
   );
 };
 
-export function ServicePageClient({ service }: { service: Service }) {
+export default function ServicePageClient() {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isContentVisible, setIsContentVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -100,24 +224,21 @@ export function ServicePageClient({ service }: { service: Service }) {
   }, []);
 
   useEffect(() => {
-    if (!service?.hero?.slides || service.hero.slides.length === 0) return;
+    if (!services?.hero?.slides || services.hero.slides.length === 0) return;
 
     const displayDuration = 4000;
     const slideInterval = setInterval(() => {
       setIsContentVisible(false);
       setTimeout(() => {
-        setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % (service.hero?.slides.length || 1));
+        setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % services.hero.slides.length);
         setIsContentVisible(true);
       }, 500);
     }, displayDuration);
 
     return () => clearInterval(slideInterval);
-  }, [service]);
+  }, []);
 
-  if (!service) {
-    return notFound();
-  }
-
+  const service = services;
   const { hero, details, title: serviceCategoryTitle } = service;
   const currentSlide = hero?.slides[currentSlideIndex];
 
@@ -140,40 +261,16 @@ export function ServicePageClient({ service }: { service: Service }) {
     );
   };
 
-  // Mock feature data for demonstration
-  const serviceFeatures = [
-    {
-      icon: 'website-development',
-      title: 'Cutting-Edge Technology',
-      description: 'Leveraging the latest technologies and frameworks to build robust, scalable solutions.'
-    },
-    {
-      icon: 'mobile-application-development',
-      title: 'Expert Team',
-      description: 'Our skilled professionals bring years of experience and proven expertise to every project.'
-    },
-    {
-      icon: 'digital-marketing',
-      title: '24/7 Support',
-      description: 'Round-the-clock support and maintenance to ensure your solutions run smoothly.'
-    },
-    {
-      icon: 'graphics-designing',
-      title: 'Custom Solutions',
-      description: 'Tailored approaches designed specifically for your unique business requirements.'
-    }
-  ];
-
   return (
     <div className="flex flex-col min-h-screen bg-black text-white">
-      {/* Enhanced Header */}
+      {/* Header */}
       <header className="fixed top-0 z-50 w-full bg-black/80 backdrop-blur-xl border-b border-white/5 transition-all duration-700">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between max-w-screen-xl">
           <Link href="/" className="flex items-center space-x-2 group">
             <div className="transform group-hover:scale-110 transition-transform duration-300">
               <Image
                 src="/btrussslogo.png"
-                alt="Btruss Logo"
+                alt="Company Logo"
                 width={120}
                 height={30}
                 priority
@@ -244,7 +341,7 @@ export function ServicePageClient({ service }: { service: Service }) {
       </header>
 
       <main className="flex-grow">
-        {/* Enhanced Hero Section */}
+        {/* Hero Section */}
         <section 
           ref={heroRef.ref}
           className="relative min-h-screen flex items-center justify-center overflow-hidden"
@@ -256,7 +353,7 @@ export function ServicePageClient({ service }: { service: Service }) {
                   className="flex transition-transform duration-1000 ease-out h-full"
                   style={{ transform: `translateX(-${currentSlideIndex * 100}%)` }}
                 >
-                  {hero.slides.map((slide, index) => (
+                  {hero.slides.map((slide: any, index: number) => (
                     <div key={index} className="w-full flex-shrink-0 h-full relative">
                       <Image
                         src={slide.image.src}
@@ -277,7 +374,7 @@ export function ServicePageClient({ service }: { service: Service }) {
               <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/20 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }} />
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/10 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '8s', animationDelay: '4s' }} />
             </div>
-            <div className="absolute inset-0 opacity-[0.02]" style={{
+            <div className="absolute inset-0 opacity-20" style={{
               backgroundImage: `radial-gradient(circle at 25px 25px, white 1px, transparent 0)`,
               backgroundSize: '50px 50px'
             }} />
@@ -296,7 +393,7 @@ export function ServicePageClient({ service }: { service: Service }) {
               <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-primary/40 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
             </div>
             <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed font-light mb-12 max-w-4xl mx-auto">
-              {currentSlide?.description || `Unlock the full potential of your business with our cutting-edge ${serviceCategoryTitle} services, designed to deliver exceptional results and drive growth.`}
+              {currentSlide?.description || `Unlock the full potential of your business with our cutting-edge ${serviceCategoryTitle} services.`}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button
@@ -327,7 +424,7 @@ export function ServicePageClient({ service }: { service: Service }) {
 
           {hero && hero.slides.length > 1 && (
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
-              {hero.slides.map((_, index) => (
+              {hero.slides.map((_: any, index: number) => (
                 <button
                   key={index}
                   onClick={() => {
@@ -350,17 +447,14 @@ export function ServicePageClient({ service }: { service: Service }) {
           )}
         </section>
 
-        {/* ENHANCED SOLUTIONS SECTION */}
+        {/* Services Section */}
         <section 
           id="service-details" 
           ref={detailsRef.ref} 
           className="relative py-20 md:py-32 bg-black overflow-hidden"
         >
-          {/* Advanced Background Elements */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-950/90 to-black" />
-            
-            {/* Enhanced geometric patterns */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-0 left-0 w-full h-full" style={{
                 backgroundImage: `
@@ -370,17 +464,13 @@ export function ServicePageClient({ service }: { service: Service }) {
                 `,
               }} />
             </div>
-            
-            {/* Animated orbs */}
             <div className="absolute inset-0 opacity-30">
               <div className="absolute top-1/4 right-1/6 w-96 h-96 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />
               <div className="absolute bottom-1/3 left-1/6 w-80 h-80 bg-gradient-to-br from-red-500/15 via-red-500/8 to-transparent rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }} />
               <div className="absolute top-2/3 right-1/3 w-64 h-64 bg-gradient-to-br from-orange-500/12 via-orange-500/6 to-transparent rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
             </div>
-
-            {/* Floating particles */}
             <div className="absolute inset-0 opacity-20">
-              {[...Array(15)].map((_, i) => (
+              {[...Array(15)].map((_: any, i: number) => (
                 <div
                   key={i}
                   className="absolute w-1 h-1 bg-primary/60 rounded-full animate-pulse"
@@ -396,7 +486,6 @@ export function ServicePageClient({ service }: { service: Service }) {
           </div>
 
           <div className="relative container mx-auto px-6 max-w-screen-xl">
-            {/* Enhanced Section Header */}
             <div className={cn(
               "text-center mb-20 md:mb-28 transition-all duration-1000",
               detailsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -409,7 +498,6 @@ export function ServicePageClient({ service }: { service: Service }) {
                   <div className="w-2 h-2 bg-primary rounded-full animate-ping" />
                 </div>
               </div>
-              
               <h2 className="text-5xl sm:text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-100 to-neutral-300 mb-8 tracking-tight leading-tight">
                 <span className="relative">
                   {serviceCategoryTitle}
@@ -417,12 +505,9 @@ export function ServicePageClient({ service }: { service: Service }) {
                   <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
                 </span>
               </h2>
-              
               <p className="text-xl md:text-2xl text-neutral-300 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Comprehensive technology solutions designed to transform your business operations, enhance efficiency, and drive sustainable growth in the digital era.
+                Comprehensive technology solutions designed to transform your business operations.
               </p>
-              
-              {/* Stats Bar */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-12 p-8 bg-gradient-to-r from-neutral-900/60 via-black/80 to-neutral-900/60 backdrop-blur-xl rounded-2xl border border-white/10">
                 {[
                   { number: "500+", label: "Projects Delivered", icon: <Award className="w-5 h-5" /> },
@@ -447,7 +532,6 @@ export function ServicePageClient({ service }: { service: Service }) {
               </div>
             </div>
 
-            {/* Unified Tabbed Interface for All Services */}
             <div className="space-y-12">
               <div className={cn(
                 "text-center transition-all duration-1000",
@@ -457,15 +541,14 @@ export function ServicePageClient({ service }: { service: Service }) {
                   Explore Our <span className="bg-gradient-to-r from-primary via-red-500 to-orange-500 bg-clip-text text-transparent">Solutions</span>
                 </h3>
                 <p className="text-lg text-neutral-300 max-w-2xl mx-auto leading-relaxed">
-                  Discover our comprehensive range of specialized services designed to meet your unique business requirements.
+                  Discover our range of specialized services designed to meet your business needs.
                 </p>
               </div>
 
               <Tabs defaultValue={details[0]?.slug} className="w-full">
-                {/* Enhanced Tab Navigation */}
                 <div className="mb-12 overflow-x-auto">
                   <TabsList className="inline-flex w-full min-w-max bg-gradient-to-r from-neutral-900/50 via-black/70 to-neutral-900/50 backdrop-blur-xl rounded-2xl border border-white/10 p-2 gap-2">
-                    {details.map((detail, index) => (
+                    {details.map((detail: any, index: number) => (
                       <TabsTrigger
                         key={detail.slug}
                         value={detail.slug}
@@ -475,12 +558,9 @@ export function ServicePageClient({ service }: { service: Service }) {
                         )}
                         style={{ transitionDelay: `${index * 100}ms` }}
                       >
-                        {/* Icon */}
                         <div className="p-2 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg border border-primary/20 group-hover:border-primary/40 group-data-[state=active]:border-primary/60 transition-all duration-300 group-hover:scale-110">
                           {getIcon(detail.icon, "w-5 h-5 text-primary")}
                         </div>
-                        
-                        {/* Text */}
                         <div className="text-left">
                           <div className="font-semibold text-sm text-white">
                             {detail.title}
@@ -489,8 +569,6 @@ export function ServicePageClient({ service }: { service: Service }) {
                             Premium Solution
                           </div>
                         </div>
-
-                        {/* Active indicator */}
                         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-data-[state=active]:opacity-100 transition-opacity duration-500 rounded-xl" />
                         <div className="absolute top-2 right-2 w-2 h-2 bg-primary/60 rounded-full animate-pulse opacity-0 group-data-[state=active]:opacity-100 transition-opacity duration-500" />
                       </TabsTrigger>
@@ -498,8 +576,7 @@ export function ServicePageClient({ service }: { service: Service }) {
                   </TabsList>
                 </div>
 
-                {/* Enhanced Tab Content */}
-                {details.map((detail, index) => (
+                {details.map((detail: any, index: number) => (
                   <TabsContent
                     key={detail.slug}
                     value={detail.slug}
@@ -510,11 +587,8 @@ export function ServicePageClient({ service }: { service: Service }) {
                     style={{ transitionDelay: `${(index + 2) * 150}ms` }}
                   >
                     <div className="group relative bg-gradient-to-br from-neutral-800/40 via-neutral-900/70 to-black/90 backdrop-blur-xl rounded-3xl border border-white/10 overflow-hidden hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-700">
-                      {/* Background Effects */}
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-red-500/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      
                       <div className="relative grid lg:grid-cols-5 gap-8 lg:gap-12 p-8 lg:p-12">
-                        {/* Image Section */}
                         <div className="lg:col-span-2">
                           <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm group-hover:border-primary/20 transition-all duration-700 aspect-square">
                             <Image
@@ -523,25 +597,17 @@ export function ServicePageClient({ service }: { service: Service }) {
                               fill
                               className="object-cover transition-all duration-700 group-hover:scale-110 filter group-hover:brightness-110"
                             />
-                            
-                            {/* Image overlays */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            
-                            {/* Floating elements on image */}
                             <div className="absolute top-4 left-4 p-3 bg-black/40 backdrop-blur-sm rounded-xl border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
                               {getIcon(detail.icon, "w-6 h-6 text-primary")}
                             </div>
-                            
                             <div className="absolute bottom-4 right-4 px-4 py-2 bg-black/60 backdrop-blur-sm rounded-full border border-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-500">
                               <span className="text-primary text-sm font-semibold">Premium</span>
                             </div>
                           </div>
                         </div>
-
-                        {/* Content Section */}
                         <div className="lg:col-span-3 space-y-8">
-                          {/* Header */}
                           <div className="relative">
                             <div className="flex items-center gap-4 mb-6">
                               <div className="p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/20 group-hover:border-primary/40 transition-all duration-500 group-hover:scale-110">
@@ -557,13 +623,10 @@ export function ServicePageClient({ service }: { service: Service }) {
                                 </div>
                               </div>
                             </div>
-                            
                             <p className="text-lg text-neutral-300 leading-relaxed group-hover:text-neutral-200 transition-colors duration-300">
                               {detail.description}
                             </p>
                           </div>
-
-                          {/* Advanced Features Grid */}
                           {detail.subDetails && detail.subDetails.length > 0 && (
                             <div className="space-y-6">
                               <div className="flex items-center gap-3">
@@ -572,18 +635,14 @@ export function ServicePageClient({ service }: { service: Service }) {
                                   Advanced Capabilities
                                 </h4>
                               </div>
-                              
                               <div className="grid md:grid-cols-2 gap-4">
-                                {detail.subDetails.map((subDetail, i) => (
+                                {detail.subDetails.map((subDetail: any, i: number) => (
                                   <div
                                     key={i}
                                     className="group/card relative p-6 bg-gradient-to-br from-white/5 via-white/3 to-transparent rounded-2xl border border-white/10 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/10 transition-all duration-500 hover:scale-[1.02]"
                                   >
-                                    {/* Card background effect */}
                                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 rounded-2xl" />
-                                    
                                     <div className="relative">
-                                      {/* Header */}
                                       <div className="flex items-start gap-4 mb-4">
                                         <div className="mt-1 p-2 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg border border-primary/20 group-hover/card:border-primary/40 transition-all duration-300 group-hover/card:scale-110">
                                           <CheckCircle className="w-4 h-4 text-primary" />
@@ -597,22 +656,16 @@ export function ServicePageClient({ service }: { service: Service }) {
                                           </p>
                                         </div>
                                       </div>
-                                      
-                                      {/* Progress indicator */}
                                       <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
                                         <div className="h-full bg-gradient-to-r from-primary to-red-500 rounded-full transform -translate-x-full group-hover/card:translate-x-0 transition-transform duration-700" style={{ width: '70%' }} />
                                       </div>
                                     </div>
-
-                                    {/* Decorative elements */}
                                     <div className="absolute top-3 right-3 w-2 h-2 bg-primary/40 rounded-full animate-pulse opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
                                   </div>
                                 ))}
                               </div>
                             </div>
                           )}
-
-                          {/* CTA Section */}
                           <div className="pt-6 border-t border-white/10">
                             <div className="flex flex-col sm:flex-row gap-4">
                               <Button
@@ -636,8 +689,6 @@ export function ServicePageClient({ service }: { service: Service }) {
                           </div>
                         </div>
                       </div>
-
-                      {/* Decorative elements */}
                       <div className="absolute top-6 right-6 w-3 h-3 bg-primary/40 rounded-full animate-pulse" />
                       <div className="absolute bottom-6 left-6 w-2 h-2 bg-white/20 rounded-full animate-ping" />
                     </div>
@@ -646,7 +697,6 @@ export function ServicePageClient({ service }: { service: Service }) {
               </Tabs>
             </div>
 
-            {/* Enhanced Bottom CTA */}
             <div className={cn(
               "mt-20 text-center p-8 bg-gradient-to-r from-neutral-900/60 via-black/80 to-neutral-900/60 backdrop-blur-xl rounded-3xl border border-white/10 transition-all duration-1000",
               detailsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -660,7 +710,7 @@ export function ServicePageClient({ service }: { service: Service }) {
                   Let's Build Something <span className="bg-gradient-to-r from-primary via-red-500 to-orange-500 bg-clip-text text-transparent">Amazing</span>
                 </h3>
                 <p className="text-neutral-300 max-w-2xl mx-auto">
-                  Our expert team is ready to help you implement the perfect solution for your business needs.
+                  Our expert team is ready to help you implement the perfect solution for your business.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
@@ -686,14 +736,13 @@ export function ServicePageClient({ service }: { service: Service }) {
           </div>
         </section>
 
-        {/* Enhanced Features Section */}
+        {/* Features Section */}
         <section 
           ref={featuresRef.ref} 
           className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-900/50 via-black to-neutral-900/50 overflow-hidden"
         >
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-950 to-black" />
-            <div className="absolute inset-0 bg-gradient-to-t from-transparent via-primary/[0.03] to-transparent" />
             <div className="absolute inset-0 opacity-30">
               <div className="absolute top-1/4 right-1/3 w-80 h-80 bg-primary/15 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />
               <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-orange-500/10 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '4s' }} />
@@ -710,7 +759,7 @@ export function ServicePageClient({ service }: { service: Service }) {
                 Why Choose Our {serviceCategoryTitle}?
               </h2>
               <p className="text-lg md:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed font-light">
-                Experience the difference with our industry-leading approach, cutting-edge technology, and proven track record of success.
+                Experience our industry-leading approach and cutting-edge technology.
               </p>
               <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-6" />
             </div>
@@ -718,57 +767,42 @@ export function ServicePageClient({ service }: { service: Service }) {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
               {[
                 {
-                  icon: <Sparkles className="w-8 h-8" />,
-                  title: "Innovation First",
-                  description: "We leverage the latest technologies and methodologies to deliver cutting-edge solutions that keep you ahead of the competition."
+                  icon: 'it-services',
+                  title: 'Innovation First',
+                  description: 'We leverage the latest technologies to deliver cutting-edge solutions.'
                 },
                 {
-                  icon: <CheckCircle className="w-8 h-8" />,
-                  title: "Proven Results",
-                  description: "Our track record speaks for itself with 99% client satisfaction rate and measurable ROI improvements across all projects."
+                  icon: 'resource-outsourcing',
+                  title: 'Expert Team',
+                  description: 'Our skilled professionals bring years of experience to every project.'
                 },
                 {
-                  icon: <Bot className="w-8 h-8" />,
-                  title: "AI-Powered Solutions",
-                  description: "Integrate artificial intelligence and automation to streamline processes and unlock new possibilities for your business."
+                  icon: 'ai-services',
+                  title: 'AI-Powered Solutions',
+                  description: 'Integrate AI to streamline processes and unlock new possibilities.'
                 },
                 {
-                  icon: <DatabaseZap className="w-8 h-8" />,
-                  title: "Data-Driven Insights",
-                  description: "Make informed decisions with comprehensive analytics and reporting that provide actionable business intelligence."
+                  icon: 'data-analysis',
+                  title: 'Data-Driven Insights',
+                  description: 'Make informed decisions with comprehensive analytics.'
                 },
                 {
-                  icon: <Wand2 className="w-8 h-8" />,
-                  title: "Custom Solutions",
-                  description: "Every solution is tailored to your unique needs, ensuring perfect alignment with your business goals and requirements."
+                  icon: 'custom-ai',
+                  title: 'Custom Solutions',
+                  description: 'Tailored solutions to align with your business goals.'
                 },
                 {
-                  icon: <ArrowRight className="w-8 h-8" />,
-                  title: "Future-Ready",
-                  description: "Build scalable solutions that grow with your business and adapt to changing market demands and opportunities."
+                  icon: 'healthcare-services',
+                  title: 'Future-Ready',
+                  description: 'Scalable solutions that grow with your business.'
                 }
               ].map((feature, index) => (
-                <div
+                <ServiceFeatureCard
                   key={index}
-                  className={cn(
-                    "group relative p-8 bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-2xl border border-white/5 hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:scale-105",
-                    featuresRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                  )}
-                  style={{ transitionDelay: `${index * 150}ms` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-                  <div className="relative">
-                    <div className="text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
-                      {feature.icon}
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <p className="text-neutral-300 leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
+                  feature={feature}
+                  index={index}
+                  isVisible={featuresRef.isVisible}
+                />
               ))}
             </div>
 
@@ -817,7 +851,7 @@ export function ServicePageClient({ service }: { service: Service }) {
                 Our Process
               </h2>
               <p className="text-lg md:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed font-light">
-                A streamlined approach that ensures quality, efficiency, and exceptional results at every step of your project journey.
+                A streamlined approach ensuring quality and efficiency at every step.
               </p>
               <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-6" />
             </div>
@@ -827,22 +861,22 @@ export function ServicePageClient({ service }: { service: Service }) {
                 {
                   step: "01",
                   title: "Discovery",
-                  description: "We analyze your requirements, goals, and challenges to create a comprehensive project roadmap."
+                  description: "We analyze your requirements to create a project roadmap."
                 },
                 {
                   step: "02",
                   title: "Strategy",
-                  description: "Develop a tailored strategy with clear milestones, timelines, and success metrics for your project."
+                  description: "Develop a tailored strategy with clear milestones."
                 },
                 {
                   step: "03",
                   title: "Execution",
-                  description: "Our expert team implements the solution using agile methodologies and best practices."
+                  description: "Our team implements the solution using agile methodologies."
                 },
                 {
                   step: "04",
                   title: "Delivery",
-                  description: "Launch your solution with comprehensive testing, training, and ongoing support for success."
+                  description: "Launch your solution with comprehensive testing and support."
                 }
               ].map((process, index) => (
                 <div
@@ -875,7 +909,7 @@ export function ServicePageClient({ service }: { service: Service }) {
           </div>
         </section>
 
-        {/* Enhanced CTA Section */}
+        {/* CTA Section */}
         <section 
           ref={ctaRef.ref}
           className="relative py-24 bg-gradient-to-br from-black via-neutral-950 to-black overflow-hidden"
@@ -903,7 +937,7 @@ export function ServicePageClient({ service }: { service: Service }) {
               Transform Your Business Today
             </h2>
             <p className="text-lg md:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed mb-8">
-              Join hundreds of successful businesses who trust our {serviceCategoryTitle} expertise. Let's discuss how we can drive your success with tailored solutions that deliver measurable results.
+              Join hundreds of businesses who trust our expertise in IT, healthcare, finance, AI, and outsourcing.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
               <Button
@@ -968,7 +1002,7 @@ export function ServicePageClient({ service }: { service: Service }) {
         </section>
       </main>
 
-      {/* Enhanced Footer */}
+      {/* Footer */}
       <footer 
         ref={footerRef.ref}
         className="relative bg-gradient-to-br from-black via-neutral-950 to-black text-white py-20 overflow-hidden"
@@ -991,7 +1025,7 @@ export function ServicePageClient({ service }: { service: Service }) {
               Stay Updated
             </h3>
             <p className="text-neutral-300 mb-6 max-w-2xl mx-auto">
-              Get the latest insights, industry trends, and exclusive updates delivered to your inbox.
+              Get the latest insights and updates delivered to your inbox.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
@@ -1001,163 +1035,53 @@ export function ServicePageClient({ service }: { service: Service }) {
               />
               <Button
                 variant="outline"
-                className="border-2 border-primary/30 text-white bg-primary/5 hover:bg-primary/15 hover:border-primary/50 transition-all duration-300 px-6"
+                className="border-2 border-primary/30 text-white bg-primary/5 hover:bg-primary/15 hover:border-primary/50 transition-all duration-300 hover:scale-105"
               >
                 Subscribe
               </Button>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
-            <div className={cn(
-              "transition-all duration-1000",
-              footerRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            )}>
-              <Link href="/" className="flex items-center space-x-2 mb-6 group">
-                <div className="transform group-hover:scale-110 transition-transform duration-300">
-                  <Image
-                    src="/btrussslogo.png"
-                    alt="Btruss Logo"
-                    width={120}
-                    height={30}
-                    className="filter drop-shadow-lg"
-                  />
-                </div>
-              </Link>
-              <p className="text-neutral-300 leading-relaxed mb-6">
-                Empowering businesses with innovative digital solutions and cutting-edge technology that drives growth and success.
+          <div className={cn(
+            "grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left transition-all duration-1000",
+            footerRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          )} style={{ transitionDelay: "200ms" }}>
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">About Us</h4>
+              <p className="text-neutral-300 text-sm">
+                We are a leading provider of IT, healthcare, finance, AI, and outsourcing solutions, dedicated to driving your business success.
               </p>
-              <div className="flex space-x-4">
-                {[
-                  { href: "#", icon: "LinkedIn" },
-                  { href: "#", icon: "Twitter" },
-                  { href: "#", icon: "GitHub" }
-                ].map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    className="w-10 h-10 bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-lg border border-white/10 flex items-center justify-center text-neutral-300 hover:text-white hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 hover:scale-110"
-                  >
-                    <span className="text-xs font-medium">{social.icon[0]}</span>
-                  </a>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
+              <ul className="space-y-2">
+                {navLinks.map((link, index) => (
+                  <li key={index}>
+                    <Link href={link.href} className="text-neutral-300 hover:text-primary transition-colors duration-300 text-sm">
+                      {link.label}
+                    </Link>
+                  </li>
                 ))}
-              </div>
-            </div>
-
-            <div className={cn(
-              "transition-all duration-1000",
-              footerRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            )} style={{ transitionDelay: '200ms' }}>
-              <h3 className="font-semibold text-lg mb-6 text-white">Services</h3>
-              <ul className="space-y-3 text-neutral-300">
-                <li><Link href="/services/it-services" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"><span className="group-hover:text-primary">IT Services</span></Link></li>
-                <li><Link href="/services/healthcare-services" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"><span className="group-hover:text-primary">Healthcare</span></Link></li>
-                <li><Link href="/services/ai-services" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"><span className="group-hover:text-primary">AI Solutions</span></Link></li>
-                <li><Link href="/services/resource-outsource" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"><span className="group-hover:text-primary">Outsourcing</span></Link></li>
               </ul>
             </div>
-
-            <div className={cn(
-              "transition-all duration-1000",
-              footerRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            )} style={{ transitionDelay: '400ms' }}>
-              <h3 className="font-semibold text-lg mb-6 text-white">Company</h3>
-              <ul className="space-y-3 text-neutral-300">
-                <li><Link href="/about-us" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"><span className="group-hover:text-primary">About</span></Link></li>
-                <li><Link href="#" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"><span className="group-hover:text-primary">Careers</span></Link></li>
-                <li><Link href="/portfolio" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"><span className="group-hover:text-primary">Our Work</span></Link></li>
-                <li><Link href="/#contact" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"><span className="group-hover:text-primary">Contact</span></Link></li>
-              </ul>
-            </div>
-
-            <div className={cn(
-              "transition-all duration-1000",
-              footerRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            )} style={{ transitionDelay: '600ms' }}>
-              <h3 className="font-semibold text-lg mb-6 text-white">Resources</h3>
-              <ul className="space-y-3 text-neutral-300">
-                <li><Link href="#" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"><span className="group-hover:text-primary">Blog</span></Link></li>
-                <li><Link href="#" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"><span className="group-hover:text-primary">Case Studies</span></Link></li>
-                <li><Link href="#" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"><span className="group-hover:text-primary">White Papers</span></Link></li>
-                <li><Link href="#" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"><span className="group-hover:text-primary">Support</span></Link></li>
-              </ul>
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">Contact</h4>
+              <p className="text-neutral-300 text-sm">
+                Email: info@company.com<br />
+                Phone: +1 (123) 456-7890<br />
+                Address: 123 Business Ave, Suite 100
+              </p>
             </div>
           </div>
 
-          <div className="border-t border-white/10 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-neutral-300 text-center md:text-left">
-                {currentYear !== null && <p>© {currentYear} Btruss. All rights reserved.</p>}
-              </div>
-              <div className="flex space-x-8 text-sm text-neutral-300">
-                <Link href="#" className="hover:text-white transition-colors duration-300">Privacy Policy</Link>
-                <Link href="#" className="hover:text-white transition-colors duration-300">Terms of Service</Link>
-                <Link href="#" className="hover:text-white transition-colors duration-300">Cookie Policy</Link>
-              </div>
-            </div>
+          <div className={cn(
+            "mt-12 pt-8 border-t border-white/10 text-center text-neutral-400 text-sm transition-all duration-1000",
+            footerRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          )} style={{ transitionDelay: "400ms" }}>
+            <p>© {currentYear} Your Company Name. All rights reserved.</p>
           </div>
         </div>
       </footer>
-
-      <style jsx>{`
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-        
-        @keyframes glow {
-          0%, 100% {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
-          }
-          50% {
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
-          }
-        }
-        
-        .animate-fade-in-up {
-          animation: fade-in-up 0.7s ease-out forwards;
-        }
-        
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        
-        .animate-glow {
-          animation: glow 2s ease-in-out infinite;
-        }
-        
-        ::-webkit-scrollbar {
-          width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-          background: #000;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #3b82f6, #ef4444);
-          border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, #2563eb, #dc2626);
-        }
-      `}</style>
     </div>
   );
 }

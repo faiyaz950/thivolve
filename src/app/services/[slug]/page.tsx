@@ -1,7 +1,7 @@
 
 import { notFound } from 'next/navigation';
-import { services, Service } from '@/lib/services-data';
-import { ServicePageClient } from '@/components/sections/service-page-client';
+import { services, type Service } from '@/lib/services-data';
+import ServicePageClient from '@/components/sections/service-page-client';
 
 export default function ModernServicesPage({ params }: { params: { slug: string } }) {
   const service = services.find(s => s.slug === params.slug);
