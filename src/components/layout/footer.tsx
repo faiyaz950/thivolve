@@ -19,7 +19,7 @@ export function Footer() {
     { icon: Facebook, href: "#", label: "Facebook" },
     { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Instagram, href: "https://www.instagram.com/btruss_services?igsh=MWxxdHA2Y3VteDF5bw==", label: "Instagram" },
     { icon: Youtube, href: "#", label: "YouTube" },
   ];
 
