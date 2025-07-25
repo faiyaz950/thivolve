@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -226,8 +227,8 @@ const teamMembers = [
 
 const cultureImages = [
   { src: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb2xsYWJvcmF0aXZlJTIwd29ya3xlbnwwfHx8fDE3NDg4NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080', alt: 'Collaborative work session' },
-  { src: 'https://images.unsplash.com/photo-1573496774439-c9a41c48716e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2V8ZW58MHx8fHwxNzQ4ODUwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080', alt: 'Modern office interior' },
-  { src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwbWVldGluZ3xlbnwwfHx8fDE3NDg4NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080', alt: 'Team meeting in a conference room' },
+  { src: '/officetwoo.png', alt: 'Modern office interior' },
+  { src: '/officethree.png', alt: 'Team meeting in a conference room' },
 ];
 
 const testimonials = [
