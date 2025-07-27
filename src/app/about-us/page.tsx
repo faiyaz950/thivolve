@@ -439,7 +439,7 @@ export default function AboutUsPage() {
               )}>
                 <div className="relative">
                   <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-8 tracking-tight">
-                    From The CEO's Desk
+                    From The Founder's Desk
                   </h2>
                   
                   <div className="space-y-6 text-lg text-neutral-300 leading-relaxed">

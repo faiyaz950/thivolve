@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -81,7 +82,7 @@ const ServiceFeatureCard = ({ feature, index, isVisible }: {
   );
 };
 
-export function ServicePageClient({ service }: { service: Service }) {
+export default function ServicePageClient({ service }: { service: Service }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isContentVisible, setIsContentVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
