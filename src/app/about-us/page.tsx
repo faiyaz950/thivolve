@@ -226,8 +226,8 @@ const teamMembers = [
 ];
 
 const cultureImages = [
-  { src: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb2xsYWJvcmF0aXZlJTIwd29ya3xlbnwwfHx8fDE3NDg4NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080', alt: 'Collaborative work session' },
   { src: '/officetwoo.png', alt: 'Modern office interior' },
+  { src: '/officefour.jpeg', alt: 'Modern office interior' },
   { src: '/officethree.png', alt: 'Team meeting in a conference room' },
 ];
 
@@ -477,7 +477,7 @@ export default function AboutUsPage() {
                   {/* Main image container */}
                   <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm">
                     <Image
-                      src="https://placehold.co/500x600.png"
+                      src="/mintubhai.jpeg"
                       alt="Imtiyaz Ali, CEO of Btruss Services"
                       width={500}
                       height={600}
