@@ -17,13 +17,11 @@ const services = [
 ];
 
 const partnerLogos = [
-  { src: "https://images.unsplash.com/photo-1618236122998-3a2b7ae7e1df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhYnN0cmFjdCUyMGxvZ298ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Abstract Sphere Logo", hint: "abstract logo" },
-  { src: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsb2dvfGVufDB8fHx8MTc0ODM5MzM4N3ww&ixlib=rb-4.1.0&q=80&w=1080", alt: "Geometric Company Logo", hint: "company logo" },
-  { src: "https://images.unsplash.com/photo-1549268393-2144e991ba42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtb25vZ3JhbSUyMGxvZ298ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Monogram Logo", hint: "monogram logo" },
-  { src: "https://images.unsplash.com/photo-1606135887196-99e693e5a5c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtaW5pbWFsaXN0JTIwbG9nb3xlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Minimalist Brand Logo", hint: "minimalist logo" },
-  { src: "https://images.unsplash.com/photo-1611117775522-5a3371954152?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzeW1ib2wlMjBsb2dvfGVufDB8fHx8MTc0ODM5MzQyMnww&ixlib=rb-4.1.0&q=80&w=1080", alt: "Symbolic Tech Logo", hint: "symbol logo" },
-  { src: "https://images.unsplash.com/photo-1524311518928-857c436c6413?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmaW5hbmNlJTIwbG9nb3xlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Finance Corp Logo", hint: "finance logo" },
-  { src: "https://images.unsplash.com/photo-1622359997463-13abb42a63e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxoZWFsdGhjYXJlJTIwbG9nb3xlbnwwfHx8fDE3NDgzMzYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Healthcare Brand Logo", hint: "healthcare logo" },
+  { src: "/bajalo.png", alt: "Bajalo Logo", hint: "bajalo logo" },
+  { src: "/globolosys.png", alt: "Globolosys Logo", hint: "globolosys logo" },
+  { src: "/gtslogo.png", alt: "GTS Logo", hint: "gts logo" },
+  { src: "/hdfc.png", alt: "HDFC Bank Logo", hint: "hdfc logo" },
+  { src: "/tirupati_logo_transparent.png", alt: "Tirupati Logo", hint: "tirupati logo" },
 ];
 
 const ServiceCard = ({ service, index, isVisible }: {
