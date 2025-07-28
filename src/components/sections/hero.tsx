@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from 'next/link';
@@ -46,7 +45,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
   { href: "/#services", label: "Services" },
-  { href: "/portfolio", label: "Our Work" },
+  { href: "/#our-work", label: "Our Work" },
   { href: "/#contact", label: "Contact Us" },
 ];
 
@@ -59,6 +58,7 @@ export function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [animationCompleted, setAnimationCompleted] = useState(false);
   const heroRef = useScrollAnimation({ threshold: 0.1 });
 
   // Initial load animation
@@ -67,9 +67,9 @@ export function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Enhanced animation for main headline letters
+  // One-time animation for main headline letters with slide-in effect
   useEffect(() => {
-    if (!isLoaded) return;
+    if (!isLoaded || animationCompleted) return;
     
     const timers = heroMainHeadlineText.split('').map((_, index) =>
       setTimeout(() => {
@@ -80,10 +80,19 @@ export function Hero() {
           }
           return newLetters;
         });
-      }, index * 80 + 500)
+      }, index * 150 + 800)
     );
-    return () => timers.forEach(clearTimeout);
-  }, [isLoaded]);
+
+    // Mark animation as completed after all letters are shown
+    const completionTimer = setTimeout(() => {
+      setAnimationCompleted(true);
+    }, heroMainHeadlineText.length * 150 + 1500);
+
+    return () => {
+      timers.forEach(clearTimeout);
+      clearTimeout(completionTimer);
+    };
+  }, [isLoaded, animationCompleted]);
 
   useEffect(() => {
     const displayDuration = 4000;
@@ -109,11 +118,30 @@ export function Hero() {
     <>
       <style jsx>{`
         @keyframes pulse-glow {
-          0%, 100% { box-shadow: 0 0 20px rgba(var(--primary), 0.3); }
-          50% { box-shadow: 0 0 40px rgba(var(--primary), 0.6), 0 0 60px rgba(var(--primary), 0.3); }
+          0%, 100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.3); }
+          50% { box-shadow: 0 0 40px rgba(239, 68, 68, 0.6), 0 0 60px rgba(239, 68, 68, 0.3); }
         }
         .animate-pulse-glow {
           animation: pulse-glow 3s ease-in-out infinite;
+        }
+        
+        @keyframes slideInScale {
+          0% { 
+            opacity: 0;
+            transform: translateX(-30px) scale(0.8);
+          }
+          50% {
+            opacity: 0.7;
+            transform: translateX(5px) scale(1.1);
+          }
+          100% { 
+            opacity: 1;
+            transform: translateX(0px) scale(1);
+          }
+        }
+        
+        .animate-slide-in-scale {
+          animation: slideInScale 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
         }
       `}</style>
 
@@ -121,9 +149,9 @@ export function Hero() {
         ref={heroRef.ref}
         className="relative min-h-screen flex flex-col overflow-hidden bg-gradient-to-br from-slate-900 via-black to-slate-900"
       >
-        {/* Enhanced Background Effects */}
+        {/* Enhanced Background Effects - Made Lighter */}
         <div className="absolute inset-0">
-          {/* Hero Image Slider with lighter overlay */}
+          {/* Hero Image Slider with much lighter overlay */}
           <div className="absolute inset-0">
             {heroImages.map((image, index) => (
               <div key={index} className="absolute inset-0">
@@ -133,47 +161,55 @@ export function Hero() {
                   fill
                   className={cn(
                     "object-cover transition-all duration-1500 ease-in-out",
-                    index === currentImageIndex ? "opacity-60 scale-105" : "opacity-0 scale-100"
+                    index === currentImageIndex ? "opacity-80 scale-105" : "opacity-0 scale-100"
                   )}
                   priority={index === 0}
                 />
-                {/* Lighter overlay to show more image */}
+                {/* Much lighter overlay to show more image */}
                 <div className={cn(
-                  "absolute inset-0 bg-gradient-to-br from-black/40 via-black/25 to-primary/10 transition-opacity duration-1500",
+                  "absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-red-500/5 transition-opacity duration-1500",
                   index === currentImageIndex ? "opacity-100" : "opacity-0"
                 )} />
               </div>
             ))}
           </div>
 
-          {/* Lighter gradients */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-slate-900/40 to-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          {/* Much lighter gradients */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-slate-900/20 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 
           {/* Dynamic grid pattern */}
-          <div className="absolute inset-0 opacity-[0.02]" style={{
+          <div className="absolute inset-0 opacity-[0.04]" style={{
             backgroundImage: `
               radial-gradient(circle at 25px 25px, white 1px, transparent 0),
-              radial-gradient(circle at 75px 75px, rgba(var(--primary), 0.3) 0.5px, transparent 0)
+              radial-gradient(circle at 75px 75px, rgba(239, 68, 68, 0.3) 0.5px, transparent 0)
             `,
             backgroundSize: '50px 50px, 100px 100px'
           }} />
+
+          {/* Lighter gradients */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/30 to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+          
+          {/* Animated mesh gradient */}
+          <div className="absolute inset-0 opacity-40">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/30 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
+            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-red-500/20 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }} />
+          </div>
         </div>
 
-        {/* Enhanced Header Bar */}
-        <header className="relative z-50 w-full">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-transparent backdrop-blur-2xl border-b border-white/10" />
-          
-          <div className="relative container mx-auto px-6 py-5">
+        {/* Enhanced Header Bar with Larger Logo and Reduced Top Margin */}
+        <header className="relative z-50 w-full py-2">
+          <div className="container mx-auto px-6">
             <div className="flex items-center justify-between">
-              {/* Enhanced Logo */}
+              {/* Enhanced Logo - Even Larger */}
               <Link href="/" className="relative group">
                 <Image
                   src="/whitelogo.png"
                   alt="Btruss Logo"
-                  width={50}
-                  height={50}
-                  className="w-20 h-20 object-contain transition-all duration-300 group-hover:scale-105"
+                  width={80}
+                  height={80}
+                  className="w-20 h-20 md:w-24 md:h-24 object-contain transition-all duration-300 group-hover:scale-105 drop-shadow-lg"
                 />
               </Link>
 
@@ -183,12 +219,12 @@ export function Hero() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="relative group py-3 px-4 text-neutral-300 hover:text-white transition-all duration-300 rounded-lg font-medium"
+                    className="relative group py-2 px-3 text-neutral-300 hover:text-white transition-all duration-300 rounded-lg font-medium text-sm"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <span className="relative z-10">{link.label}</span>
-                    <div className="absolute inset-x-0 bottom-1 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-95 group-hover:scale-100" />
+                    <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-red-500/5 to-red-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-95 group-hover:scale-100" />
                   </Link>
                 ))}
               </nav>
@@ -197,11 +233,12 @@ export function Hero() {
               <div className="flex items-center space-x-4">
                 <Button
                   variant="outline"
-                  className="hidden sm:flex border-primary/50 bg-gradient-to-r from-primary/10 to-transparent text-white hover:bg-primary/20 hover:border-primary/70 transition-all duration-300 hover:scale-105 backdrop-blur-sm animate-pulse-glow font-medium"
+                  size="sm"
+                  className="hidden sm:flex border-red-500/50 bg-gradient-to-r from-red-500/10 to-transparent text-white hover:bg-red-500/20 hover:border-red-500/70 transition-all duration-300 hover:scale-105 backdrop-blur-sm animate-pulse-glow font-medium text-sm px-4 py-2"
                   asChild
                 >
                   <Link href="#contact" className="flex items-center gap-2">
-                    <Play className="h-4 w-4" />
+                    <Play className="h-3 w-3" />
                     Book a Meeting
                   </Link>
                 </Button>
@@ -209,10 +246,10 @@ export function Hero() {
                 <Button
                   variant="ghost" 
                   size="icon"
-                  className="md:hidden text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
+                  className="md:hidden text-white hover:bg-white/10 hover:scale-110 transition-all duration-300 h-8 w-8"
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >
-                  <Menu className="h-6 w-6" />
+                  <Menu className="h-5 w-5" />
                 </Button>
               </div>
             </div>
@@ -229,7 +266,7 @@ export function Hero() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-white hover:text-primary transition-all duration-300 py-3 text-lg font-medium border-b border-white/5 hover:border-primary/20 hover:pl-2 hover:bg-primary/5 rounded-lg px-4"
+                    className="text-white hover:text-red-500 transition-all duration-300 py-3 text-lg font-medium border-b border-white/5 hover:border-red-500/20 hover:pl-2 hover:bg-red-500/5 rounded-lg px-4"
                     onClick={() => setMobileMenuOpen(false)}
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
@@ -239,7 +276,7 @@ export function Hero() {
                 <div className="pt-4 border-t border-white/10">
                   <Button
                     variant="outline"
-                    className="w-full border-primary/50 bg-gradient-to-r from-primary/10 to-transparent text-white hover:bg-primary/20 hover:border-primary/70 font-medium"
+                    className="w-full border-red-500/50 bg-gradient-to-r from-red-500/10 to-transparent text-white hover:bg-red-500/20 hover:border-red-500/70 font-medium"
                     asChild
                   >
                     <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>
@@ -262,8 +299,8 @@ export function Hero() {
               className={cn(
                 "relative w-3 h-3 rounded-full transition-all duration-700 ease-out group hover:scale-125",
                 index === currentImageIndex
-                  ? "bg-primary scale-125 shadow-lg shadow-primary/50"
-                  : "bg-white/30 hover:bg-primary/70"
+                  ? "bg-red-500 scale-125 shadow-lg shadow-red-500/50"
+                  : "bg-white/30 hover:bg-red-500/70"
               )}
             >
               <div className="sr-only">{image.hint}</div>
@@ -277,34 +314,43 @@ export function Hero() {
             "text-center max-w-6xl mx-auto transition-all duration-1000 transform",
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}>
-            {/* Enhanced Headline */}
+            {/* Enhanced Headline with One-time Slide Animation */}
             <div className="relative mb-8">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[0.9] drop-shadow-2xl mb-4">
-                {mainHeadlineLetters.map((item, index) => (
-                  <span
-                    key={index}
-                    className={cn(
-                      "inline-block transition-all duration-700 transform-gpu hover:scale-110 cursor-default",
-                      item.show 
-                        ? "opacity-100 translate-y-0 scale-100 text-white" 
-                        : "opacity-0 translate-y-8 scale-75 text-primary/30"
-                    )}
-                    style={{ 
-                      transitionDelay: `${index * 80}ms`,
-                      fontFamily: 'system-ui, -apple-system, sans-serif',
-                      fontWeight: '700'
-                    }}
-                  >
-                    {item.char === " " ? "\u00A0" : item.char}
-                  </span>
-                ))}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 tracking-tight leading-[0.9] drop-shadow-2xl mb-4">
+                {mainHeadlineLetters.map((item, index) => {
+                  return (
+                    <span
+                      key={index}
+                      className={cn(
+                        "inline-block transition-all duration-300 transform-gpu hover:scale-110 cursor-default relative",
+                        item.show 
+                          ? "opacity-100 translate-y-0 scale-100 text-white animate-slide-in-scale" 
+                          : "opacity-0 translate-y-12 scale-50 text-red-500/20"
+                      )}
+                      style={{ 
+                        transitionDelay: `${index * 150}ms`,
+                        fontFamily: 'system-ui, -apple-system, sans-serif',
+                        fontWeight: '900',
+                        animationDelay: `${index * 150}ms`,
+                        filter: item.show ? 'drop-shadow(0 0 10px rgba(239, 68, 68, 0.3))' : 'none'
+                      }}
+                    >
+                      {item.char === " " ? "\u00A0" : item.char}
+                    </span>
+                  );
+                })}
               </h1>
+              
+              {/* Enhanced decorative elements */}
+              <div className="absolute -top-6 -left-6 w-4 h-4 bg-red-500 rounded-full animate-ping" />
+              <div className="absolute -top-4 -right-8 w-3 h-3 bg-red-500/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+              <div className="absolute -bottom-4 left-1/4 w-2 h-2 bg-white/60 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
             </div>
 
             {/* Enhanced Animated Sentence */}
             <div className="relative mb-12">
               <h2 className={cn(
-                "text-xl md:text-2xl lg:text-3xl font-semibold bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent transition-all duration-800 transform-gpu",
+                "text-xl md:text-2xl lg:text-3xl font-semibold bg-gradient-to-r from-red-500 via-red-500/80 to-red-500 bg-clip-text text-transparent transition-all duration-800 transform-gpu",
                 isSentenceVisible 
                   ? "opacity-100 translate-y-0 scale-100" 
                   : "opacity-0 translate-y-6 scale-95"
@@ -318,7 +364,7 @@ export function Hero() {
 
               {/* Enhanced animated underline */}
               <div className={cn(
-                "absolute -bottom-3 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent transition-all duration-800 rounded-full",
+                "absolute -bottom-3 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-transparent via-red-500 to-transparent transition-all duration-800 rounded-full",
                 isSentenceVisible ? "w-32 opacity-100" : "w-0 opacity-0"
               )} />
             </div>
@@ -331,23 +377,23 @@ export function Hero() {
                   fontWeight: '400'
                 }}>
                 Btruss transforms your vision into reality with innovative{' '}
-                <span className="text-primary font-semibold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">IT solutions</span>,{' '}
-                <span className="text-primary font-semibold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">healthcare technology</span>,{' '}
-                <span className="text-primary font-semibold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">finance systems</span>, and{' '}
-                <span className="text-primary font-semibold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">security services</span>.
+                <span className="text-red-500 font-semibold bg-gradient-to-r from-red-500 to-red-500/70 bg-clip-text text-transparent">IT solutions</span>,{' '}
+                <span className="text-red-500 font-semibold bg-gradient-to-r from-red-500 to-red-500/70 bg-clip-text text-transparent">healthcare technology</span>,{' '}
+                <span className="text-red-500 font-semibold bg-gradient-to-r from-red-500 to-red-500/70 bg-clip-text text-transparent">finance systems</span>, and{' '}
+                <span className="text-red-500 font-semibold bg-gradient-to-r from-red-500 to-red-500/70 bg-clip-text text-transparent">security services</span>.
               </p>
             </div>
 
-            {/* Enhanced CTA Buttons */}
+            {/* Enhanced CTA Buttons - Changed "Book a Meeting" to "Get Started" */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
               <Button
                 size="lg"
-                className="group relative bg-gradient-to-r from-primary via-primary/90 to-primary hover:from-primary/90 hover:via-primary hover:to-primary/90 text-white border-0 transition-all duration-700 hover:scale-110 hover:shadow-2xl hover:shadow-primary/40 px-8 py-6 text-lg font-semibold overflow-hidden"
+                className="group relative bg-gradient-to-r from-red-500 via-red-500/90 to-red-500 hover:from-red-500/90 hover:via-red-500 hover:to-red-500/90 text-white border-0 transition-all duration-700 hover:scale-110 hover:shadow-2xl hover:shadow-red-500/40 px-8 py-6 text-lg font-semibold overflow-hidden"
                 asChild
               >
                 <Link href="#contact" className="flex items-center gap-3 relative z-10"
                   style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-                  <span>Book a Meeting</span>
+                  <span>Get Started</span>
                   <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-3 group-hover:rotate-12" />
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
                 </Link>
@@ -356,37 +402,40 @@ export function Hero() {
               <Button
                 variant="outline"
                 size="lg"
-                className="group relative border-2 border-primary/60 text-white hover:bg-primary/20 hover:text-white hover:border-primary/80 transition-all duration-700 hover:scale-110 hover:shadow-2xl hover:shadow-primary/30 backdrop-blur-lg bg-gradient-to-r from-primary/10 via-transparent to-primary/10 px-8 py-6 text-lg font-semibold overflow-hidden"
+                className="group relative border-2 border-red-500/60 text-white hover:bg-red-500/20 hover:text-white hover:border-red-500/80 transition-all duration-700 hover:scale-110 hover:shadow-2xl hover:shadow-red-500/30 backdrop-blur-lg bg-gradient-to-r from-red-500/10 via-transparent to-red-500/10 px-8 py-6 text-lg font-semibold overflow-hidden"
                 asChild
               >
-                <Link href="/portfolio" className="flex items-center gap-3 relative z-10"
+                <Link href="/#our-work" className="flex items-center gap-3 relative z-10"
                   style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
                   <span>View Our Work</span>
                   <div className="flex items-center gap-1">
                     {[1, 2, 3].map((star) => (
                       <Star
                         key={star}
-                        className="h-4 w-4 fill-primary text-primary transition-all duration-500 group-hover:scale-125 group-hover:rotate-12"
+                        className="h-4 w-4 fill-red-500 text-red-500 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12"
                         style={{ animationDelay: `${star * 150}ms` }}
                       />
                     ))}
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/20 to-red-500/0 transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
                 </Link>
               </Button>
             </div>
+
+            {/* Accent line */}
+            <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-red-500 to-transparent mx-auto animate-pulse" />
           </div>
         </div>
 
         {/* Enhanced Bottom Fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10" />
         
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex flex-col items-center gap-2 animate-bounce">
-          <div className="w-5 h-8 border-2 border-primary/60 rounded-full flex justify-center">
-            <div className="w-0.5 h-2 bg-primary rounded-full mt-1.5 animate-pulse" />
+          <div className="w-5 h-8 border-2 border-red-500/60 rounded-full flex justify-center">
+            <div className="w-0.5 h-2 bg-red-500 rounded-full mt-1.5 animate-pulse" />
           </div>
-          <span className="text-primary/60 text-xs font-medium">Scroll</span>
+          <span className="text-red-500/60 text-xs font-medium">Scroll</span>
         </div>
       </section>
     </>

@@ -12,7 +12,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
   { href: "/#services", label: "Services" },
-  { href: "/portfolio", label: "Our Work" },
+  { href: "/#our-work", label: "Our Work" },
   { href: "/#contact", label: "Contact Us" },
 ];
 
@@ -114,7 +114,7 @@ export function Header() {
         <div 
           className="h-full bg-gradient-to-r from-primary/60 via-primary to-primary/60 transition-all duration-300 origin-left"
           style={{ 
-            transform: `scaleX(${Math.min(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight), 1)})` 
+            transform: `scaleX(${typeof window !== 'undefined' ? Math.min(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight), 1) : 0})` 
           }}
         />
       </div>
