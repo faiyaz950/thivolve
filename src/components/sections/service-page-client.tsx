@@ -11,6 +11,7 @@ import { notFound } from 'next/navigation';
 import type { Service, ServiceDetail, SubDetail, HeroSlide } from '@/lib/services-data';
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
+import { VideoSection } from '@/components/sections/video-section';
 
 
 // Custom hook for scroll animation
@@ -305,7 +306,7 @@ export default function ServicePageClient({ service }: { service: Service }) {
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-50" />
                     <div className="relative grid md:grid-cols-5 gap-8">
                       <div className="md:col-span-2">
-                         <div className="group relative rounded-2xl overflow-hidden border border-white/10 group-hover:border-primary/20 transition-all duration-500 aspect-square">
+                         <div className="relative group rounded-2xl overflow-hidden border border-white/10 group-hover:border-primary/20 transition-all duration-500 aspect-square">
                            <Image
                                src={detail.backgroundImage || defaultImage.src}
                                alt={`${detail.title} illustration`}
@@ -412,6 +413,9 @@ export default function ServicePageClient({ service }: { service: Service }) {
             </Tabs>
           </div>
         </section>
+
+        {/* Video Section */}
+        <VideoSection />
         
         {/* CTA Section */}
         <section
