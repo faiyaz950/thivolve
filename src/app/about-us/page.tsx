@@ -662,8 +662,6 @@ export default function AboutUsPage() {
             </div>
             </div>
             </section>
-
-            <VideoSection />
             
             <section
     ref={galleryRef.ref}
