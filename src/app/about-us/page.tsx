@@ -9,6 +9,7 @@ import { Header } from "@/components/layout/header";
 import { CheckCircle, Linkedin, Quote, ArrowRight, Users, Target, Heart } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
+import { VideoSection } from "@/components/sections/video-section";
 
 // TypeScript Interfaces
 interface TeamMember {
@@ -661,6 +662,9 @@ export default function AboutUsPage() {
             </div>
             </div>
             </section>
+
+            <VideoSection />
+            
             <section
     ref={galleryRef.ref}
     className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-900/50 via-black to-neutral-900/50 overflow-hidden"
