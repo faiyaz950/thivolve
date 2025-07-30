@@ -230,7 +230,7 @@ const projectsData = [
     href: '#our-work',
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',
+    imageUrl: '/digi.png',
     aiHint: 'digital marketing campaign',
     category: 'Digital Marketing',
     title: 'Global Brand Campaign',
@@ -241,7 +241,7 @@ const projectsData = [
     href: '#our-work',
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1572044162444-24c95621ec34?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    imageUrl: '/graph.png',
     aiHint: 'corporate branding design',
     category: 'Graphic Design',
     title: 'Corporate Rebranding',
