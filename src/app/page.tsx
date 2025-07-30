@@ -6,6 +6,7 @@ import { ServicesOverview } from '@/components/sections/services-overview';
 import { StatsSection } from '@/components/sections/stats-section';
 import { OurWork } from '@/components/sections/our-work';
 import { ContactForm } from '@/components/sections/contact-form';
+import { VideoSection } from '@/components/sections/video-section';
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
       <main className="flex-grow">
         <Hero />
         <AboutUs />
+        <VideoSection />
         <ServicesOverview />
         <StatsSection />
         <OurWork />
