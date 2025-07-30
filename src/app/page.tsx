@@ -2,7 +2,6 @@
 import { Footer } from '@/components/layout/footer';
 import { Hero } from '@/components/sections/hero';
 import { AboutUs } from '@/components/sections/about-us';
-import { VideoSection } from '@/components/sections/video-section';
 import { ServicesOverview } from '@/components/sections/services-overview';
 import { StatsSection } from '@/components/sections/stats-section';
 import { OurWork } from '@/components/sections/our-work';
@@ -15,7 +14,6 @@ export default function HomePage() {
       <main className="flex-grow">
         <Hero />
         <AboutUs />
-        <VideoSection />
         <ServicesOverview />
         <StatsSection />
         <OurWork />
