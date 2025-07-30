@@ -7,9 +7,15 @@ import { useState, useEffect } from 'react';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { cn } from '@/lib/utils';
 
+interface Particle {
+  id: number;
+  style: React.CSSProperties;
+}
+
 export function Footer() {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [particles, setParticles] = useState<Particle[]>([]);
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   useEffect(() => {
@@ -22,6 +28,22 @@ export function Footer() {
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const generateParticles = () => {
+      const newParticles: Particle[] = Array.from({ length: 20 }, (_, i) => ({
+        id: i,
+        style: {
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          animationDuration: `${3 + Math.random() * 4}s`,
+          animationDelay: `${Math.random() * 2}s`,
+        }
+      }));
+      setParticles(newParticles);
+    };
+    generateParticles();
   }, []);
 
   const socialLinks = [
@@ -134,16 +156,11 @@ export function Footer() {
         
         {/* Floating particles */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
+          {particles.map((particle) => (
             <div
-              key={i}
+              key={particle.id}
               className="absolute w-1 h-1 bg-primary/20 rounded-full animate-bounce"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDuration: `${3 + Math.random() * 4}s`,
-                animationDelay: `${Math.random() * 2}s`,
-              }}
+              style={particle.style}
             />
           ))}
         </div>
