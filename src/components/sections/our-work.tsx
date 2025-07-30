@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   Eye, ArrowRight, Award, CheckCircle, TrendingUp, Users, Star,
-  Calendar, Globe, Smartphone, BarChart3, Clock, Target
+  Calendar, Globe, Smartphone, BarChart3, Clock, Target, Palette
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -44,7 +44,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       case 'web application': return Globe;
       case 'mobile development': return Smartphone;
       case 'windows application': return BarChart3;
-      case 'digital marketing': return BarChart3;
+      case 'digital marketing': return TrendingUp;
+      case 'graphic design': return Palette;
       default: return Award;
     }
   };
@@ -228,6 +229,28 @@ const projectsData = [
     duration: '9 months',
     href: '#our-work',
   },
+  {
+    imageUrl: 'https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',
+    aiHint: 'digital marketing campaign',
+    category: 'Digital Marketing',
+    title: 'Global Brand Campaign',
+    description: 'A multi-channel digital marketing strategy to boost brand awareness and lead generation for a new tech product.',
+    results: '200% increase in leads in 3 months',
+    technologies: ['SEO', 'PPC', 'Social Media', 'Content Marketing'],
+    duration: 'Ongoing',
+    href: '#our-work',
+  },
+  {
+    imageUrl: 'https://images.unsplash.com/photo-1572044162444-24c95621ec34?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    aiHint: 'corporate branding design',
+    category: 'Graphic Design',
+    title: 'Corporate Rebranding',
+    description: 'Complete visual identity overhaul for a financial services firm, including logo, brand guidelines, and marketing materials.',
+    results: '35% increase in brand recognition',
+    technologies: ['Adobe Illustrator', 'Photoshop', 'InDesign', 'Figma'],
+    duration: '2 months',
+    href: '#our-work',
+  }
 ];
 
 // Updated achievement stats
