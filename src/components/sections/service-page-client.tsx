@@ -11,7 +11,6 @@ import { notFound } from 'next/navigation';
 import type { Service, ServiceDetail, SubDetail, HeroSlide } from '@/lib/services-data';
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
-import { VideoSection } from '@/components/sections/video-section';
 
 
 // Custom hook for scroll animation
@@ -413,9 +412,6 @@ export default function ServicePageClient({ service }: { service: Service }) {
             </Tabs>
           </div>
         </section>
-
-        {/* Video Section */}
-        <VideoSection />
         
         {/* CTA Section */}
         <section

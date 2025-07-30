@@ -2,33 +2,75 @@
 
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
 export function VideoSection() {
   const { ref, isVisible } = useScrollAnimation();
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
-  const youtubeVideoId = "QsY8fnvMn6c"; 
-  const youtubeEmbedUrl = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&enablejsapi=1`;
+  // Use consistent video ID
+  const youtubeVideoId = "INHPbBc458E";
+  const youtubeEmbedUrl = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1`;
+
+  // Handle play/pause functionality
+  const handlePlayPause = () => {
+    if (iframeRef.current) {
+      const iframe = iframeRef.current;
+      if (isPlaying) {
+        // Send pause command to YouTube iframe
+        iframe.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      } else {
+        // Send play command to YouTube iframe
+        iframe.contentWindow?.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  // Handle mute/unmute functionality
+  const handleMuteToggle = () => {
+    if (iframeRef.current) {
+      const iframe = iframeRef.current;
+      if (isMuted) {
+        iframe.contentWindow?.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+      } else {
+        iframe.contentWindow?.postMessage('{"event":"command","func":"mute","args":""}', '*');
+      }
+      setIsMuted(!isMuted);
+    }
+  };
 
   return (
     <section 
       ref={ref}
-      className="relative w-full h-[30rem] md:h-[40rem] lg:h-[50rem] overflow-hidden group bg-black"
+      className={cn(
+        "relative w-full h-[30rem] md:h-[40rem] lg:h-[50rem] overflow-hidden group bg-black transition-all duration-1000",
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+      )}
     >
       {/* Background Effects */}
       <div className="absolute inset-0">
         {/* Video Background */}
         <div className="absolute inset-0">
           <iframe
+            ref={iframeRef}
             src={youtubeEmbedUrl}
             title="Video Background"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
-            className="w-full h-full object-cover"
+            className="w-full h-full scale-110 object-cover"
+            style={{ 
+              minWidth: '100%', 
+              minHeight: '100%',
+              width: '100vw',
+              height: '56.25vw', // 16:9 aspect ratio
+              minHeight: '100vh',
+              minWidth: '177.77vh', // 16:9 aspect ratio
+            }}
           />
         </div>
 
@@ -50,17 +92,17 @@ export function VideoSection() {
       </div>
 
       {/* Video Controls */}
-      <div className="absolute top-6 right-6 z-40 flex space-x-3">
+      <div className="absolute top-6 right-6 z-40 flex space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <button
-          onClick={() => setIsPlaying(!isPlaying)}
-          className="bg-black/50 backdrop-blur-sm text-white p-3 rounded-full hover:bg-primary/20 transition-all duration-300 hover:scale-110"
+          onClick={handlePlayPause}
+          className="bg-black/50 backdrop-blur-sm text-white p-3 rounded-full hover:bg-primary/20 transition-all duration-300 hover:scale-110 border border-white/20"
           aria-label={isPlaying ? 'Pause video' : 'Play video'}
         >
-          {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+          {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 ml-0.5" />}
         </button>
         <button
-          onClick={() => setIsMuted(!isMuted)}
-          className="bg-black/50 backdrop-blur-sm text-white p-3 rounded-full hover:bg-primary/20 transition-all duration-300 hover:scale-110"
+          onClick={handleMuteToggle}
+          className="bg-black/50 backdrop-blur-sm text-white p-3 rounded-full hover:bg-primary/20 transition-all duration-300 hover:scale-110 border border-white/20"
           aria-label={isMuted ? 'Unmute video' : 'Mute video'}
         >
           {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
