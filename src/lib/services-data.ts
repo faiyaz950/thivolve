@@ -2,6 +2,9 @@
 export interface SubDetail {
   title: string;
   description: string;
+  features?: string[];
+  benefits?: string[];
+  whyChooseUs?: string[];
 }
 export interface ServiceDetail {
   slug: string;
@@ -135,8 +138,8 @@ export const services: Service[] = [
   },
   {
     slug: 'healthcare-services',
-    title: "Healthcare Services",
-    description: "Specialized support solutions for the healthcare industry, focusing on quality, efficiency, and compassionate care.",
+    title: "Health Services",
+    description: "Our health services are designed to prioritize your well-being, offering a seamless blend of preventive care, diagnostics, and financial protection. In collaboration with trusted partners Curelo and HealthInde, we provide comprehensive health checkups, advanced radiology and pathology tests, and tailored health insurance plans to ensure you and your family stay healthy and secure.",
     hero: {
       slides: [
         {
@@ -147,43 +150,92 @@ export const services: Service[] = [
             alt: "Medical technology and equipment",
             hint: "medical technology"
           }
-        },
-        {
-          title: "Seamless Telehealth Support",
-          description: "Our technical and administrative support ensures that virtual consultations are smooth and reliable for both patients and doctors.",
-          image: {
-            src: "https://images.unsplash.com/photo-1488998427799-e3362cec87c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZWxlaGVhbHRoJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3NDg0MDM2MDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-            alt: "Telehealth interface on a laptop screen",
-            hint: "telehealth interface"
-          }
         }
       ]
     },
     details: [
       {
-        slug: "medical-billing",
-        title: "Medical Billing & Coding",
-        description: "Our certified professionals ensure accurate and timely medical billing and coding, maximizing revenue and ensuring compliance for healthcare providers.",
-        backgroundImage: "https://images.unsplash.com/photo-1631217871297-57025275ea45?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtZWRpY2FsJTIwYmlsbGluZ3xlbnwwfHx8fDE3NDg0MDM2MDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        slug: "health-checkups",
+        title: "Health Checkups",
+        icon: "health-services",
+        description: "Regular health checkups are the cornerstone of preventive healthcare. Our health checkup packages are curated to detect potential health issues early, empowering you to take control of your wellness.",
+        backgroundImage: "/health-services.jpg",
+        subDetails: [
+          {
+            title: 'Comprehensive Health Checkup Packages',
+            description: "Full-body checkups covering vital parameters like blood pressure, cholesterol, sugar levels, and organ function. Specialized packages for men, women, senior citizens, and children. Customizable options based on age, lifestyle, and medical history.",
+            benefits: [
+              'Early detection of health risks such as diabetes, hypertension, and heart conditions',
+              'Personalized health reports with actionable insights',
+              'Access to expert consultations for follow-up care'
+            ],
+            whyChooseUs: [
+              'State-of-the-art diagnostic centers with advanced technology',
+              'Quick and accurate results delivered within 24-48 hours',
+              'Affordable pricing with packages starting at INR 999'
+            ]
+          }
+        ]
       },
       {
-        slug: "telehealth-support",
-        title: "Telehealth Support",
-        description: "We provide technical and administrative support for telehealth platforms, ensuring seamless virtual consultations for both patients and doctors.",
-        backgroundImage: "https://images.unsplash.com/photo-1579684385127-6c17937c1275?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZWxlaGVhbHRofGVufDB8fHx8fDE3NDg0MDM2MDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        slug: "radiology-pathology",
+        title: "Radiology and Pathology Tests",
+        icon: "health-services",
+        description: "Our diagnostic services, powered by partnerships with Curelo and HealthInde, offer precise and reliable radiology and pathology tests to support accurate diagnoses and effective treatment plans.",
+        backgroundImage: "/health-services.jpg",
+        subDetails: [
+          {
+            title: 'Radiology Services',
+            description: 'X-rays, CT scans, MRIs, and ultrasounds conducted by certified radiologists. Advanced imaging technology for clear and detailed results. Specialized tests like mammography, bone density scans, and Doppler studies.',
+          },
+          {
+            title: 'Pathology Services',
+            description: 'Blood tests (CBC, lipid profile, thyroid function, etc.). Urine and stool analysis for comprehensive health insights. Advanced tests for cancer markers, hormonal imbalances, and infectious diseases.',
+          },
+          {
+            title: 'Key Features',
+            description: 'Home sample collection for convenience. Reports accessible online through secure portals. Collaboration with Curelo ensures a wide network of accredited labs. HealthInde integration for seamless booking and result tracking.',
+            whyChooseUs: [
+              '15,000+ network diagnostic centers across India',
+              'Fast turnaround time with same-day results for select tests',
+              'Affordable pricing with discounts on bundled test packages'
+            ]
+          }
+        ]
       },
       {
-        slug: "patient-support",
-        title: "Patient Support Services",
-        description: "Offering compassionate and efficient patient support, including appointment scheduling, inquiry handling, and follow-ups to enhance patient satisfaction.",
-        backgroundImage: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwYXRpZW50JTIwY2FyZXxlbnwwfHx8fDE3NDg0MDM2MDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        slug: "health-insurance",
+        title: "Health Insurance",
+        icon: "health-services",
+        description: "In partnership with Curelo and HealthInde, we offer health insurance plans that provide financial security and access to quality healthcare. Our plans are designed to cover a wide range of medical needs, ensuring peace of mind for you and your loved ones.",
+        backgroundImage: "/health-services.jpg",
+        subDetails: [
+          {
+            title: 'Key Coverage Features',
+            description: 'Cashless hospitalization at over 10,000+ network hospitals. Pre- and post-hospitalization expenses (up to 60 days before and 90 days after). Coverage for day-care procedures, ambulance charges, and preventive health checkups. Optional add-ons like maternity cover, critical illness cover, and personal accident cover.',
+          },
+          {
+            title: 'Unique Benefits',
+            description: 'Tax benefits under Section 80D of the Income Tax Act. No-claim bonus for claim-free years, increasing your coverage without extra cost. Plans starting at just INR 26/day for INR 10 lakh coverage.',
+          },
+          {
+            title: 'Collaboration with Curelo and HealthInde',
+            description: 'Curelo: Streamlined insurance claim processing and access to a vast network of healthcare providers. HealthInde: Digital platform for easy policy management, premium payments, and claim tracking.',
+            whyChooseUs: [
+              'Comprehensive plans for individuals, families, and senior citizens',
+              'Flexible sum insured options from INR 3 lakh to INR 2 crore',
+              'Lifetime renewability with no age restrictions',
+              'Dedicated customer support for hassle-free claim settlements'
+            ]
+          }
+        ]
       }
     ]
   },
   {
     slug: 'credit-card-sales',
     title: "Credit Card Sales",
-    description: "Expert sales solutions to connect customers with the right financial products to meet their needs.",
+    description: "We offer a range of credit card solutions in collaboration with leading banks—HDFC Bank, AU Bank, IndusInd Bank, and SBI Bank—designed to meet your financial needs. Paired with attractive loan options, our credit card services provide convenience, rewards, and flexibility.",
     hero: {
       slides: [
         {
@@ -194,43 +246,72 @@ export const services: Service[] = [
             alt: "Abstract image of credit card and payment terminal",
             hint: "credit card payment"
           }
-        },
-        {
-          title: "Driving Growth Through Lead Generation",
-          description: "We generate high-quality leads for sales teams, ensuring a steady pipeline of potential customers.",
-          image: {
-            src: "https://images.unsplash.com/photo-1604882355155-b133b5864a7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzYWxlcyUyMGdyb3d0aCUyMGNoYXJ0fGVufDB8fHx8MTc0ODQwMzYwMHww&ixlib=rb-4.1.0&q=80&w=1080",
-            alt: "A chart showing sales growth",
-            hint: "sales growth chart"
-          }
         }
       ]
     },
     details: [
       {
-        slug: "direct-sales",
-        title: "Direct Sales & Acquisition",
-        description: "Our trained sales teams excel at direct customer acquisition for a range of credit card products, tailored to different consumer segments.",
-        backgroundImage: "https://images.unsplash.com/photo-1631217871297-57025275ea45?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtZWRpY2FsJTIwYmlsbGluZ3xlbnwwfHx8fDE3NDg0MDM2MDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        slug: "credit-card-offerings",
+        title: "Credit Card Offerings",
+        icon: "credit-card-sales",
+        description: "Our credit card portfolio caters to diverse lifestyles, from travel enthusiasts to shopping lovers, with exclusive benefits and rewards.",
+        backgroundImage: "/credit-card-sales.jpg",
+        subDetails: [
+          {
+            title: 'HDFC Bank Credit Cards',
+            description: 'Regalia Card: Premium card with travel benefits, lounge access, and reward points on dining and shopping. MoneyBack Card: Ideal for beginners with cashback on online spends and fuel purchases. Key Features: High reward points, low foreign currency markup fees, and contactless payments.'
+          },
+          {
+            title: 'AU Bank Credit Cards',
+            description: 'Zenith Card: Offers luxury benefits like golf privileges and accelerated reward points. Altura Card: Affordable card with cashback on everyday spends. Key Features: Flexible reward redemption and low annual fees.'
+          },
+          {
+            title: 'IndusInd Bank Credit Cards',
+            description: 'Legend Card: Premium card with travel insurance and concierge services. Platinum Card: No annual fee card with fuel surcharge waivers. Key Features: High credit limits and exclusive lifestyle offers.'
+          },
+          {
+            title: 'SBI Bank Credit Cards',
+            description: 'ELITE Card: Premium card with milestone rewards and lounge access. SimplySAVE Card: Budget-friendly card with rewards on dining and groceries. Key Features: Low interest rates and easy EMI conversion.',
+            whyChooseUs: [
+              'Seamless application process with instant approvals',
+              'Exclusive offers like 5-10% cashback on partner merchants',
+              'Dedicated support for credit card queries and dispute resolution'
+            ]
+          }
+        ]
       },
       {
-        slug: "partner-management",
-        title: "Partner Channel Management",
-        description: "We establish and manage strategic partnerships with retail and corporate channels to expand market reach and drive credit card sales.",
-        backgroundImage: "https://images.unsplash.com/photo-1590650213165-d140a3f9c693?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwYXJ0bmVyc2hpcCUyMG5ldHdvcmt8ZW58MHx8fHwxNzQ4NDAzNjAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      },
-      {
-        slug: "lead-generation-cc",
-        title: "Lead Generation",
-        description: "Utilizing digital and traditional marketing techniques to generate high-quality leads for credit card sales teams, ensuring a steady pipeline of potential customers.",
-        backgroundImage: "https://images.unsplash.com/photo-1543286386-713bdd548da4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsZWFkJTIwZ2VuZXJhdGlvbiUyMGFuYWx5dGljc3xlbnwwfHx8fDE3NDg0MDM2MDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        slug: "loans",
+        title: "Loans",
+        icon: "credit-card-sales",
+        description: "Our loan offerings, in collaboration with HDFC Bank, AU Bank, IndusInd Bank, and SBI Bank, provide quick and flexible financing solutions for personal and business needs.",
+        backgroundImage: "/credit-card-sales.jpg",
+        subDetails: [
+          {
+            title: 'Personal Loans',
+            description: 'Loan amounts from INR 50,000 to INR 40 lakh. Interest rates starting at 10.5% p.a. Flexible tenures from 12 to 60 months. Instant disbursal within 24 hours for eligible customers.'
+          },
+          {
+            title: 'Business Loans',
+            description: 'Funding up to INR 75 lakh for small and medium enterprises. Competitive interest rates and minimal documentation. Special schemes for women entrepreneurs and startups.'
+          },
+          {
+            title: 'Loan Against Credit Card',
+            description: 'Convert high-value purchases into affordable EMIs. Available on select credit cards from partner banks.',
+            whyChooseUs: [
+              'Online application process with minimal paperwork',
+              'Pre-approved loan offers for existing credit card holders',
+              'Transparent terms with no hidden charges'
+            ]
+          }
+        ]
       }
     ]
   },
   {
     slug: 'insurance-sales',
-    title: "Insurance Sales",
-    description: "Comprehensive insurance solutions to provide financial security and peace of mind for individuals and businesses.",
+    title: "Insurance Services",
+    description: "Our insurance services, in collaboration with leading providers, offer a holistic approach to financial security, combining credit card sales, loans, life insurance, and term plans to safeguard your future.",
      hero: {
       slides: [
         {
@@ -241,36 +322,66 @@ export const services: Service[] = [
             alt: "Illustration of a shield protecting assets",
             hint: "insurance protection"
           }
-        },
-        {
-          title: "Corporate Insurance Solutions",
-          description: "Customized group insurance plans and corporate solutions to help businesses protect their employees and assets.",
-          image: {
-            src: "https://images.unsplash.com/photo-1586944692739-0cb993a45c33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjcnBvcmF0ZSUyMGFzc2V0c3xlbnwwfHx8fDE3NDg0MDM2MDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-            alt: "Modern office building representing corporate assets",
-            hint: "corporate assets"
-          }
         }
       ]
     },
     details: [
       {
-        slug: "life-health-insurance",
-        title: "Life & Health Insurance",
-        description: "Providing personalized life and health insurance plans to protect individuals and families against unforeseen events and medical emergencies.",
-        backgroundImage: "https://images.unsplash.com/photo-1579684385127-6c17937c1275?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZWxlaGVhbHRofGVufDB8fHx8fDE3NDg0MDM2MDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        slug: "life-insurance",
+        title: "Life Insurance",
+        icon: "insurance-services",
+        description: "Our life insurance plans provide financial protection for your family in case of unforeseen events, ensuring their well-being and security.",
+        backgroundImage: "/insurance-services.jpg",
+        subDetails: [
+          {
+            title: 'Key Features',
+            description: 'Coverage for death, disability, and critical illnesses. Flexible premium payment options (monthly, quarterly, or annually). Add-ons like accidental death benefit and waiver of premium.'
+          },
+          {
+            title: 'Popular Plans',
+            description: 'Whole Life Plan: Lifelong coverage with savings benefits. Endowment Plan: Combines insurance with investment growth. Money-Back Plan: Periodic payouts during the policy term.',
+            whyChooseUs: [
+              'High claim settlement ratio of 98%+ across partner insurers',
+              'Tax benefits under Section 80C and 10(10D) of the Income Tax Act',
+              'Customizable plans to suit your financial goals'
+            ]
+          }
+        ]
       },
       {
-        slug: "general-insurance",
-        title: "General Insurance",
-        description: "Offering a wide range of general insurance products, including auto, home, and travel insurance, to safeguard your valuable assets.",
-        backgroundImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHBsYW5uaW5nfGVufDB8fHx8MTc0ODQwMzYwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+        slug: "term-plans",
+        title: "Term Plans",
+        icon: "insurance-services",
+        description: "Our term insurance plans offer high coverage at affordable premiums, providing a safety net for your loved ones.",
+        backgroundImage: "/insurance-services.jpg",
+        subDetails: [
+          {
+            title: 'Key Features',
+            description: 'Sum assured from INR 25 lakh to INR 5 crore. Policy terms from 10 to 40 years. Optional riders for critical illness, accidental death, and permanent disability.'
+          },
+          {
+            title: 'Unique Benefits',
+            description: 'Return of premium option if you survive the policy term. Coverage for 64 critical illnesses with lump-sum payouts. Online purchase with instant policy issuance.',
+            whyChooseUs: [
+              'Affordable premiums starting at INR 500/month for INR 1 crore coverage',
+              'Collaboration with HDFC Bank, SBI Bank, and others for seamless policy management',
+              'Dedicated claim assistance for quick settlements'
+            ]
+          }
+        ]
       },
       {
-        slug: "corporate-insurance",
-        title: "Corporate Insurance Solutions",
-        description: "Customized group insurance plans and corporate solutions to help businesses protect their employees and assets.",
-        backgroundImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHdlYnNpdGUlMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc0ODQwMzYwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+        slug: "integration",
+        title: "Integration with Credit Card Sales and Loans",
+        icon: "insurance-services",
+        description: "Bundled Benefits: Use credit cards from HDFC Bank, AU Bank, IndusInd Bank, or SBI Bank to pay insurance premiums and earn rewards. Avail pre-approved loans to fund insurance premiums for high-value plans. Exclusive discounts on insurance plans for credit card holders.",
+        backgroundImage: "/insurance-services.jpg",
+        subDetails: [
+          {
+            title: 'Why Choose Us?',
+            description: 'One-stop solution for insurance and financial services. Digital platform for managing policies, loans, and credit card transactions. 24/7 customer support for all services.'
+          }
+        ]
       }
     ]
   },

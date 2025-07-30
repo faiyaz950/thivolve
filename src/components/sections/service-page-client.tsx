@@ -1,15 +1,16 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { ArrowRight, CheckCircle, Code, Megaphone, Palette, Smartphone, Bot, DatabaseZap, Menu, X, Star, Play, Award, Target, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle, Code, Megaphone, Palette, Smartphone, Bot, DatabaseZap, Menu, X, Star, Play, Award, Target, Zap, Heart, CreditCard, Shield } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { notFound } from 'next/navigation';
-import { services, type Service } from '@/lib/services-data';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import type { Service } from '@/lib/services-data';
+
 
 const getIcon = (iconName: string | undefined, className: string) => {
   const iconProps = { className };
@@ -20,6 +21,9 @@ const getIcon = (iconName: string | undefined, className: string) => {
     case 'graphics-designing': return <Palette {...iconProps} />;
     case 'ai-automation': return <Bot {...iconProps} />;
     case 'data-analysis': return <DatabaseZap {...iconProps} />;
+    case 'health-services': return <Heart {...iconProps} />;
+    case 'credit-card-sales': return <CreditCard {...iconProps} />;
+    case 'insurance-services': return <Shield {...iconProps} />;
     default: return <Star {...iconProps} />;
   }
 };
@@ -51,18 +55,12 @@ const FeatureCard = ({ feature, index, isVisible }: { feature: any; index: numbe
       )}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
-      {/* Background glow effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 scale-110" />
-      
       <div className="relative bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-2xl border border-white/5 p-6 overflow-hidden hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:scale-105">
-        {/* Animated background gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        
         <div className="relative flex items-center gap-4">
           <div className="p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/20 group-hover:border-primary/40 transition-all duration-500 group-hover:scale-110">
             {getIcon(feature.icon, "w-6 h-6 text-primary group-hover:text-primary/90 transition-colors duration-300")}
-            
-            {/* Glow effect */}
             <div className="absolute inset-0 bg-primary/20 rounded-xl opacity-0 group-hover:opacity-50 blur-lg transition-all duration-500" />
           </div>
           <div className="flex-1">
@@ -74,8 +72,6 @@ const FeatureCard = ({ feature, index, isVisible }: { feature: any; index: numbe
             </p>
           </div>
         </div>
-        
-        {/* Decorative elements */}
         <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full animate-pulse" />
         <div className="absolute bottom-4 left-4 w-1 h-1 bg-white/20 rounded-full animate-ping" style={{ animationDelay: '1s' }} />
       </div>
@@ -102,22 +98,14 @@ const ProcessStep = ({ process, index, isVisible }: { process: any; index: numbe
       )}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
-      {/* Background glow */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
-      
       <div className="relative bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-2xl border border-white/5 p-6 text-center overflow-hidden hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:scale-105">
-        {/* Background effect */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        
         <div className="relative">
-          {/* Step number */}
           <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center border border-primary/30 group-hover:border-primary/40 group-hover:scale-110 transition-all duration-500">
             <span className="text-xl font-bold text-primary">{process.step}</span>
-            
-            {/* Inner glow */}
             <div className="absolute inset-0 bg-primary/20 rounded-full opacity-0 group-hover:opacity-50 blur-lg transition-all duration-500" />
           </div>
-          
           <h3 className="text-lg font-semibold text-white group-hover:text-primary transition-colors duration-300 mb-2">
             {process.title}
           </h3>
@@ -125,8 +113,6 @@ const ProcessStep = ({ process, index, isVisible }: { process: any; index: numbe
             {process.description}
           </p>
         </div>
-        
-        {/* Decorative elements */}
         <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full animate-pulse" />
       </div>
     </div>
@@ -151,7 +137,8 @@ export default function ServicePageClient({ service }: { service: Service }) {
   }, []);
 
   useEffect(() => {
-    if (!service?.hero?.slides?.length) return;
+    // Ensure hero and slides exist and have length before setting interval
+    if (!service?.hero?.slides || service.hero.slides.length === 0) return;
     const interval = setInterval(() => {
       setIsContentVisible(false);
       setTimeout(() => {
@@ -162,10 +149,10 @@ export default function ServicePageClient({ service }: { service: Service }) {
     return () => clearInterval(interval);
   }, [service]);
 
-  if (!service) return notFound();
+  if (!service || !service.details || service.details.length === 0) return notFound();
 
   const { hero, details, title: serviceCategoryTitle } = service;
-  const currentSlide = hero?.slides[currentSlideIndex];
+  const currentSlide = hero?.slides && hero.slides.length > 0 ? hero.slides[currentSlideIndex] : null;
 
   const renderSplitColorTitle = (title: string) => {
     const words = title.split(' ');
@@ -228,7 +215,6 @@ export default function ServicePageClient({ service }: { service: Service }) {
           </div>
         </div>
         
-        {/* Mobile Menu */}
         <nav className={cn(
           "md:hidden bg-black/95 backdrop-blur-xl border-t border-white/10 transition-all duration-500", 
           isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
@@ -261,9 +247,8 @@ export default function ServicePageClient({ service }: { service: Service }) {
           ref={heroRef.ref} 
           className="relative min-h-screen flex items-center justify-center overflow-hidden"
         >
-          {/* Background Effects */}
           <div className="absolute inset-0">
-            {hero?.slides?.length && (
+            {hero?.slides && hero.slides.length > 0 && (
               <div className="h-full transition-transform duration-1000" style={{ transform: `translateX(-${currentSlideIndex * 100}%)` }}>
                 {hero.slides.map((slide, index) => (
                   <Image
@@ -277,25 +262,18 @@ export default function ServicePageClient({ service }: { service: Service }) {
                 ))}
               </div>
             )}
-            
-            {/* Multi-layer gradients */}
             <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/80" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-            
-            {/* Animated mesh gradient */}
             <div className="absolute inset-0 opacity-30">
               <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
               <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }} />
             </div>
-            
-            {/* Grid pattern */}
             <div className="absolute inset-0 opacity-[0.02]" style={{
               backgroundImage: `radial-gradient(circle at 25px 25px, white 1px, transparent 0)`,
               backgroundSize: '50px 50px'
             }} />
           </div>
 
-          {/* Hero Content */}
           <div className={cn(
             "relative z-20 text-center px-6 max-w-5xl mx-auto transition-all duration-1000",
             heroRef.isVisible && isContentVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -313,17 +291,12 @@ export default function ServicePageClient({ service }: { service: Service }) {
                   </>
                 )}
               </h1>
-              
-              {/* Decorative elements */}
               <div className="absolute -top-6 -left-6 w-4 h-4 bg-primary rounded-full animate-ping" />
               <div className="absolute -top-4 -right-8 w-3 h-3 bg-primary/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
             </div>
-            
             <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed font-light mb-12 max-w-4xl mx-auto">
               {currentSlide?.description || `Transform your business with our cutting-edge ${serviceCategoryTitle} solutions that drive growth and innovation.`}
             </p>
-            
-            {/* Enhanced CTAs */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
               <Button
                 variant="outline"
@@ -336,7 +309,6 @@ export default function ServicePageClient({ service }: { service: Service }) {
                   <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
                 </Link>
               </Button>
-              
               <Button
                 variant="outline"
                 size="lg"
@@ -349,9 +321,7 @@ export default function ServicePageClient({ service }: { service: Service }) {
                 </Link>
               </Button>
             </div>
-            
-            {/* Slide indicators */}
-            {hero?.slides?.length > 1 && (
+            {hero?.slides && hero.slides.length > 1 && (
               <div className="flex gap-3 justify-center">
                 {hero.slides.map((_, index) => (
                   <button
@@ -373,8 +343,6 @@ export default function ServicePageClient({ service }: { service: Service }) {
                 ))}
               </div>
             )}
-            
-            {/* Accent line */}
             <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-8 animate-pulse" />
           </div>
         </section>
@@ -385,19 +353,15 @@ export default function ServicePageClient({ service }: { service: Service }) {
           ref={detailsRef.ref} 
           className="relative py-20 md:py-32 bg-black overflow-hidden"
         >
-          {/* Background effects */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-950 to-black" />
             <div className="absolute inset-0 bg-gradient-to-t from-transparent via-primary/[0.02] to-transparent" />
-            
-            {/* Animated background elements */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-primary/20 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '5s' }} />
             </div>
           </div>
 
           <div className="relative container mx-auto px-6 max-w-screen-xl">
-            {/* Header */}
             <div className={cn(
               "text-center mb-16 md:mb-20 transition-all duration-1000",
               detailsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -406,16 +370,13 @@ export default function ServicePageClient({ service }: { service: Service }) {
                 <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
                   {serviceCategoryTitle} <span className="bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent">Solutions</span>
                 </h2>
-                
-                {/* Decorative line */}
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
               </div>
               <p className="text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
-                Discover tailored solutions designed to empower your business with cutting-edge technology and innovation.
+                {service.description}
               </p>
             </div>
 
-            {/* Enhanced Tabs */}
             <Tabs defaultValue={details[0]?.slug} className="w-full">
               <TabsList className="flex flex-wrap justify-center gap-4 bg-transparent mb-12">
                 {details.map((detail, index) => (
@@ -448,24 +409,18 @@ export default function ServicePageClient({ service }: { service: Service }) {
                   style={{ transitionDelay: `${(index + 1) * 100}ms` }}
                 >
                   <div className="group relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-3xl border border-white/5 p-8 md:p-12 overflow-hidden hover:border-white/10 transition-all duration-700">
-                    {/* Background gradient */}
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-50" />
-                    
                     <div className="relative grid md:grid-cols-5 gap-8">
                       <div className="md:col-span-2">
                         <div className="group relative rounded-2xl overflow-hidden border border-white/10 group-hover:border-primary/20 transition-all duration-500 aspect-square">
                           <Image
-                            src={detail.backgroundImage}
+                            src={detail.backgroundImage || '/default-service.jpg'}
                             alt={`${detail.title} illustration`}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-700 filter group-hover:brightness-110"
                           />
-                          
-                          {/* Image overlays */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                          
-                          {/* Floating play button */}
                           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
                             <div className="w-16 h-16 bg-primary/20 backdrop-blur-sm rounded-full border border-primary/30 flex items-center justify-center">
                               <Play className="w-6 h-6 text-primary" />
@@ -473,7 +428,6 @@ export default function ServicePageClient({ service }: { service: Service }) {
                           </div>
                         </div>
                       </div>
-                      
                       <div className="md:col-span-3 space-y-8">
                         <div className="flex items-center gap-4">
                           <div className="p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/30 group-hover:scale-110 transition-transform duration-300">
@@ -484,31 +438,70 @@ export default function ServicePageClient({ service }: { service: Service }) {
                             <p className="text-sm text-primary font-medium">Premium Solution</p>
                           </div>
                         </div>
-                        
-                        <p className="text-lg text-neutral-300 leading-relaxed">{detail.description}</p>
-                        
-                        {detail.subDetails?.length > 0 && (
-                          <div className="grid md:grid-cols-2 gap-6">
+                        <p className="text-lg text-neutral-300 leading-relaxed">{detail.description || 'No description available.'}</p>
+                        {detail.subDetails && Array.isArray(detail.subDetails) && detail.subDetails.length > 0 && (
+                          <div className="space-y-6">
                             {detail.subDetails.map((subDetail, i) => (
-                              <div key={i} className="group p-6 bg-gradient-to-br from-neutral-800/30 via-neutral-900/40 to-black/50 backdrop-blur-sm rounded-xl border border-white/10 hover:border-primary/20 transition-all duration-500 hover:scale-105">
-                                <div className="flex items-start gap-4">
+                              <div key={i} className="group p-6 bg-gradient-to-br from-neutral-800/30 via-neutral-900/40 to-black/50 backdrop-blur-sm rounded-xl border border-white/10 hover:border-primary/20 transition-all duration-500">
+                                <div className="flex items-start gap-4 mb-4">
                                   <div className="p-1 bg-primary/20 rounded-lg border border-primary/30 mt-1">
                                     <CheckCircle className="w-4 h-4 text-primary" />
                                   </div>
                                   <div className="flex-1">
                                     <h5 className="text-white font-semibold mb-2 group-hover:text-primary transition-colors duration-300">
-                                      {subDetail.title}
+                                      {subDetail.title || 'Untitled'}
                                     </h5>
-                                    <p className="text-sm text-neutral-400 group-hover:text-neutral-300 transition-colors duration-300 leading-relaxed">
-                                      {subDetail.description}
+                                    <p className="text-sm text-neutral-400 group-hover:text-neutral-300 transition-colors duration-300 leading-relaxed mb-4">
+                                      {subDetail.description || 'No description available.'}
                                     </p>
                                   </div>
                                 </div>
+                                
+                                {subDetail.features && subDetail.features.length > 0 && (
+                                  <div className="mb-4">
+                                    <h6 className="text-primary font-medium mb-2 text-sm">Key Features:</h6>
+                                    <ul className="space-y-1">
+                                      {subDetail.features.map((feature, idx) => (
+                                        <li key={idx} className="text-xs text-neutral-400 flex items-start gap-2">
+                                          <CheckCircle className="w-3 h-3 text-primary mt-0.5 flex-shrink-0" />
+                                          <span>{feature}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+
+                                {subDetail.benefits && subDetail.benefits.length > 0 && (
+                                  <div className="mb-4">
+                                    <h6 className="text-primary font-medium mb-2 text-sm">Benefits:</h6>
+                                    <ul className="space-y-1">
+                                      {subDetail.benefits.map((benefit, idx) => (
+                                        <li key={idx} className="text-xs text-neutral-400 flex items-start gap-2">
+                                          <Star className="w-3 h-3 text-orange-500 mt-0.5 flex-shrink-0" />
+                                          <span>{benefit}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+
+                                {subDetail.whyChooseUs && subDetail.whyChooseUs.length > 0 && (
+                                  <div>
+                                    <h6 className="text-primary font-medium mb-2 text-sm">Why Choose Us:</h6>
+                                    <ul className="space-y-1">
+                                      {subDetail.whyChooseUs.map((reason, idx) => (
+                                        <li key={idx} className="text-xs text-neutral-400 flex items-start gap-2">
+                                          <Award className="w-3 h-3 text-yellow-500 mt-0.5 flex-shrink-0" />
+                                          <span>{reason}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
                               </div>
                             ))}
                           </div>
                         )}
-                        
                         <div className="flex flex-col sm:flex-row gap-4 pt-4">
                           <Button 
                             variant="outline" 
@@ -520,18 +513,9 @@ export default function ServicePageClient({ service }: { service: Service }) {
                               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                             </Link>
                           </Button>
-                          <Button 
-                            variant="outline" 
-                            className="border-white/30 hover:bg-white/10 hover:scale-105 transition-all duration-300" 
-                            asChild
-                          >
-                            <Link href="/#our-work">View Examples</Link>
-                          </Button>
                         </div>
                       </div>
                     </div>
-                    
-                    {/* Decorative elements */}
                     <div className="absolute top-6 right-6 w-3 h-3 bg-primary/40 rounded-full animate-pulse" />
                     <div className="absolute bottom-6 left-6 w-2 h-2 bg-white/20 rounded-full animate-ping" />
                   </div>
@@ -546,18 +530,13 @@ export default function ServicePageClient({ service }: { service: Service }) {
           ref={featuresRef.ref} 
           className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-900/50 via-black to-neutral-900/50 overflow-hidden"
         >
-          {/* Background effects */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-t from-transparent via-primary/[0.01] to-transparent" />
-            
-            {/* Animated elements */}
             <div className="absolute inset-0 opacity-20">
               <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '6s' }} />
             </div>
           </div>
-
           <div className="relative container mx-auto px-6 max-w-screen-xl">
-            {/* Header */}
             <div className={cn(
               "text-center mb-16 md:mb-20 transition-all duration-1000",
               featuresRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -566,16 +545,12 @@ export default function ServicePageClient({ service }: { service: Service }) {
                 <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
                   Why Choose <span className="bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent">Us?</span>
                 </h2>
-                
-                {/* Decorative line */}
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
               </div>
               <p className="text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
                 Our expertise and innovative approach ensure your success with tailored solutions that drive real results.
               </p>
             </div>
-            
-            {/* Features Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
               {[
                 { 
@@ -625,19 +600,14 @@ export default function ServicePageClient({ service }: { service: Service }) {
           ref={processRef.ref} 
           className="relative py-20 md:py-32 bg-black overflow-hidden"
         >
-          {/* Background effects */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-950 to-black" />
             <div className="absolute inset-0 bg-gradient-to-t from-transparent via-primary/[0.02] to-transparent" />
-            
-            {/* Animated background */}
             <div className="absolute inset-0 opacity-20">
               <div className="absolute top-1/3 right-1/3 w-80 h-80 bg-primary/10 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '7s' }} />
             </div>
           </div>
-
           <div className="relative container mx-auto px-6 max-w-screen-xl">
-            {/* Header */}
             <div className={cn(
               "text-center mb-16 md:mb-20 transition-all duration-1000",
               processRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -646,16 +616,12 @@ export default function ServicePageClient({ service }: { service: Service }) {
                 <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
                   Our <span className="bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent">Process</span>
                 </h2>
-                
-                {/* Decorative line */}
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
               </div>
               <p className="text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
                 A streamlined, proven methodology that ensures quality delivery and exceptional results every time.
               </p>
             </div>
-            
-            {/* Process Steps */}
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
               {[
                 { 
@@ -692,16 +658,12 @@ export default function ServicePageClient({ service }: { service: Service }) {
 
         {/* Enhanced Statistics Section */}
         <section className="relative py-20 md:py-24 bg-gradient-to-br from-neutral-900/30 via-black to-neutral-900/30 overflow-hidden">
-          {/* Background effects */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-t from-transparent via-primary/[0.01] to-transparent" />
-            
-            {/* Animated elements */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/20 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />
             </div>
           </div>
-
           <div className="relative container mx-auto px-6 max-w-screen-xl">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               {[
@@ -714,27 +676,18 @@ export default function ServicePageClient({ service }: { service: Service }) {
                   key={index}
                   className="group relative p-6 bg-gradient-to-br from-neutral-800/30 via-neutral-900/40 to-black/50 backdrop-blur-xl rounded-2xl border border-white/5 hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:scale-105"
                 >
-                  {/* Background glow */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-primary/3 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                  
                   <div className="relative">
-                    {/* Icon */}
                     <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <stat.icon className="w-6 h-6 text-primary" />
                     </div>
-                    
-                    {/* Number */}
                     <h3 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-2">
                       {stat.number}
                     </h3>
-                    
-                    {/* Label */}
                     <p className="text-neutral-400 group-hover:text-neutral-300 transition-colors duration-300 font-medium">
                       {stat.label}
                     </p>
                   </div>
-                  
-                  {/* Decorative element */}
                   <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full animate-pulse" />
                 </div>
               ))}
@@ -747,17 +700,13 @@ export default function ServicePageClient({ service }: { service: Service }) {
           ref={ctaRef.ref} 
           className="relative py-20 md:py-32 bg-gradient-to-br from-black to-neutral-900 overflow-hidden"
         >
-          {/* Background effects */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-t from-transparent via-primary/[0.02] to-transparent" />
-            
-            {/* Animated mesh gradient */}
             <div className="absolute inset-0 opacity-20">
               <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
               <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }} />
             </div>
           </div>
-
           <div className={cn(
             "relative container mx-auto px-6 max-w-5xl text-center transition-all duration-1000",
             ctaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -766,16 +715,12 @@ export default function ServicePageClient({ service }: { service: Service }) {
               <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
                 Transform Your <span className="bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent">Business</span>
               </h2>
-              
-              {/* Decorative elements */}
               <div className="absolute -top-6 -left-6 w-4 h-4 bg-primary rounded-full animate-ping" />
               <div className="absolute -top-4 -right-8 w-3 h-3 bg-primary/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
             </div>
-            
             <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed font-light mb-12 max-w-4xl mx-auto">
               Ready to elevate your business with our expert {serviceCategoryTitle} solutions? Let's build something extraordinary together.
             </p>
-            
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button
                 variant="outline"
@@ -788,21 +733,7 @@ export default function ServicePageClient({ service }: { service: Service }) {
                   <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
                 </Link>
               </Button>
-              
-              <Button
-                variant="outline"
-                size="lg"
-                className="group relative border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-white/20 backdrop-blur-sm bg-gradient-to-r from-white/5 to-transparent px-8 py-6 text-lg"
-                asChild
-              >
-                <Link href="/#our-work" className="flex items-center gap-3">
-                  <span className="font-semibold">View Our Work</span>
-                  <Star className="h-6 w-6 transition-all duration-500 group-hover:rotate-12" />
-                </Link>
-              </Button>
             </div>
-            
-            {/* Accent line */}
             <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-8 animate-pulse" />
           </div>
         </section>
@@ -813,18 +744,15 @@ export default function ServicePageClient({ service }: { service: Service }) {
         ref={footerRef.ref} 
         className="relative py-16 md:py-20 bg-black text-white overflow-hidden"
       >
-        {/* Background effects */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-950 to-black" />
           <div className="absolute inset-0 bg-gradient-to-t from-transparent via-primary/[0.01] to-transparent" />
         </div>
-
         <div className="relative container mx-auto px-6 max-w-screen-xl">
           <div className={cn(
             "grid md:grid-cols-4 gap-8 lg:gap-12 mb-12 transition-all duration-1000",
             footerRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}>
-            {/* Brand Column */}
             <div className="md:col-span-1">
               <Link href="/" className="group flex items-center mb-6">
                 <Image 
@@ -836,7 +764,7 @@ export default function ServicePageClient({ service }: { service: Service }) {
                 />
               </Link>
               <p className="text-neutral-400 mb-6 leading-relaxed">
-                Empowering businesses with innovative digital solutions that drive growth and transformation.
+                Empowering businesses with comprehensive health, finance, and insurance solutions.
               </p>
               <div className="flex gap-4">
                 {['LinkedIn', 'Twitter', 'GitHub', 'Instagram'].map((social, index) => (
@@ -850,12 +778,10 @@ export default function ServicePageClient({ service }: { service: Service }) {
                 ))}
               </div>
             </div>
-            
-            {/* Services Column */}
             <div>
               <h3 className="font-bold text-xl mb-6 text-white">Our Services</h3>
               <ul className="space-y-3 text-neutral-400">
-                {['IT Services', 'Healthcare Solutions', 'AI & Automation', 'Business Outsourcing'].map((item, index) => (
+                {['Health Services', 'Credit Card Sales', 'Insurance Services', 'Health Checkups', 'Diagnostic Tests', 'Life Insurance', 'Term Plans'].map((item, index) => (
                   <li key={index}>
                     <Link 
                       href={`/services/${item.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`} 
@@ -868,8 +794,6 @@ export default function ServicePageClient({ service }: { service: Service }) {
                 ))}
               </ul>
             </div>
-            
-            {/* Company Column */}
             <div>
               <h3 className="font-bold text-xl mb-6 text-white">Company</h3>
               <ul className="space-y-3 text-neutral-400">
@@ -891,109 +815,133 @@ export default function ServicePageClient({ service }: { service: Service }) {
                 ))}
               </ul>
             </div>
-            
-            {/* Resources Column */}
-            <div>
-              <h3 className="font-bold text-xl mb-6 text-white">Resources</h3>
-              <ul className="space-y-3 text-neutral-400">
-                {['Blog', 'Case Studies', 'White Papers', 'Support Center'].map((item, index) => (
-                  <li key={index}>
-                    <Link 
-                      href="#" 
-                      className="hover:text-primary transition-colors duration-300 flex items-center gap-2 group"
-                    >
-                      <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1" />
-                      <span>{item}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          
-          {/* Footer Bottom */}
-          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-neutral-400">
-              {currentYear && `© ${currentYear} Btruss Services Pvt Ltd. All rights reserved.`}
-            </p>
-            <div className="flex gap-8 text-sm text-neutral-400">
-              <Link href="#" className="hover:text-primary transition-colors duration-300">Privacy Policy</Link>
-              <Link href="#" className="hover:text-primary transition-colors duration-300">Terms of Service</Link>
-              <Link href="#" className="hover:text-primary transition-colors duration-300">Cookie Policy</Link>
-            </div>
+           <div>
+            <h3 className="font-bold text-xl mb-6 text-white">Contact Info</h3>
+            <ul className="space-y-3 text-neutral-400">
+              <li className="flex items-start gap-3">
+                <div className="p-1 bg-primary/20 rounded-lg border border-primary/30 mt-1">
+                  <span className="w-4 h-4 text-primary text-xs">📍</span>
+                </div>
+                <div>
+                  <p className="text-white font-medium mb-1">Address</p>
+                  <p className="text-sm">123 Business Street, Patna, Bihar, India</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="p-1 bg-primary/20 rounded-lg border border-primary/30 mt-1">
+                  <span className="w-4 h-4 text-primary text-xs">📞</span>
+                </div>
+                <div>
+                  <p className="text-white font-medium mb-1">Phone</p>
+                  <Link href="tel:+911234567890" className="text-sm hover:text-primary transition-colors duration-300">
+                    +91 123 456 7890
+                  </Link>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="p-1 bg-primary/20 rounded-lg border border-primary/30 mt-1">
+                  <span className="w-4 h-4 text-primary text-xs">✉️</span>
+                </div>
+                <div>
+                  <p className="text-white font-medium mb-1">Email</p>
+                  <Link href="mailto:info@btruss.com" className="text-sm hover:text-primary transition-colors duration-300">
+                    info@btruss.com
+                  </Link>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="p-1 bg-primary/20 rounded-lg border border-primary/30 mt-1">
+                  <span className="w-4 h-4 text-primary text-xs">🕒</span>
+                </div>
+                <div>
+                  <p className="text-white font-medium mb-1">Business Hours</p>
+                  <p className="text-sm">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                  <p className="text-sm">Sat: 10:00 AM - 4:00 PM</p>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
-      </footer>
 
-      {/* Enhanced Styles */}
-      <style jsx>{`
-        @keyframes fade-in-up {
-          from { 
-            opacity: 0; 
-            transform: translateY(20px); 
-          }
-          to { 
-            opacity: 1; 
-            transform: translateY(0); 
-          }
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-neutral-400">
+            {currentYear && `© ${currentYear} Btruss Services Pvt Ltd. All rights reserved.`}
+          </p>
+          <div className="flex gap-8 text-sm text-neutral-400">
+            <Link href="#" className="hover:text-primary transition-colors duration-300">Privacy Policy</Link>
+            <Link href="#" className="hover:text-primary transition-colors duration-300">Terms of Service</Link>
+            <Link href="#" className="hover:text-primary transition-colors duration-300">Cookie Policy</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <style jsx>{`
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
         }
-        
-        @keyframes slide-in-right {
-          from { 
-            opacity: 0; 
-            transform: translateX(20px); 
-          }
-          to { 
-            opacity: 1; 
-            transform: translateX(0); 
-          }
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        
-        @keyframes glow {
-          0%, 100% { 
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); 
-          }
-          50% { 
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); 
-          }
+      }
+
+      @keyframes slide-in-right {
+        from {
+          opacity: 0;
+          transform: translateX(20px);
         }
-        
-        .animate-fade-in-up { 
-          animation: fade-in-up 0.6s ease-out forwards; 
+        to {
+          opacity: 1;
+          transform: translateX(0);
         }
-        
-        .animate-slide-in-right { 
-          animation: slide-in-right 0.6s ease-out forwards; 
+      }
+
+      @keyframes glow {
+        0%, 100% {
+          box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
         }
-        
-        .animate-glow { 
-          animation: glow 2s ease-in-out infinite; 
+        50% {
+          box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
         }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { 
-          width: 8px; 
-        }
-        
-        ::-webkit-scrollbar-track { 
-          background: #000; 
-        }
-        
-        ::-webkit-scrollbar-thumb { 
-          background: linear-gradient(to bottom, #3b82f6, #ef4444); 
-          border-radius: 4px; 
-        }
-        
-        ::-webkit-scrollbar-thumb:hover { 
-          background: linear-gradient(to bottom, #2563eb, #dc2626); 
-        }
-        
-        /* Smooth focus styles */
-        *:focus {
-          outline: 2px solid rgba(59, 130, 246, 0.5);
-          outline-offset: 2px;
-        }
-      `}</style>
-    </div>
-  );
+      }
+
+      .animate-fade-in-up {
+        animation: fade-in-up 0.6s ease-out forwards;
+      }
+
+      .animate-slide-in-right {
+        animation: slide-in-right 0.6s ease-out forwards;
+      }
+
+      .animate-glow {
+        animation: glow 2s ease-in-out infinite;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #000;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #3b82f6, #ef4444);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(to bottom, #2563eb, #dc2626);
+      }
+
+      *:focus {
+        outline: 2px solid rgba(59, 130, 246, 0.5);
+        outline-offset: 2px;
+      }
+    `}</style>
+  </div>
+);
 }

@@ -54,68 +54,55 @@ useEffect(() => {
         if (isVisible && !hasAnimated) {
         const timer = setTimeout(() => setHasAnimated(true), index * 200);
         return () => clearTimeout(timer);
-    }
-            }, [isVisible, index, hasAnimated]);
+        }
+                }, [isVisible, index, hasAnimated]);
 
         return (
-    <div
+        <div
 className={cn(
-        "group relative text-center transition-all duration-700 transform-gpu",
-        hasAnimated ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
+                "group relative text-center transition-all duration-700 transform-gpu",
+                hasAnimated ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
 )}
 style={{ transitionDelay: `${index * 150}ms` }}
         >
-        {/* Background glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 scale-110" />
-
-      <div className="relative bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-3xl border border-white/5 p-8 overflow-hidden hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:scale-105">
-        {/* Animated background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-        {/* Profile Image */}
-        <div className="relative mb-6">
-          <div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-primary/20 group-hover:border-primary/40 transition-all duration-500 group-hover:scale-110">
-            <Image
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 scale-110" />
+            <div className="relative bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-3xl border border-white/5 p-8 overflow-hidden hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:scale-105">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative mb-6">
+                    <div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-primary/20 group-hover:border-primary/40 transition-all duration-500 group-hover:scale-110">
+                        <Image
 src={member.image}
 alt={`${member.name} - ${member.role}`}
 fill
         className="object-cover transition-all duration-700 group-hover:scale-110 filter group-hover:brightness-110"
         />
-        {/* Image overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          </div>
-        {/* Floating accent */}
-          <div className="absolute -top-2 -right-2 w-4 h-4 bg-primary/60 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        </div>
-
-        {/* Member Info */}
-        <div className="relative">
-          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors duration-300">
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-primary/60 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+                <div className="relative">
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors duration-300">
         {member.name}
-          </h3>
-          <p className="text-primary/80 mb-4 font-medium">{member.role}</p>
-
-        {/* Social Link */}
-          <div className="mt-4">
-            <Button
+                    </h3>
+                    <p className="text-primary/80 mb-4 font-medium">{member.role}</p>
+                    <div className="mt-4">
+                        <Button
 variant="ghost"
 size="icon"
 className="text-neutral-400 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110"
 asChild
 aria-label={`Visit ${member.name}'s LinkedIn profile`}
         >
-              <Link href={member.social.linkedin}>
-                <Linkedin className="h-5 w-5" />
-              </Link>
-            </Button>
-          </div>
+                            <Link href={member.social.linkedin}>
+                                <Linkedin className="h-5 w-5" />
+                            </Link>
+                        </Button>
+                    </div>
+                </div>
+                <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full animate-ping" />
+                <div className="absolute bottom-4 left-4 w-1 h-1 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
+            </div>
         </div>
-
-        {/* Decorative elements */}
-        <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full animate-ping" />
-        <div className="absolute bottom-4 left-4 w-1 h-1 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
-      </div>
-    </div>
         );
         };
 
@@ -131,37 +118,30 @@ useEffect(() => {
         if (isVisible && !hasAnimated) {
         const timer = setTimeout(() => setHasAnimated(true), index * 200);
         return () => clearTimeout(timer);
-    }
-            }, [isVisible, index, hasAnimated]);
+        }
+                }, [isVisible, index, hasAnimated]);
 
         return (
-    <div
+        <div
 className={cn(
-        "group relative transition-all duration-700 transform-gpu h-full",
-        hasAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                "group relative transition-all duration-700 transform-gpu h-full",
+                hasAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
 )}
 style={{ transitionDelay: `${index * 150}ms` }}
         >
-      <div className="relative bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-2xl border border-white/5 p-8 h-full flex flex-col overflow-hidden hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:scale-105">
-        {/* Background effects */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-        {/* Quote icon */}
-        <div className="relative mb-6">
-          <Quote className="h-8 w-8 text-primary/60 group-hover:text-primary transition-colors duration-500" />
-        </div>
-
-        {/* Quote text */}
-        <div className="relative flex-grow">
-          <p className="text-neutral-300 mb-6 italic leading-relaxed group-hover:text-neutral-200 transition-colors duration-300">
+            <div className="relative bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-2xl border border-white/5 p-8 h-full flex flex-col overflow-hidden hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:scale-105">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative mb-6">
+                    <Quote className="h-8 w-8 text-primary/60 group-hover:text-primary transition-colors duration-500" />
+                </div>
+                <div className="relative flex-grow">
+                    <p className="text-neutral-300 mb-6 italic leading-relaxed group-hover:text-neutral-200 transition-colors duration-300">
         "{testimonial.quote}"
-          </p>
-        </div>
-
-        {/* Author info */}
-        <div className="relative flex items-center">
-          <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 mr-4 group-hover:border-primary/40 transition-all duration-300">
-            <Image
+                    </p>
+                </div>
+                <div className="relative flex items-center">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 mr-4 group-hover:border-primary/40 transition-all duration-300">
+                        <Image
 src={testimonial.image}
 alt={`${testimonial.name} - ${testimonial.role}`}
 fill
@@ -171,15 +151,13 @@ fill
         <div>
         <p className="font-semibold text-white group-hover:text-primary transition-colors duration-300">
         {testimonial.name}
-            </p>
-            <p className="text-sm text-neutral-400">{testimonial.role}</p>
-          </div>
+                        </p>
+                        <p className="text-sm text-neutral-400">{testimonial.role}</p>
+                    </div>
+                </div>
+                <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full animate-pulse" />
+            </div>
         </div>
-
-        {/* Decorative elements */}
-        <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full animate-pulse" />
-      </div>
-    </div>
         );
         };
 
@@ -191,33 +169,32 @@ useEffect(() => {
         if (isVisible && !hasAnimated) {
         const timer = setTimeout(() => setHasAnimated(true), index * 200);
         return () => clearTimeout(timer);
-    }
-            }, [isVisible, index, hasAnimated]);
+        }
+                }, [isVisible, index, hasAnimated]);
 
         return (
-    <div
+        <div
 className={cn(
-        "flex items-start group transition-all duration-700 transform-gpu",
-        hasAnimated ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                "flex items-start group transition-all duration-700 transform-gpu",
+                hasAnimated ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
 )}
 style={{ transitionDelay: `${index * 100}ms` }}
         >
-      <div className="relative mr-4 mt-1">
-        <div className="p-2 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/20 group-hover:border-primary/40 transition-all duration-500 group-hover:scale-110">
-          <Icon className="h-5 w-5 text-primary group-hover:text-primary/90 transition-colors duration-300" />
-        </div>
-        {/* Glow effect */}
-        <div className="absolute inset-0 bg-primary/20 rounded-xl opacity-0 group-hover:opacity-50 blur-lg transition-all duration-500" />
-      </div>
-      <div className="flex-1">
-        <h4 className="font-semibold text-white mb-1 group-hover:text-primary transition-colors duration-300">
+            <div className="relative mr-4 mt-1">
+                <div className="p-2 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/20 group-hover:border-primary/40 transition-all duration-500 group-hover:scale-110">
+                    <Icon className="h-5 w-5 text-primary group-hover:text-primary/90 transition-colors duration-300" />
+                </div>
+                <div className="absolute inset-0 bg-primary/20 rounded-xl opacity-0 group-hover:opacity-50 blur-lg transition-all duration-500" />
+            </div>
+            <div className="flex-1">
+                <h4 className="font-semibold text-white mb-1 group-hover:text-primary transition-colors duration-300">
         {title}
-        </h4>
-        <p className="text-neutral-400 group-hover:text-neutral-300 transition-colors duration-300 leading-relaxed">
+                </h4>
+                <p className="text-neutral-400 group-hover:text-neutral-300 transition-colors duration-300 leading-relaxed">
         {description}
-        </p>
-      </div>
-    </div>
+                </p>
+            </div>
+        </div>
         );
         };
 
@@ -260,21 +237,54 @@ linkedin: "https://linkedin.com/in/faiyaz-mujtaba",
         const cultureImages: CultureImage[] = [
         {
 id: 1,
-src: "/officetwoo.png",
-alt: "Modern office interior showing workspace design",
-title: "Our Workspace",
+src: "/officefour.jpeg",
+alt: "Team brainstorming session in modern office",
+title: "Creative Collaboration",
         },
         {
 id: 2,
-src: "/officefour.jpeg",
+src: "/officethree.jpeg",
+alt: "Employees enjoying a team-building activity",
+title: "Team Bonding",
+        },
+        ];
+
+        const galleryImages: CultureImage[] = [
+        {
+id: 1,
+src: "/officeteamg.jpeg",
+alt: "Modern office interior showing workspace design",
+title: "",
+        },
+        {
+id: 2,
+src: "/officethree.jpeg",
 alt: "Contemporary office environment with modern amenities",
-title: "Office Environment",
+title: "",
         },
         {
 id: 3,
-src: "/officethree.jpeg",
+src: "/officeteam.jpeg",
 alt: "Team collaboration in conference room during meeting",
-title: "Team Collaboration",
+title: "",
+        },
+        {
+id: 4,
+src: "/officefive.jpeg",
+alt: "Open-plan office with employees working",
+title: "",
+        },
+        {
+id: 5,
+src: "/officesix.jpeg",
+alt: "Team discussion in a meeting room",
+title: "",
+        },
+        {
+id: 6,
+src: "/officeteamb.jpeg",
+alt: "Modern office lounge area",
+title: "",
         },
         ];
 
@@ -323,27 +333,25 @@ isVisible: false,
         },
         ];
 
-export { teamMembers, cultureImages };
+export { teamMembers, cultureImages, galleryImages };
 
 export default function AboutUsPage() {
-  const heroRef = useScrollAnimation({ threshold: 0.1 });
-  const whoWeAreRef = useScrollAnimation({ threshold: 0.2 });
-  const ceoRef = useScrollAnimation({ threshold: 0.2 });
-  const teamRef = useScrollAnimation({ threshold: 0.2 });
-  const cultureRef = useScrollAnimation({ threshold: 0.2 });
-  const testimonialsRef = useScrollAnimation({ threshold: 0.2 });
+    const heroRef = useScrollAnimation({ threshold: 0.1 });
+    const whoWeAreRef = useScrollAnimation({ threshold: 0.2 });
+    const ceoRef = useScrollAnimation({ threshold: 0.2 });
+    const teamRef = useScrollAnimation({ threshold: 0.2 });
+    const cultureRef = useScrollAnimation({ threshold: 0.2 });
+    const testimonialsRef = useScrollAnimation({ threshold: 0.2 });
+    const galleryRef = useScrollAnimation({ threshold: 0.2 });
 
     return (
             <div className="bg-black text-white">
             <Header />
-
             <main>
-            {/* Hero Section */}
             <section
     ref={heroRef.ref}
     className="relative min-h-screen flex items-center justify-center overflow-hidden"
             >
-            {/* Background Effects */}
             <div className="absolute inset-0">
             <Image
     src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHRlYW18ZW58MHx8fHwxNzQ4ODUwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080"
@@ -358,22 +366,20 @@ export default function AboutUsPage() {
             <div
     className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full filter blur-3xl animate-pulse"
     style={{ animationDuration: "4s" }}
-              />
-              <div
+                            />
+                            <div
             className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full filter blur-3xl animate-pulse"
     style={{ animationDuration: "6s", animationDelay: "2s" }}
-              />
-            </div>
+                            />
+                        </div>
             <div
     className="absolute inset-0 opacity-[0.02]"
     style={{
             backgroundImage: `radial-gradient(circle at 25px 25px, white 1px, transparent 0)`,
     backgroundSize: "50px 50px",
-              }}
-            />
-          </div>
-
-            {/* Hero Content */}
+                            }}
+                        />
+                    </div>
             <div
     className={cn(
             "relative z-20 text-center px-6 max-w-4xl mx-auto transition-all duration-1000",
@@ -388,8 +394,8 @@ export default function AboutUsPage() {
             <div
     className="absolute -top-4 -right-8 w-3 h-3 bg-primary/60 rounded-full animate-pulse"
     style={{ animationDelay: "1s" }}
-              />
-            </div>
+                            />
+                        </div>
             <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed font-light mb-12 max-w-3xl mx-auto">
             Building the future with innovation, integrity, and a passion for excellence that transforms businesses and empowers communities.
             </p>
@@ -407,8 +413,6 @@ export default function AboutUsPage() {
             <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-8 animate-pulse" />
             </div>
             </section>
-
-            {/* Who We Are Section */}
             <section
     id="who-we-are"
     ref={whoWeAreRef.ref}
@@ -421,10 +425,9 @@ export default function AboutUsPage() {
             <div
     className="absolute top-1/4 right-1/4 w-80 h-80 bg-primary/20 rounded-full filter blur-3xl animate-pulse"
     style={{ animationDuration: "5s" }}
-              />
+                            />
+                        </div>
             </div>
-            </div>
-
             <div className="relative container mx-auto px-6 max-w-screen-xl">
             <div
     className={cn(
@@ -435,11 +438,10 @@ export default function AboutUsPage() {
             <div className="relative inline-block">
             <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
             Who We Are
-                </h2>
+                                </h2>
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
             </div>
             </div>
-
             <div
     className={cn(
             "max-w-6xl mx-auto space-y-8 transition-all duration-1000 delay-300",
@@ -457,7 +459,7 @@ export default function AboutUsPage() {
             </p>
             <p>
             Our success is driven by our exceptional team of passionate professionals who bring years of experience, fresh perspectives, and shared values to every project. Innovation is woven into the DNA of our organization as we constantly explore new technologies, methodologies, and approaches that benefit our clients, building long-term relationships based on <span className="text-primary font-semibold">trust, transparency, and mutual respect</span>.
-                  </p>
+                                    </p>
             </div>
             <div className="absolute top-6 right-6 w-3 h-3 bg-primary/40 rounded-full animate-pulse" />
             <div className="absolute bottom-6 left-6 w-2 h-2 bg-white/20 rounded-full animate-ping" />
@@ -465,8 +467,6 @@ export default function AboutUsPage() {
             </div>
             </div>
             </section>
-
-            {/* CEO Message Section */}
             <section
     ref={ceoRef.ref}
     className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-900/50 via-black to-neutral-900/50 overflow-hidden"
@@ -477,10 +477,9 @@ export default function AboutUsPage() {
             <div
     className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse"
     style={{ animationDuration: "6s" }}
-              />
+                            />
+                        </div>
             </div>
-            </div>
-
             <div className="relative container mx-auto px-6 max-w-screen-xl">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div
@@ -505,7 +504,7 @@ export default function AboutUsPage() {
             </p>
             <p className="text-primary/90 font-medium">
             Together, we are building a future where innovation meets responsibility, where technology serves humanity, and where every solution we deliver creates lasting value for our clients and communities.
-                    </p>
+                                        </p>
             </div>
             <div className="mt-10 pt-6 border-t border-white/10">
             <p className="font-bold text-xl text-white mb-1">Imtiyaz Ali</p>
@@ -513,7 +512,6 @@ export default function AboutUsPage() {
             </div>
             </div>
             </div>
-
             <div
     className={cn(
             "order-1 lg:order-2 transition-all duration-1000 delay-300",
@@ -542,8 +540,6 @@ export default function AboutUsPage() {
             </div>
             </div>
             </section>
-
-            {/* Team Section */}
             <section
     ref={teamRef.ref}
     className="relative py-20 md:py-32 bg-black overflow-hidden"
@@ -555,10 +551,9 @@ export default function AboutUsPage() {
             <div
     className="absolute top-1/3 right-1/3 w-80 h-80 bg-primary/10 rounded-full filter blur-3xl animate-pulse"
     style={{ animationDuration: "7s" }}
-              />
+                            />
+                        </div>
             </div>
-            </div>
-
             <div className="relative container mx-auto px-6 max-w-screen-xl">
             <div
     className={cn(
@@ -569,14 +564,13 @@ export default function AboutUsPage() {
             <div className="relative inline-block">
             <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
             Meet Our Team
-                </h2>
+                                </h2>
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
             </div>
             <p className="text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
             The passionate professionals driving our success and delivering excellence across every project.
             </p>
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {teamMembers.map((member, index) => (
                     <TeamMemberCard
@@ -585,12 +579,10 @@ export default function AboutUsPage() {
                     index={index}
                     isVisible={teamRef.isVisible}
                             />
-              ))}
-            </div>
+                            ))}
+                        </div>
             </div>
             </section>
-
-            {/* Work Culture Section */}
             <section
     ref={cultureRef.ref}
     className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-900/50 via-black to-neutral-900/50 overflow-hidden"
@@ -601,10 +593,9 @@ export default function AboutUsPage() {
             <div
     className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse"
     style={{ animationDuration: "6s" }}
-              />
+                            />
+                        </div>
             </div>
-            </div>
-
             <div className="relative container mx-auto px-6 max-w-screen-xl">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div
@@ -630,50 +621,99 @@ export default function AboutUsPage() {
                     index={index}
                     isVisible={cultureRef.isVisible}
                             />
-                    ))}
-                  </div>
+                                        ))}
+                                    </div>
             </div>
             </div>
-
             <div
     className={cn(
             "transition-all duration-1000 delay-300",
             cultureRef.isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
     )}
             >
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6">
             {cultureImages.map((image) => (
                             <div
                     key={image.id}
-                    className={cn(
-                            "group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm",
-                            image.id === 2 ? "row-span-2" : "",
-                            "hover:border-white/20 transition-all duration-700 hover:scale-105"
-                    )}
+                    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm hover:border-white/20 transition-all duration-700 hover:scale-105"
                             >
                             <Image
                     src={image.src}
                     alt={image.alt}
                     width={400}
-                    height={image.id === 2 ? 500 : 300}
-                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 filter group-hover:brightness-110"
+                    height={200}
+                    className="w-full h-auto object-cover transition-all duration-700 group-hover:scale-110 filter group-hover:brightness-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute bottom-4 left-4 text-white text-lg font-semibold drop-shadow-md">
+                            {image.title}
+                            </div>
                             </div>
             ))}
-                </div>
+                                </div>
             <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-br from-primary/30 to-primary/10 rounded-2xl border border-primary/40 animate-pulse backdrop-blur-sm" />
             <div
     className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-br from-white/10 to-transparent rounded-xl border border-white/20 animate-pulse backdrop-blur-sm"
     style={{ animationDelay: "1s" }}
-                />
-              </div>
+                                />
+                            </div>
             </div>
             </div>
             </section>
-
-            {/* Testimonials Section */}
+            <section
+    ref={galleryRef.ref}
+    className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-900/50 via-black to-neutral-900/50 overflow-hidden"
+            >
+            <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-gradient-to-t from-transparent via-primary/[0.01] to-transparent" />
+            <div className="absolute inset-0 opacity-20">
+            <div
+    className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse"
+    style={{ animationDuration: "7s" }}
+                            />
+                        </div>
+            </div>
+            <div className="relative container mx-auto px-6 max-w-screen-xl">
+            <div
+    className={cn(
+            "text-center mb-16 md:mb-20 transition-all duration-1000",
+            galleryRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+    )}
+            >
+            <div className="relative inline-block">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
+            Our Office Gallery
+                                </h2>
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
+            </div>
+            <p className="text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
+            A glimpse into our modern workspace where creativity and collaboration thrive.
+                            </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {galleryImages.map((image) => (
+                            <div
+                    key={`gallery-${image.id}`}
+    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm hover:border-white/20 transition-all duration-700 hover:scale-105"
+            >
+            <Image
+    src={image.src}
+    alt={image.alt}
+    width={400}
+    height={300}
+    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 filter group-hover:brightness-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute bottom-4 left-4 text-white text-lg font-semibold drop-shadow-md">
+            {image.title}
+            </div>
+            </div>
+                            ))}
+                        </div>
+            </div>
+            </section>
             <section
     ref={testimonialsRef.ref}
     className="relative py-20 md:py-32 bg-black overflow-hidden"
@@ -685,10 +725,9 @@ export default function AboutUsPage() {
             <div
     className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-primary/10 rounded-full filter blur-3xl animate-pulse"
     style={{ animationDuration: "8s" }}
-              />
+                            />
+                        </div>
             </div>
-            </div>
-
             <div className="relative container mx-auto px-6 max-w-screen-xl">
             <div
     className={cn(
@@ -706,7 +745,6 @@ export default function AboutUsPage() {
             We are proud to build lasting partnerships based on trust, results, and exceptional service delivery.
             </p>
             </div>
-
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             {testimonials.map((testimonial, index) => (
                     <TestimonialCard
@@ -715,9 +753,8 @@ export default function AboutUsPage() {
                     index={index}
                     isVisible={testimonialsRef.isVisible}
                             />
-              ))}
-            </div>
-
+                            ))}
+                        </div>
             <div
     className={cn(
             "text-center mt-16 md:mt-20 transition-all duration-1000 delay-500",
@@ -742,8 +779,7 @@ export default function AboutUsPage() {
             </div>
             </section>
             </main>
-
             <Footer />
             </div>
-  );
+    );
 }
