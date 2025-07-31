@@ -47,11 +47,11 @@ export function Footer() {
   }, []);
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook", color: "hover:text-blue-400" },
+    { icon: Facebook, href: "https://www.facebook.com/profile.php?id=100064775103394&mibextid=ZbWKwL", label: "Facebook", color: "hover:text-blue-400" },
     { icon: Twitter, href: "#", label: "Twitter", color: "hover:text-sky-400" },
-    { icon: Linkedin, href: "#", label: "LinkedIn", color: "hover:text-blue-500" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/btruss-services-pvt-ltd/", label: "LinkedIn", color: "hover:text-blue-500" },
     { icon: Instagram, href: "https://www.instagram.com/btruss_services?igsh=MWxxdHA2Y3VteDF5bw==", label: "Instagram", color: "hover:text-pink-400" },
-    { icon: Youtube, href: "#", label: "YouTube", color: "hover:text-red-500" },
+    { icon: Youtube, href: "www.youtube.com/@faiyazmujtaba2598", label: "YouTube", color: "hover:text-red-500" },
   ];
 
   const footerNav = [

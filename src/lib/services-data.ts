@@ -159,7 +159,7 @@ export const services: Service[] = [
         title: "Health Checkups",
         icon: "health-services",
         description: "Regular health checkups are the cornerstone of preventive healthcare. Our health checkup packages are curated to detect potential health issues early, empowering you to take control of your wellness.",
-        backgroundImage: "/health-services.jpg",
+        backgroundImage: "https://placehold.co/600x600.png?ai-hint=health%20checkup",
         subDetails: [
           {
             title: 'Comprehensive Health Checkup Packages',
@@ -182,7 +182,7 @@ export const services: Service[] = [
         title: "Radiology and Pathology Tests",
         icon: "health-services",
         description: "Our diagnostic services, powered by partnerships with Curelo and HealthInde, offer precise and reliable radiology and pathology tests to support accurate diagnoses and effective treatment plans.",
-        backgroundImage: "/health-services.jpg",
+        backgroundImage: "https://placehold.co/600x600.png?ai-hint=radiology%20scan",
         subDetails: [
           {
             title: 'Radiology Services',
@@ -208,7 +208,7 @@ export const services: Service[] = [
         title: "Health Insurance",
         icon: "health-services",
         description: "In partnership with Curelo and HealthInde, we offer health insurance plans that provide financial security and access to quality healthcare. Our plans are designed to cover a wide range of medical needs, ensuring peace of mind for you and your loved ones.",
-        backgroundImage: "/health-services.jpg",
+        backgroundImage: "https://placehold.co/600x600.png?ai-hint=health%20insurance",
         subDetails: [
           {
             title: 'Key Coverage Features',
@@ -255,7 +255,7 @@ export const services: Service[] = [
         title: "Credit Card Offerings",
         icon: "credit-card-sales",
         description: "Our credit card portfolio caters to diverse lifestyles, from travel enthusiasts to shopping lovers, with exclusive benefits and rewards.",
-        backgroundImage: "/credit-card-sales.jpg",
+        backgroundImage: "https://placehold.co/600x600.png?ai-hint=credit%20cards",
         subDetails: [
           {
             title: 'HDFC Bank Credit Cards',
@@ -285,7 +285,7 @@ export const services: Service[] = [
         title: "Loans",
         icon: "credit-card-sales",
         description: "Our loan offerings, in collaboration with HDFC Bank, AU Bank, IndusInd Bank, and SBI Bank, provide quick and flexible financing solutions for personal and business needs.",
-        backgroundImage: "/credit-card-sales.jpg",
+        backgroundImage: "https://placehold.co/600x600.png?ai-hint=loan%20documents",
         subDetails: [
           {
             title: 'Personal Loans',
@@ -331,7 +331,7 @@ export const services: Service[] = [
         title: "Life Insurance",
         icon: "insurance-services",
         description: "Our life insurance plans provide financial protection for your family in case of unforeseen events, ensuring their well-being and security.",
-        backgroundImage: "/insurance-services.jpg",
+        backgroundImage: "https://placehold.co/600x600.png?ai-hint=family%20protection",
         subDetails: [
           {
             title: 'Key Features',
@@ -353,7 +353,7 @@ export const services: Service[] = [
         title: "Term Plans",
         icon: "insurance-services",
         description: "Our term insurance plans offer high coverage at affordable premiums, providing a safety net for your loved ones.",
-        backgroundImage: "/insurance-services.jpg",
+        backgroundImage: "https://placehold.co/600x600.png?ai-hint=financial%20security",
         subDetails: [
           {
             title: 'Key Features',
@@ -375,7 +375,7 @@ export const services: Service[] = [
         title: "Integration with Credit Card Sales and Loans",
         icon: "insurance-services",
         description: "Bundled Benefits: Use credit cards from HDFC Bank, AU Bank, IndusInd Bank, or SBI Bank to pay insurance premiums and earn rewards. Avail pre-approved loans to fund insurance premiums for high-value plans. Exclusive discounts on insurance plans for credit card holders.",
-        backgroundImage: "/insurance-services.jpg",
+        backgroundImage: "https://placehold.co/600x600.png?ai-hint=financial%20integration",
         subDetails: [
           {
             title: 'Why Choose Us?',
@@ -417,7 +417,7 @@ export const services: Service[] = [
         icon: "ai-automation",
         title: "AI-Powered Automation",
         description: "We develop custom AI models to automate repetitive tasks, streamline workflows, and increase operational efficiency across your business.",
-        backgroundImage: "https://images.unsplash.com/photo-1593349480503-68153e4c843e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhdXRvbWF0aW9uJTIwcm9ib3RpY3N8ZW58MHx8fHwxNzQ4NDAzNjAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://placehold.co/600x600.png?ai-hint=ai%20automation",
       },
       {
         slug: "data-analysis",
