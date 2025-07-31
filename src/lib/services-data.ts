@@ -159,7 +159,7 @@ export const services: Service[] = [
         title: "Health Checkups",
         icon: "health-services",
         description: "Regular health checkups are the cornerstone of preventive healthcare. Our health checkup packages are curated to detect potential health issues early, empowering you to take control of your wellness.",
-        backgroundImage: "https://images.unsplash.com/photo-1576091160550-2173dba9996a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoZWFsdGglMjBjaGVja3VwfGVufDB8fHx8MTc0ODg1MDAwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1579684385127-6ab18a5d7814?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoZWFsdGglMjBkb2N0b3J8ZW58MHx8fHwxNzQ4ODUwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
           {
             title: 'Comprehensive Health Checkup Packages',
@@ -182,7 +182,7 @@ export const services: Service[] = [
         title: "Radiology and Pathology Tests",
         icon: "health-services",
         description: "Our diagnostic services, powered by partnerships with Curelo and HealthInde, offer precise and reliable radiology and pathology tests to support accurate diagnoses and effective treatment plans.",
-        backgroundImage: "https://images.unsplash.com/photo-1581091222045-a46a50592f91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyYWRpb2xvZ3l8ZW58MHx8fHwxNzQ4ODUwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1581091012143-9c1d1d9998b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtZWRpY2FsJTIwbGFib3JhdG9yeXxlbnwwfHx8fDE3NDg4NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
           {
             title: 'Radiology Services',
@@ -208,7 +208,7 @@ export const services: Service[] = [
         title: "Health Insurance",
         icon: "health-services",
         description: "In partnership with Curelo and HealthInde, we offer health insurance plans that provide financial security and access to quality healthcare. Our plans are designed to cover a wide range of medical needs, ensuring peace of mind for you and your loved ones.",
-        backgroundImage: "https://images.unsplash.com/photo-1560004944-227568a914a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoZWFsdGglMjBpbnN1cmFuY2V8ZW58MHx8fHwxNzQ4ODUwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1560931868-b39f6cdc964d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoZWFsdGglMjBpbnN1cmFuY2V8ZW58MHx8fHwxNzQ4ODUwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
           {
             title: 'Key Coverage Features',
@@ -255,7 +255,7 @@ export const services: Service[] = [
         title: "Credit Card Offerings",
         icon: "credit-card-sales",
         description: "Our credit card portfolio caters to diverse lifestyles, from travel enthusiasts to shopping lovers, with exclusive benefits and rewards.",
-        backgroundImage: "https://images.unsplash.com/photo-1556740758-90de374c12ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjcmVkaXQlMjBjYXJkcyUyMHBheW1lbnR8ZW58MHx8fHwxNzQ4NDAzNjAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1620714223084-86c6df372e6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjB0ZWNobm9sb2d5fGVufDB8fHx8MTc0ODg1MDAwMHww&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
           {
             title: 'HDFC Bank Credit Cards',
@@ -285,7 +285,7 @@ export const services: Service[] = [
         title: "Loans",
         icon: "credit-card-sales",
         description: "Our loan offerings, in collaboration with HDFC Bank, AU Bank, IndusInd Bank, and SBI Bank, provide quick and flexible financing solutions for personal and business needs.",
-        backgroundImage: "https://images.unsplash.com/photo-1556740714-a8395b3bf301?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsb2FucyUyMGRvY3VtZW50c3xlbnwwfHx8fDE3NDg4NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1560518883-ce09059ee353?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJzb25hbCUyMGxvYW58ZW58MHx8fHwxNzQ4ODUwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
           {
             title: 'Personal Loans',
@@ -331,7 +331,7 @@ export const services: Service[] = [
         title: "Life Insurance",
         icon: "insurance-services",
         description: "Our life insurance plans provide financial protection for your family in case of unforeseen events, ensuring their well-being and security.",
-        backgroundImage: "https://images.unsplash.com/photo-1543198394-464303d1587a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmYW1pbHklMjBwcm90ZWN0aW9ufGVufDB8fHx8MTc0ODg1MDAwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1542840410-24106263548a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmYW1pbHklMjBzZWN1cml0eXxlbnwwfHx8fDE3NDg4NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
           {
             title: 'Key Features',
@@ -353,7 +353,7 @@ export const services: Service[] = [
         title: "Term Plans",
         icon: "insurance-services",
         description: "Our term insurance plans offer high coverage at affordable premiums, providing a safety net for your loved ones.",
-        backgroundImage: "https://images.unsplash.com/photo-1554224155-1696413565d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmcmVlZG9tJTIwcGxhbmluZ3xlbnwwfHx8fDE3NDg4NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1614028292439-53702a0b4142?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBwbGFubmluZ3xlbnwwfHx8fDE3NDg4NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
           {
             title: 'Key Features',
@@ -375,7 +375,7 @@ export const services: Service[] = [
         title: "Integration with Credit Card Sales and Loans",
         icon: "insurance-services",
         description: "Bundled Benefits: Use credit cards from HDFC Bank, AU Bank, IndusInd Bank, or SBI Bank to pay insurance premiums and earn rewards. Avail pre-approved loans to fund insurance premiums for high-value plans. Exclusive discounts on insurance plans for credit card holders.",
-        backgroundImage: "https://images.unsplash.com/photo-1614028292439-53702a0b4142?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmcmVlZG9tJTIwcGxhbmluZ3xlbnwwfHx8fDE3NDg4NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1639322537228-f710d846310a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiYW5raW5nJTIwdGVjaG5vbG9neXxlbnwwfHx8fDE3NDg4NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         subDetails: [
           {
             title: 'Why Choose Us?',
@@ -417,7 +417,7 @@ export const services: Service[] = [
         icon: "ai-automation",
         title: "AI-Powered Automation",
         description: "We develop custom AI models to automate repetitive tasks, streamline workflows, and increase operational efficiency across your business.",
-        backgroundImage: "https://images.unsplash.com/photo-1677756119517-756a188d2d94?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhdXRvbWF0aW9uJTIwYW5kJTIwYWl8ZW58MHx8fHwxNzQ4ODUwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+        backgroundImage: "https://images.unsplash.com/photo-1593349480503-64c3bbb68b42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyb2JvdCUyMGFybXxlbnwwfHx8fDE3NDg4NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       },
       {
         slug: "data-analysis",
