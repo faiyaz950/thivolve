@@ -23,7 +23,7 @@ export function Footer() {
   }, []);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener('mousemove', handleMouseMove);
@@ -108,8 +108,8 @@ export function Footer() {
     {
       icon: Phone,
       label: "Phone",
-      value: "+918340715516 +919355246234",
-      href: "tel:+918340715516",
+      value: "+91 93552 46234",
+      href: "tel:+919355246234",
       description: "24/7 support available"
     },
     {

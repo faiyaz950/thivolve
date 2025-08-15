@@ -108,7 +108,7 @@ export function ContactForm() {
 
   const contactDetails = [
     { icon: Mail, text: "info@btrussservices.com", href: "mailto:info@btrussservices.com" },
-    { icon: Phone, text: "+918340715516 +919355246234", href: "tel:+918340715516" },
+    { icon: Phone, text: "+91 93552 46234", href: "tel:+919355246234" },
     { icon: MapPin, text: "Plot NO 6,\n" +
             "First Floor Bhagwati Garden Extension, Dwarka Mor New Delhi, 110059", href: "#" },
   ];
