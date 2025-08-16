@@ -55,7 +55,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div
       className={cn(
-        "group relative w-full bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-white/5 overflow-hidden transition-all duration-700 transform-gpu hover:scale-[1.02] hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20",
+        "group relative w-full bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-xl sm:rounded-2xl lg:rounded-3xl border border-white/5 overflow-hidden transition-all duration-700 transform-gpu hover:scale-[1.02] hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20",
         hasAnimated ? "opacity-100 translate-y-0 rotate-0" : "opacity-0 translate-y-16 rotate-1"
       )}
       style={{
@@ -63,64 +63,86 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         background: 'linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.8) 100%)'
       }}
     >
-      <div className="relative w-full aspect-[16/9] overflow-hidden">
+      {/* Image Section with Better Mobile Aspect Ratio */}
+      <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9] overflow-hidden">
         <Image
           src={imageUrl}
           alt={title}
           data-ai-hint={aiHint}
-          width={400}
-          height={225}
-          className="object-cover w-full h-full group-hover:scale-110 transition-all duration-700 filter group-hover:brightness-110"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover group-hover:scale-110 transition-all duration-700 filter group-hover:brightness-110"
           onLoad={() => setImageLoaded(true)}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-        <div className="absolute top-3 sm:top-6 left-3 sm:left-4 md:left-6">
-          <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-primary/90 to-primary/70 backdrop-blur-md rounded-full border border-primary/30 shadow-lg">
-            <CategoryIcon className="w-3 sm:w-4 h-3 sm:h-4 text-white" />
-            <p className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider">{category}</p>
+        
+        {/* Category Badge - Better Mobile Positioning */}
+        <div className="absolute top-2 sm:top-3 lg:top-4 left-2 sm:left-3 lg:left-4">
+          <div className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-primary/90 to-primary/70 backdrop-blur-md rounded-full border border-primary/30 shadow-lg">
+            <CategoryIcon className="w-3 sm:w-4 h-3 sm:h-4 text-white flex-shrink-0" />
+            <p className="text-[10px] sm:text-xs font-bold text-white uppercase tracking-wider leading-none whitespace-nowrap">{category}</p>
           </div>
         </div>
-        <div className="absolute top-3 sm:top-6 right-3 sm:right-4 md:right-6">
+        
+        {/* Duration Badge - Better Mobile Positioning */}
+        <div className="absolute top-2 sm:top-3 lg:top-4 right-2 sm:right-3 lg:right-4">
           <div className="flex items-center gap-1 px-2 sm:px-3 py-1 sm:py-1.5 bg-black/60 backdrop-blur-md rounded-full border border-white/10">
-            <Calendar className="w-3 h-3 text-neutral-300" />
-            <p className="text-xs text-neutral-300">{duration}</p>
+            <Calendar className="w-3 h-3 text-neutral-300 flex-shrink-0" />
+            <p className="text-[10px] sm:text-xs text-neutral-300 leading-none whitespace-nowrap">{duration}</p>
           </div>
         </div>
       </div>
-      <div className="relative p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
-        <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-white leading-tight">{title}</h3>
-        <p className="text-sm sm:text-base text-neutral-400 leading-relaxed">{description}</p>
-        <div className="p-3 sm:p-4 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent rounded-xl sm:rounded-2xl border border-primary/10">
-          <div className="flex items-center gap-2 sm:gap-3">
-            <div className="p-1.5 sm:p-2 bg-primary/20 rounded-lg sm:rounded-xl">
-              <TrendingUp className="w-4 sm:w-5 h-4 sm:h-5 text-primary" />
+
+      {/* Content Section - Better Mobile Spacing */}
+      <div className="relative p-3 sm:p-4 md:p-6 lg:p-8 space-y-3 sm:space-y-4 lg:space-y-6">
+        {/* Title - Better Mobile Typography */}
+        <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-black text-white leading-tight line-clamp-2">
+          {title}
+        </h3>
+        
+        {/* Description - Better Mobile Readability */}
+        <p className="text-xs sm:text-sm lg:text-base text-neutral-400 leading-relaxed line-clamp-3">
+          {description}
+        </p>
+        
+        {/* Results Section - Improved Mobile Layout */}
+        <div className="p-2.5 sm:p-3 lg:p-4 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent rounded-lg sm:rounded-xl lg:rounded-2xl border border-primary/10">
+          <div className="flex items-start sm:items-center gap-2 sm:gap-3">
+            <div className="p-1 sm:p-1.5 lg:p-2 bg-primary/20 rounded-md sm:rounded-lg lg:rounded-xl flex-shrink-0">
+              <TrendingUp className="w-3 sm:w-4 lg:w-5 h-3 sm:h-4 lg:h-5 text-primary" />
             </div>
-            <div>
-              <p className="text-xs font-medium text-neutral-500 uppercase tracking-wider mb-1">Impact</p>
-              <p className="text-sm font-bold text-white">{results}</p>
+            <div className="min-w-0 flex-1">
+              <p className="text-[10px] sm:text-xs font-medium text-neutral-500 uppercase tracking-wider mb-0.5 sm:mb-1">Impact</p>
+              <p className="text-xs sm:text-sm font-bold text-white leading-tight">{results}</p>
             </div>
           </div>
         </div>
+        
+        {/* Technologies - Better Mobile Layout */}
         <div>
-          <p className="text-xs font-medium text-neutral-500 uppercase tracking-wider mb-2">Technologies</p>
-          <div className="flex flex-wrap gap-1.5 sm:gap-2">
+          <p className="text-[10px] sm:text-xs font-medium text-neutral-500 uppercase tracking-wider mb-1.5 sm:mb-2">Technologies</p>
+          <div className="flex flex-wrap gap-1 sm:gap-1.5 lg:gap-2">
             {technologies.map((tech) => (
               <div
                 key={tech}
-                className="px-2 sm:px-3 py-1 sm:py-1.5 bg-neutral-800/60 border border-neutral-700/50 rounded-md sm:rounded-lg text-xs text-neutral-300"
+                className="px-1.5 sm:px-2 lg:px-3 py-0.5 sm:py-1 lg:py-1.5 bg-neutral-800/60 border border-neutral-700/50 rounded sm:rounded-md lg:rounded-lg text-[10px] sm:text-xs text-neutral-300 whitespace-nowrap"
               >
                 {tech}
               </div>
             ))}
           </div>
         </div>
-        <Link
-          href={href}
-          className="inline-flex items-center gap-2 text-primary hover:text-white text-sm font-bold transition-all duration-500"
-        >
-          <span>View Case Study</span>
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </Link>
+        
+        {/* View Case Study Link - Better Mobile Touch Target */}
+        <div className="pt-1 sm:pt-2">
+          <Link
+            href={href}
+            className="inline-flex items-center gap-1.5 sm:gap-2 text-primary hover:text-white text-xs sm:text-sm font-bold transition-all duration-500 py-2 sm:py-0"
+          >
+            <span>View Case Study</span>
+            <ArrowRight className="h-3 sm:h-4 w-3 sm:w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -145,19 +167,19 @@ const StatCard = ({ icon: Icon, value, label, description, isVisible, index }: {
   return (
     <div
       className={cn(
-        "group text-center p-4 sm:p-6 md:p-8 bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 rounded-xl sm:rounded-2xl border border-white/5 transition-all duration-700",
+        "group text-center p-3 sm:p-4 md:p-6 lg:p-8 bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 rounded-lg sm:rounded-xl lg:rounded-2xl border border-white/5 transition-all duration-700",
         hasAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       )}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="mb-3 sm:mb-4">
-        <div className="inline-flex p-3 sm:p-4 bg-primary/10 rounded-xl sm:rounded-2xl">
-          <Icon className="h-6 sm:h-8 w-6 sm:w-8 text-primary" />
+      <div className="mb-2 sm:mb-3 lg:mb-4">
+        <div className="inline-flex p-2 sm:p-3 lg:p-4 bg-primary/10 rounded-lg sm:rounded-xl lg:rounded-2xl">
+          <Icon className="h-4 sm:h-6 lg:h-8 w-4 sm:w-6 lg:w-8 text-primary" />
         </div>
       </div>
-      <p className="text-2xl sm:text-3xl font-black text-white mb-2">{value}</p>
-      <p className="text-base sm:text-lg font-bold text-white mb-1">{label}</p>
-      <p className="text-sm text-neutral-400">{description}</p>
+      <p className="text-xl sm:text-2xl lg:text-3xl font-black text-white mb-1 sm:mb-2">{value}</p>
+      <p className="text-sm sm:text-base lg:text-lg font-bold text-white mb-0.5 sm:mb-1 leading-tight">{label}</p>
+      <p className="text-xs sm:text-sm text-neutral-400 leading-tight">{description}</p>
     </div>
   );
 };
@@ -265,34 +287,34 @@ export function OurWork() {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <section ref={ref} id="our-work" className="py-12 sm:py-16 md:py-24 bg-black text-white overflow-x-hidden">
-      <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl">
+    <section ref={ref} id="our-work" className="py-8 sm:py-12 md:py-16 lg:py-24 bg-black text-white overflow-x-hidden">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 max-w-screen-2xl">
         {/* Title Section - Mobile Optimized */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <div className="relative inline-block">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-4 sm:mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-3 sm:mb-4 lg:mb-6 tracking-tight leading-none">
               Our Work
             </h2>
-            <div className="absolute -top-2 sm:-top-4 -left-2 sm:-left-4 w-2 sm:w-3 h-2 sm:h-3 bg-primary rounded-full animate-ping" />
-            <div className="absolute -top-1 sm:-top-2 -right-3 sm:-right-6 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-primary/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+            <div className="absolute -top-1 sm:-top-2 lg:-top-4 -left-1 sm:-left-2 lg:-left-4 w-1.5 sm:w-2 lg:w-3 h-1.5 sm:h-2 lg:h-3 bg-primary rounded-full animate-ping" />
+            <div className="absolute -top-0.5 sm:-top-1 lg:-top-2 -right-2 sm:-right-3 lg:-right-6 w-1 sm:w-1.5 lg:w-2 h-1 sm:h-1.5 lg:h-2 bg-primary/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
           </div>
-          <div className="relative max-w-3xl mx-auto">
-            <p className="text-base sm:text-lg md:text-xl text-neutral-400 leading-relaxed font-light px-4 sm:px-0">
+          <div className="relative max-w-4xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-neutral-400 leading-relaxed font-light px-2 sm:px-4 lg:px-0">
               A showcase of impactful work across platforms, showcasing innovation, scalability, and performance.
             </p>
-            <div className="w-16 sm:w-24 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-4 sm:mt-6 animate-pulse" />
+            <div className="w-12 sm:w-16 lg:w-24 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-3 sm:mt-4 lg:mt-6 animate-pulse" />
           </div>
         </div>
 
         {/* Stats - Mobile Responsive Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-12 sm:mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 lg:gap-6 mb-8 sm:mb-12 lg:mb-16">
           {achievementStats.map((stat, index) => (
             <StatCard key={stat.label} {...stat} isVisible={isVisible} index={index} />
           ))}
         </div>
 
         {/* Project Cards - Responsive Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
           {projectsData.map((project, index) => (
             <ProjectCard key={project.title} {...project} index={index} isVisible={isVisible} />
           ))}
