@@ -7,14 +7,35 @@ import { Button } from '@/components/ui/button';
 import { MobileNav } from '@/components/layout/mobile-nav';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { ChevronDown, Smartphone, Globe, Code, Palette, Megaphone, Bot } from 'lucide-react';
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
-  { href: "/#services", label: "Services" },
+  // "Services" is now a dropdown, so it's handled separately
   { href: "/our-work", label: "Our Work" },
   { href: "/#contact", label: "Contact Us" },
 ];
+
+const services = [
+    { slug: 'mobile-app-development', title: "Mobile App Development", icon: Smartphone },
+    { slug: 'website-development', title: "Website Development", icon: Globe },
+    { slug: 'custom-software-development', title: "Custom Software Development", icon: Code },
+    { slug: 'graphics-design', title: "Graphics Design", icon: Palette },
+    { slug: 'seo-and-digital-marketing', title: "SEO & Digital Marketing", icon: Megaphone },
+    { slug: 'ai-services', title: "AI Services", icon: Bot },
+];
+
+const mobileNavLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about-us", label: "About Us" },
+  { href: "/#services", label: "Services" },
+  ...services.map(s => ({ href: `/services/${s.slug}`, label: `  ${s.title}` })),
+  { href: "/our-work", label: "Our Work" },
+  { href: "/#contact", label: "Contact Us" },
+];
+
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -87,13 +108,39 @@ export function Header() {
                 {link.label}
               </span>
               
-              {/* Hover effect underline */}
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent group-hover:w-full transition-all duration-500" />
               
-              {/* Subtle glow on hover */}
               <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 transition-all duration-300" />
             </Link>
           ))}
+            {/* Services Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <div
+                  className="group relative text-sm font-medium text-white/80 hover:text-white transition-all duration-300 cursor-pointer flex items-center gap-1"
+                >
+                  <span className="relative z-10 px-3 py-2 rounded-lg transition-all duration-300 group-hover:bg-white/5">
+                    Services
+                  </span>
+                  <ChevronDown className="h-4 w-4 transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent group-hover:w-full transition-all duration-500" />
+                  <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 transition-all duration-300" />
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-black/80 backdrop-blur-md border-white/10 text-white">
+                {services.map((service) => {
+                  const Icon = service.icon;
+                  return (
+                    <DropdownMenuItem key={service.slug} asChild>
+                      <Link href={`/services/${service.slug}`} className="flex items-center gap-2 cursor-pointer">
+                        <Icon className="h-4 w-4 text-primary" />
+                        <span>{service.title}</span>
+                      </Link>
+                    </DropdownMenuItem>
+                  );
+                })}
+              </DropdownMenuContent>
+            </DropdownMenu>
         </nav>
 
         {/* CTA Button with enhanced design */}
@@ -104,27 +151,23 @@ export function Header() {
             asChild
           >
             <Link href="#contact" className="relative flex items-center gap-2">
-              {/* Background shimmer effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
               
               <span className="relative z-10">Book a Meeting</span>
               
-              {/* Subtle indicator dot */}
               <div className="relative z-10 w-2 h-2 bg-primary/60 rounded-full animate-pulse" />
             </Link>
           </Button>
           
-          {/* Mobile navigation with enhanced styling */}
           <div className="md:hidden">
             <MobileNav 
-              navLinks={navLinks} 
+              navLinks={mobileNavLinks} 
               triggerClassName="text-white hover:bg-white/10 transition-all duration-300 border border-white/20 hover:border-white/40 backdrop-blur-sm" 
             />
           </div>
         </div>
       </div>
       
-      {/* Progress bar for scroll */}
       <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/5">
         <div 
           className="h-full bg-gradient-to-r from-primary/60 via-primary to-primary/60 transition-all duration-300 origin-left"

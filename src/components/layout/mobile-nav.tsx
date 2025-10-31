@@ -59,12 +59,15 @@ export function MobileNav({ navLinks, triggerClassName }: MobileNavProps) {
               </Button>
             </SheetClose>
           </div>
-          <nav className="flex-grow p-6 space-y-4">
+          <nav className="flex-grow p-6 space-y-4 overflow-y-auto">
             {navLinks.map((link) => (
-              <SheetClose key={link.href} asChild>
+              <SheetClose key={link.href + link.label} asChild>
                 <Link
                   href={link.href}
-                  className="block text-lg font-medium text-white/90 hover:text-primary transition-colors"
+                  className={cn(
+                    "block text-lg font-medium text-white/90 hover:text-primary transition-colors",
+                    link.label.startsWith("  ") && "pl-4 text-base"
+                  )}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
