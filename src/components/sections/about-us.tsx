@@ -116,10 +116,10 @@ export function AboutUs() {
               
               <div className="space-y-6">
                 <p className="text-lg text-neutral-300 leading-relaxed">
-                  At Thivolve, we believe innovation is the key to unlocking potential. As a modern IT services company, we specialize in crafting bespoke digital solutions—from dynamic websites and mobile apps to intelligent AI systems—that drive growth and efficiency.
+                  At Thivolve, we believe innovation is the key to unlocking potential. As a modern IT services company, we specialize in crafting bespoke digital solutions—from dynamic websites and mobile apps to intelligent AI systems and custom software—that drive growth and efficiency.
                 </p>
                 <p className="text-lg text-neutral-300 leading-relaxed">
-                  Our team thrives on tackling complex challenges with creative strategies, ensuring our clients stay ahead in today's dynamic digital landscape. We deliver solutions that are innovative, reliable, and impactful.
+                  Our team thrives on tackling complex challenges with creative strategies, ensuring our clients stay ahead in today's dynamic digital landscape. We are committed to delivering solutions that are not only innovative and reliable but also create a significant and lasting impact on your business.
                 </p>
               </div>
             </div>
