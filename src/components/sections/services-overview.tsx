@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Smartphone, Globe, Palette, Megaphone } from 'lucide-react';
+import { ArrowRight, Smartphone, Globe, Palette, Megaphone, Bot } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
@@ -11,6 +11,7 @@ const services = [
     { slug: 'website-development', title: "Website Development", description: "We craft responsive, high-performance websites and complex web applications that drive user engagement and deliver business results.", icon: Globe },
     { slug: 'graphics-design', title: "Graphics Design", description: "Our creative team translates your brand's essence into compelling visual identities, from logos to polished UI/UX designs.", icon: Palette },
     { slug: 'seo-and-digital-marketing', title: "SEO & Digital Marketing", description: "Expand your reach and generate qualified leads with our data-driven digital marketing, SEO, and content strategies.", icon: Megaphone },
+    { slug: 'ai-services', title: "AI Services", description: "Harness the power of Artificial Intelligence to automate processes, derive insights, and drive innovation.", icon: Bot },
 ];
 
 const ServiceCard = ({ service, index, isVisible }: {

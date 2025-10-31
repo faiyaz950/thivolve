@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook, Twitter, Linkedin, Instagram, Youtube, Mail, Phone, MapPin, ArrowRight, ExternalLink, Shield, Zap, Globe, Users } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Youtube, Mail, Phone, MapPin, ArrowRight, ExternalLink, Shield, Zap, Globe, Users, Bot } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { cn } from '@/lib/utils';
@@ -67,6 +67,7 @@ export function Footer() {
         { label: "Mobile App Development", href: "/services/mobile-app-development" },
         { label: "Graphics Design", href: "/services/graphics-design" },
         { label: "SEO & Digital Marketing", href: "/services/seo-and-digital-marketing" },
+        { label: "AI Services", href: "/services/ai-services" },
       ]
     },
     {
