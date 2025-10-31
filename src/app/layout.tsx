@@ -51,7 +51,7 @@ export default function RootLayout({
         <title>Btruss Digital Hub</title>
         <meta name="description" content="Innovative and reliable solutions by Btruss Services Pvt Ltd" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body suppressHydrationWarning={true} className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         {isMounted && <LoadingScreen show={isLoading} />}
         <div style={{ visibility: !isLoading && isMounted ? 'visible' : 'hidden' }}>
           {children}
