@@ -20,8 +20,8 @@ const geistMono = Geist_Mono({
 
 // Static metadata can be defined outside if needed, or remove if fully dynamic
 // export const metadata: Metadata = {
-//   title: 'Thivolve Digital Hub',
-//   description: 'Innovative and reliable solutions by Thivolve Services Pvt Ltd',
+//   title: 'Btruss Digital Hub',
+//   description: 'Innovative and reliable solutions by Btruss Services Pvt Ltd',
 // };
 
 export default function RootLayout({
@@ -30,15 +30,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [isLoading, setIsLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     // Simulate loading time or wait for initial assets
     const timer = setTimeout(() => {
       setIsLoading(false); // Trigger fade-out of loading screen
-    }, 2000); // Duration loading screen is fully visible (logo scaled in)
+    }, 2000); // Duration loading screen is fully visible
+
+    // After loading screen fades out, show the content
+    const contentTimer = setTimeout(() => {
+      setShowContent(true);
+    }, 2200); // Should be slightly after loading finishes
 
     return () => {
       clearTimeout(timer);
+      clearTimeout(contentTimer);
     };
   }, []);
 
@@ -51,7 +58,10 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         <LoadingScreen show={isLoading} />
-        {!isLoading && children}
+        {/* Render children but control visibility to prevent hydration errors */}
+        <div style={{ visibility: showContent ? 'visible' : 'hidden' }}>
+          {children}
+        </div>
         <Toaster />
       </body>
     </html>
