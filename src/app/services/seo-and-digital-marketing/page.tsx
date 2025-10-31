@@ -295,12 +295,10 @@ export default function SeoAndDigitalMarketingPage() {
                 >
                     <div className="relative container mx-auto px-6 max-w-4xl text-center">
                          <div className={cn(
-                            "relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-3xl border border-white/5 p-8 md:p-12 hover:border-white/10 transition-all duration-700",
+                            "transition-all duration-1000",
                             introRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         )}>
-                             <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
-                             <div className="absolute -top-4 -left-4 w-12 h-12 bg-primary/10 rounded-full blur-xl" />
-                            <p className="relative text-lg md:text-xl text-neutral-300 leading-relaxed">
+                            <p className="text-lg md:text-xl text-neutral-300 leading-relaxed">
                                 {introduction}
                             </p>
                         </div>
