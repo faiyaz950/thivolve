@@ -1,7 +1,8 @@
+
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, CheckCircle, Megaphone, Star, Play, Award, Target, Zap, Heart, CreditCard, Shield, Globe, Sparkles, ChevronDown, Clock, Users, TrendingUp, Lightbulb, BarChart3, Rocket, MessageCircle, Calendar, CheckCheck, ArrowUp, Filter, Search, Layers, Settings, Monitor, PieChart, Trophy, Gauge, AppWindow, GitBranch, TestTube2, Brush, PenTool, Image as ImageIcon, LineChart } from 'lucide-react';
+import { ArrowRight, CheckCircle, Megaphone, Star, Play, Award, Target, Zap, Heart, CreditCard, Shield, Globe, Sparkles, ChevronDown, Clock, Users, TrendingUp, Lightbulb, BarChart3, Rocket, MessageCircle, Calendar, CheckCheck, ArrowUp, Filter, Search, Layers, Settings, Monitor, PieChart, Trophy, Gauge, AppWindow, GitBranch, TestTube2, Brush, PenTool, Image as ImageIcon, LineChart, Mail } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -41,9 +42,9 @@ const useScrollAnimation = ({ threshold = 0.1 }: { threshold?: number }) => {
 
 
 const heroContent = {
-    title: "SEO & Digital Marketing",
-    subtitle: "Driving Growth Through Data-Driven Strategies",
-    description: "Expand your reach, generate qualified leads, and boost your revenue with our comprehensive, data-driven digital marketing and SEO services.",
+    title: "Maximize Your Online Reach: SEO & Digital Marketing Solutions",
+    subtitle: "Get Discovered Online: Drive Traffic, Generate Leads, and Boost Sales.",
+    description: "Reach your brand to the right audience with comprehensive digital marketing strategies and accelerate your online growth in today's competitive digital world.",
     image: {
         src: "https://images.unsplash.com/photo-1563986768609-322da13575f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYXJrZXRpbmclMjBhbmFseXRpY3N8ZW58MHx8fHwxNzQ4NDAzNjAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
         alt: "Digital marketing analytics on a dashboard",
@@ -51,38 +52,128 @@ const heroContent = {
     }
 };
 
+const introduction = "In today's fast-paced digital landscape, simply having a website isn't enough— it needs to be visible, engaging, and optimized to stand out. Our SEO and Digital Marketing services empower your business to climb to the top of search results, generate qualified leads, and maximize ROI through proven, data-driven strategies. We bridge the gap between your brand and where your customers are actively searching and interacting online, whether on search engines, social platforms, or email inboxes. With a blend of cutting-edge tools, industry best practices, and personalized campaigns, we've helped over 200 clients across e-commerce, B2B, and service-based sectors achieve up to 300% growth in organic traffic and a 45% increase in conversion rates. From startups scaling their presence to enterprises refining their funnels, we tailor solutions that deliver measurable success and long-term dominance.";
+
 const marketingServices = [
     {
         title: "Search Engine Optimization (SEO)",
-        description: "Boost your organic traffic and rank higher on search engines with our on-page, off-page, and technical SEO expertise.",
+        description: "Elevate your website's search engine rankings and drive sustainable organic traffic by targeting high-intent keywords and fixing technical hurdles. Our holistic approach combines on-page tweaks, off-page authority building, and technical audits to position you at the top of Google, Bing, and other engines, ensuring long-term visibility without relying solely on paid ads.",
         icon: <Search className="w-8 h-8" />,
-        tactics: ["Keyword Research", "Link Building", "Content Optimization", "Local SEO"]
-    },
-    {
-        title: "Pay-Per-Click (PPC) Advertising",
-        description: "Get immediate, targeted traffic with expertly managed PPC campaigns on Google Ads, Bing Ads, and social media platforms.",
-        icon: <LineChart className="w-8 h-8" />,
-        tactics: ["Campaign Management", "Ad Copywriting", "Bid Management", "Conversion Tracking"]
+        keyFeatures: [
+            "In-depth keyword research using tools like Ahrefs and SEMrush.",
+            "On-page optimization: Meta tags, header structures, content enhancements.",
+            "Technical SEO audit: Site speed, mobile responsiveness, schema markup.",
+            "Ethical link-building strategies to build domain authority.",
+            "Local SEO for brick-and-mortar businesses.",
+            "Monthly performance reporting with traffic trends and ranking progress."
+        ]
     },
     {
         title: "Social Media Marketing (SMM)",
-        description: "Build and engage your community with strategic content, targeted advertising, and influencer marketing on platforms like Facebook, Instagram, and LinkedIn.",
+        description: "Amplify your brand awareness, foster vibrant communities, and enhance customer interactions across platforms like Facebook, Instagram, LinkedIn, Twitter (X), and TikTok. We craft engaging campaigns that resonate with your audience, turning followers into advocates and driving real business outcomes.",
         icon: <Users className="w-8 h-8" />,
-        tactics: ["Content Creation", "Community Management", "Social Ads", "Analytics"]
+        keyFeatures: [
+            "Customized social media strategy and content calendars.",
+            "Content creation: Posts, stories, reels/videos, and user-generated content.",
+            "Targeted ad campaigns with audience segmentation and retargeting.",
+            "Community management and sentiment analysis.",
+            "Performance analytics and ROI tracking.",
+            "Influencer collaborations and hashtag campaigns."
+        ]
     },
-     {
+    {
+        title: "Pay-Per-Click (PPC) Advertising",
+        description: "Unlock instant visibility and laser-targeted traffic through Google Ads, Microsoft Advertising, and social platforms. We optimize your ad spend for peak performance, ensuring every click contributes to conversions while scaling campaigns based on real-time data for superior ROI.",
+        icon: <LineChart className="w-8 h-8" />,
+        keyFeatures: [
+            "Full ad campaign setup and account structuring.",
+            "Strategic keyword bidding and negative keyword lists.",
+            "Compelling ad copywriting and A/B testing.",
+            "Landing page optimization for higher conversion rates.",
+
+            "Continuous tracking & optimization with Google Analytics.",
+            "Cross-platform remarketing strategies."
+        ]
+    },
+    {
         title: "Content Marketing",
-        description: "Attract, engage, and convert your target audience with high-quality, relevant content including blog posts, videos, and ebooks.",
+        description: "Captivate your audience with high-quality, relevant content—such as blogs, articles, videos, and infographics—that not only attracts visitors but also educates, nurtures leads, and establishes your brand as an industry authority.",
         icon: <PenTool className="w-8 h-8" />,
-        tactics: ["Strategy", "Creation", "Distribution", "Analytics"]
+        keyFeatures: [
+            "Comprehensive content strategy with topic clustering.",
+            "Expert blog and article writing optimized for E-E-A-T.",
+            "Multimedia production: Videos, infographics, and podcasts.",
+            "Guest posting and syndication for backlinks and exposure.",
+            "Content promotion via email, social media, and paid boosts.",
+            "Content repurposing for multi-channel efficiency."
+        ]
+    },
+    {
+        title: "Email Marketing",
+        description: "Forge direct, personalized connections with customers and leads through targeted email campaigns that nurture relationships and drive repeat business. From welcome series to abandoned cart recoveries, we design sequences that boost open rates, clicks, and lifetime value.",
+        icon: <Mail className="w-8 h-8" />,
+        keyFeatures: [
+            "Email list management, segmentation, and cleaning.",
+            "Campaign design with mobile-first responsiveness.",
+            "A/B testing for subjects, send times, and CTAs.",
+            "Automation setup: Drip campaigns and behavioral triggers.",
+            "Performance analytics with open/click rates and revenue attribution.",
+            "Compliance with CAN-SPAM and GDPR."
+        ]
+    },
+    {
+        title: "Analytics & Reporting",
+        description: "Gain crystal-clear insights into your digital marketing performance to make informed decisions and demonstrate value. We set up robust tracking systems and deliver actionable reports that highlight wins, uncover opportunities, and guide strategy pivots for sustained growth.",
+        icon: <BarChart3 className="w-8 h-8" />,
+        keyFeatures: [
+            "Google Analytics 4 setup and event tracking.",
+            "Custom dashboards in Google Data Studio or Tableau.",
+            "Monthly/quarterly performance reports with executive summaries.",
+            "Competitor analysis using tools like SpyFu.",
+            "Actionable insights from heatmaps and session recordings.",
+            "ROI calculators tying marketing spend to revenue."
+        ]
     }
 ];
 
 const marketingProcess = [
-    { number: "01", title: "Audit & Analysis", description: "We conduct a thorough audit of your current digital presence and competitor landscape to identify opportunities.", icon: <PieChart /> },
-    { number: "02", title: "Strategy Development", description: "We create a tailored, data-driven marketing strategy with clear KPIs and a detailed roadmap.", icon: <Target /> },
-    { number: "03", title: "Campaign Execution", description: "Our team launches and manages your campaigns, continuously optimizing for performance and ROI.", icon: <Rocket /> },
-    { number: "04", title: "Reporting & Refinement", description: "We provide transparent, detailed reports and use the insights to constantly refine our approach for better results.", icon: <BarChart3 /> }
+    { number: "01", title: "Strategy Development", description: "We kick off with a deep-dive audit of your current online presence, business objectives, and target audience to craft a personalized roadmap with KPIs, timelines, and budget allocations.", icon: <Target /> },
+    { number: "02", title: "Implementation", description: "With strategy in hand, we roll out campaigns, from content production and ad launches to SEO tweaks and email builds, using collaborative tools for seamless execution.", icon: <Rocket /> },
+    { number: "03", title: "Optimization", description: "Real-time monitoring via dashboards flags underperformers early. We apply data-backed tweaks weekly, aiming for continuous improvement and quick wins.", icon: <TrendingUp /> },
+    { number: "04", title: "Analysis & Reporting", description: "At milestones, we compile in-depth reports with visualizations, key learnings, and recommendations. Quarterly reviews discuss pivots, celebrate successes, and align on future sprints.", icon: <PieChart /> }
+];
+
+const whyChooseUsData = [
+    {
+        icon: BarChart3,
+        title: "Data-Driven Approach",
+        description: "Every decision stems from robust analytics and A/B testing, not guesswork. We leverage AI for predictive insights to keep your strategies ahead of algorithm updates."
+    },
+    {
+        icon: Award,
+        title: "Experienced Marketers",
+        description: "Our team of 15+ certified experts brings 10+ years of hands-on experience across niches, from SaaS to retail, with a track record of 4.9/5 client ratings."
+    },
+    {
+        icon: Eye,
+        title: "Transparent Reporting",
+        description: "No black boxes. Enjoy weekly snapshots, monthly deep-dives, and access to live dashboards so you're always informed and empowered."
+    },
+    {
+        icon: Rocket,
+        title: "Measurable Results",
+        description: "We prioritize tangible outcomes: 150% average traffic growth, 30%+ lead gen uplift, and ROI multiples of 4:1 or better, backed by case studies."
+    },
+    {
+        icon: Layers,
+        title: "Holistic Strategy",
+        description: "We don't silo services. Our integrated ecosystem syncs SEO with PPC, content with social, and email with analytics for amplified synergy and cost efficiency."
+    },
+    {
+        icon: Settings,
+        title: "Scalable & Flexible",
+        description: "From one-off audits to full-funnel retainers, we adapt to your budget and goals without lock-in contracts. Get started with a free strategy session."
+    }
 ];
 
 
@@ -108,8 +199,10 @@ const faqs = [
 
 export default function SeoAndDigitalMarketingPage() {
     const heroRef = useScrollAnimation({ threshold: 0.1 });
+    const introRef = useScrollAnimation({ threshold: 0.2 });
     const servicesRef = useScrollAnimation({ threshold: 0.2 });
     const processRef = useScrollAnimation({ threshold: 0.2 });
+    const whyChooseUsRef = useScrollAnimation({ threshold: 0.2 });
     const faqRef = useScrollAnimation({ threshold: 0.2 });
     const ctaRef = useScrollAnimation({ threshold: 0.2 });
 
@@ -162,46 +255,74 @@ export default function SeoAndDigitalMarketingPage() {
                     )}>
                         <div className="relative inline-block mb-6">
                             <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-tight">
-                                {renderSplitColorTitle(heroContent.title)}
+                                {renderSplitColorTitle(heroContent.subtitle)}
                             </h1>
                             <div className="absolute -top-6 -left-6 w-4 h-4 bg-primary rounded-full animate-ping" />
                         </div>
                          <p className="text-lg md:text-xl text-neutral-300 leading-relaxed mb-12 max-w-3xl mx-auto">
                             {heroContent.description}
                         </p>
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            className="group relative border-2 border-primary/40 text-white hover:bg-primary/10 hover:text-white hover:border-primary/60 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 backdrop-blur-sm bg-gradient-to-r from-primary/10 to-transparent px-8 py-6 text-lg"
-                            asChild
-                        >
-                            <Link href="/#contact" className="flex items-center gap-3">
-                                <span className="font-semibold">Get a Free Marketing Analysis</span>
-                                <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
-                            </Link>
-                        </Button>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                             <Button
+                                variant="default"
+                                size="lg"
+                                className="group relative bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 px-8 py-6 text-lg"
+                                asChild
+                            >
+                                <Link href="/#contact" className="flex items-center gap-3">
+                                    <span className="font-semibold">Get a Free Digital Marketing Audit</span>
+                                    <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
+                                </Link>
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="group relative border-2 border-primary/40 text-white hover:bg-primary/10 hover:text-white hover:border-primary/60 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 backdrop-blur-sm bg-gradient-to-r from-primary/10 to-transparent px-8 py-6 text-lg"
+                                asChild
+                            >
+                                <Link href="/#our-work" className="flex items-center gap-3">
+                                    <span className="font-semibold">Grow Your Business Online</span>
+                                </Link>
+                            </Button>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Introduction Section */}
+                <section
+                    ref={introRef.ref}
+                    className="relative py-20 md:py-32 bg-black overflow-hidden"
+                >
+                    <div className="relative container mx-auto px-6 max-w-4xl text-center">
+                         <div className={cn(
+                            "transition-all duration-1000",
+                            introRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                        )}>
+                            <p className="text-lg md:text-xl text-neutral-300 leading-relaxed">
+                                {introduction}
+                            </p>
+                        </div>
                     </div>
                 </section>
 
                 {/* Marketing Services Section */}
                 <section
                     ref={servicesRef.ref}
-                    className="relative py-20 md:py-32 bg-black overflow-hidden"
+                    className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-950 to-black overflow-hidden"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-950 to-black" />
                     <div className="relative container mx-auto px-6 max-w-screen-xl">
                         <div className={cn(
                             "text-center mb-16 md:mb-20 transition-all duration-1000",
                             servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         )}>
                             <h2 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
-                                Our Digital Marketing Services
+                                Our SEO & Digital Marketing Services
                             </h2>
                             <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
                                 A suite of services designed to deliver measurable results and maximize your return on investment.
                             </p>
                         </div>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {marketingServices.map((service, index) => (
                                 <div key={service.title} className={cn(
                                     "group relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-2xl border border-white/5 p-8 hover:border-white/10 transition-all duration-700 hover:scale-105",
@@ -215,11 +336,14 @@ export default function SeoAndDigitalMarketingPage() {
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors duration-300">{service.title}</h3>
                                     <p className="text-neutral-400 text-sm leading-relaxed mb-4">{service.description}</p>
-                                    <div className="flex flex-wrap gap-2">
-                                        {service.tactics.map(tactic => (
-                                            <span key={tactic} className="px-2 py-1 bg-neutral-700/50 text-neutral-300 text-xs rounded-md">{tactic}</span>
+                                    <ul className="space-y-2">
+                                        {service.keyFeatures.map((feature, i) => (
+                                            <li key={i} className="flex items-start gap-2">
+                                                <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                                                <span className="text-sm text-neutral-300">{feature}</span>
+                                            </li>
                                         ))}
-                                    </div>
+                                    </ul>
                                 </div>
                             ))}
                         </div>
@@ -229,7 +353,7 @@ export default function SeoAndDigitalMarketingPage() {
                 {/* Our Marketing Process Section */}
                 <section
                     ref={processRef.ref}
-                    className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-950 to-black overflow-hidden"
+                    className="relative py-20 md:py-32 bg-black overflow-hidden"
                 >
                     <div className="relative container mx-auto px-6 max-w-screen-xl">
                         <div className={cn(
@@ -240,32 +364,72 @@ export default function SeoAndDigitalMarketingPage() {
                                 Our Strategic Process
                             </h2>
                             <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
-                                A results-oriented process designed for clarity, efficiency, and maximum impact.
+                                A results-focused, agile methodology to adapt to market shifts and your evolving needs. Our process ensures transparency and collaboration every step of the way.
                             </p>
                         </div>
                         <div className="relative">
-                             <div className="absolute left-8 right-8 top-1/2 -translate-y-1/2 h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent hidden md:block" />
-                            <div className="grid md:grid-cols-4 gap-8 relative">
+                            <div className="absolute left-1/2 -translate-x-1/2 top-8 bottom-8 w-0.5 bg-gradient-to-b from-transparent via-primary/30 to-transparent hidden md:block" />
+                            <div className="space-y-12">
                                 {marketingProcess.map((step, index) => (
                                     <div key={step.title} className={cn(
-                                        "group text-center transition-all duration-1000",
-                                        processRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                                        "relative flex flex-col md:flex-row items-center gap-8 transition-all duration-1000",
+                                        processRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12',
+                                        index % 2 !== 0 && 'md:flex-row-reverse'
                                     )} style={{ transitionDelay: `${index * 200}ms` }}>
-                                         <div className="relative mb-6">
-                                            <div className="relative w-16 h-16 mx-auto flex items-center justify-center">
-                                                <div className="absolute w-16 h-16 bg-gradient-to-r from-primary to-orange-500 rounded-full animate-pulse blur-lg group-hover:scale-110 transition-transform" />
-                                                <div className="relative w-14 h-14 flex items-center justify-center bg-neutral-900 rounded-full border-2 border-primary/50 text-xl font-bold text-primary">{step.number}</div>
+                                        <div className="flex-1">
+                                            <div className="bg-gradient-to-br from-neutral-800/40 to-black/60 p-8 rounded-2xl border border-white/10 backdrop-blur-lg">
+                                                <div className="flex items-center gap-4 mb-4">
+                                                    <div className="p-2 bg-primary/20 rounded-lg border border-primary/30 text-primary">{step.icon}</div>
+                                                    <h3 className="text-2xl font-bold text-white">{step.title}</h3>
+                                                </div>
+                                                <p className="text-neutral-300">{step.description}</p>
                                             </div>
                                         </div>
-                                        <div className="p-2 bg-gradient-to-br from-neutral-800/20 to-black/30 backdrop-blur-sm rounded-xl">
-                                          <div className="p-6 bg-neutral-900/80 rounded-lg border border-white/10">
-                                            <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
-                                            <p className="text-sm text-neutral-400">{step.description}</p>
-                                          </div>
+                                        <div className="relative w-16 h-16 flex items-center justify-center">
+                                            <div className="absolute w-16 h-16 bg-gradient-to-r from-primary to-orange-500 rounded-full animate-pulse blur-lg" />
+                                            <div className="relative w-12 h-12 flex items-center justify-center bg-neutral-900 rounded-full border-2 border-primary/50 text-xl font-bold text-primary">{step.number}</div>
                                         </div>
+                                        <div className="flex-1 hidden md:block" />
                                     </div>
                                 ))}
                             </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Why Choose Us Section */}
+                <section
+                    ref={whyChooseUsRef.ref}
+                    className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-950 to-black overflow-hidden"
+                >
+                    <div className="relative container mx-auto px-6 max-w-screen-xl">
+                        <div className={cn(
+                            "text-center mb-16 md:mb-20 transition-all duration-1000",
+                            whyChooseUsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                        )}>
+                            <h2 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
+                                Why Choose Us?
+                            </h2>
+                            <p className="text-lg md:text-xl text-neutral-400 max-w-4xl mx-auto leading-relaxed">
+                                Partnering with us means gaining a strategic ally dedicated to your success in the ever-evolving digital arena. Here's what differentiates our approach.
+                            </p>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {whyChooseUsData.map((feature, index) => (
+                                <div key={feature.title} className={cn(
+                                    "group relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-2xl border border-white/5 p-8 hover:border-white/10 transition-all duration-700 hover:scale-105",
+                                    whyChooseUsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                                )} style={{ transitionDelay: `${index * 150}ms` }}>
+                                    <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                                     <div className="flex items-center gap-4 mb-4">
+                                      <div className="p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/30 text-primary group-hover:scale-110 transition-transform duration-300">
+                                          <feature.icon className="w-8 h-8"/>
+                                      </div>
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
+                                    <p className="text-neutral-400 text-sm leading-relaxed">{feature.description}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </section>
@@ -330,10 +494,10 @@ export default function SeoAndDigitalMarketingPage() {
                         ctaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                     )}>
                         <h2 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
-                            Ready to Grow Your Business?
+                            Ready to Dominate Your Niche?
                         </h2>
                         <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed mb-12">
-                           Let's build a winning strategy to achieve your marketing goals. Contact us today for a free consultation.
+                           Don't let competitors steal your spotlight—claim your free 30-minute strategy session today and receive a personalized growth blueprint. Let's turn clicks into customers and data into dollars!
                         </p>
                         <Button
                             variant="default"
@@ -342,7 +506,7 @@ export default function SeoAndDigitalMarketingPage() {
                             asChild
                         >
                             <Link href="/#contact" className="flex items-center gap-3">
-                                <span className="font-semibold">Request a Quote</span>
+                                <span className="font-semibold">Request a Custom Proposal</span>
                                 <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
                             </Link>
                         </Button>
@@ -355,3 +519,6 @@ export default function SeoAndDigitalMarketingPage() {
         </div>
     );
 }
+
+
+    
