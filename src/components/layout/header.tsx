@@ -18,12 +18,21 @@ const navLinks = [
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        setScrollProgress(window.scrollY / totalHeight);
+      } else {
+        setScrollProgress(0);
+      }
     };
     window.addEventListener('scroll', handleScroll);
+    // Call handler once to set initial state
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -114,7 +123,7 @@ export function Header() {
         <div 
           className="h-full bg-gradient-to-r from-primary/60 via-primary to-primary/60 transition-all duration-300 origin-left"
           style={{ 
-            transform: `scaleX(${typeof window !== 'undefined' ? Math.min(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight), 1) : 0})` 
+            transform: `scaleX(${scrollProgress})` 
           }}
         />
       </div>
