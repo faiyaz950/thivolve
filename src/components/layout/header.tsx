@@ -67,8 +67,8 @@ export function Header() {
             <Image
               src="/thivolvelogos.png"
               alt="Thivolve Logo"
-              width={100}
-              height={25}
+              width={60}
+              height={15}
               priority
               className="relative drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all duration-500 group-hover:scale-105"
             />
@@ -103,7 +103,7 @@ export function Header() {
             className="group hidden md:inline-flex relative border-2 border-white/20 text-white bg-white/5 hover:bg-primary/10 hover:text-white hover:border-primary/40 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 backdrop-blur-sm font-medium px-6 py-2.5 rounded-lg overflow-hidden"
             asChild
           >
-            <Link href="/#contact" className="relative flex items-center gap-2">
+            <Link href="#contact" className="relative flex items-center gap-2">
               {/* Background shimmer effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
               
