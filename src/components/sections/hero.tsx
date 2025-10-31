@@ -377,11 +377,7 @@ export function Hero() {
                   fontFamily: 'system-ui, -apple-system, sans-serif',
                   fontWeight: '400'
                 }}>
-                Thivolve transforms your vision into reality with innovative{' '}
-                <span className="text-red-500 font-semibold bg-gradient-to-r from-red-500 to-red-500/70 bg-clip-text text-transparent">IT solutions</span>,{' '}
-                <span className="text-red-500 font-semibold bg-gradient-to-r from-red-500 to-red-500/70 bg-clip-text text-transparent">healthcare technology</span>,{' '}
-                <span className="text-red-500 font-semibold bg-gradient-to-r from-red-500 to-red-500/70 bg-clip-text text-transparent">finance systems</span>, and{' '}
-                <span className="text-red-500 font-semibold bg-gradient-to-r from-red-500 to-red-500/70 bg-clip-text text-transparent">security services</span>.
+                Thivolve transforms your vision into reality with a suite of innovative IT solutions, from custom software and websites to engaging mobile apps and strategic digital marketing.
               </p>
             </div>
 
@@ -442,3 +438,5 @@ export function Hero() {
     </>
   );
 }
+
+    
