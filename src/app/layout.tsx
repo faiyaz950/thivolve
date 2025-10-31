@@ -30,22 +30,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [isLoading, setIsLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     // Simulate loading time or wait for initial assets
     const timer = setTimeout(() => {
       setIsLoading(false); // Trigger fade-out of loading screen
     }, 2000); // Duration loading screen is fully visible
 
-    // After loading screen fades out, show the content
-    const contentTimer = setTimeout(() => {
-      setShowContent(true);
-    }, 2200); // Should be slightly after loading finishes
-
     return () => {
       clearTimeout(timer);
-      clearTimeout(contentTimer);
     };
   }, []);
 
@@ -57,9 +52,8 @@ export default function RootLayout({
         <meta name="description" content="Innovative and reliable solutions by Btruss Services Pvt Ltd" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
-        <LoadingScreen show={isLoading} />
-        {/* Render children but control visibility to prevent hydration errors */}
-        <div style={{ visibility: showContent ? 'visible' : 'hidden' }}>
+        {isMounted && <LoadingScreen show={isLoading} />}
+        <div style={{ visibility: !isLoading && isMounted ? 'visible' : 'hidden' }}>
           {children}
         </div>
         <Toaster />
