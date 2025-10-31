@@ -99,7 +99,7 @@ export default {
         },
         'infinite-scroll': {
             from: { transform: 'translateX(0)' },
-            to: { transform: 'translateX(-50%)' },
+            to: { transform: 'translateX(-100%)' },
         },
         'parallax-scroll': {
           '0%': { transform: 'translateY(-10%)' },
@@ -114,7 +114,7 @@ export default {
         'scale-in': 'scaleIn 0.8s ease-out forwards',
         'letter-in': 'letter-in 0.6s ease-out forwards',
         'animated-gradient': 'animated-gradient 10s ease infinite',
-        'infinite-scroll': 'infinite-scroll 25s linear infinite',
+        'infinite-scroll': 'infinite-scroll 40s linear infinite',
         'parallax': 'parallax-scroll 15s ease-in-out infinite alternate',
   		}
   	}

@@ -14,6 +14,9 @@ const clients = [
   { name: "Logoipsum", logo: "/clients/logoipsum-6.svg" },
 ];
 
+// Duplicate clients for a seamless loop
+const duplicatedClients = [...clients, ...clients];
+
 export function OurClients() {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
@@ -48,25 +51,31 @@ export function OurClients() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12">
-          {clients.map((client, index) => (
-            <div
-              key={index}
-              className={cn(
-                "flex justify-center items-center transition-all duration-700 transform-gpu",
-                isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
-              )}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <Image
-                src={client.logo}
-                alt={client.name}
-                width={140}
-                height={40}
-                className="filter grayscale hover:grayscale-0 transition-all duration-500 hover:scale-110"
-              />
-            </div>
-          ))}
+        <div
+          className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
+        >
+          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 animate-infinite-scroll">
+            {duplicatedClients.map((client, index) => (
+              <li key={`client-${index}`}>
+                <div
+                  className={cn(
+                    "group relative flex items-center justify-center p-8 h-40 w-64 bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-2xl border border-white/5 overflow-hidden transition-all duration-700 hover:scale-105 hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20",
+                     isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                  )}
+                  style={{ transitionDelay: `${index * 50}ms` }}
+                >
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    width={158}
+                    height={48}
+                    className="filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
