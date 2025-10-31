@@ -20,19 +20,13 @@ export function Footer() {
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
-  }, []);
-
-  useEffect(() => {
+    
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
-  useEffect(() => {
-    const generateParticles = () => {
-      const newParticles: Particle[] = Array.from({ length: 20 }, (_, i) => ({
+    const newParticles: Particle[] = Array.from({ length: 20 }, (_, i) => ({
         id: i,
         style: {
           left: `${Math.random() * 100}%`,
@@ -40,10 +34,10 @@ export function Footer() {
           animationDuration: `${3 + Math.random() * 4}s`,
           animationDelay: `${Math.random() * 2}s`,
         }
-      }));
-      setParticles(newParticles);
-    };
-    generateParticles();
+    }));
+    setParticles(newParticles);
+
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   const socialLinks = [
@@ -69,10 +63,10 @@ export function Footer() {
       title: "Services",
       icon: Zap,
       links: [
-        { label: "IT Solutions", href: "/services/it-services" },
-        { label: "Healthcare Support", href: "/services/healthcare-services" },
-        { label: "Financial Services", href: "/services/credit-card-sales" },
-        { label: "AI Services", href: "/services/ai-services" },
+        { label: "Website Development", href: "/services/website-development" },
+        { label: "Mobile App Development", href: "/services/mobile-app-development" },
+        { label: "Graphics Design", href: "/services/graphics-design" },
+        { label: "SEO & Digital Marketing", href: "/services/seo-and-digital-marketing" },
       ]
     },
     {

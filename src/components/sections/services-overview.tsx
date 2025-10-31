@@ -1,16 +1,16 @@
 "use client";
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Smartphone, Globe, Palette, Megaphone } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { cn } from '@/lib/utils';
 
 const services = [
-    { slug: 'it-services#mobile-application-development', title: "Mobile App Development", description: "Engage your customers on the go with our intuitive, high-performance native and hybrid mobile apps for both iOS and Android." },
-    { slug: 'it-services#website-development', title: "Website Development", description: "We craft responsive, high-performance websites and complex web applications that drive user engagement and deliver business results." },
-    { slug: 'it-services#graphics-designing', title: "Web / Graphics Design", description: "Our creative team translates your brand's essence into compelling visual identities, from logos to polished UI/UX designs." },
-    { slug: 'it-services#digital-marketing', title: "SEO & Digital Marketing", description: "Expand your reach and generate qualified leads with our data-driven digital marketing, SEO, and content strategies." },
+    { slug: 'mobile-app-development', title: "Mobile App Development", description: "Engage your customers on the go with our intuitive, high-performance native and hybrid mobile apps for both iOS and Android.", icon: Smartphone },
+    { slug: 'website-development', title: "Website Development", description: "We craft responsive, high-performance websites and complex web applications that drive user engagement and deliver business results.", icon: Globe },
+    { slug: 'graphics-design', title: "Graphics Design", description: "Our creative team translates your brand's essence into compelling visual identities, from logos to polished UI/UX designs.", icon: Palette },
+    { slug: 'seo-and-digital-marketing', title: "SEO & Digital Marketing", description: "Expand your reach and generate qualified leads with our data-driven digital marketing, SEO, and content strategies.", icon: Megaphone },
 ];
 
 const ServiceCard = ({ service, index, isVisible }: {
@@ -26,6 +26,8 @@ const ServiceCard = ({ service, index, isVisible }: {
       return () => clearTimeout(timer);
     }
   }, [isVisible, index, hasAnimated]);
+  
+  const Icon = service.icon;
 
   return (
     <Link 
@@ -52,12 +54,11 @@ const ServiceCard = ({ service, index, isVisible }: {
       {/* Content */}
       <div className="relative">
         <div className="flex items-start justify-between mb-4">
-          <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors duration-300 flex-1">
-            {service.title}
-          </h3>
-          
-          {/* Icon container with enhanced styling */}
-          <div className="relative flex justify-center items-center ml-4">
+            <div className="p-3 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/10 group-hover:border-primary/30 transition-all duration-500 group-hover:scale-110 mr-4">
+              <Icon className="h-6 w-6 text-primary" />
+            </div>
+
+          <div className="relative flex justify-center items-center">
             <div className="relative p-3 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/10 group-hover:border-primary/30 transition-all duration-500 group-hover:scale-110">
               <ArrowRight className="h-5 w-5 text-primary group-hover:text-primary/90 transition-all duration-500 filter drop-shadow-lg group-hover:drop-shadow-2xl group-hover:translate-x-1" />
               
@@ -67,6 +68,10 @@ const ServiceCard = ({ service, index, isVisible }: {
           </div>
         </div>
         
+        <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors duration-300 mb-2">
+            {service.title}
+        </h3>
+
         <p className="text-sm text-neutral-400 group-hover:text-neutral-300 transition-colors duration-300 leading-relaxed mb-6">
           {service.description}
         </p>

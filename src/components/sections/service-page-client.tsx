@@ -198,7 +198,7 @@ answer: "Yes, we work with clients globally. We have experience managing project
         }
         ];
 
-export default function ServicePageClient({ service }: { service: Service }) {
+export function ServicePageClient({ service }: { service: Service }) {
         const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isContentVisible, setIsContentVisible] = useState(true);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
