@@ -208,8 +208,8 @@ export function Hero() {
                 <Image
                   src="/thivolvelogos.png"
                   alt="Thivolve Logo"
-                  width={80}
-                  height={80}
+                  width={100}
+                  height={100}
                   className="w-20 h-20 md:w-24 md:h-24 object-contain transition-all duration-300 group-hover:scale-105 drop-shadow-lg"
                 />
               </Link>
