@@ -15,9 +15,9 @@ export default function HomePage() {
       <main className="flex-grow">
         <Hero />
         <ServicesOverview />
+        <StatsSection />
         <AboutUs />
         <VideoSection />
-        <StatsSection />
         <OurWork />
         <ContactForm />
       </main>
