@@ -208,9 +208,9 @@ export function Hero() {
                 <Image
                   src="/thivolvelogos.png"
                   alt="Thivolve Logo"
-                  width={100}
-                  height={100}
-                  className="w-20 h-20 md:w-24 md:h-24 object-contain transition-all duration-300 group-hover:scale-105 drop-shadow-lg"
+                  width={150}
+                  height={150}
+                  className="w-24 h-24 md:w-32 md:h-32 object-contain transition-all duration-300 group-hover:scale-105 drop-shadow-lg"
                 />
               </Link>
 
@@ -310,7 +310,7 @@ export function Hero() {
         </div>
 
         {/* Enhanced Main Content */}
-        <div className="relative z-20 flex-1 flex items-center justify-center px-6">
+        <div className="relative z-20 flex-1 flex items-center justify-center px-6 mb-16">
           <div className={cn(
             "text-center max-w-6xl mx-auto transition-all duration-1000 transform",
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
