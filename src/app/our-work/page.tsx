@@ -177,7 +177,7 @@ const ProjectDetailCard = ({ project, index, isVisible }: { project: Project; in
       )}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
-      <div>
+      <div className="flex flex-col h-full">
         <div className="relative aspect-[16/9]">
           <Image
             src={project.imageUrl}
@@ -187,7 +187,7 @@ const ProjectDetailCard = ({ project, index, isVisible }: { project: Project; in
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
         </div>
-        <div className="p-8 md:p-12 flex flex-col justify-between">
+        <div className="p-8 md:p-10 flex flex-col justify-between flex-grow">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-primary/10 rounded-lg border border-primary/20">
@@ -195,22 +195,22 @@ const ProjectDetailCard = ({ project, index, isVisible }: { project: Project; in
               </div>
               <span className="text-sm font-semibold text-primary uppercase tracking-wider">{project.category}</span>
             </div>
-            <h3 className="text-3xl md:text-4xl font-black text-white mb-4">{project.title}</h3>
+            <h3 className="text-2xl md:text-3xl font-black text-white mb-4">{project.title}</h3>
             <p className="text-neutral-400 leading-relaxed mb-6">{project.detailedDescription}</p>
 
             <div className="space-y-6 mb-8">
               <div>
-                <h4 className="font-bold text-white mb-2">The Challenge</h4>
-                <p className="text-neutral-400 text-sm leading-relaxed">{project.problemStatement}</p>
+                <h4 className="font-bold text-white mb-2 text-lg">The Challenge</h4>
+                <p className="text-neutral-300 leading-relaxed">{project.problemStatement}</p>
               </div>
               <div>
-                <h4 className="font-bold text-white mb-2">Our Solution</h4>
-                <p className="text-neutral-400 text-sm leading-relaxed">{project.solution}</p>
+                <h4 className="font-bold text-white mb-2 text-lg">Our Solution</h4>
+                <p className="text-neutral-300 leading-relaxed">{project.solution}</p>
               </div>
             </div>
           </div>
           
-          <div>
+          <div className="mt-auto">
             <div className="p-4 bg-gradient-to-r from-primary/10 to-transparent rounded-xl border border-primary/10 mb-6">
                 <div className="flex items-center gap-3">
                     <div className="p-2 bg-primary/20 rounded-lg"><TrendingUp className="w-5 h-5 text-primary" /></div>
@@ -276,7 +276,7 @@ export default function OurWorkPage() {
 
                 <section className="py-20 md:py-32 bg-black">
                     <div className="container mx-auto px-6 max-w-screen-xl">
-                        <div className="grid lg:grid-cols-2 gap-16 md:gap-24">
+                        <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
                             {projectsData.map((project, index) => (
                                 <ProjectDetailCard key={project.title} project={project} index={index} isVisible={isVisible} />
                             ))}
