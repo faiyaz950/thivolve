@@ -43,8 +43,8 @@ export function Footer() {
   const socialLinks = [
     { icon: Facebook, href: "https://www.facebook.com/profile.php?id=100064775103394&mibextid=ZbWKwL", label: "Facebook", color: "hover:text-blue-400" },
     { icon: Twitter, href: "#", label: "Twitter", color: "hover:text-sky-400" },
-    { icon: Linkedin, href: "https://www.linkedin.com/company/btruss-services-pvt-ltd/", label: "LinkedIn", color: "hover:text-blue-500" },
-    { icon: Instagram, href: "https://www.instagram.com/btruss_services?igsh=MWxxdHA2Y3VteDF5bw==", label: "Instagram", color: "hover:text-pink-400" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/thivolve-services-pvt-ltd/", label: "LinkedIn", color: "hover:text-blue-500" },
+    { icon: Instagram, href: "https://www.instagram.com/thivolve_services?igsh=MWxxdHA2Y3VteDF5bw==", label: "Instagram", color: "hover:text-pink-400" },
     { icon: Youtube, href: "www.youtube.com/@faiyazmujtaba2598", label: "YouTube", color: "hover:text-red-500" },
   ];
 
@@ -169,7 +169,7 @@ export function Footer() {
                 <Link href="/" className="inline-block group">
                   <div className="relative p-4 rounded-3xl border border-primary/20 group-hover:border-primary/40 transition-all duration-700 group-hover:scale-110 bg-gradient-to-br from-neutral-900/20 to-neutral-900/5 backdrop-blur-sm">
                     <Image 
-                      src="/thiweblogo.png"
+                      src="/thivolvelogos.png"
                       alt="Thivolve Logo"
                       width={210}
                       height={70}

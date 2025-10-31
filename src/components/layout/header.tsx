@@ -65,7 +65,7 @@ export function Header() {
             {/* Logo glow effect */}
             <div className="absolute inset-0 bg-primary/20 rounded-lg opacity-0 group-hover:opacity-100 blur-lg transition-all duration-500 scale-110" />
             <Image
-              src="/thiweblogo.png"
+              src="/thivolvelogos.png"
               alt="Thivolve Logo"
               width={124}
               height={31}
