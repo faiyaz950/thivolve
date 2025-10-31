@@ -30,23 +30,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [isLoading, setIsLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     // Simulate loading time or wait for initial assets
-    const primaryTimer = setTimeout(() => {
+    const timer = setTimeout(() => {
       setIsLoading(false); // Trigger fade-out of loading screen
     }, 2000); // Duration loading screen is fully visible (logo scaled in)
 
-    // After fade-out animation completes, set content to visible to prevent overlap
-    // Fade-out is 0.5s (500ms)
-    const contentTimer = setTimeout(() => {
-      setShowContent(true);
-    }, 2000 + 500); // Total time before content is fully revealed and loading screen is gone
-
     return () => {
-      clearTimeout(primaryTimer);
-      clearTimeout(contentTimer);
+      clearTimeout(timer);
     };
   }, []);
 
@@ -59,10 +51,7 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         <LoadingScreen show={isLoading} />
-        {/* Render children but control visibility to prevent hydration errors */}
-        <div style={{ visibility: showContent ? 'visible' : 'hidden' }}>
-          {children}
-        </div>
+        {!isLoading && children}
         <Toaster />
       </body>
     </html>
