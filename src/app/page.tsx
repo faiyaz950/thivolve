@@ -14,9 +14,9 @@ export default function HomePage() {
       {/* Header component is integrated into Hero */}
       <main className="flex-grow">
         <Hero />
+        <ServicesOverview />
         <AboutUs />
         <VideoSection />
-        <ServicesOverview />
         <StatsSection />
         <OurWork />
         <ContactForm />
