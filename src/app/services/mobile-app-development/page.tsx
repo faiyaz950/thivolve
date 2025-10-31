@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -259,16 +258,16 @@ export default function MobileAppDevelopmentPage() {
                     </div>
 
                     <div className={cn(
-                        "relative z-20 text-center px-6 max-w-4xl mx-auto transition-all duration-1000",
+                        "relative z-20 text-center px-6 max-w-4xl mx-auto transition-all duration-1000 pt-20",
                         heroRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                     )}>
                         <div className="relative inline-block mb-6">
-                            <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-tight">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight">
                                 {renderSplitColorTitle(heroContent.subtitle)}
                             </h1>
                             <div className="absolute -top-6 -left-6 w-4 h-4 bg-primary rounded-full animate-ping" />
                         </div>
-                         <p className="text-lg md:text-xl text-neutral-300 leading-relaxed mb-12 max-w-3xl mx-auto">
+                         <p className="text-base md:text-lg text-neutral-300 leading-relaxed mb-12 max-w-3xl mx-auto">
                             {heroContent.description}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
