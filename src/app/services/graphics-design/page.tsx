@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -41,9 +42,9 @@ const useScrollAnimation = ({ threshold = 0.1 }: { threshold?: number }) => {
 
 
 const heroContent = {
-    title: "Graphics & UI/UX Design",
-    subtitle: "Crafting Visual Experiences That Captivate and Convert",
-    description: "Our creative team translates your brand's essence into compelling visual identities, from stunning logos and branding to intuitive, polished UI/UX designs that users love.",
+    title: "Make a Lasting Impression: Stunning Visuals for Your Brand",
+    subtitle: "Visualizing Your Brand: Creative Graphic Design Services",
+    description: "Apni brand identity ko mazboot karein aur audience ko engage karein professional aur impactful graphic designs ke saath.",
     image: {
         src: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxncmFwaGljJTIwZGVzaWdufGVufDB8fHx8MTc0ODQwMzYwMHww&ixlib=rb-4.1.0&q=80&w=1080",
         alt: "Abstract graphic design elements",
@@ -53,55 +54,71 @@ const heroContent = {
 
 const designServices = [
     {
-        title: "Brand Identity & Logo Design",
-        description: "We build memorable brands with unique logos, comprehensive style guides, and consistent visual language that resonates with your audience.",
+        title: "Logo Design & Brand Identity",
+        description: "Aapke business ke liye ek unique aur memorable logo design karna jo aapki values aur vision ko reflect karta hai. Hum complete brand guidelines bhi develop karte hain.",
         icon: <Award className="w-8 h-8" />,
-        tools: ["Illustrator", "Photoshop", "Figma"]
+        tools: ["Multiple logo concepts", "Brand style guide", "Stationery design"]
     },
     {
-        title: "UI/UX Design for Web & Mobile",
-        description: "Creating intuitive, user-friendly interfaces for websites and mobile apps that enhance usability and drive engagement.",
+        title: "Website UI/UX Design",
+        description: "User-friendly aur visually appealing website interfaces design karna. Isme wireframes, mockups aur prototypes shamil hain jo ek seamless user journey ensure karte hain.",
         icon: <AppWindow className="w-8 h-8" />,
-        tools: ["Figma", "Sketch", "Adobe XD", "InVision"]
+        tools: ["Wireframing", "Prototyping", "Mockups", "Responsive design"]
     },
     {
-        title: "Marketing & Advertising Design",
-        description: "Designing eye-catching visuals for social media, digital ads, brochures, and other marketing materials that boost your campaigns.",
+        title: "Marketing Collateral Design",
+        description: "Marketing materials jaise brochures, flyers, posters, business cards, banners aur presentations design karna jo aapke marketing efforts ko support karte hain.",
         icon: <TrendingUp className="w-8 h-8" />,
-        tools: ["Photoshop", "InDesign", "Canva"]
+        tools: ["Brochures", "Flyers", "Social media graphics", "Email templates"]
     },
      {
-        title: "Custom Illustrations & Icons",
-        description: "Bring your brand to life with custom illustrations and icon sets that add a unique and personal touch to your digital presence.",
-        icon: <Brush className="w-8 h-8" />,
-        tools: ["Illustrator", "Procreate", "Figma"]
+        title: "Social Media Graphics",
+        description: "Engaging aur brand-consistent graphics create karna aapke social media platforms ke liye (posts, stories, cover photos) jo audience ko attract aur retain karte hain.",
+        icon: <Users className="w-8 h-8" />,
+        tools: ["Custom templates", "Engaging post designs", "Ad creatives"]
+    },
+    {
+        title: "Infographic Design",
+        description: "Complex data aur information ko easy-to-understand aur visually appealing infographics mein transform karna. Ye content marketing aur knowledge sharing ke liye excellent tool hai.",
+        icon: <BarChart3 className="w-8 h-8" />,
+        tools: ["Data visualization", "Custom illustrations", "Brand consistency"]
+    },
+    {
+        title: "Print Design",
+        description: "Print media ke liye high-quality designs jaise magazine ads, newspaper ads, packaging design aur large format prints (hoardings) provide karna.",
+        icon: <Layers className="w-8 h-8" />,
+        tools: ["Magazine layouts", "Packaging design", "Outdoor advertising"]
     }
 ];
 
 const designProcess = [
-    { number: "01", title: "Discovery & Research", description: "We start by understanding your brand, target audience, and goals to build a solid creative foundation.", icon: <Search /> },
-    { number: "02", title: "Concept & Ideation", description: "Exploring various creative directions, sketching initial ideas, and creating mood boards to define the visual style.", icon: <Lightbulb /> },
-    { number: "03", title: "Design & Prototyping", description: "Bringing concepts to life with high-fidelity mockups and interactive prototypes for review and feedback.", icon: <Palette /> },
-    { number: "04", title: "Refinement & Delivery", description: "Iterating on the designs based on your feedback and delivering final assets in all necessary formats.", icon: <CheckCheck /> }
+    { number: "01", title: "Brief & Research", description: "Aapki requirements, target audience aur brand ki understanding.", icon: <Search /> },
+    { number: "02", title: "Concept Development", description: "Initial design concepts aur ideas explore karna.", icon: <Lightbulb /> },
+    { number: "03", title: "Feedback & Revisions", description: "Aapke feedback ke basis par designs ko refine karna.", icon: <MessageCircle /> },
+    { number: "04", title: "Finalization & Delivery", description: "High-resolution files aur assets provide karna.", icon: <CheckCheck /> }
 ];
 
 
 const faqs = [
     {
-        question: "What do you need to get started on a design project?",
-        answer: "To start, we typically need a design brief that outlines your goals, target audience, competitors, and any specific ideas or preferences you have. The more information you can provide, the better we can align our creative vision with yours."
-    },
-    {
-        question: "How many revisions are included in a design project?",
+        question: "Creative Excellence: Innovative aur aesthetically pleasing designs.",
         answer: "Our standard design process includes two to three rounds of revisions, which is usually sufficient to refine the design to your satisfaction. We work collaboratively to ensure your feedback is incorporated effectively at each stage."
     },
     {
-        question: "What files will I receive at the end of the project?",
+        question: "Experienced Designers: Talented graphic designers ki team.",
         answer: "You will receive all final design files in various formats suitable for web and print, including source files (e.g., AI, PSD, Figma), and web-optimized assets (e.g., JPG, PNG, SVG). For branding projects, we also provide a comprehensive brand style guide."
     },
     {
-        question: "Can you work with our existing brand guidelines?",
+        question: "Brand Consistency: Aapke brand identity ko har design mein maintain karna.",
         answer: "Absolutely. We are experienced in working with established brand guidelines to ensure all new creative work is consistent with your existing brand identity. We can also help you evolve your guidelines if needed."
+    },
+    {
+        question: "Timely Delivery: Projects ko time par deliver karna.",
+        answer: "Project timelines vary depending on the scope. A simple logo design might take a week, while a full branding package could take 3-4 weeks. We'll provide a detailed timeline upfront."
+    },
+     {
+        question: "Client Collaboration: Aapko design process mein shamil rakhna.",
+        answer: "Yes! We believe in a collaborative process. We'll keep you involved at every stage, from concept to final delivery, to ensure the final design meets your vision."
     }
 ];
 
@@ -110,10 +127,11 @@ export default function GraphicsDesignPage() {
     const heroRef = useScrollAnimation({ threshold: 0.1 });
     const servicesRef = useScrollAnimation({ threshold: 0.2 });
     const processRef = useScrollAnimation({ threshold: 0.2 });
+    const introRef = useScrollAnimation({ threshold: 0.2 });
     const faqRef = useScrollAnimation({ threshold: 0.2 });
     const ctaRef = useScrollAnimation({ threshold: 0.2 });
 
-    const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+    const [expandedFaq, setExpandedFaq] = useState<number | null>(0);
 
     const renderSplitColorTitle = (title: string) => {
         const words = title.split(' ');
@@ -169,19 +187,45 @@ export default function GraphicsDesignPage() {
                          <p className="text-lg md:text-xl text-neutral-300 leading-relaxed mb-12 max-w-3xl mx-auto">
                             {heroContent.description}
                         </p>
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            className="group relative border-2 border-primary/40 text-white hover:bg-primary/10 hover:text-white hover:border-primary/60 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 backdrop-blur-sm bg-gradient-to-r from-primary/10 to-transparent px-8 py-6 text-lg"
-                            asChild
-                        >
-                            <Link href="/#contact" className="flex items-center gap-3">
-                                <span className="font-semibold">Start Your Design Project</span>
-                                <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
-                            </Link>
-                        </Button>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button
+                                variant="default"
+                                size="lg"
+                                className="group relative bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 px-8 py-6 text-lg"
+                                asChild
+                            >
+                                <Link href="/#contact" className="flex items-center gap-3">
+                                    <span className="font-semibold">Get a Design Quote</span>
+                                    <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
+                                </Link>
+                            </Button>
+                             <Button
+                                variant="outline"
+                                size="lg"
+                                className="group relative border-2 border-primary/40 text-white hover:bg-primary/10 hover:text-white hover:border-primary/60 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 backdrop-blur-sm bg-gradient-to-r from-primary/10 to-transparent px-8 py-6 text-lg"
+                                asChild
+                            >
+                                <Link href="/#our-work" className="flex items-center gap-3">
+                                    <span className="font-semibold">Explore Our Portfolio</span>
+                                    <Palette className="h-6 w-6 transition-all duration-500 group-hover:rotate-12" />
+                                </Link>
+                            </Button>
+                        </div>
                     </div>
                 </section>
+
+                {/* Introduction Section */}
+                <section ref={introRef.ref} className="relative py-20 md:py-24 bg-black">
+                     <div className="relative container mx-auto px-6 max-w-4xl text-center">
+                         <p className={cn(
+                             "text-lg md:text-xl text-neutral-300 leading-relaxed transition-all duration-1000",
+                             introRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                         )}>
+                             Ek strong visual identity aapke business ko competition se alag karti hai aur aapke message ko effectively communicate karti hai. Hamari creative graphic design services aapke brand ki personality ko reflect karti hain aur aapke target audience par ek unforgettable impression chhodti hain. From logos to complete branding, hum aapki har design need ko pura karte hain.
+                         </p>
+                     </div>
+                </section>
+
 
                 {/* Design Services Section */}
                 <section
@@ -195,13 +239,10 @@ export default function GraphicsDesignPage() {
                             servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         )}>
                             <h2 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
-                                Our Design Services
+                                Our Graphic Designing Services
                             </h2>
-                            <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
-                                A full spectrum of creative services to build and enhance your brand's visual identity.
-                            </p>
                         </div>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {designServices.map((service, index) => (
                                 <div key={service.title} className={cn(
                                     "group relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-2xl border border-white/5 p-8 hover:border-white/10 transition-all duration-700 hover:scale-105",
@@ -237,11 +278,8 @@ export default function GraphicsDesignPage() {
                             processRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         )}>
                              <h2 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
-                                Our Creative Process
+                                Our Design Process
                             </h2>
-                            <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
-                                A streamlined and collaborative process to ensure we deliver outstanding creative work every time.
-                            </p>
                         </div>
                         <div className="relative">
                             <div className="absolute left-1/2 -translate-x-1/2 top-8 bottom-8 w-0.5 bg-gradient-to-b from-transparent via-primary/30 to-transparent hidden md:block" />
@@ -285,7 +323,7 @@ export default function GraphicsDesignPage() {
                             faqRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         )}>
                             <h2 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
-                                Frequently Asked Questions
+                                Why Choose Us for Graphic Designing?
                             </h2>
                         </div>
                         <div className="space-y-6">
@@ -333,10 +371,10 @@ export default function GraphicsDesignPage() {
                         ctaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                     )}>
                         <h2 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
-                            Ready to Elevate Your Brand?
+                            Let's Bring Your Brand to Life Visually!
                         </h2>
                         <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed mb-12">
-                            Let's create visuals that tell your story and drive results. Contact us for a free design consultation.
+                            Contact us for a creative solution.
                         </p>
                         <Button
                             variant="default"
@@ -345,7 +383,7 @@ export default function GraphicsDesignPage() {
                             asChild
                         >
                             <Link href="/#contact" className="flex items-center gap-3">
-                                <span className="font-semibold">Request a Quote</span>
+                                <span className="font-semibold">Contact Us</span>
                                 <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
                             </Link>
                         </Button>
