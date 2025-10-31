@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, CheckCircle, Smartphone, Star, Play, Award, Target, Zap, Heart, CreditCard, Shield, Globe, Sparkles, ChevronDown, Clock, Users, TrendingUp, Lightbulb, BarChart3, Rocket, MessageCircle, Calendar, CheckCheck, ArrowUp, Filter, Search, Layers, Settings, Monitor, PieChart, Trophy, Gauge, AppWindow, GitBranch, TestTube2 } from 'lucide-react';
+import { ArrowRight, CheckCircle, Smartphone, Star, Play, Award, Target, Zap, Heart, CreditCard, Shield, Globe, Sparkles, ChevronDown, Clock, Users, TrendingUp, Lightbulb, BarChart3, Rocket, MessageCircle, Calendar, CheckCheck, ArrowUp, Filter, Search, Layers, Settings, Monitor, PieChart, Trophy, Gauge, AppWindow, GitBranch, TestTube2, Palette, LifeBuoy } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -62,12 +62,12 @@ const appServices = [
         description: "Harness the elegance and precision of Apple's ecosystem to build stunning, high-performance iOS apps that delight users with buttery-smooth interactions and unwavering reliability. Leveraging the latest in SwiftUI and Objective-C, we create apps that are not only visually immersive but also fortified with enterprise-grade security, ensuring compliance with Apple's stringent guidelines and delivering native experiences that capitalize on features like ARKit, Core ML, and HealthKit for industries such as wellness and retail.",
         icon: <AppWindow className="w-8 h-8" />,
         keyFeatures: [
-            "Intuitive UI/UX design tailored to iOS Human Interface Guidelines.",
-            "Rigorous performance optimization for 60fps animations.",
-            "Streamlined App Store submission with ASO strategies.",
-            "Comprehensive post-launch support with 99.9% uptime monitoring.",
-            "Integration with Apple services: iCloud, Siri Shortcuts, Apple Pay.",
-            "Scalable architecture for future expansions like WatchOS or Vision Pro."
+            "Intuitive UI/UX design tailored to iOS Human Interface Guidelines, incorporating haptic feedback and gesture-based navigation for immersive engagement.",
+            "Rigorous performance optimization: Code profiling with Instruments, memory leak detection, and 60fps animations to handle high-demand scenarios like video streaming or real-time collaboration.",
+            "Streamlined App Store submission: Metadata optimization, beta testing via TestFlight, and ASO (App Store Optimization) strategies to boost discoverability and downloads.",
+            "Comprehensive post-launch support: Analytics integration (Firebase/Crashlytics), iterative updates based on user feedback, and 24/7 monitoring for uptime exceeding 99.9%.",
+            "Integration with Apple-specific services: iCloud syncing, Siri Shortcuts, and Apple Pay for seamless, secure transactions.",
+            "Scalability for growth: Modular architecture supporting in-app purchases, subscriptions, and future expansions like WatchOS or Vision Pro compatibility."
         ]
     },
     {
@@ -75,25 +75,25 @@ const appServices = [
         description: "Tap into the world's largest mobile platform with versatile, scalable Android apps designed for diverse devices and user behaviors. Our proficiency in Java and Kotlin empowers your business to reach billions, from budget smartphones in emerging markets to flagship devices, with robust features that support offline functionality, personalization, and integration with Google services for enhanced accessibility and monetization.",
         icon: <Smartphone className="w-8 h-8" />,
         keyFeatures: [
-            "Material Design 3 implementation for modern, adaptive interfaces.",
-            "Extensive device compatibility testing across 5,000+ configurations.",
-            "Google Play Store compliance with A/B testing and phased rollouts.",
-            "Robust backend integration with Firebase and Google Cloud.",
-            "Security enhancements including biometric auth and encryption.",
-            "Monetization tools like AdMob and in-app billing."
+            "Material Design 3 implementation for modern, adaptive interfaces with dynamic theming, elevation, and motion design that aligns with Android's ecosystem.",
+            "Extensive device compatibility testing across 5,000+ configurations using emulators and real hardware (e.g., Samsung, Pixel, OnePlus) to ensure flawless performance from Android 8.0 to 15+.",
+            "Google Play Store compliance: A/B testing for store listings, policy audits, and phased rollouts to minimize risks and maximize organic installs.",
+            "Robust backend integration: Firebase for real-time databases, Google Cloud for AI/ML, and API connections to CRMs like Salesforce for synchronized data flows.",
+            "Security enhancements: Biometric auth (fingerprint/face unlock), encrypted local storage, and vulnerability scanning with tools like OWASP ZAP.",
+            "Monetization tools: AdMob for interstitials/rewarded videos, in-app billing, and analytics-driven A/B testing to optimize revenue per user."
         ]
     },
     {
-        title: "Cross-Platform App Development",
+        title: "Cross-Platform App Development (e.g., React Native, Flutter)",
         description: "Accelerate your go-to-market strategy by developing feature-rich apps from a single codebase that perform natively on both iOS and Android, slashing development costs by up to 40% and timelines by 30% without sacrificing quality. Frameworks like React Native and Flutter enable code reusability while delivering pixel-perfect UIs and high-speed rendering, ideal for startups and mid-sized firms seeking broad reach with minimal maintenance overhead.",
         icon: <Layers className="w-8 h-8" />,
         keyFeatures: [
-            "Rapid development cycles with hot reloading.",
-            "Cost-effective solutions with shared business logic.",
-            "Native-like performance achieving 55-60fps animations.",
-            "Broader audience reach with simultaneous dual-store launches.",
-            "Over-the-air updates for swift bug fixes.",
-            "Ecosystem integrations for maps, payments, and notifications."
+            "Rapid development cycles: Hot reloading and modular components for quick iterations, reducing build times from weeks to days.",
+            "Cost-effective solutions: Shared logic for business rules, reducing team size needs while maintaining separate native modules for platform-specific tweaks.",
+            "Native-like performance: Dart (Flutter) or JavaScript (React Native) bridges for hardware access, achieving 55-60fps animations and low-latency interactions.",
+            "Broader audience reach: Simultaneous launches on dual stores, with unified analytics via Amplitude or Mixpanel for cross-platform insights.",
+            "Hotfix capabilities: Over-the-air updates without resubmissions, ensuring swift responses to bugs or features.",
+            "Ecosystem integrations: Third-party plugins for maps (Google Maps), payments (Stripe), and push notifications (OneSignal) across platforms."
         ]
     },
      {
@@ -101,12 +101,12 @@ const appServices = [
         description: "Bridge the gap between web and native with PWAs that offer app-like functionality—such as offline access, push notifications, and home-screen installation—without the silos of app stores. These platform-agnostic solutions are perfect for content-heavy apps, e-commerce pilots, or global audiences, providing instant updates and reduced development friction while leveraging modern web standards like Service Workers and WebAssembly.",
         icon: <Globe className="w-8 h-8" />,
         keyFeatures: [
-            "Offline capabilities via caching and background sync.",
-            "Push notifications for personalized re-engagement.",
-            "Responsive design for seamless scaling across devices.",
-            "No app store required, enabling direct deployment.",
-            "Performance boosts with Lighthouse scores targeting 90+.",
-            "SEO-friendly and crawlable content for organic discovery."
+            "Offline capabilities: Caching strategies with IndexedDB and background sync for uninterrupted experiences, even on spotty connections.",
+            "Push notifications via Web Push API, integrated with FCM/APNs for personalized re-engagement, boosting retention by 20-30%.",
+            "Responsive design: Adaptive layouts using CSS Grid/Flexbox and media queries for seamless scaling across devices, from mobiles to tablets.",
+            "No app store required: Direct deployment via HTTPS servers, with manifest files for install prompts and icon customization.",
+            "Performance boosts: Lighthouse-optimized scores (90+), lazy loading, and AMP integration for faster initial loads under 3 seconds.",
+            "Analytics and SEO: Built-in tracking with Google Analytics 4 and crawlable content for organic discoverability, unlike traditional apps."
         ]
     },
     {
@@ -114,12 +114,12 @@ const appServices = [
         description: "We don't just code apps—we architect experiences that are as aesthetically captivating as they are intuitively navigable, turning one-time users into lifelong advocates. Our design philosophy prioritizes empathy, blending behavioral psychology with visual storytelling to craft interfaces that reduce cognitive load, accelerate task completion, and elevate brand perception through micro-interactions and personalized flows.",
         icon: <Palette className="w-8 h-8" />,
         keyFeatures: [
-            "In-depth user research, personas, and journey maps.",
-            "Wireframing and interactive prototyping in Figma/Adobe XD.",
-            "User testing with heatmaps and A/B variants.",
-            "Visually appealing interfaces with custom iconography and animations.",
-            "Accessibility compliance following WCAG 2.2 standards.",
-            "Design system creation for consistency and reusability."
+            "In-depth user research: Surveys, interviews, and analytics audits to build detailed personas and journey maps.",
+            "Wireframing and prototyping: Low-to-high fidelity mocks in Figma or Adobe XD, with interactive prototypes for early validation.",
+            "User testing: Usability sessions with tools like UserTesting.com, heatmaps via Hotjar, and A/B variants to refine based on real feedback.",
+            "Visually appealing interfaces: Custom iconography, gradient animations, and dark/light mode toggles for modern, inclusive aesthetics.",
+            "Accessibility compliance: WCAG 2.2 standards, voice-over support, and color contrast checks for diverse users.",
+            "Design system creation: Reusable component libraries (e.g., Storybook) for consistency across app versions and future projects."
         ]
     },
     {
@@ -127,12 +127,12 @@ const appServices = [
         description: "Our commitment extends far beyond launch—we provide ongoing vigilance to keep your app resilient, relevant, and revenue-generating in a landscape of evolving OS updates, user expectations, and security threats. From proactive monitoring to feature roadmaps, we ensure your investment yields compounding returns, with SLAs guaranteeing 99.5% uptime and response times under 4 hours.",
         icon: <Settings className="w-8 h-8" />,
         keyFeatures: [
-            "Swift bug fixing with automated CI/CD pipelines.",
-            "Real-time performance monitoring for crashes and load times.",
-            "Regular security updates and vulnerability audits.",
-            "Quarterly feature enhancements based on analytics.",
-            "Dedicated technical support and knowledge bases.",
-            "Scalability tuning to support user growth from 10K to 1M+."
+            "Swift bug fixing: Automated CI/CD pipelines for regression testing and hotfixes, resolving 95% of issues within 24 hours.",
+            "Performance monitoring: Real-time dashboards with New Relic or Datadog, alerting on crashes, load times, and battery drain.",
+            "Security updates: Regular audits for vulnerabilities (e.g., OWASP Mobile Top 10), encryption upgrades, and compliance with GDPR/ CCPA.",
+            "Feature enhancements: Quarterly sprints for new integrations like AR/VR or AI chatbots, based on user analytics and market trends.",
+            "Technical support: Dedicated account managers, knowledge bases, and training webinars for your in-house team.",
+            "Scalability tuning: Cloud migrations (AWS Amplify/Azure) and load balancing to support user growth from 10K to 1M+ MAUs."
         ]
     }
 ];
@@ -146,18 +146,18 @@ const developmentProcess = [
     { number: "06", title: "Post-Launch Support", description: "90-day warranty for refinements, followed by retainer options; includes analytics reviews, OS update adaptations, and growth hacking sessions to iterate based on post-launch data.", icon: <LifeBuoy /> }
 ];
 
-import { Cpu, LifeBuoy } from 'lucide-react';
+import { Cpu } from 'lucide-react';
 
 const whyChooseUsData = [
     {
         icon: Cpu,
         title: "Experienced Team",
-        description: "A 25+ member squad of certified developers (Apple/Google certified), designers, and PMs with 7-15 years in mobile, versed in niches from gaming to telemedicine."
+        description: "A 25+ member squad of certified developers (Apple/Google certified), designers, and PMs with 7-15 years in mobile, hailing from top firms like Google and Meta, versed in niches from gaming to telemedicine."
     },
     {
         icon: Zap,
         title: "Cutting-Edge Technologies",
-        description: "We wield the latest—Swift 6, Kotlin Multiplatform, Flutter 3.0, and emerging tools like Jetpack Compose—for apps that are future-proof."
+        description: "We wield the latest—Swift 6, Kotlin Multiplatform, Flutter 3.0, and emerging tools like Jetpack Compose—for apps that are future-proof against trends like 5G, foldables, and edge AI."
     },
     {
         icon: Users,
@@ -177,7 +177,7 @@ const whyChooseUsData = [
     {
         icon: TrendingUp,
         title: "Proven Scalability & ROI",
-        description: "From bootstrapped MVPs ($10K starters) to enterprise suites ($100K+), our apps drive 2-4x engagement lifts, backed by case studies."
+        description: "From bootstrapped MVPs ($10K starters) to enterprise suites ($100K+), our apps drive 2-4x engagement lifts, backed by case studies like a fintech app hitting 500K downloads in year one."
     },
     {
         icon: Sparkles,
@@ -376,7 +376,7 @@ export default function MobileAppDevelopmentPage() {
                                 Our Development Process
                             </h2>
                             <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
-                                Our agile, iterative process is designed for flexibility and excellence, typically spanning 8-16 weeks for full-cycle projects.
+                                Our agile, iterative process is designed for flexibility and excellence, typically spanning 8-16 weeks for full-cycle projects, with bi-weekly demos to foster collaboration and mitigate risks.
                             </p>
                         </div>
                         <div className="relative">
@@ -423,7 +423,7 @@ export default function MobileAppDevelopmentPage() {
                                 Why Choose Us for Mobile App Development?
                             </h2>
                             <p className="text-lg md:text-xl text-neutral-400 max-w-4xl mx-auto leading-relaxed">
-                                In a sea of development firms, we stand out by blending artistry, engineering, and strategy to deliver apps that don't just function—they flourish.
+                                In a sea of development firms, we stand out by blending artistry, engineering, and strategy to deliver apps that don't just function—they flourish. Here's what powers our 98% client retention rate.
                             </p>
                         </div>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
