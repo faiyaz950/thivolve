@@ -7,8 +7,9 @@ import { Button } from '@/components/ui/button';
 import { MobileNav } from '@/components/layout/mobile-nav';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { ArrowRight, Star, Menu, Play } from 'lucide-react';
+import { ArrowRight, Star, Menu, Play, Smartphone, Globe, Code, Palette, Megaphone, Bot, ChevronDown } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 
 const heroMainHeadlineText = "WE HELP BUSINESS";
 const animatedSentences = [
@@ -31,7 +32,7 @@ const heroImages = [
     hint: "ux design process"
   },
   {
-    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwYW5hbHl0aWNzfGVufDB8fHx8MTc0ODg1MDAwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwYW5hbHl0aWNzfGVufDB8fHx8fDE3NDg4NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
     alt: "Data analytics dashboard",
     hint: "data analytics"
   },
@@ -45,7 +46,24 @@ const heroImages = [
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
+  { href: "/our-work", label: "Our Work" },
+  { href: "/#contact", label: "Contact Us" },
+];
+
+const services = [
+    { slug: 'mobile-app-development', title: "Mobile App Development", icon: Smartphone },
+    { slug: 'website-development', title: "Website Development", icon: Globe },
+    { slug: 'custom-software-development', title: "Custom Software Development", icon: Code },
+    { slug: 'graphics-design', title: "Graphics Design", icon: Palette },
+    { slug: 'seo-and-digital-marketing', title: "SEO & Digital Marketing", icon: Megaphone },
+    { slug: 'ai-services', title: "AI Services", icon: Bot },
+];
+
+const mobileNavLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about-us", label: "About Us" },
   { href: "/#services", label: "Services" },
+  ...services.map(s => ({ href: `/services/${s.slug}`, label: `  ${s.title}` })),
   { href: "/our-work", label: "Our Work" },
   { href: "/#contact", label: "Contact Us" },
 ];
@@ -228,6 +246,31 @@ export function Hero() {
                     <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-red-500/5 to-red-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-95 group-hover:scale-100" />
                   </Link>
                 ))}
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <div
+                      className="group relative text-sm font-medium text-white/80 hover:text-white transition-all duration-300 cursor-pointer flex items-center gap-1 py-2 px-3"
+                    >
+                      <span className="relative z-10">Services</span>
+                      <ChevronDown className="h-4 w-4 transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                      <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-red-500/5 to-red-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-95 group-hover:scale-100" />
+                    </div>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-black/80 backdrop-blur-md border-white/10 text-white">
+                    {services.map((service) => {
+                      const Icon = service.icon;
+                      return (
+                        <DropdownMenuItem key={service.slug} asChild>
+                          <Link href={`/services/${service.slug}`} className="flex items-center gap-2 cursor-pointer">
+                            <Icon className="h-4 w-4 text-primary" />
+                            <span>{service.title}</span>
+                          </Link>
+                        </DropdownMenuItem>
+                      );
+                    })}
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </nav>
 
               {/* Enhanced CTA & Mobile Menu */}
@@ -244,49 +287,14 @@ export function Hero() {
                   </Link>
                 </Button>
 
-                <Button
-                  variant="ghost" 
-                  size="icon"
-                  className="md:hidden text-white hover:bg-white/10 hover:scale-110 transition-all duration-300 h-8 w-8"
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                >
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          {/* Enhanced Mobile Navigation */}
-          <div className={cn(
-            "md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-2xl border-b border-white/10 transition-all duration-500 transform origin-top",
-            mobileMenuOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"
-          )}>
-            <nav className="container mx-auto px-6 py-6">
-              <div className="flex flex-col space-y-4">
-                {navLinks.map((link, index) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-white hover:text-red-500 transition-all duration-300 py-3 text-lg font-medium border-b border-white/5 hover:border-red-500/20 hover:pl-2 hover:bg-red-500/5 rounded-lg px-4"
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <div className="pt-4 border-t border-white/10">
-                  <Button
-                    variant="outline"
-                    className="w-full border-red-500/50 bg-gradient-to-r from-red-500/10 to-transparent text-white hover:bg-red-500/20 hover:border-red-500/70 font-medium"
-                    asChild
-                  >
-                    <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>
-                      Book a Meeting
-                    </Link>
-                  </Button>
+                <div className="md:hidden">
+                  <MobileNav 
+                    navLinks={mobileNavLinks} 
+                    triggerClassName="text-white hover:bg-white/10 transition-all duration-300 border border-white/20 hover:border-white/40 backdrop-blur-sm" 
+                  />
                 </div>
               </div>
-            </nav>
+            </div>
           </div>
         </header>
 
@@ -310,7 +318,7 @@ export function Hero() {
         </div>
 
         {/* Enhanced Main Content */}
-        <div className="relative z-20 flex-1 flex items-center justify-center px-6 mb-16">
+        <div className="relative z-20 flex-1 flex items-center justify-center px-6 mb-24">
           <div className={cn(
             "text-center max-w-6xl mx-auto transition-all duration-1000 transform",
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
