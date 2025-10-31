@@ -46,12 +46,11 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Title and meta description can be managed here for client components or via Next.js Metadata API for server components */}
-        <title>Thivolve Digital Hub</title>
-        <meta name="description" content="Innovative and reliable solutions by Thivolve Services Pvt Ltd" />
+        <title>Btruss Digital Hub</title>
+        <meta name="description" content="Innovative and reliable solutions by Btruss Services Pvt Ltd" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
-        <LoadingScreen show={isLoading} />
-        {!isLoading && children}
+        {isLoading ? <LoadingScreen /> : children}
         <Toaster />
       </body>
     </html>
