@@ -59,11 +59,7 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         <LoadingScreen show={isLoading} />
-        {/* Render children only after loading screen is set to hide or content is ready */}
-        {/* To prevent flash of unstyled content or layout shift, 
-            you might initially hide children or use the showContent state.
-            A common pattern is to apply an opacity or visibility style to children based on loading state.
-        */}
+        {/* Render children but control visibility to prevent hydration errors */}
         <div style={{ visibility: showContent ? 'visible' : 'hidden' }}>
           {children}
         </div>
