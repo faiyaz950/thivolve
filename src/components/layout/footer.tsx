@@ -95,8 +95,8 @@ export function Footer() {
     {
       icon: Mail,
       label: "Email",
-      value: "info@btrussservices.com",
-      href: "mailto:info@btrussservices.com",
+      value: "info@thivolveservices.com",
+      href: "mailto:info@thivolveservices.com",
       description: "Get in touch for partnerships"
     },
     {
@@ -170,7 +170,7 @@ export function Footer() {
                   <div className="relative p-4 rounded-3xl border border-primary/20 group-hover:border-primary/40 transition-all duration-700 group-hover:scale-110 bg-gradient-to-br from-neutral-900/20 to-neutral-900/5 backdrop-blur-sm">
                     <Image 
                       src="/thiweblogo.png"
-                      alt="Btruss Logo"
+                      alt="Thivolve Logo"
                       width={210}
                       height={70}
                       className="relative z-10"
@@ -188,7 +188,7 @@ export function Footer() {
                     Innovative Solutions for Tomorrow
                   </h3>
                   <p className="text-neutral-400 leading-relaxed text-lg font-light">
-                    Btruss delivers excellence in IT, healthcare, and financial services with cutting-edge technology and unmatched expertise. Transforming businesses through digital innovation.
+                    Thivolve delivers excellence in IT, healthcare, and financial services with cutting-edge technology and unmatched expertise. Transforming businesses through digital innovation.
                   </p>
                 </div>
                 
@@ -353,7 +353,7 @@ export function Footer() {
           <div className="flex flex-col lg:flex-row items-center justify-between space-y-6 lg:space-y-0">
             <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8">
               <p className="text-neutral-500 text-sm font-medium">
-                © {currentYear} <span className="text-primary font-semibold">Btruss Services Pvt Ltd</span>. All rights reserved.
+                © {currentYear} <span className="text-primary font-semibold">Thivolve Services Pvt Ltd</span>. All rights reserved.
               </p>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-primary/60 rounded-full animate-pulse" />

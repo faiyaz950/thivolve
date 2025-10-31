@@ -291,19 +291,19 @@ const galleryImages: CultureImage[] = [
 
 const testimonials: Testimonial[] = [
 {
-  quote: "Btruss transformed our digital presence with a stunning website and a brilliant marketing strategy. Their team is professional, creative, and truly dedicated to client success.",
+  quote: "Thivolve transformed our digital presence with a stunning website and a brilliant marketing strategy. Their team is professional, creative, and truly dedicated to client success.",
   name: "Syed Sayam Hussain",
   role: "CEO of Globolosys Fashion",
   image: "https://placehold.co/100x100.png",
 },
 {
-  quote: "The mobile app developed by Btruss has been a game-changer for our business. It's intuitive, fast, and our users love it. The development process was seamless from start to finish.",
+  quote: "The mobile app developed by Thivolve has been a game-changer for our business. It's intuitive, fast, and our users love it. The development process was seamless from start to finish.",
   name: "Tp Singh",
   role: "Founder of Gts Car Rental",
   image: "https://placehold.co/100x100.png",
 },
 {
-  quote: "Working with Btruss on our AI integration project was a fantastic experience. They delivered a solution that has significantly improved our operational efficiency.",
+  quote: "Working with Thivolve on our AI integration project was a fantastic experience. They delivered a solution that has significantly improved our operational efficiency.",
   name: "Harsh Singh Rajput",
   role: "CTO of Datawise",
   image: "https://placehold.co/100x100.png",
@@ -356,7 +356,7 @@ className="relative min-h-screen flex items-center justify-center overflow-hidde
 <div className="absolute inset-0">
 <Image
 src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHRlYW18ZW58MHx8fHwxNzQ4ODUwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080"
-alt="Btruss team working collaboratively"
+alt="Thivolve team working collaboratively"
 fill
 className="object-cover opacity-20"
 priority
@@ -389,7 +389,7 @@ heroRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
 >
 <div className="relative inline-block mb-6">
 <h1 className="text-6xl sm:text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 tracking-tight">
-About Btruss
+About Thivolve
 </h1>
 <div className="absolute -top-6 -left-6 w-4 h-4 bg-primary rounded-full animate-ping" />
 <div
@@ -453,7 +453,7 @@ whoWeAreRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
 <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-50" />
 <div className="relative space-y-6 text-lg md:text-xl text-neutral-300 leading-relaxed">
 <p>
-At <span className="text-primary font-semibold">Btruss Services Pvt Ltd</span>, we stand as a dynamic multi-service company built on the foundation of innovation, reliability, and unwavering commitment to client success. Established with a clear vision to bridge the gap between cutting-edge technology and essential human services, we have emerged as a trusted partner for businesses and individuals seeking comprehensive solutions under one roof.
+At <span className="text-primary font-semibold">Thivolve Services Pvt Ltd</span>, we stand as a dynamic multi-service company built on the foundation of innovation, reliability, and unwavering commitment to client success. Established with a clear vision to bridge the gap between cutting-edge technology and essential human services, we have emerged as a trusted partner for businesses and individuals seeking comprehensive solutions under one roof.
 </p>
 <p>
 What sets us apart is our unique ability to excel across multiple industries while maintaining the highest standards of quality and innovation. We are not just another service provider; we are <span className="text-primary font-semibold">solution architects</span> who understand that today's businesses need partners who can adapt, evolve, and deliver across various domains—from cutting-edge IT services and mobile app development to compassionate healthcare solutions, secure payment processing, and comprehensive insurance coverage.
@@ -495,7 +495,7 @@ From The Founder's Desk
 </h2>
 <div className="space-y-6 text-lg text-neutral-300 leading-relaxed">
 <p>
-At Btruss Services Pvt Ltd, we are committed to shaping the future by delivering innovative solutions that make a meaningful difference in our clients' lives. Our greatest strength lies in our exceptional team of dedicated professionals who bring passion, expertise, and unwavering commitment to every project we undertake.
+At Thivolve Services Pvt Ltd, we are committed to shaping the future by delivering innovative solutions that make a meaningful difference in our clients' lives. Our greatest strength lies in our exceptional team of dedicated professionals who bring passion, expertise, and unwavering commitment to every project we undertake.
 </p>
 <p>
 Since our inception, we have built more than just a company – we have cultivated a family of talented individuals united by a shared vision of excellence. Their relentless pursuit of innovation and client satisfaction is what sets us apart in today's competitive landscape.
@@ -509,7 +509,7 @@ Together, we are building a future where innovation meets responsibility, where 
 </div>
 <div className="mt-10 pt-6 border-t border-white/10">
 <p className="font-bold text-xl text-white mb-1">Imtiyaz Ali</p>
-<p className="text-primary italic font-medium">CEO & Founder, Btruss Services Pvt Ltd</p>
+<p className="text-primary italic font-medium">CEO & Founder, Thivolve Services Pvt Ltd</p>
 </div>
 </div>
 </div>
@@ -524,7 +524,7 @@ ceoRef.isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
 <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm">
 <Image
 src="/mintubhai.jpeg"
-alt="Imtiyaz Ali, CEO of Btruss Services"
+alt="Imtiyaz Ali, CEO of Thivolve Services"
 width={500}
 height={600}
 className="w-full h-auto object-cover transition-all duration-700 group-hover:scale-105 filter group-hover:brightness-110"

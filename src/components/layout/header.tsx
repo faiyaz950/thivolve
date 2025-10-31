@@ -66,7 +66,7 @@ export function Header() {
             <div className="absolute inset-0 bg-primary/20 rounded-lg opacity-0 group-hover:opacity-100 blur-lg transition-all duration-500 scale-110" />
             <Image
               src="/thiweblogo.png"
-              alt="Btruss Logo"
+              alt="Thivolve Logo"
               width={124}
               height={31}
               priority

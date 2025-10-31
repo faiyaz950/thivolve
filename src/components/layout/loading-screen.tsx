@@ -96,7 +96,7 @@ export function LoadingScreen({ className, show = true, ...props }: LoadingScree
             
             <Image
               src="/thiweblogo.png"
-              alt="Btruss Logo"
+              alt="Thivolve Logo"
               width={300}
               height={70}
               className="relative z-10 filter drop-shadow-2xl"

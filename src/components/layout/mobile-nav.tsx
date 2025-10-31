@@ -46,7 +46,7 @@ export function MobileNav({ navLinks, triggerClassName }: MobileNavProps) {
             <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
               <Image 
                 src="/thiweblogo.png" 
-                alt="Btruss Logo" 
+                alt="Thivolve Logo" 
                 width={120} 
                 height={30}
                 className="h-8 w-auto drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"

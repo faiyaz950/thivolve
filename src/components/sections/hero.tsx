@@ -207,7 +207,7 @@ export function Hero() {
               <Link href="/" className="relative group">
                 <Image
                   src="/thiweblogo.png"
-                  alt="Btruss Logo"
+                  alt="Thivolve Logo"
                   width={80}
                   height={80}
                   className="w-20 h-20 md:w-24 md:h-24 object-contain transition-all duration-300 group-hover:scale-105 drop-shadow-lg"
@@ -377,7 +377,7 @@ export function Hero() {
                   fontFamily: 'system-ui, -apple-system, sans-serif',
                   fontWeight: '400'
                 }}>
-                Btruss transforms your vision into reality with innovative{' '}
+                Thivolve transforms your vision into reality with innovative{' '}
                 <span className="text-red-500 font-semibold bg-gradient-to-r from-red-500 to-red-500/70 bg-clip-text text-transparent">IT solutions</span>,{' '}
                 <span className="text-red-500 font-semibold bg-gradient-to-r from-red-500 to-red-500/70 bg-clip-text text-transparent">healthcare technology</span>,{' '}
                 <span className="text-red-500 font-semibold bg-gradient-to-r from-red-500 to-red-500/70 bg-clip-text text-transparent">finance systems</span>, and{' '}

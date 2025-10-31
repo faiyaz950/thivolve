@@ -46,7 +46,7 @@ export function AboutUs() {
         )}>
           <div className="relative inline-block">
             <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
-              About Btruss
+              About Thivolve
             </h2>
             
             {/* Decorative elements */}
@@ -116,7 +116,7 @@ export function AboutUs() {
               
               <div className="space-y-6">
                 <p className="text-lg text-neutral-300 leading-relaxed">
-                  At Btruss, we believe innovation is the key to unlocking potential. We are a modern IT, healthcare, and financial services company, specializing in crafting bespoke solutions that drive growth and efficiency.
+                  At Thivolve, we believe innovation is the key to unlocking potential. We are a modern IT, healthcare, and financial services company, specializing in crafting bespoke solutions that drive growth and efficiency.
                 </p>
                 <p className="text-lg text-neutral-300 leading-relaxed">
                   Our team thrives on tackling complex challenges with creative strategies, ensuring our clients stay ahead in today's dynamic business landscape. We deliver solutions that are innovative, reliable, and impactful.

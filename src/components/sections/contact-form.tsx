@@ -107,7 +107,7 @@ export function ContactForm() {
   }, [state, toast, form]);
 
   const contactDetails = [
-    { icon: Mail, text: "info@btrussservices.com", href: "mailto:info@btrussservices.com" },
+    { icon: Mail, text: "info@thivolveservices.com", href: "mailto:info@thivolveservices.com" },
     { icon: Phone, text: "+91 93552 46234", href: "tel:+919355246234" },
     { icon: MapPin, text: "Plot NO 6,\n" +
             "First Floor Bhagwati Garden Extension, Dwarka Mor New Delhi, 110059", href: "#" },
@@ -212,7 +212,7 @@ export function ContactForm() {
     formAction(formData);
               })}
     className="relative p-8 bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-3xl border border-white/5 shadow-2xl overflow-hidden"
-    id="contact-btruss-form"
+    id="contact-thivolve-form"
     style={{
             background: 'linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.8) 100%)'
               }}
