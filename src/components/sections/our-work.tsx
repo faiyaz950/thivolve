@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -136,10 +137,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         {/* View Case Study Link - Better Mobile Touch Target */}
         <div className="pt-1 sm:pt-2">
           <Link
-            href={href}
+            href="/our-work"
             className="inline-flex items-center gap-1.5 sm:gap-2 text-primary hover:text-white text-xs sm:text-sm font-bold transition-all duration-500 py-2 sm:py-0"
           >
-            <span>View Case Study</span>
+            <span>View All Projects</span>
             <ArrowRight className="h-3 sm:h-4 w-3 sm:w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
@@ -194,7 +195,7 @@ const projectsData = [
     results: '40% increase in operational efficiency',
     technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
     duration: '6 months',
-    href: '#our-work',
+    href: '/our-work',
   },
   {
     imageUrl: '/testseries.jpeg',
@@ -205,7 +206,7 @@ const projectsData = [
     results: 'Used by 10k+ students with 92% satisfaction rate',
     technologies: ['.NET', 'WPF', 'SQLite', 'WinForms'],
     duration: '5 months',
-    href: '#our-work',
+    href: '/our-work',
   },
   {
     imageUrl: '/gtslogo.png',
@@ -216,7 +217,7 @@ const projectsData = [
     results: 'Tripled user base within 3 months of launch | 60,000+ downloads on Play Store',
     technologies: ['Flutter', 'Firebase', 'Google Maps API', 'Stripe'],
     duration: '7 months',
-    href: '#our-work',
+    href: '/our-work',
   },
   {
     imageUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
@@ -227,7 +228,7 @@ const projectsData = [
     results: 'Increased conversion rate by 65%',
     technologies: ['Next.js', 'TailwindCSS', 'AI/ML', 'Stripe'],
     duration: '3 months',
-    href: '#our-work',
+    href: '/our-work',
   },
   {
     imageUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
@@ -238,7 +239,7 @@ const projectsData = [
     results: 'Featured on Play Store | 4.8 star rating with 25k+ reviews',
     technologies: ['Unity', 'C#', 'Firebase', 'AdMob'],
     duration: '4 months',
-    href: '#our-work',
+    href: '/our-work',
   },
   {
     imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
@@ -249,7 +250,7 @@ const projectsData = [
     results: 'Saved 1,200+ man-hours per year',
     technologies: ['Laravel', 'Vue.js', 'AI/ML', 'Docker'],
     duration: '9 months',
-    href: '#our-work',
+    href: '/our-work',
   },
   {
     imageUrl: '/digi.png',
@@ -260,7 +261,7 @@ const projectsData = [
     results: '200% increase in leads in 3 months',
     technologies: ['SEO', 'PPC', 'Social Media', 'Content Marketing'],
     duration: 'Ongoing',
-    href: '#our-work',
+    href: '/our-work',
   },
   {
     imageUrl: '/graph.png',
@@ -271,7 +272,7 @@ const projectsData = [
     results: '35% increase in brand recognition',
     technologies: ['Adobe Illustrator', 'Photoshop', 'InDesign', 'Figma'],
     duration: '2 months',
-    href: '#our-work',
+    href: '/our-work',
   }
 ];
 
@@ -315,9 +316,17 @@ export function OurWork() {
 
         {/* Project Cards - Responsive Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
-          {projectsData.map((project, index) => (
+          {projectsData.slice(0, 3).map((project, index) => (
             <ProjectCard key={project.title} {...project} index={index} isVisible={isVisible} />
           ))}
+        </div>
+        <div className="text-center mt-12">
+            <Button asChild size="lg" className="group relative bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 px-8 py-6 text-lg">
+                <Link href="/our-work" className="flex items-center gap-3">
+                    <span>View All Our Work</span>
+                    <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
+                </Link>
+            </Button>
         </div>
       </div>
     </section>

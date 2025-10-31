@@ -12,7 +12,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
   { href: "/#services", label: "Services" },
-  { href: "/#our-work", label: "Our Work" },
+  { href: "/our-work", label: "Our Work" },
   { href: "/#contact", label: "Contact Us" },
 ];
 
@@ -67,8 +67,8 @@ export function Header() {
             <Image
               src="/thivolvelogos.png"
               alt="Thivolve Logo"
-              width={80}
-              height={20}
+              width={100}
+              height={25}
               priority
               className="relative drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all duration-500 group-hover:scale-105"
             />

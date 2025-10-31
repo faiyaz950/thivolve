@@ -46,7 +46,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
   { href: "/#services", label: "Services" },
-  { href: "/#our-work", label: "Our Work" },
+  { href: "/our-work", label: "Our Work" },
   { href: "/#contact", label: "Contact Us" },
 ];
 
@@ -402,7 +402,7 @@ export function Hero() {
                 className="group relative border-2 border-red-500/60 text-white hover:bg-red-500/20 hover:text-white hover:border-red-500/80 transition-all duration-700 hover:scale-110 hover:shadow-2xl hover:shadow-red-500/30 backdrop-blur-lg bg-gradient-to-r from-red-500/10 via-transparent to-red-500/10 px-8 py-6 text-lg font-semibold overflow-hidden"
                 asChild
               >
-                <Link href="/#our-work" className="flex items-center gap-3 relative z-10"
+                <Link href="/our-work" className="flex items-center gap-3 relative z-10"
                   style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
                   <span>View Our Work</span>
                   <div className="flex items-center gap-1">
@@ -438,5 +438,3 @@ export function Hero() {
     </>
   );
 }
-
-    

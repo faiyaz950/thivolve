@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -76,7 +77,7 @@ export function Footer() {
       icon: Globe,
       links: [
         { label: "Blog", href: "#" },
-        { label: "Case Studies", href: "/#our-work" },
+        { label: "Case Studies", href: "/our-work" },
         { label: "Support", href: "/#contact" },
         { label: "Documentation", href: "#" },
       ]
