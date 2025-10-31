@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, CheckCircle, Code, Star, Award, Target, Zap, Globe, Sparkles, ChevronDown, Clock, Users, TrendingUp, Lightbulb, BarChart3, Rocket, MessageCircle, Calendar, Settings, PieChart, Trophy, Gauge, GitBranch, TestTube2, Search, Cpu, Database, Palette, Smartphone, Shield, Monitor, CreditCard } from 'lucide-react';
+import { ArrowRight, CheckCircle, Code, Star, Award, Target, Zap, Globe, Sparkles, ChevronDown, Clock, Users, TrendingUp, Lightbulb, BarChart3, Rocket, MessageCircle, Calendar, Settings, PieChart, Trophy, Gauge, GitBranch, TestTube2, Search, Cpu, Database, Palette, Smartphone, Shield, Monitor, CreditCard, Layers, LifeBuoy } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -143,8 +143,6 @@ const developmentProcess = [
     { number: "06", title: "Deployment", description: "Secure go-live on your preferred hosting (AWS, Vercel, or shared), with staging environments for final approvals, DNS configuration, and SSL certificate installation for HTTPS.", icon: <Rocket /> },
     { number: "07", title: "Post-Launch Support", description: "30-day free warranty for tweaks, followed by optional retainers; includes training sessions on CMS usage and quarterly audits to adapt to new trends like PWAs or AI chatbots.", icon: <LifeBuoy /> }
 ];
-
-import { LifeBuoy } from 'lucide-react';
 
 
 const whyChooseUsData = [
