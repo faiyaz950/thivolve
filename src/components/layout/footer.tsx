@@ -169,7 +169,7 @@ export function Footer() {
                 <Link href="/" className="inline-block group">
                   <div className="relative p-4 rounded-3xl border border-primary/20 group-hover:border-primary/40 transition-all duration-700 group-hover:scale-110 bg-gradient-to-br from-neutral-900/20 to-neutral-900/5 backdrop-blur-sm">
                     <Image 
-                      src="/whitelogo.png"
+                      src="/thiweblogo.png"
                       alt="Btruss Logo"
                       width={210}
                       height={70}

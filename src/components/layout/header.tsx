@@ -22,19 +22,25 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const isCurrentlyScrolled = window.scrollY > 20;
+      if (isCurrentlyScrolled !== isScrolled) {
+        setIsScrolled(isCurrentlyScrolled);
+      }
+
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (totalHeight > 0) {
-        setScrollProgress(window.scrollY / totalHeight);
+        const newScrollProgress = Math.min(window.scrollY / totalHeight, 1);
+        setScrollProgress(newScrollProgress);
       } else {
         setScrollProgress(0);
       }
     };
+
     window.addEventListener('scroll', handleScroll);
-    // Call handler once to set initial state
-    handleScroll();
+    handleScroll(); // Set initial state
+
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isScrolled]);
 
   return (
     <header className={cn(
@@ -59,7 +65,7 @@ export function Header() {
             {/* Logo glow effect */}
             <div className="absolute inset-0 bg-primary/20 rounded-lg opacity-0 group-hover:opacity-100 blur-lg transition-all duration-500 scale-110" />
             <Image
-              src="/whitelogo.png"
+              src="/thiweblogo.png"
               alt="Btruss Logo"
               width={124}
               height={31}

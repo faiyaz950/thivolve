@@ -95,7 +95,7 @@ export function LoadingScreen({ className, show = true, ...props }: LoadingScree
             <div className="absolute top-1/2 -right-2 w-1 h-1 bg-white/30 rounded-full animate-ping" style={{ animationDelay: '2s' }} />
             
             <Image
-              src="/btrusssl.png"
+              src="/thiweblogo.png"
               alt="Btruss Logo"
               width={300}
               height={70}

@@ -45,7 +45,7 @@ export function MobileNav({ navLinks, triggerClassName }: MobileNavProps) {
           <div className="flex items-center justify-between p-6 border-b border-neutral-700">
             <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
               <Image 
-                src="/btrusssl.png" 
+                src="/thiweblogo.png" 
                 alt="Btruss Logo" 
                 width={120} 
                 height={30}

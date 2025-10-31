@@ -206,7 +206,7 @@ export function Hero() {
               {/* Enhanced Logo - Even Larger */}
               <Link href="/" className="relative group">
                 <Image
-                  src="/whitelogo.png"
+                  src="/thiweblogo.png"
                   alt="Btruss Logo"
                   width={80}
                   height={80}
