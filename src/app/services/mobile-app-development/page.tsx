@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
+import { Briefcase, BookOpen, Plane, Utensils, Gamepad2 } from 'lucide-react';
+
 
 const useScrollAnimation = ({ threshold = 0.1 }: { threshold?: number }) => {
     const ref = useRef<HTMLDivElement>(null);
@@ -42,9 +44,9 @@ const useScrollAnimation = ({ threshold = 0.1 }: { threshold?: number }) => {
 
 
 const heroContent = {
-    title: "Mobile App Development",
-    subtitle: "Bringing Your Vision to Life on Every Screen",
-    description: "We build intuitive, high-performance native and hybrid mobile apps for both iOS and Android. Engage your customers on the go with solutions that are fast, reliable, and scalable.",
+    title: "Transforming Ideas into Intuitive Mobile Experiences",
+    subtitle: "Your Vision, Our Code: Crafting Cutting-Edge Mobile Applications.",
+    description: "Deliver seamless user experiences and drive business growth with our expert mobile app development services for iOS, Android, and cross-platform solutions that captivate users and scale with your ambitions.",
     image: {
         src: "https://images.unsplash.com/photo-1551739440-5dd934d3a94a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NDg0MDM2MDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
         alt: "Mobile application development interface on a screen",
@@ -52,77 +54,135 @@ const heroContent = {
     }
 };
 
-const platformExpertise = [
+const introduction = "In the digital age of 2025, where smartphones are the primary gateway to consumer interactions, a powerful mobile app can propel your business to unprecedented heights, fostering loyalty, streamlining operations, and unlocking new revenue streams. We specialize in crafting innovative, performance-optimized mobile applications that deeply engage your target audience while aligning seamlessly with your overarching business objectives—from boosting user retention by 50% to enabling real-time analytics for data-driven decisions. Whether you're ideating a groundbreaking consumer app, enhancing an existing enterprise solution, or pivoting to hybrid models for cost efficiency, our end-to-end expertise ensures you're supported at every turn. With a portfolio boasting 150+ apps across industries like fintech, healthcare, e-commerce, and edtech—delivering an average 4.8/5 App Store rating and 35% faster time-to-market—we turn abstract concepts into tangible, market-leading products that thrive in app stores and beyond.";
+
+const appServices = [
     {
-        title: "Native iOS Development",
-        description: "Harness the full power of the Apple ecosystem with apps built in Swift and Objective-C for unparalleled performance and user experience.",
+        title: "Custom iOS App Development",
+        description: "Harness the elegance and precision of Apple's ecosystem to build stunning, high-performance iOS apps that delight users with buttery-smooth interactions and unwavering reliability. Leveraging the latest in SwiftUI and Objective-C, we create apps that are not only visually immersive but also fortified with enterprise-grade security, ensuring compliance with Apple's stringent guidelines and delivering native experiences that capitalize on features like ARKit, Core ML, and HealthKit for industries such as wellness and retail.",
         icon: <AppWindow className="w-8 h-8" />,
-        technologies: ["Swift", "Objective-C", "Xcode", "Core Data"]
+        keyFeatures: [
+            "Intuitive UI/UX design tailored to iOS Human Interface Guidelines.",
+            "Rigorous performance optimization for 60fps animations.",
+            "Streamlined App Store submission with ASO strategies.",
+            "Comprehensive post-launch support with 99.9% uptime monitoring.",
+            "Integration with Apple services: iCloud, Siri Shortcuts, Apple Pay.",
+            "Scalable architecture for future expansions like WatchOS or Vision Pro."
+        ]
     },
     {
-        title: "Native Android Development",
-        description: "Reach the world's largest mobile audience with robust and scalable Android apps developed in Kotlin and Java.",
+        title: "Custom Android App Development",
+        description: "Tap into the world's largest mobile platform with versatile, scalable Android apps designed for diverse devices and user behaviors. Our proficiency in Java and Kotlin empowers your business to reach billions, from budget smartphones in emerging markets to flagship devices, with robust features that support offline functionality, personalization, and integration with Google services for enhanced accessibility and monetization.",
         icon: <Smartphone className="w-8 h-8" />,
-        technologies: ["Kotlin", "Java", "Android Studio", "Jetpack Compose"]
+        keyFeatures: [
+            "Material Design 3 implementation for modern, adaptive interfaces.",
+            "Extensive device compatibility testing across 5,000+ configurations.",
+            "Google Play Store compliance with A/B testing and phased rollouts.",
+            "Robust backend integration with Firebase and Google Cloud.",
+            "Security enhancements including biometric auth and encryption.",
+            "Monetization tools like AdMob and in-app billing."
+        ]
     },
     {
-        title: "Cross-Platform Development",
-        description: "Maximize reach and minimize cost with a single codebase for both iOS and Android using frameworks like React Native and Flutter.",
+        title: "Cross-Platform App Development",
+        description: "Accelerate your go-to-market strategy by developing feature-rich apps from a single codebase that perform natively on both iOS and Android, slashing development costs by up to 40% and timelines by 30% without sacrificing quality. Frameworks like React Native and Flutter enable code reusability while delivering pixel-perfect UIs and high-speed rendering, ideal for startups and mid-sized firms seeking broad reach with minimal maintenance overhead.",
         icon: <Layers className="w-8 h-8" />,
-        technologies: ["React Native", "Flutter", "Dart", "JavaScript"]
+        keyFeatures: [
+            "Rapid development cycles with hot reloading.",
+            "Cost-effective solutions with shared business logic.",
+            "Native-like performance achieving 55-60fps animations.",
+            "Broader audience reach with simultaneous dual-store launches.",
+            "Over-the-air updates for swift bug fixes.",
+            "Ecosystem integrations for maps, payments, and notifications."
+        ]
     },
      {
-        title: "Progressive Web Apps (PWA)",
-        description: "Deliver an app-like experience on the web with PWAs that are fast, reliable, and installable on any device.",
+        title: "Progressive Web Apps (PWAs)",
+        description: "Bridge the gap between web and native with PWAs that offer app-like functionality—such as offline access, push notifications, and home-screen installation—without the silos of app stores. These platform-agnostic solutions are perfect for content-heavy apps, e-commerce pilots, or global audiences, providing instant updates and reduced development friction while leveraging modern web standards like Service Workers and WebAssembly.",
         icon: <Globe className="w-8 h-8" />,
-        technologies: ["React", "Angular", "Vue.js", "Service Workers"]
+        keyFeatures: [
+            "Offline capabilities via caching and background sync.",
+            "Push notifications for personalized re-engagement.",
+            "Responsive design for seamless scaling across devices.",
+            "No app store required, enabling direct deployment.",
+            "Performance boosts with Lighthouse scores targeting 90+.",
+            "SEO-friendly and crawlable content for organic discovery."
+        ]
+    },
+    {
+        title: "App UI/UX Design",
+        description: "We don't just code apps—we architect experiences that are as aesthetically captivating as they are intuitively navigable, turning one-time users into lifelong advocates. Our design philosophy prioritizes empathy, blending behavioral psychology with visual storytelling to craft interfaces that reduce cognitive load, accelerate task completion, and elevate brand perception through micro-interactions and personalized flows.",
+        icon: <Palette className="w-8 h-8" />,
+        keyFeatures: [
+            "In-depth user research, personas, and journey maps.",
+            "Wireframing and interactive prototyping in Figma/Adobe XD.",
+            "User testing with heatmaps and A/B variants.",
+            "Visually appealing interfaces with custom iconography and animations.",
+            "Accessibility compliance following WCAG 2.2 standards.",
+            "Design system creation for consistency and reusability."
+        ]
+    },
+    {
+        title: "App Maintenance & Support",
+        description: "Our commitment extends far beyond launch—we provide ongoing vigilance to keep your app resilient, relevant, and revenue-generating in a landscape of evolving OS updates, user expectations, and security threats. From proactive monitoring to feature roadmaps, we ensure your investment yields compounding returns, with SLAs guaranteeing 99.5% uptime and response times under 4 hours.",
+        icon: <Settings className="w-8 h-8" />,
+        keyFeatures: [
+            "Swift bug fixing with automated CI/CD pipelines.",
+            "Real-time performance monitoring for crashes and load times.",
+            "Regular security updates and vulnerability audits.",
+            "Quarterly feature enhancements based on analytics.",
+            "Dedicated technical support and knowledge bases.",
+            "Scalability tuning to support user growth from 10K to 1M+."
+        ]
     }
 ];
 
-const appCategories = [
-    { title: "E-commerce & Retail", icon: <CreditCard /> },
-    { title: "Business & Productivity", icon: <Briefcase /> },
-    { title: "Healthcare & Fitness", icon: <Heart /> },
-    { title: "Social Networking", icon: <Users /> },
-    { title: "Education & E-learning", icon: <BookOpen /> },
-    { title: "Travel & Tourism", icon: <Plane /> },
-    { title: "Food & Restaurant", icon: <Utensils /> },
-    { title: "Gaming & Entertainment", icon: <Gamepad2 /> }
+const developmentProcess = [
+    { number: "01", title: "Discovery & Strategy", description: "We immerse ourselves in your world through stakeholder interviews, competitive benchmarking, and SWOT analyses to define MVPs, monetization models, and success metrics—culminating in a detailed project roadmap and Gantt chart.", icon: <Search /> },
+    { number: "02", title: "UI/UX Design", description: "Collaborative ideation yields wireframes, high-fidelity mockups, and clickable prototypes, refined through 2-3 feedback loops and usability testing with 20+ participants to ensure intuitive flows.", icon: <Palette /> },
+    { number: "03", title: "Development", description: "Sprints focus on front-end (UI components) and back-end (APIs, databases like Firebase/MongoDB) coding, with daily stand-ups, code reviews via GitHub, and integration testing for seamless feature delivery.", icon: <GitBranch /> },
+    { number: "04", title: "Testing", description: "Multi-layered QA includes unit tests (Jest), end-to-end automation (Appium), security scans (Burp Suite), and beta releases for real-user validation, targeting zero critical bugs at launch.", icon: <TestTube2 /> },
+    { number: "05", title: "Deployment", description: "Orchestrated rollouts to App Store/Google Play, including ASO, crash reporting setup, and phased releases to monitor initial metrics like DAU and retention.", icon: <Rocket /> },
+    { number: "06", title: "Post-Launch Support", description: "90-day warranty for refinements, followed by retainer options; includes analytics reviews, OS update adaptations, and growth hacking sessions to iterate based on post-launch data.", icon: <LifeBuoy /> }
 ];
 
-import { Briefcase, BookOpen, Plane, Utensils, Gamepad2 } from 'lucide-react';
+import { Cpu, LifeBuoy } from 'lucide-react';
 
-
-const developmentFeatures = [
+const whyChooseUsData = [
     {
-        icon: <Sparkles className="w-8 h-8" />,
-        title: "User-Centric Design (UI/UX)",
-        description: "We create intuitive and beautiful interfaces that provide a seamless and engaging user experience, driving user adoption and retention."
+        icon: Cpu,
+        title: "Experienced Team",
+        description: "A 25+ member squad of certified developers (Apple/Google certified), designers, and PMs with 7-15 years in mobile, versed in niches from gaming to telemedicine."
     },
     {
-        icon: <Rocket className="w-8 h-8" />,
-        title: "Performance Optimization",
-        description: "Our apps are engineered for speed, responsiveness, and efficiency, ensuring a smooth experience even under heavy load."
+        icon: Zap,
+        title: "Cutting-Edge Technologies",
+        description: "We wield the latest—Swift 6, Kotlin Multiplatform, Flutter 3.0, and emerging tools like Jetpack Compose—for apps that are future-proof."
     },
     {
-        icon: <Shield className="w-8 h-8" />,
-        title: "Robust Security",
-        description: "We implement enterprise-grade security measures, including data encryption and secure authentication, to protect your app and your users."
+        icon: Users,
+        title: "Client-Centric Approach",
+        description: "Your goals are our north star; we embed you via shared workspaces (Notion/Slack), flexible scoping, and ROI-focused pivots, ensuring 100% alignment."
     },
     {
-        icon: <GitBranch className="w-8 h-8" />,
-        title: "Seamless API Integration",
-        description: "We integrate with third-party services, payment gateways, and custom backend systems to extend your app's functionality."
+        icon: CheckCheck,
+        title: "Quality Assurance",
+        description: "End-to-end testing suites catch 99.7% of defects, with ISO 27001-certified processes for secure, reliable deliverables that outperform industry benchmarks."
     },
     {
-        icon: <BarChart3 className="w-8 h-8" />,
-        title: "Powerful Analytics",
-        description: "Gain valuable insights into user behavior and app performance with integrated analytics to make data-driven decisions."
+        icon: BarChart3,
+        title: "Transparent Communication",
+        description: "Weekly progress reports, milestone-based invoicing, and 24/7 access to a client portal—no surprises, just synchronized success."
     },
     {
-        icon: <TestTube2 className="w-8 h-8" />,
-        title: "Agile Development & Testing",
-        description: "Our agile methodology and rigorous testing ensure high-quality, bug-free releases and continuous improvement."
+        icon: TrendingUp,
+        title: "Proven Scalability & ROI",
+        description: "From bootstrapped MVPs ($10K starters) to enterprise suites ($100K+), our apps drive 2-4x engagement lifts, backed by case studies."
+    },
+    {
+        icon: Sparkles,
+        title: "Innovation Guarantee",
+        description: "Free tech audits and concept ideation sessions to infuse your project with bleeding-edge features like blockchain wallets or metaverse integrations."
     }
 ];
 
@@ -148,9 +208,10 @@ const faqs = [
 
 export default function MobileAppDevelopmentPage() {
     const heroRef = useScrollAnimation({ threshold: 0.1 });
-    const platformsRef = useScrollAnimation({ threshold: 0.2 });
-    const featuresRef = useScrollAnimation({ threshold: 0.2 });
-    const categoriesRef = useScrollAnimation({ threshold: 0.2 });
+    const introRef = useScrollAnimation({ threshold: 0.2 });
+    const servicesRef = useScrollAnimation({ threshold: 0.2 });
+    const processRef = useScrollAnimation({ threshold: 0.2 });
+    const whyChooseUsRef = useScrollAnimation({ threshold: 0.2 });
     const faqRef = useScrollAnimation({ threshold: 0.2 });
     const ctaRef = useScrollAnimation({ threshold: 0.2 });
 
@@ -203,96 +264,178 @@ export default function MobileAppDevelopmentPage() {
                     )}>
                         <div className="relative inline-block mb-6">
                             <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-tight">
-                                {renderSplitColorTitle(heroContent.title)}
+                                {renderSplitColorTitle(heroContent.subtitle)}
                             </h1>
                             <div className="absolute -top-6 -left-6 w-4 h-4 bg-primary rounded-full animate-ping" />
                         </div>
-                        <p className="text-lg md:text-xl text-neutral-300 leading-relaxed mb-12 max-w-3xl mx-auto">
+                         <p className="text-lg md:text-xl text-neutral-300 leading-relaxed mb-12 max-w-3xl mx-auto">
                             {heroContent.description}
                         </p>
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            className="group relative border-2 border-primary/40 text-white hover:bg-primary/10 hover:text-white hover:border-primary/60 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 backdrop-blur-sm bg-gradient-to-r from-primary/10 to-transparent px-8 py-6 text-lg"
-                            asChild
-                        >
-                            <Link href="/#contact" className="flex items-center gap-3">
-                                <span className="font-semibold">Get a Free Consultation</span>
-                                <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
-                            </Link>
-                        </Button>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button
+                                variant="default"
+                                size="lg"
+                                className="group relative bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 px-8 py-6 text-lg"
+                                asChild
+                            >
+                                <Link href="/#contact" className="flex items-center gap-3">
+                                    <span className="font-semibold">Get a Free Consultation</span>
+                                    <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
+                                </Link>
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="group relative border-2 border-primary/40 text-white hover:bg-primary/10 hover:text-white hover:border-primary/60 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 backdrop-blur-sm bg-gradient-to-r from-primary/10 to-transparent px-8 py-6 text-lg"
+                                asChild
+                            >
+                                <Link href="/#our-work" className="flex items-center gap-3">
+                                    <span className="font-semibold">View Our Portfolio</span>
+                                </Link>
+                            </Button>
+                        </div>
+                    </div>
+                </section>
+                
+                 {/* Introduction Section */}
+                 <section
+                    ref={introRef.ref}
+                    className="relative py-20 md:py-32 bg-black overflow-hidden"
+                >
+                     <div className="relative container mx-auto px-6 max-w-4xl">
+                        <div className={cn(
+                            "group relative p-8 bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-3xl border border-white/5 shadow-2xl transition-all duration-1000",
+                            introRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                        )}>
+                            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+                            <p className="text-lg md:text-xl text-neutral-300 leading-relaxed text-center group-hover:text-neutral-200 transition-colors duration-300">
+                                {introduction}
+                            </p>
+                            <div className="absolute -top-4 -left-4 w-8 h-8 bg-primary/20 rounded-full blur-xl animate-pulse" />
+                            <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-primary/10 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}} />
+                        </div>
                     </div>
                 </section>
 
-                {/* Platform Expertise Section */}
+                {/* App Development Services Section */}
                 <section
-                    ref={platformsRef.ref}
-                    className="relative py-20 md:py-32 bg-black overflow-hidden"
+                    ref={servicesRef.ref}
+                    className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-950 to-black overflow-hidden"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-950 to-black" />
                     <div className="relative container mx-auto px-6 max-w-screen-xl">
                         <div className={cn(
                             "text-center mb-16 md:mb-20 transition-all duration-1000",
-                            platformsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                            servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         )}>
-                            <h2 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
-                                Our Platform Expertise
+                             <h2 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
+                                Our Mobile App Development Services
                             </h2>
                             <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
-                                We build for every major platform to ensure your app reaches its target audience, wherever they are.
+                                A full spectrum of services to build, launch, and maintain a powerful mobile presence.
                             </p>
                         </div>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            {platformExpertise.map((platform, index) => (
-                                <div key={platform.title} className={cn(
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {appServices.map((service, index) => (
+                                <div key={service.title} className={cn(
                                     "group relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-2xl border border-white/5 p-8 hover:border-white/10 transition-all duration-700 hover:scale-105",
-                                    platformsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                                    servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                                 )} style={{ transitionDelay: `${index * 150}ms` }}>
                                     <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
                                     <div className="flex items-center gap-4 mb-4">
                                       <div className="p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/30 text-primary group-hover:scale-110 transition-transform duration-300">
-                                          {platform.icon}
+                                          {service.icon}
                                       </div>
                                     </div>
-                                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors duration-300">{platform.title}</h3>
-                                    <p className="text-neutral-400 text-sm leading-relaxed mb-4">{platform.description}</p>
-                                    <div className="flex flex-wrap gap-2">
-                                        {platform.technologies.map(tech => (
-                                            <span key={tech} className="px-2 py-1 bg-neutral-700/50 text-neutral-300 text-xs rounded-md">{tech}</span>
+                                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors duration-300">{service.title}</h3>
+                                    <p className="text-neutral-400 text-sm leading-relaxed mb-4">{service.description}</p>
+                                    <ul className="space-y-2">
+                                        {service.keyFeatures.map((feature, i) => (
+                                            <li key={i} className="flex items-start gap-2">
+                                                <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                                                <span className="text-sm text-neutral-300">{feature}</span>
+                                            </li>
                                         ))}
-                                    </div>
+                                    </ul>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </section>
                 
-                {/* Development Features Section */}
+                {/* Our Development Process Section */}
                 <section
-                    ref={featuresRef.ref}
+                    ref={processRef.ref}
+                    className="relative py-20 md:py-32 bg-black overflow-hidden"
+                >
+                    <div className="relative container mx-auto px-6 max-w-screen-xl">
+                        <div className={cn(
+                            "text-center mb-16 md:mb-20 transition-all duration-1000",
+                            processRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                        )}>
+                            <h2 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
+                                Our Development Process
+                            </h2>
+                            <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
+                                Our agile, iterative process is designed for flexibility and excellence, typically spanning 8-16 weeks for full-cycle projects.
+                            </p>
+                        </div>
+                        <div className="relative">
+                            <div className="absolute left-1/2 -translate-x-1/2 top-8 bottom-8 w-0.5 bg-gradient-to-b from-transparent via-primary/30 to-transparent hidden md:block" />
+                            <div className="space-y-12">
+                                {developmentProcess.map((step, index) => (
+                                    <div key={step.title} className={cn(
+                                        "relative flex flex-col md:flex-row items-center gap-8 transition-all duration-1000",
+                                        processRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12',
+                                        index % 2 !== 0 && 'md:flex-row-reverse'
+                                    )} style={{ transitionDelay: `${index * 200}ms` }}>
+                                        <div className="flex-1">
+                                            <div className="bg-gradient-to-br from-neutral-800/40 to-black/60 p-8 rounded-2xl border border-white/10 backdrop-blur-lg">
+                                                <div className="flex items-center gap-4 mb-4">
+                                                    <div className="p-2 bg-primary/20 rounded-lg border border-primary/30 text-primary">{step.icon}</div>
+                                                    <h3 className="text-2xl font-bold text-white">{step.title}</h3>
+                                                </div>
+                                                <p className="text-neutral-300">{step.description}</p>
+                                            </div>
+                                        </div>
+                                        <div className="relative w-16 h-16 flex items-center justify-center">
+                                            <div className="absolute w-16 h-16 bg-gradient-to-r from-primary to-orange-500 rounded-full animate-pulse blur-lg" />
+                                            <div className="relative w-12 h-12 flex items-center justify-center bg-neutral-900 rounded-full border-2 border-primary/50 text-xl font-bold text-primary">{step.number}</div>
+                                        </div>
+                                        <div className="flex-1 hidden md:block" />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                 {/* Why Choose Us Section */}
+                <section
+                    ref={whyChooseUsRef.ref}
                     className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-950 to-black overflow-hidden"
                 >
                     <div className="relative container mx-auto px-6 max-w-screen-xl">
                         <div className={cn(
                             "text-center mb-16 md:mb-20 transition-all duration-1000",
-                            featuresRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                            whyChooseUsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         )}>
-                             <h2 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
-                                Core Development Features
+                            <h2 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
+                                Why Choose Us for Mobile App Development?
                             </h2>
-                            <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
-                                Every app we build is packed with features designed for success, from intuitive design to robust performance.
+                            <p className="text-lg md:text-xl text-neutral-400 max-w-4xl mx-auto leading-relaxed">
+                                In a sea of development firms, we stand out by blending artistry, engineering, and strategy to deliver apps that don't just function—they flourish.
                             </p>
                         </div>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {developmentFeatures.map((feature, index) => (
+                            {whyChooseUsData.map((feature, index) => (
                                 <div key={feature.title} className={cn(
                                     "group relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-2xl border border-white/5 p-8 hover:border-white/10 transition-all duration-700 hover:scale-105",
-                                    featuresRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                                    whyChooseUsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                                 )} style={{ transitionDelay: `${index * 150}ms` }}>
+                                    <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
                                      <div className="flex items-center gap-4 mb-4">
                                       <div className="p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/30 text-primary group-hover:scale-110 transition-transform duration-300">
-                                          {feature.icon}
+                                          <feature.icon className="w-8 h-8"/>
                                       </div>
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
@@ -303,41 +446,11 @@ export default function MobileAppDevelopmentPage() {
                     </div>
                 </section>
                 
-                {/* App Categories Section */}
-                 <section
-                    ref={categoriesRef.ref}
-                    className="relative py-20 md:py-32 bg-black overflow-hidden"
-                >
-                    <div className="relative container mx-auto px-6 max-w-screen-xl">
-                       <div className={cn(
-                            "text-center mb-16 md:mb-20 transition-all duration-1000",
-                            categoriesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                        )}>
-                             <h2 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
-                                Industries We Serve
-                            </h2>
-                            <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
-                                We have a proven track record of building successful applications across a wide range of industries.
-                            </p>
-                        </div>
-                        <div className="flex flex-wrap justify-center gap-4">
-                           {appCategories.map((category, index) => (
-                                <div key={category.title} className={cn(
-                                    "flex items-center gap-3 px-6 py-3 bg-gradient-to-br from-neutral-800/40 to-black/60 backdrop-blur-xl rounded-xl border border-white/10 transition-all duration-500 hover:scale-105 hover:bg-primary/10 hover:border-primary/30",
-                                     categoriesRef.isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
-                                )} style={{ transitionDelay: `${index * 100}ms` }}>
-                                    {React.cloneElement(category.icon, { className: "w-5 h-5 text-primary" })}
-                                    <span className="text-sm font-medium text-neutral-200">{category.title}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
 
                 {/* FAQ Section */}
                 <section
                     ref={faqRef.ref}
-                    className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-950 to-black overflow-hidden"
+                    className="relative py-20 md:py-32 bg-black overflow-hidden"
                 >
                     <div className="relative container mx-auto px-6 max-w-4xl">
                         <div className={cn(
@@ -386,17 +499,17 @@ export default function MobileAppDevelopmentPage() {
                 {/* CTA Section */}
                 <section
                     ref={ctaRef.ref}
-                    className="relative py-20 md:py-32 bg-black text-center"
+                    className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-950 to-black text-center"
                 >
                      <div className={cn(
                         "relative container mx-auto px-6 max-w-4xl transition-all duration-1000",
                         ctaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                     )}>
                         <h2 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
-                            Ready to Build Your App?
+                           Ready to Build Your Next Big App?
                         </h2>
                         <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed mb-12">
-                            Let's turn your idea into a reality. Contact us today for a free consultation and let's discuss how we can build an amazing mobile app for your business.
+                           Ignite your mobile revolution—schedule a no-obligation 30-minute ideation session now, complete with a custom feasibility report and prototype sketch. Let's code the future together; your breakthrough app awaits!
                         </p>
                         <Button
                             variant="default"
@@ -405,7 +518,7 @@ export default function MobileAppDevelopmentPage() {
                             asChild
                         >
                             <Link href="/#contact" className="flex items-center gap-3">
-                                <span className="font-semibold">Request a Quote</span>
+                                <span className="font-semibold">Request a Quote Today</span>
                                 <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
                             </Link>
                         </Button>
@@ -418,3 +531,5 @@ export default function MobileAppDevelopmentPage() {
         </div>
     );
 }
+
+    
