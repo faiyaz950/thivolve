@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect } from 'react';
@@ -107,8 +108,8 @@ export function ContactForm() {
   }, [state, toast, form]);
 
   const contactDetails = [
-    { icon: Mail, text: "info@thivolveservices.com", href: "mailto:info@thivolveservices.com" },
-    { icon: Phone, text: "+91 93552 46234", href: "tel:+919355246234" },
+    { icon: Mail, text: "info@thivolve.com", href: "mailto:info@thivolve.com" },
+    { icon: Phone, text: "+91 7091491397", href: "tel:+917091491397" },
     { icon: MapPin, text: "Plot NO 6,\n" +
             "First Floor Bhagwati Garden Extension, Dwarka Mor New Delhi, 110059", href: "#" },
   ];
@@ -320,3 +321,5 @@ export function ContactForm() {
             </section>
   );
 }
+
+    

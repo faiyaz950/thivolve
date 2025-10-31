@@ -98,15 +98,15 @@ export function Footer() {
     {
       icon: Mail,
       label: "Email",
-      value: "info@thivolveservices.com",
-      href: "mailto:info@thivolveservices.com",
+      value: "info@thivolve.com",
+      href: "mailto:info@thivolve.com",
       description: "Get in touch for partnerships"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+91 93552 46234",
-      href: "tel:+919355246234",
+      value: "+91 7091491397",
+      href: "tel:+917091491397",
       description: "24/7 support available"
     },
     {
@@ -397,3 +397,5 @@ export function Footer() {
     </footer>
   );
 }
+
+    
