@@ -50,7 +50,8 @@ export default function RootLayout({
         <meta name="description" content="Innovative and reliable solutions by Btruss Services Pvt Ltd" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
-        {isLoading ? <LoadingScreen /> : children}
+        <LoadingScreen show={isLoading} />
+        {!isLoading && children}
         <Toaster />
       </body>
     </html>
