@@ -67,8 +67,8 @@ export function Header() {
             <Image
               src="/thivolvelogos.png"
               alt="Thivolve Logo"
-              width={60}
-              height={15}
+              width={80}
+              height={20}
               priority
               className="relative drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all duration-500 group-hover:scale-105"
             />
