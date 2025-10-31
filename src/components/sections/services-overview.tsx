@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Smartphone, Globe, Palette, Megaphone, Bot } from 'lucide-react';
+import { ArrowRight, Smartphone, Globe, Palette, Megaphone, Bot, Code } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 const services = [
     { slug: 'mobile-app-development', title: "Mobile App Development", description: "Engage your customers on the go with our intuitive, high-performance native and hybrid mobile apps for both iOS and Android.", icon: Smartphone },
     { slug: 'website-development', title: "Website Development", description: "We craft responsive, high-performance websites and complex web applications that drive user engagement and deliver business results.", icon: Globe },
+    { slug: 'custom-software-development', title: "Custom Software Development", description: "Scalable and secure software solutions designed exclusively for your business to drive efficiency and innovation.", icon: Code },
     { slug: 'graphics-design', title: "Graphics Design", description: "Our creative team translates your brand's essence into compelling visual identities, from logos to polished UI/UX designs.", icon: Palette },
     { slug: 'seo-and-digital-marketing', title: "SEO & Digital Marketing", description: "Expand your reach and generate qualified leads with our data-driven digital marketing, SEO, and content strategies.", icon: Megaphone },
     { slug: 'ai-services', title: "AI Services", description: "Harness the power of Artificial Intelligence to automate processes, derive insights, and drive innovation.", icon: Bot },
@@ -160,7 +161,7 @@ export function ServicesOverview() {
           </div>
           
           {/* Services Grid - matching About Us style */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-6">
             {services.map((service, index) => (
               <ServiceCard
                 key={service.slug}

@@ -65,6 +65,7 @@ export function Footer() {
       links: [
         { label: "Website Development", href: "/services/website-development" },
         { label: "Mobile App Development", href: "/services/mobile-app-development" },
+        { label: "Custom Software Development", href: "/services/custom-software-development" },
         { label: "Graphics Design", href: "/services/graphics-design" },
         { label: "SEO & Digital Marketing", href: "/services/seo-and-digital-marketing" },
         { label: "AI Services", href: "/services/ai-services" },
