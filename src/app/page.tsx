@@ -7,6 +7,7 @@ import { StatsSection } from '@/components/sections/stats-section';
 import { OurWork } from '@/components/sections/our-work';
 import { ContactForm } from '@/components/sections/contact-form';
 import { VideoSection } from '@/components/sections/video-section';
+import { OurClients } from '@/components/sections/our-clients';
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
         <AboutUs />
         <VideoSection />
         <OurWork />
+        <OurClients />
         <ContactForm />
       </main>
       <Footer />

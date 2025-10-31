@@ -1,0 +1,74 @@
+
+"use client";
+
+import Image from 'next/image';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import { cn } from '@/lib/utils';
+
+const clients = [
+  { name: "Logoipsum", logo: "/clients/logoipsum-1.svg" },
+  { name: "Logoipsum", logo: "/clients/logoipsum-2.svg" },
+  { name: "Logoipsum", logo: "/clients/logoipsum-3.svg" },
+  { name: "Logoipsum", logo: "/clients/logoipsum-4.svg" },
+  { name: "Logoipsum", logo: "/clients/logoipsum-5.svg" },
+  { name: "Logoipsum", logo: "/clients/logoipsum-6.svg" },
+];
+
+export function OurClients() {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
+  return (
+    <section
+      ref={ref}
+      id="our-clients"
+      className="relative py-20 md:py-32 bg-black text-white overflow-hidden"
+    >
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-950 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-primary/[0.01] to-transparent" />
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse" />
+        </div>
+      </div>
+
+      <div className="relative container mx-auto px-6 max-w-screen-xl">
+        <div className={cn(
+          "text-center mb-16 md:mb-20 transition-all duration-1000",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <div className="relative inline-block">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
+              Our Clients and Trusted Partners
+            </h2>
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
+          </div>
+          <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
+            We pride ourselves on delivering exceptional project outcomes to these clients through our commitment to quality and excellence.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12">
+          {clients.map((client, index) => (
+            <div
+              key={index}
+              className={cn(
+                "flex justify-center items-center transition-all duration-700 transform-gpu",
+                isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
+              )}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <Image
+                src={client.logo}
+                alt={client.name}
+                width={140}
+                height={40}
+                className="filter grayscale hover:grayscale-0 transition-all duration-500 hover:scale-110"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
