@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, CheckCircle, Code, Star, Award, Target, Zap, Globe, Sparkles, ChevronDown, Clock, Users, TrendingUp, Lightbulb, BarChart3, Rocket, MessageCircle, Calendar, Settings, PieChart, Trophy, Gauge, GitBranch, TestTube2, Search, Cpu, Database, Palette, Smartphone, Shield, Monitor, CreditCard, Layers, LifeBuoy } from 'lucide-react';
+import { ArrowRight, CheckCircle, Code, Star, Award, Target, Zap, Globe, Sparkles, ChevronDown, Clock, Users, TrendingUp, Lightbulb, BarChart3, Rocket, MessageCircle, Calendar, Settings, PieChart, Trophy, Gauge, GitBranch, TestTube2, Search, Cpu, Database, Palette, Smartphone, Shield, Monitor, CreditCard, LifeBuoy, Layers } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -257,23 +257,23 @@ export default function WebsiteDevelopmentPage() {
                     </div>
 
                     <div className={cn(
-                        "relative z-20 text-center px-6 max-w-4xl mx-auto transition-all duration-1000",
+                        "relative z-20 text-center px-6 max-w-4xl mx-auto transition-all duration-1000 pt-20",
                         heroRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                     )}>
                         <div className="relative inline-block mb-6">
-                            <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-tight">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight">
                                 {renderSplitColorTitle(heroContent.subtitle)}
                             </h1>
                             <div className="absolute -top-6 -left-6 w-4 h-4 bg-primary rounded-full animate-ping" />
                         </div>
-                         <p className="text-lg md:text-xl text-neutral-300 leading-relaxed mb-12 max-w-3xl mx-auto">
+                         <p className="text-base md:text-lg text-neutral-300 leading-relaxed mb-12 max-w-3xl mx-auto">
                             {heroContent.description}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button
                                 variant="default"
-                                size="lg"
-                                className="group relative bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 px-8 py-6 text-lg"
+                                size="default"
+                                className="group relative bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 px-8 py-6 text-base"
                                 asChild
                             >
                                 <Link href="/#contact" className="flex items-center gap-3">
