@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, CheckCircle, Code, Star, Award, Target, Zap, Globe, Sparkles, ChevronDown, Clock, Users, TrendingUp, Lightbulb, BarChart3, Rocket, MessageCircle, Calendar, Settings, PieChart, Trophy, Gauge, GitBranch, TestTube2, Search, Cpu, Database, Palette, Smartphone, Shield, Monitor } from 'lucide-react';
+import { ArrowRight, CheckCircle, Code, Star, Award, Target, Zap, Globe, Sparkles, ChevronDown, Clock, Users, TrendingUp, Lightbulb, BarChart3, Rocket, MessageCircle, Calendar, Settings, PieChart, Trophy, Gauge, GitBranch, TestTube2, Search, Cpu, Database, Palette, Smartphone, Shield, Monitor, CreditCard } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
