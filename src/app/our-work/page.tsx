@@ -177,8 +177,8 @@ const ProjectDetailCard = ({ project, index, isVisible }: { project: Project; in
       )}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
-      <div className="grid lg:grid-cols-2">
-        <div className="relative aspect-[4/3] lg:aspect-auto">
+      <div>
+        <div className="relative aspect-[16/9]">
           <Image
             src={project.imageUrl}
             alt={project.title}
@@ -276,7 +276,7 @@ export default function OurWorkPage() {
 
                 <section className="py-20 md:py-32 bg-black">
                     <div className="container mx-auto px-6 max-w-screen-xl">
-                        <div className="space-y-16 md:space-y-24">
+                        <div className="grid lg:grid-cols-2 gap-16 md:gap-24">
                             {projectsData.map((project, index) => (
                                 <ProjectDetailCard key={project.title} project={project} index={index} isVisible={isVisible} />
                             ))}
