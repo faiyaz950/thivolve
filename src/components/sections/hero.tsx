@@ -222,7 +222,7 @@ export function Hero() {
           <div className="container mx-auto px-6">
             <div className="flex items-center justify-between">
               {/* Enhanced Logo - Even Larger */}
-              <Link href="/" className="relative group">
+              <Link href="/" className="relative group mb-4">
                 <Image
                   src="/thivolvelogos.png"
                   alt="Thivolve Logo"
