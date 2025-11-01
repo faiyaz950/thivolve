@@ -6,12 +6,12 @@ import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { cn } from '@/lib/utils';
 
 const clients = [
-  { name: "Logoipsum", logo: "/clients/logoipsum-1.svg" },
-  { name: "Logoipsum", logo: "/clients/logoipsum-2.svg" },
-  { name: "Logoipsum", logo: "/clients/logoipsum-3.svg" },
-  { name: "Logoipsum", logo: "/clients/logoipsum-4.svg" },
-  { name: "Logoipsum", logo: "/clients/logoipsum-5.svg" },
-  { name: "Logoipsum", logo: "/clients/logoipsum-6.svg" },
+  { name: "Tirupati", logo: "/tirupati_logo_transparent.png" },
+  { name: "Globolosys", logo: "/globolosys_white_text.png" },
+  { name: "Btruss", logo: "/btrusss.jpg" },
+  { name: "GTS", logo: "/gtslogo.png" },
+  { name: "Client 5", logo: "/clients/logoipsum-5.svg" },
+  { name: "Client 6", logo: "/clients/logoipsum-6.svg" },
 ];
 
 // Duplicate clients for a seamless loop
@@ -69,7 +69,7 @@ export function OurClients() {
                     alt={client.name}
                     width={158}
                     height={48}
-                    className="filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                    className="filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110 object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
