@@ -112,7 +112,7 @@ export function ServicesOverview() {
     <section
       id="services"
       ref={ref}
-      className="relative py-20 md:py-24 bg-black text-white overflow-hidden"
+      className="relative py-20 md:py-16 bg-black text-white overflow-hidden"
     >
       {/* Enhanced background effects matching About Us */}
       <div className="absolute inset-0">
