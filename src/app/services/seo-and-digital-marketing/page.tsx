@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -231,7 +230,7 @@ export default function SeoAndDigitalMarketingPage() {
                 {/* Hero Section */}
                 <section
                     ref={heroRef.ref}
-                    className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
+                    className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20"
                 >
                     <div className="absolute inset-0">
                         <Image
@@ -266,18 +265,18 @@ export default function SeoAndDigitalMarketingPage() {
                              <Button
                                 variant="default"
                                 size="lg"
-                                className="group relative bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 px-8 py-6 text-lg"
+                                className="group relative bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg"
                                 asChild
                             >
                                 <Link href="/#contact" className="flex items-center gap-3">
                                     <span className="font-semibold">Get a Free Digital Marketing Audit</span>
-                                    <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
+                                    <ArrowRight className="h-5 sm:h-6 w-5 sm:w-6 transition-all duration-500 group-hover:translate-x-2" />
                                 </Link>
                             </Button>
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="group relative border-2 border-primary/40 text-white hover:bg-primary/10 hover:text-white hover:border-primary/60 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 backdrop-blur-sm bg-gradient-to-r from-primary/10 to-transparent px-8 py-6 text-lg"
+                                className="group relative border-2 border-primary/40 text-white hover:bg-primary/10 hover:text-white hover:border-primary/60 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 backdrop-blur-sm bg-gradient-to-r from-primary/10 to-transparent px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg"
                                 asChild
                             >
                                 <Link href="/#our-work" className="flex items-center gap-3">
@@ -298,7 +297,7 @@ export default function SeoAndDigitalMarketingPage() {
                             "transition-all duration-1000",
                             introRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         )}>
-                            <p className="text-lg md:text-xl text-neutral-300 leading-relaxed">
+                            <p className="text-base sm:text-lg md:text-xl text-neutral-300 leading-relaxed">
                                 {introduction}
                             </p>
                         </div>
@@ -325,7 +324,7 @@ export default function SeoAndDigitalMarketingPage() {
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {marketingServices.map((service, index) => (
                                 <div key={service.title} className={cn(
-                                    "group relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-2xl border border-white/5 p-8 hover:border-white/10 transition-all duration-700 hover:scale-105",
+                                    "group relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-2xl border border-white/5 p-6 sm:p-8 hover:border-white/10 transition-all duration-700 hover:scale-105",
                                     servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                                 )} style={{ transitionDelay: `${index * 150}ms` }}>
                                     <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
@@ -376,16 +375,16 @@ export default function SeoAndDigitalMarketingPage() {
                                         processRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12',
                                         index % 2 !== 0 && 'md:flex-row-reverse'
                                     )} style={{ transitionDelay: `${index * 200}ms` }}>
-                                        <div className="flex-1">
-                                            <div className="bg-gradient-to-br from-neutral-800/40 to-black/60 p-8 rounded-2xl border border-white/10 backdrop-blur-lg">
+                                        <div className="flex-1 w-full">
+                                            <div className="bg-gradient-to-br from-neutral-800/40 to-black/60 p-6 sm:p-8 rounded-2xl border border-white/10 backdrop-blur-lg">
                                                 <div className="flex items-center gap-4 mb-4">
                                                     <div className="p-2 bg-primary/20 rounded-lg border border-primary/30 text-primary">{step.icon}</div>
-                                                    <h3 className="text-2xl font-bold text-white">{step.title}</h3>
+                                                    <h3 className="text-xl sm:text-2xl font-bold text-white">{step.title}</h3>
                                                 </div>
                                                 <p className="text-neutral-300">{step.description}</p>
                                             </div>
                                         </div>
-                                        <div className="relative w-16 h-16 flex items-center justify-center">
+                                        <div className="relative w-16 h-16 flex items-center justify-center shrink-0">
                                             <div className="absolute w-16 h-16 bg-gradient-to-r from-primary to-orange-500 rounded-full animate-pulse blur-lg" />
                                             <div className="relative w-12 h-12 flex items-center justify-center bg-neutral-900 rounded-full border-2 border-primary/50 text-xl font-bold text-primary">{step.number}</div>
                                         </div>
@@ -417,7 +416,7 @@ export default function SeoAndDigitalMarketingPage() {
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {whyChooseUsData.map((feature, index) => (
                                 <div key={feature.title} className={cn(
-                                    "group relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-2xl border border-white/5 p-8 hover:border-white/10 transition-all duration-700 hover:scale-105",
+                                    "group relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-2xl border border-white/5 p-6 sm:p-8 hover:border-white/10 transition-all duration-700 hover:scale-105",
                                     whyChooseUsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                                 )} style={{ transitionDelay: `${index * 150}ms` }}>
                                     <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />

@@ -280,7 +280,7 @@ return (
 <main>
 <section
 ref={heroRef.ref}
-className="relative min-h-screen flex items-center justify-center overflow-hidden"
+className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
 >
 <div className="absolute inset-0">
 <Image
@@ -317,7 +317,7 @@ heroRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
 )}
 >
 <div className="relative inline-block mb-6">
-<h1 className="text-6xl sm:text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 tracking-tight">
+<h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 tracking-tight">
 About Thivolve
 </h1>
 <div className="absolute -top-6 -left-6 w-4 h-4 bg-primary rounded-full animate-ping" />
@@ -326,7 +326,7 @@ className="absolute -top-4 -right-8 w-3 h-3 bg-primary/60 rounded-full animate-p
 style={{ animationDelay: "1s" }}
                          />
                          </div>
-                         <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed font-light mb-12 max-w-3xl mx-auto">
+                         <p className="text-lg md:text-2xl text-neutral-300 leading-relaxed font-light mb-12 max-w-3xl mx-auto">
                          Building the future with innovation, integrity, and a passion for excellence that transforms businesses and empowers communities.
                          </p>
                          <Button
@@ -366,7 +366,7 @@ whoWeAreRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
 )}
 >
 <div className="relative inline-block">
-<h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
+<h2 className="text-4xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
 Who We Are
 </h2>
 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
@@ -387,7 +387,7 @@ Who We Are
 
             <h4 className="text-2xl font-bold text-primary pt-4">Our Core Expertise</h4>
             <p>As a modern IT services company, we specialize in crafting bespoke digital solutions tailored to your unique needs. Our portfolio spans a wide spectrum of services designed to propel your business forward:</p>
-            <ul className="space-y-4">
+            <ul className="space-y-4 pl-5 list-disc">
                 <li><strong>Web Development:</strong> From responsive, SEO-optimized websites to scalable e-commerce platforms built on frameworks like React, Node.js, and Laravel, we create digital storefronts that captivate users and convert visitors into loyal customers.</li>
                 <li><strong>Mobile App Development:</strong> Whether it's a cross-platform app using Flutter or native iOS/Android solutions with Swift and Kotlin, we deliver intuitive, feature-rich applications that enhance user engagement and streamline operations on the go.</li>
                 <li><strong>AI and Machine Learning Systems:</strong> Leveraging tools like TensorFlow, PyTorch, and advanced NLP models, we build intelligent systems for predictive analytics, chatbots, recommendation engines, and automation—empowering your business with data-driven insights that anticipate needs before they arise.</li>
@@ -401,7 +401,7 @@ Who We Are
             
             <h4 className="text-2xl font-bold text-primary pt-4">Our Mission and Values</h4>
             <p>Our mission is straightforward: To empower businesses with transformative technology that drives sustainable success. We are committed to delivering solutions that are not only innovative and reliable but also ethically sound, scalable, and impactful. Here's what guides us every day:</p>
-            <ul className="space-y-4">
+            <ul className="space-y-4 pl-5 list-disc">
                 <li><strong>Innovation First:</strong> We push boundaries, experimenting with emerging tech to solve tomorrow's problems today.</li>
                 <li><strong>Client Partnership:</strong> You're not just a client—you're a collaborator. We listen, adapt, and co-create to align our work with your vision and goals.</li>
                 <li><strong>Excellence and Integrity:</strong> Every line of code, every design decision, is held to the highest standards of quality, security, and transparency.</li>
@@ -436,12 +436,12 @@ teamRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
 )}
 >
 <div className="relative inline-block">
-<h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
+<h2 className="text-4xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
 Meet Our Team
 </h2>
 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
 </div>
-<p className="text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
+<p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
 The passionate professionals driving our success and delivering excellence across every project.
 </p>
 </div>
@@ -483,12 +483,12 @@ The passionate professionals driving our success and delivering excellence acros
   )}
   >
   <div className="relative inline-block">
-  <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
+  <h2 className="text-4xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
   What Our Clients Say
   </h2>
   <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
   </div>
-  <p className="text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
+  <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
   We are proud to build lasting partnerships based on trust, results, and exceptional service delivery.
   </p>
   </div>
@@ -530,5 +530,3 @@ The passionate professionals driving our success and delivering excellence acros
   </div>
   );
 }
-
-    
