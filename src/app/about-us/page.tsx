@@ -196,38 +196,30 @@ style={{ transitionDelay: `${index * 100}ms` }}
 
 // Data
 const teamMembers: TeamMember[] = [
-{
-  name: "Musarrat Fatima",
-  role: "Director",
-  image: "https://placehold.co/400x400.png",
-  social: {
-    linkedin: "https://linkedin.com/in/musarrat-fatima",
+  {
+    name: "Syed Zishan Imam",
+    role: "Director Operation",
+    image: "https://placehold.co/400x400.png",
+    social: {
+      linkedin: "#",
+    },
   },
-},
-{
-  name: "Syed Ali Faraz Rizvi",
-  role: "Chief Operating Officer",
-  image: "https://placehold.co/400x400.png",
-  social: {
-    linkedin: "https://linkedin.com/in/syed-ali-faraz-rizvi",
+  {
+    name: "Faiyaz Mujtaba",
+    role: "Project Manager",
+    image: "https://placehold.co/400x400.png",
+    social: {
+      linkedin: "https://linkedin.com/in/faiyaz-mujtaba",
+    },
   },
-},
-{
-  name: "Syed Jafer Hussain",
-  role: "Project Manager",
-  image: "https://placehold.co/400x400.png",
-  social: {
-    linkedin: "https://linkedin.com/in/syed-jafer-hussain",
+  {
+    name: "Wafa Fatima",
+    role: "Project Lead",
+    image: "https://placehold.co/400x400.png",
+    social: {
+      linkedin: "#",
+    },
   },
-},
-{
-  name: "Faiyaz Mujtaba",
-  role: "Lead Engineer",
-  image: "https://placehold.co/400x400.png",
-  social: {
-    linkedin: "https://linkedin.com/in/faiyaz-mujtaba",
-  },
-},
 ];
 
 const testimonials: Testimonial[] = [
@@ -453,7 +445,7 @@ Meet Our Team
 The passionate professionals driving our success and delivering excellence across every project.
 </p>
 </div>
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 justify-center">
 {teamMembers.map((member, index) => (
   <TeamMemberCard
   key={member.name}
@@ -538,3 +530,5 @@ The passionate professionals driving our success and delivering excellence acros
   </div>
   );
 }
+
+    
