@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -331,7 +332,7 @@ export function Footer() {
           <div className="flex flex-col lg:flex-row items-center justify-between space-y-6 lg:space-y-0">
             <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8">
               <p className="text-neutral-500 text-sm font-medium">
-                © {currentYear} <span className="text-primary font-bold">Thivolve Services Pvt Ltd</span>. All rights reserved.
+                © {currentYear} <span className="text-primary font-bold">Thivolve Global Pvt Ltd</span>. All rights reserved.
               </p>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-primary/60 rounded-full animate-pulse" />

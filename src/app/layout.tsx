@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 // Static metadata can be defined outside if needed, or remove if fully dynamic
 // export const metadata: Metadata = {
 //   title: 'Thivolve Digital Hub',
-//   description: 'Innovative and reliable solutions by Thivolve Services Pvt Ltd',
+//   description: 'Innovative and reliable solutions by Thivolve Global Pvt Ltd',
 // };
 
 export default function RootLayout({
@@ -49,7 +49,7 @@ export default function RootLayout({
       <head>
         {/* Title and meta description can be managed here for client components or via Next.js Metadata API for server components */}
         <title>Thivolve Digital Hub</title>
-        <meta name="description" content="Innovative and reliable solutions by Thivolve Services Pvt Ltd" />
+        <meta name="description" content="Innovative and reliable solutions by Thivolve Global Pvt Ltd" />
       </head>
       <body suppressHydrationWarning={true} className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         {isMounted && <LoadingScreen show={isLoading} />}
