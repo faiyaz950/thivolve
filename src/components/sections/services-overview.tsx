@@ -1,7 +1,6 @@
-
 "use client";
 
-import { ArrowRight, Smartphone, Globe, Palette, Megaphone, Bot, Code } from 'lucide-react';
+import { ArrowRight, Smartphone, Globe, Palette, Megaphone, Bot, Code, Sparkles, Zap } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
@@ -22,6 +21,7 @@ const ServiceCard = ({ service, index, isVisible }: {
   isVisible: boolean;
 }) => {
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     if (isVisible && !hasAnimated) {
@@ -34,72 +34,88 @@ const ServiceCard = ({ service, index, isVisible }: {
 
   return (
     <Link 
-      href={`/services/${service.slug}`} 
+      href={`/services/${service.slug}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        "group relative block p-8 bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-2xl border border-white/5 overflow-hidden transition-all duration-700 transform-gpu hover:scale-105 hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20",
-        hasAnimated ? "opacity-100 translate-y-0 rotate-0" : "opacity-0 translate-y-16 rotate-3"
+        "group relative block p-6 bg-gradient-to-br from-neutral-900/80 via-black to-neutral-950 backdrop-blur-2xl rounded-2xl border border-white/10 overflow-hidden transition-all duration-700 transform-gpu hover:scale-[1.03] hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/25",
+        hasAnimated ? "opacity-100 translate-y-0 rotate-0" : "opacity-0 translate-y-16 rotate-2"
       )}
       style={{ 
         transitionDelay: `${index * 150}ms`,
-        background: 'linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.8) 100%)'
       }}
     >
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      
-      {/* Floating particles effect */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1 -left-1 w-2 h-2 bg-primary/20 rounded-full animate-pulse" />
-        <div className="absolute -bottom-1 -right-1 w-1 h-1 bg-primary/30 rounded-full animate-ping" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 -left-1 w-1 h-1 bg-white/20 rounded-full animate-ping" style={{ animationDelay: '2s' }} />
+      {/* Animated Gradient Border */}
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/30 via-blue-500/30 to-primary/30 blur-xl animate-spin-slow" style={{ animationDuration: '8s' }} />
       </div>
-      
+
+      {/* Card Glow Effect */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 rounded-2xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700" />
+
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+
+      {/* Shine Effect */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+      </div>
+
       {/* Content */}
       <div className="relative">
-        <div className="flex items-start justify-between mb-4">
-            <div className="p-3 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/10 group-hover:border-primary/30 transition-all duration-500 group-hover:scale-110 mr-4">
-              <Icon className="h-6 w-6 text-primary" />
+        {/* Icon and Arrow Section */}
+        <div className="flex items-start justify-between mb-5">
+          {/* Service Icon */}
+          <div className="relative">
+            <div className="p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/20 group-hover:border-primary/40 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+              <Icon className="h-6 w-6 text-primary group-hover:text-primary/90 transition-colors duration-500" />
             </div>
+            {/* Icon Glow */}
+            <div className="absolute inset-0 bg-primary/20 rounded-xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+          </div>
 
-          <div className="relative flex justify-center items-center">
-            <div className="relative p-3 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/10 group-hover:border-primary/30 transition-all duration-500 group-hover:scale-110">
-              <ArrowRight className="h-5 w-5 text-primary group-hover:text-primary/90 transition-all duration-500 filter drop-shadow-lg group-hover:drop-shadow-2xl group-hover:translate-x-1" />
-              
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-primary/20 rounded-xl opacity-0 group-hover:opacity-50 blur-xl transition-all duration-500 animate-pulse" />
+          {/* Arrow Icon */}
+          <div className="relative">
+            <div className="p-2.5 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/10 group-hover:border-primary/30 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">
+              <ArrowRight className="h-5 w-5 text-primary transition-all duration-500 group-hover:translate-x-1" />
             </div>
+            {/* Arrow Glow */}
+            <div className="absolute inset-0 bg-primary/30 rounded-xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-500" />
           </div>
         </div>
         
-        <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors duration-300 mb-2">
+        {/* Title */}
+        <h3 className="text-lg font-black text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-primary transition-all duration-500 mb-3 leading-tight">
             {service.title}
         </h3>
 
-        <p className="text-sm text-neutral-400 group-hover:text-neutral-300 transition-colors duration-300 leading-relaxed mb-6">
+        {/* Description */}
+        <p className="text-sm text-neutral-400 group-hover:text-neutral-300 transition-colors duration-500 leading-relaxed mb-5 line-clamp-3">
           {service.description}
         </p>
         
-        {/* Enhanced progress bar */}
+        {/* Enhanced Progress Bar */}
         <div className="relative">
-          <div className="w-20 h-1 bg-neutral-800 rounded-full overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-primary to-primary/60 rounded-full transition-all duration-700 group-hover:w-32 w-16"></div>
+          <div className="relative w-20 h-1 bg-neutral-800 rounded-full overflow-hidden">
+            <div className="absolute inset-0 h-full bg-gradient-to-r from-primary via-primary/80 to-primary rounded-full transition-all duration-700 group-hover:w-full w-14"></div>
           </div>
           
-          {/* Glowing effect */}
-          <div className="absolute inset-0 w-20 h-1 bg-primary/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm group-hover:w-32"></div>
+          {/* Glowing Trail */}
+          <div className="absolute inset-0 w-20 h-1 bg-primary/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm group-hover:w-full"></div>
         </div>
-        
-        {/* Animated underline */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent group-hover:w-full transition-all duration-700" />
       </div>
-      
-      {/* Subtle border glow effect */}
-      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
-           style={{
-             background: 'linear-gradient(135deg, transparent, rgba(255,255,255,0.03), transparent)',
-             mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-             maskComposite: 'xor'
-           }} />
+
+      {/* Bottom Accent Line */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/0 to-transparent group-hover:via-primary/80 transition-all duration-700" />
+
+      {/* Corner Decorations */}
+      <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-primary/20 rounded-full opacity-0 group-hover:opacity-100 animate-pulse transition-opacity duration-500" />
+      <div className="absolute bottom-2 left-2 w-1 h-1 bg-primary/30 rounded-full opacity-0 group-hover:opacity-100 animate-pulse transition-opacity duration-500" style={{ animationDelay: '0.5s' }} />
     </Link>
   );
 };
@@ -112,71 +128,96 @@ export function ServicesOverview() {
     <section
       id="services"
       ref={ref}
-      className="relative py-20 md:py-7 bg-black text-white overflow-hidden"
+      className="relative py-24 bg-black text-white overflow-hidden"
     >
-      {/* Enhanced background effects matching About Us */}
+      {/* Enhanced Background Effects */}
       <div className="absolute inset-0">
-        {/* Multi-layer gradients */}
         <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-950 to-black" />
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-primary/[0.02] to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
         
-        {/* Animated mesh gradient */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/5 rounded-full filter blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }} />
-        </div>
+        {/* Animated Orbs */}
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full filter blur-[120px] animate-pulse" />
+        <div className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] bg-blue-500/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDelay: '2s' }} />
         
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `radial-gradient(circle at 25px 25px, white 1px, transparent 0)`,
-          backgroundSize: '50px 50px'
-        }} />
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
       </div>
 
-      <div className="relative container mx-auto px-6 max-w-screen-xl">
-        {/* Services Section */}
-        <div className="mb-24 md:mb-40">
-          {/* Enhanced header matching About Us */}
-          <div className={cn(
-            "text-center mb-16 md:mb-20 transition-all duration-1000",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}>
-            <div className="relative inline-block">
-              <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
+      <div className="relative container mx-auto px-6 max-w-7xl">
+        {/* Enhanced Header */}
+        <div className={cn(
+          "text-center mb-16 transition-all duration-1000",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <div className="relative inline-block mb-8">
+            {/* Top Decorative Glow */}
+            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-primary/10 rounded-full filter blur-3xl animate-pulse" />
+            
+            <div className="relative">
+              <h2 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-100 to-neutral-500 tracking-tight leading-tight mb-2">
                 Our Services
               </h2>
-              
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -left-4 w-3 h-3 bg-primary rounded-full animate-ping" />
-              <div className="absolute -top-2 -right-6 w-2 h-2 bg-primary/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+              <div className="flex items-center justify-center gap-2 mt-3">
+                <Zap className="w-5 h-5 text-primary animate-pulse" />
+                <p className="text-lg text-primary font-bold uppercase tracking-widest">Solutions That Scale</p>
+                <Zap className="w-5 h-5 text-primary animate-pulse" style={{ animationDelay: '0.5s' }} />
+              </div>
             </div>
             
-            <div className="relative max-w-3xl mx-auto">
-              <p className="text-lg md:text-xl text-neutral-400 leading-relaxed font-light">
-                Comprehensive solutions designed to drive innovation, efficiency, and growth across diverse industries with cutting-edge technology and expert service.
-              </p>
-              
-              {/* Subtle accent line */}
-              <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-6 animate-pulse" />
-            </div>
+            {/* Enhanced Underline */}
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-40 h-1.5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-40 h-1.5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full blur-md animate-pulse" />
           </div>
           
-          {/* Services Grid - matching About Us style */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-6">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={service.slug}
-                service={service}
-                index={index}
-                isVisible={isVisible}
-              />
-            ))}
+          <p className="text-xl text-neutral-300 max-w-4xl mx-auto leading-relaxed font-light">
+            Comprehensive solutions designed to drive <span className="text-primary font-semibold">innovation, efficiency, and growth</span> across diverse industries with cutting-edge technology.
+          </p>
+        </div>
+
+        {/* Services Grid - Compact & Modern */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <ServiceCard
+              key={service.slug}
+              service={service}
+              index={index}
+              isVisible={isVisible}
+            />
+          ))}
+        </div>
+
+        {/* Optional: Service Count Badge */}
+        <div className={cn(
+          "text-center mt-16 transition-all duration-1000 delay-500",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <div className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border border-primary/20 rounded-full backdrop-blur-xl">
+            <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+            <span className="text-neutral-300 font-medium text-lg">
+              <span className="text-primary font-bold">{services.length}</span> Powerful Services to Transform Your Business
+            </span>
+            <Sparkles className="w-4 h-4 text-primary animate-pulse" style={{ animationDelay: '0.5s' }} />
           </div>
         </div>
       </div>
       
-      {/* Enhanced bottom fade effect */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none" />
+      {/* Bottom Fade Effect */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none" />
+
+      <style jsx>{`
+        @keyframes spin-slow {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        
+        .animate-spin-slow {
+          animation: spin-slow 8s linear infinite;
+        }
+      `}</style>
     </section>
   );
 }

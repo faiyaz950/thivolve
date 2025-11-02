@@ -1,11 +1,10 @@
-
 "use client";
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   Eye, ArrowRight, Award, CheckCircle, TrendingUp, Users, Star,
-  Calendar, Globe, Smartphone, BarChart3, Clock, Target, Palette
+  Calendar, Globe, Smartphone, BarChart3, Clock, Target, Palette, Sparkles
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -56,77 +55,94 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div
       className={cn(
-        "group relative w-full bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-xl sm:rounded-2xl lg:rounded-3xl border border-white/5 overflow-hidden transition-all duration-700 transform-gpu hover:scale-[1.02] hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20",
+        "group relative w-full bg-gradient-to-br from-neutral-900/90 via-black to-neutral-950 backdrop-blur-2xl rounded-2xl border border-white/10 overflow-hidden transition-all duration-700 transform-gpu hover:scale-[1.03] hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/25",
         hasAnimated ? "opacity-100 translate-y-0 rotate-0" : "opacity-0 translate-y-16 rotate-1"
       )}
       style={{
         transitionDelay: `${index * 150}ms`,
-        background: 'linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.8) 100%)'
       }}
     >
-      {/* Image Section with Better Mobile Aspect Ratio */}
-      <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9] overflow-hidden">
+      {/* Animated Gradient Border */}
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/30 via-blue-500/30 to-primary/30 blur-xl animate-spin-slow" style={{ animationDuration: '6s' }} />
+      </div>
+
+      {/* Card Glow Effect */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 rounded-2xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700" />
+
+      {/* Image Section */}
+      <div className="relative w-full aspect-[16/9] overflow-hidden">
         <Image
           src={imageUrl}
           alt={title}
           data-ai-hint={aiHint}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover group-hover:scale-110 transition-all duration-700 filter group-hover:brightness-110"
+          className="object-cover group-hover:scale-110 transition-all duration-700 filter brightness-90 group-hover:brightness-100"
           onLoad={() => setImageLoaded(true)}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         
-        {/* Category Badge - Better Mobile Positioning */}
-        <div className="absolute top-2 sm:top-3 lg:top-4 left-2 sm:left-3 lg:left-4">
-          <div className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-primary/90 to-primary/70 backdrop-blur-md rounded-full border border-primary/30 shadow-lg">
-            <CategoryIcon className="w-3 sm:w-4 h-3 sm:h-4 text-white flex-shrink-0" />
-            <p className="text-[10px] sm:text-xs font-bold text-white uppercase tracking-wider leading-none whitespace-nowrap">{category}</p>
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-700" />
+        
+        {/* Shine Effect on Hover */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+        </div>
+        
+        {/* Category Badge */}
+        <div className="absolute top-3 left-3 z-10">
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-primary via-primary/90 to-primary/80 backdrop-blur-xl rounded-full border border-primary/40 shadow-lg shadow-primary/30 group-hover:shadow-primary/50 transition-all duration-500">
+            <CategoryIcon className="w-3.5 h-3.5 text-white flex-shrink-0" />
+            <p className="text-[11px] font-bold text-white uppercase tracking-wider leading-none whitespace-nowrap">{category}</p>
           </div>
         </div>
         
-        {/* Duration Badge - Better Mobile Positioning */}
-        <div className="absolute top-2 sm:top-3 lg:top-4 right-2 sm:right-3 lg:right-4">
-          <div className="flex items-center gap-1 px-2 sm:px-3 py-1 sm:py-1.5 bg-black/60 backdrop-blur-md rounded-full border border-white/10">
-            <Calendar className="w-3 h-3 text-neutral-300 flex-shrink-0" />
-            <p className="text-[10px] sm:text-xs text-neutral-300 leading-none whitespace-nowrap">{duration}</p>
+        {/* Duration Badge */}
+        <div className="absolute top-3 right-3 z-10">
+          <div className="flex items-center gap-1.5 px-3 py-1.5 bg-black/70 backdrop-blur-xl rounded-full border border-white/10 shadow-lg">
+            <Clock className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+            <p className="text-[11px] text-neutral-200 font-medium leading-none whitespace-nowrap">{duration}</p>
           </div>
         </div>
       </div>
 
-      {/* Content Section - Better Mobile Spacing */}
-      <div className="relative p-3 sm:p-4 md:p-6 lg:p-8 space-y-3 sm:space-y-4 lg:space-y-6">
-        {/* Title - Better Mobile Typography */}
-        <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-black text-white leading-tight line-clamp-2">
+      {/* Content Section */}
+      <div className="relative p-5 space-y-4">
+        {/* Title */}
+        <h3 className="text-lg font-black text-white leading-tight line-clamp-2 group-hover:text-primary transition-colors duration-500">
           {title}
         </h3>
         
-        {/* Description - Better Mobile Readability */}
-        <p className="text-xs sm:text-sm lg:text-base text-neutral-400 leading-relaxed line-clamp-3">
+        {/* Description */}
+        <p className="text-sm text-neutral-400 leading-relaxed line-clamp-2 group-hover:text-neutral-300 transition-colors duration-500">
           {description}
         </p>
         
-        {/* Results Section - Improved Mobile Layout */}
-        <div className="p-2.5 sm:p-3 lg:p-4 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent rounded-lg sm:rounded-xl lg:rounded-2xl border border-primary/10">
-          <div className="flex items-start sm:items-center gap-2 sm:gap-3">
-            <div className="p-1 sm:p-1.5 lg:p-2 bg-primary/20 rounded-md sm:rounded-lg lg:rounded-xl flex-shrink-0">
-              <TrendingUp className="w-3 sm:w-4 lg:w-5 h-3 sm:h-4 lg:h-5 text-primary" />
+        {/* Results Section */}
+        <div className="relative p-3 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-xl border border-primary/20 overflow-hidden group-hover:border-primary/40 transition-all duration-500">
+          {/* Background Pulse */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          
+          <div className="relative flex items-start gap-2.5">
+            <div className="p-1.5 bg-primary/20 rounded-lg flex-shrink-0 group-hover:bg-primary/30 transition-colors duration-500">
+              <TrendingUp className="w-4 h-4 text-primary" />
             </div>
             <div className="min-w-0 flex-1">
-              <p className="text-[10px] sm:text-xs font-medium text-neutral-500 uppercase tracking-wider mb-0.5 sm:mb-1">Impact</p>
-              <p className="text-xs sm:text-sm font-bold text-white leading-tight">{results}</p>
+              <p className="text-[10px] font-semibold text-neutral-500 uppercase tracking-wider mb-1">Impact</p>
+              <p className="text-xs font-bold text-white leading-snug">{results}</p>
             </div>
           </div>
         </div>
         
-        {/* Technologies - Better Mobile Layout */}
+        {/* Technologies */}
         <div>
-          <p className="text-[10px] sm:text-xs font-medium text-neutral-500 uppercase tracking-wider mb-1.5 sm:mb-2">Technologies</p>
-          <div className="flex flex-wrap gap-1 sm:gap-1.5 lg:gap-2">
+          <p className="text-[10px] font-semibold text-neutral-500 uppercase tracking-wider mb-2">Tech Stack</p>
+          <div className="flex flex-wrap gap-1.5">
             {technologies.map((tech) => (
               <div
                 key={tech}
-                className="px-1.5 sm:px-2 lg:px-3 py-0.5 sm:py-1 lg:py-1.5 bg-neutral-800/60 border border-neutral-700/50 rounded sm:rounded-md lg:rounded-lg text-[10px] sm:text-xs text-neutral-300 whitespace-nowrap"
+                className="px-2.5 py-1 bg-gradient-to-br from-neutral-800/80 to-neutral-900/80 border border-neutral-700/50 rounded-lg text-[11px] font-medium text-neutral-300 whitespace-nowrap hover:border-primary/40 hover:text-white transition-all duration-300"
               >
                 {tech}
               </div>
@@ -134,17 +150,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </div>
         </div>
         
-        {/* View Case Study Link - Better Mobile Touch Target */}
-        <div className="pt-1 sm:pt-2">
+        {/* View Link */}
+        <div className="pt-2">
           <Link
             href="/our-work"
-            className="inline-flex items-center gap-1.5 sm:gap-2 text-primary hover:text-white text-xs sm:text-sm font-bold transition-all duration-500 py-2 sm:py-0"
+            className="inline-flex items-center gap-2 text-primary hover:text-white text-sm font-bold transition-all duration-500 group/link"
           >
-            <span>View All Projects</span>
-            <ArrowRight className="h-3 sm:h-4 w-3 sm:w-4 transition-transform group-hover:translate-x-1" />
+            <span>View Details</span>
+            <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
           </Link>
         </div>
       </div>
+
+      {/* Bottom Accent Line */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/0 to-transparent group-hover:via-primary transition-all duration-700" />
     </div>
   );
 };
@@ -168,19 +187,36 @@ const StatCard = ({ icon: Icon, value, label, description, isVisible, index }: {
   return (
     <div
       className={cn(
-        "group text-center p-3 sm:p-4 md:p-6 lg:p-8 bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 rounded-lg sm:rounded-xl lg:rounded-2xl border border-white/5 transition-all duration-700",
+        "group relative text-center p-5 bg-gradient-to-br from-neutral-900/70 via-black to-neutral-950 rounded-xl border border-white/10 transition-all duration-700 hover:scale-105 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/20 overflow-hidden",
         hasAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       )}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="mb-2 sm:mb-3 lg:mb-4">
-        <div className="inline-flex p-2 sm:p-3 lg:p-4 bg-primary/10 rounded-lg sm:rounded-xl lg:rounded-2xl">
-          <Icon className="h-4 sm:h-6 lg:h-8 w-4 sm:w-6 lg:w-8 text-primary" />
+      {/* Animated Background Glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      
+      {/* Icon */}
+      <div className="relative mb-3">
+        <div className="inline-flex p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl group-hover:from-primary/30 group-hover:to-primary/20 transition-all duration-500">
+          <Icon className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-500" />
+        </div>
+        {/* Icon Glow */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-12 h-12 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </div>
       </div>
-      <p className="text-xl sm:text-2xl lg:text-3xl font-black text-white mb-1 sm:mb-2">{value}</p>
-      <p className="text-sm sm:text-base lg:text-lg font-bold text-white mb-0.5 sm:mb-1 leading-tight">{label}</p>
-      <p className="text-xs sm:text-sm text-neutral-400 leading-tight">{description}</p>
+      
+      {/* Stats */}
+      <div className="relative">
+        <p className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-400 mb-1 group-hover:from-primary group-hover:to-primary/70 transition-all duration-500">
+          {value}
+        </p>
+        <p className="text-sm font-bold text-white mb-1 leading-tight">{label}</p>
+        <p className="text-xs text-neutral-400 leading-tight group-hover:text-neutral-300 transition-colors duration-500">{description}</p>
+      </div>
+
+      {/* Bottom Accent */}
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/0 to-transparent group-hover:via-primary/80 transition-all duration-700" />
     </div>
   );
 };
@@ -276,7 +312,6 @@ const projectsData = [
   }
 ];
 
-// Updated achievement stats
 const achievementStats = [
   { icon: Clock, value: "3+", label: "Years Experience", description: "Building digital solutions" },
   { icon: TrendingUp, value: "200%", label: "Growth Rate", description: "Average client improvement" },
@@ -288,47 +323,96 @@ export function OurWork() {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <section ref={ref} id="our-work" className="py-8 sm:py-12 md:py-16 lg:py-24 bg-black text-white overflow-x-hidden">
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 max-w-screen-2xl">
-        {/* Title Section - Mobile Optimized */}
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <div className="relative inline-block">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-3 sm:mb-4 lg:mb-6 tracking-tight leading-none">
-              Our Work
-            </h2>
-            <div className="absolute -top-1 sm:-top-2 lg:-top-4 -left-1 sm:-left-2 lg:-left-4 w-1.5 sm:w-2 lg:w-3 h-1.5 sm:h-2 lg:h-3 bg-primary rounded-full animate-ping" />
-            <div className="absolute -top-0.5 sm:-top-1 lg:-top-2 -right-2 sm:-right-3 lg:-right-6 w-1 sm:w-1.5 lg:w-2 h-1 sm:h-1.5 lg:h-2 bg-primary/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+    <section ref={ref} id="our-work" className="relative py-24 bg-black text-white overflow-hidden">
+      {/* Enhanced Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-950 to-black" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/3 via-transparent to-transparent" />
+        
+        {/* Animated Orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-[120px] animate-pulse" />
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDelay: '2s' }} />
+        
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+      </div>
+
+      <div className="relative container mx-auto px-6 max-w-7xl">
+        {/* Enhanced Title Section */}
+        <div className={cn(
+          "text-center mb-16 transition-all duration-1000",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <div className="relative inline-block mb-8">
+            {/* Decorative Elements */}
+            <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-24 h-24 bg-primary/10 rounded-full filter blur-3xl animate-pulse" />
+            
+            <div className="relative">
+              <h2 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-100 to-neutral-500 tracking-tight leading-tight mb-2">
+                Our Work
+              </h2>
+              <div className="flex items-center justify-center gap-2 mt-3">
+                <Sparkles className="w-5 h-5 text-primary animate-pulse" />
+                <p className="text-lg text-primary font-bold uppercase tracking-widest">Portfolio Excellence</p>
+                <Sparkles className="w-5 h-5 text-primary animate-pulse" style={{ animationDelay: '0.5s' }} />
+              </div>
+            </div>
+            
+            {/* Enhanced Underline */}
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full blur-md animate-pulse" />
           </div>
-          <div className="relative max-w-4xl mx-auto">
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-neutral-400 leading-relaxed font-light px-2 sm:px-4 lg:px-0">
-              A showcase of impactful work across platforms, showcasing innovation, scalability, and performance.
-            </p>
-            <div className="w-12 sm:w-16 lg:w-24 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-3 sm:mt-4 lg:mt-6 animate-pulse" />
-          </div>
+          
+          <p className="text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed font-light">
+            A showcase of <span className="text-primary font-semibold">impactful work</span> across platforms, demonstrating innovation, scalability, and performance excellence.
+          </p>
         </div>
 
-        {/* Stats - Mobile Responsive Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 lg:gap-6 mb-8 sm:mb-12 lg:mb-16">
+        {/* Enhanced Stats Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           {achievementStats.map((stat, index) => (
             <StatCard key={stat.label} {...stat} isVisible={isVisible} index={index} />
           ))}
         </div>
 
-        {/* Project Cards - Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
+        {/* Project Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
           {projectsData.slice(0, 3).map((project, index) => (
             <ProjectCard key={project.title} {...project} index={index} isVisible={isVisible} />
           ))}
         </div>
-        <div className="text-center mt-12">
-            <Button asChild size="lg" className="group relative bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 px-8 py-6 text-lg">
-                <Link href="/our-work" className="flex items-center gap-3">
-                    <span>View All Our Work</span>
-                    <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
-                </Link>
-            </Button>
+
+        {/* Enhanced CTA Button */}
+        <div className={cn(
+          "text-center transition-all duration-1000 delay-500",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <Button asChild size="lg" className="group relative bg-gradient-to-r from-primary via-primary to-primary/90 hover:from-primary/90 hover:via-primary hover:to-primary text-white transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/40 px-10 py-7 text-lg font-bold rounded-xl overflow-hidden">
+            <Link href="/our-work" className="flex items-center gap-3">
+              {/* Button Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+              
+              <span className="relative z-10">View All Our Work</span>
+              <ArrowRight className="relative z-10 h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
+            </Link>
+          </Button>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes spin-slow {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        
+        .animate-spin-slow {
+          animation: spin-slow 6s linear infinite;
+        }
+      `}</style>
     </section>
   );
 }
