@@ -13,7 +13,6 @@ import { ChevronDown, Smartphone, Globe, Code, Palette, Megaphone, Bot } from 'l
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
-  // "Services" is now a dropdown, so it's handled separately
   { href: "/our-work", label: "Our Work" },
   { href: "/#contact", label: "Contact Us" },
 ];
@@ -98,21 +97,17 @@ export function Header() {
 
         {/* Navigation with enhanced styling */}
         <nav className="hidden md:flex flex-grow justify-center items-center space-x-8 lg:space-x-10">
-          {navLinks.map((link, index) => (
             <Link
-              key={link.label}
-              href={link.href}
+              href="/"
               className="group relative text-sm font-medium text-white/80 hover:text-white transition-all duration-300"
             >
               <span className="relative z-10 px-3 py-2 rounded-lg transition-all duration-300 group-hover:bg-white/5">
-                {link.label}
+                Home
               </span>
-              
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent group-hover:w-full transition-all duration-500" />
-              
               <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 transition-all duration-300" />
             </Link>
-          ))}
+            
             {/* Services Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -141,6 +136,22 @@ export function Header() {
                 })}
               </DropdownMenuContent>
             </DropdownMenu>
+
+          {navLinks.filter(l => l.label !== 'Home').map((link, index) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="group relative text-sm font-medium text-white/80 hover:text-white transition-all duration-300"
+            >
+              <span className="relative z-10 px-3 py-2 rounded-lg transition-all duration-300 group-hover:bg-white/5">
+                {link.label}
+              </span>
+              
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent group-hover:w-full transition-all duration-500" />
+              
+              <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 transition-all duration-300" />
+            </Link>
+          ))}
         </nav>
 
         {/* CTA Button with enhanced design */}
