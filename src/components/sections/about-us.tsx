@@ -154,11 +154,11 @@ export function AboutUs() {
                 className="group relative border-2 border-primary/40 text-white hover:bg-primary/10 hover:text-white hover:border-primary/70 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/40 backdrop-blur-sm bg-gradient-to-r from-primary/10 to-transparent overflow-hidden"
                 asChild
               >
-                <Link href="#services" className="flex items-center gap-3 px-8 py-6">
+                <Link href="/about-us" className="flex items-center gap-3 px-8 py-6">
                   {/* Button Shine Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                   
-                  <span className="relative z-10 font-bold text-lg">Explore Our Services</span>
+                  <span className="relative z-10 font-bold text-lg">More About Us</span>
                   <div className="relative z-10 flex items-center">
                     <ArrowRight className="h-6 w-6 transition-all duration-500 group-hover:translate-x-2" />
                     <ArrowRight className="absolute h-6 w-6 opacity-0 group-hover:opacity-30 transition-all duration-300 -translate-x-2 group-hover:translate-x-0" />

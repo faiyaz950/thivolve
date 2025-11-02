@@ -10,6 +10,7 @@ import { CheckCircle, Linkedin, Quote, ArrowRight, Users, Target, Heart } from "
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
 import { VideoSection } from "@/components/sections/video-section";
+import { OurClients } from "@/components/sections/our-clients";
 
 // TypeScript Interfaces
 interface TeamMember {
@@ -250,45 +251,6 @@ const cultureImages: CultureImage[] = [
 },
 ];
 
-const galleryImages: CultureImage[] = [
-{
-  id: 1,
-  src: "/officeteamg.jpeg",
-  alt: "Modern office interior showing workspace design",
-  title: "",
-},
-{
-  id: 2,
-  src: "/officethree.jpeg",
-  alt: "Contemporary office environment with modern amenities",
-  title: "",
-},
-{
-  id: 3,
-  src: "/officeteam.jpeg",
-  alt: "Team collaboration in conference room during meeting",
-  title: "",
-},
-{
-  id: 4,
-  src: "/officefive.jpeg",
-  alt: "Open-plan office with employees working",
-  title: "",
-},
-{
-  id: 5,
-  src: "/officesix.jpeg",
-  alt: "Team discussion in a meeting room",
-  title: "",
-},
-{
-  id: 6,
-  src: "/officeteamb.jpeg",
-  alt: "Modern office lounge area",
-  title: "",
-},
-];
-
 const testimonials: Testimonial[] = [
 {
   quote: "Thivolve transformed our digital presence with a stunning website and a brilliant marketing strategy. Their team is professional, creative, and truly dedicated to client success.",
@@ -334,16 +296,14 @@ const cultureFeatures: CultureFeatureProps[] = [
 },
 ];
 
-export { teamMembers, cultureImages, galleryImages };
+export { teamMembers, cultureImages };
 
 export default function AboutUsPage() {
 const heroRef = useScrollAnimation({ threshold: 0.1 });
 const whoWeAreRef = useScrollAnimation({ threshold: 0.2 });
-const ceoRef = useScrollAnimation({ threshold: 0.2 });
 const teamRef = useScrollAnimation({ threshold: 0.2 });
 const cultureRef = useScrollAnimation({ threshold: 0.2 });
 const testimonialsRef = useScrollAnimation({ threshold: 0.2 });
-const galleryRef = useScrollAnimation({ threshold: 0.2 });
 
 return (
 <div className="bg-black text-white">
@@ -464,79 +424,6 @@ Our success is driven by our exceptional team of passionate professionals who br
 </div>
 <div className="absolute top-6 right-6 w-3 h-3 bg-primary/40 rounded-full animate-pulse" />
 <div className="absolute bottom-6 left-6 w-2 h-2 bg-white/20 rounded-full animate-ping" />
-</div>
-</div>
-</div>
-</section>
-<section
-ref={ceoRef.ref}
-className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-900/50 via-black to-neutral-900/50 overflow-hidden"
->
-<div className="absolute inset-0">
-<div className="absolute inset-0 bg-gradient-to-t from-transparent via-primary/[0.01] to-transparent" />
-<div className="absolute inset-0 opacity-20">
-<div
-className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse"
-style={{ animationDuration: "6s" }}
-                            />
-                            </div>
-                            </div>
-                            <div className="relative container mx-auto px-6 max-w-screen-xl">
-                            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                            <div
-className={cn(
-"order-2 lg:order-1 transition-all duration-1000",
-ceoRef.isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
-)}
->
-<div className="relative">
-<h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-8 tracking-tight">
-From The Founder's Desk
-</h2>
-<div className="space-y-6 text-lg text-neutral-300 leading-relaxed">
-<p>
-At Thivolve Services Pvt Ltd, we are committed to shaping the future by delivering innovative solutions that make a meaningful difference in our clients' lives. Our greatest strength lies in our exceptional team of dedicated professionals who bring passion, expertise, and unwavering commitment to every project we undertake.
-</p>
-<p>
-Since our inception, we have built more than just a company – we have cultivated a family of talented individuals united by a shared vision of excellence. Their relentless pursuit of innovation and client satisfaction is what sets us apart in today's competitive landscape.
-</p>
-<p>
-As we continue to expand our reach and impact, we remain deeply committed to sustainable practices and giving back to the communities we serve. We understand that true success is measured not just by business growth, but by the positive contributions we make to society and the environment.
-</p>
-<p className="text-primary/90 font-medium">
-Together, we are building a future where innovation meets responsibility, where technology serves humanity, and where every solution we deliver creates lasting value for our clients and communities.
-</p>
-</div>
-<div className="mt-10 pt-6 border-t border-white/10">
-<p className="font-bold text-xl text-white mb-1">Imtiyaz Ali</p>
-<p className="text-primary italic font-medium">CEO & Founder, Thivolve Services Pvt Ltd</p>
-</div>
-</div>
-</div>
-<div
-className={cn(
-"order-1 lg:order-2 transition-all duration-1000 delay-300",
-ceoRef.isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-)}
->
-<div className="relative group">
-<div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-3xl blur-2xl transform rotate-3 scale-105 opacity-0 group-hover:opacity-100 transition-all duration-700" />
-<div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm">
-<Image
-src="/mintubhai.jpeg"
-alt="Imtiyaz Ali, CEO of Thivolve Services"
-width={500}
-height={600}
-className="w-full h-auto object-cover transition-all duration-700 group-hover:scale-105 filter group-hover:brightness-110"
-/>
-<div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-<div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-</div>
-<div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-br from-primary/30 to-primary/10 rounded-2xl border border-primary/40 opacity-0 group-hover:opacity-100 transition-all duration-500 animate-pulse backdrop-blur-sm" />
-<div
-className="absolute -bottom-6 -left-6 w-8 h-8 bg-gradient-to-br from-white/10 to-transparent rounded-xl border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 backdrop-blur-sm"
-/>
-</div>
 </div>
 </div>
 </div>
@@ -663,59 +550,8 @@ cultureRef.isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
   </div>
   </section>
   
-  <section
-  ref={galleryRef.ref}
-  className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-900/50 via-black to-neutral-900/50 overflow-hidden"
-  >
-  <div className="absolute inset-0">
-  <div className="absolute inset-0 bg-gradient-to-t from-transparent via-primary/[0.01] to-transparent" />
-  <div className="absolute inset-0 opacity-20">
-  <div
-  className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse"
-  style={{ animationDuration: "7s" }}
-  />
-  </div>
-  </div>
-  <div className="relative container mx-auto px-6 max-w-screen-xl">
-  <div
-  className={cn(
-  "text-center mb-16 md:mb-20 transition-all duration-1000",
-  galleryRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-  )}
-  >
-  <div className="relative inline-block">
-  <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
-  Our Office Gallery
-      </h2>
-  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
-  </div>
-  <p className="text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
-  A glimpse into our modern workspace where creativity and collaboration thrive.
-  </p>
-  </div>
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-  {galleryImages.map((image) => (
-  <div
-  key={`gallery-${image.id}`}
-  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm hover:border-white/20 transition-all duration-700 hover:scale-105"
-  >
-  <Image
-  src={image.src}
-  alt={image.alt}
-  width={400}
-  height={300}
-  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 filter group-hover:brightness-110"
-  />
-  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-  <div className="absolute bottom-4 left-4 text-white text-lg font-semibold drop-shadow-md">
-  {image.title}
-  </div>
-  </div>
-  ))}
-  </div>
-  </div>
-  </section>
+  <OurClients />
+
   <section
   ref={testimonialsRef.ref}
   className="relative py-20 md:py-32 bg-black overflow-hidden"
