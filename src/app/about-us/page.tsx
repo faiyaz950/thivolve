@@ -11,6 +11,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
 import { VideoSection } from "@/components/sections/video-section";
 import { OurClients } from "@/components/sections/our-clients";
+import { OurWork } from "@/components/sections/our-work";
 
 // TypeScript Interfaces
 interface TeamMember {
@@ -35,13 +36,6 @@ title: string;
 description: string;
 index: number;
 isVisible: boolean;
-}
-
-interface CultureImage {
-id: number;
-src: string;
-alt: string;
-title: string;
 }
 
 // Team Member Card Component
@@ -236,21 +230,6 @@ const teamMembers: TeamMember[] = [
 },
 ];
 
-const cultureImages: CultureImage[] = [
-{
-  id: 1,
-  src: "/officefour.jpeg",
-  alt: "Team brainstorming session in modern office",
-  title: "Creative Collaboration",
-},
-{
-  id: 2,
-  src: "/officethree.jpeg",
-  alt: "Employees enjoying a team-building activity",
-  title: "Team Bonding",
-},
-];
-
 const testimonials: Testimonial[] = [
 {
   quote: "Thivolve transformed our digital presence with a stunning website and a brilliant marketing strategy. Their team is professional, creative, and truly dedicated to client success.",
@@ -295,8 +274,6 @@ const cultureFeatures: CultureFeatureProps[] = [
   isVisible: false,
 },
 ];
-
-export { teamMembers, cultureImages };
 
 export default function AboutUsPage() {
 const heroRef = useScrollAnimation({ threshold: 0.1 });
@@ -471,85 +448,8 @@ The passionate professionals driving our success and delivering excellence acros
 </div>
 </div>
 </section>
-<section
-ref={cultureRef.ref}
-className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-900/50 via-black to-neutral-900/50 overflow-hidden"
->
-<div className="absolute inset-0">
-<div className="absolute inset-0 bg-gradient-to-t from-transparent via-primary/[0.01] to-transparent" />
-<div className="absolute inset-0 opacity-20">
-<div
-className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse"
-style={{ animationDuration: "6s" }}
-                            />
-                            </div>
-                            </div>
-                            <div className="relative container mx-auto px-6 max-w-screen-xl">
-                            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                            <div
-className={cn(
-"transition-all duration-1000",
-cultureRef.isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
-)}
->
-<div className="relative">
-<h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-8 tracking-tight">
-Our Culture & Environment
-</h2>
-<p className="text-xl text-neutral-300 leading-relaxed mb-12">
-We believe in fostering a collaborative, innovative, and supportive environment where every team member can thrive. Our culture is built on continuous learning, mutual respect, and a shared passion for excellence.
-</p>
-<div className="space-y-8">
-{cultureFeatures.map((feature, index) => (
-  <CultureFeature
-  key={feature.title}
-  icon={feature.icon}
-  title={feature.title}
-  description={feature.description}
-  index={index}
-  isVisible={cultureRef.isVisible}
-  />
-  ))}
-</div>
-</div>
-</div>
-<div
-className={cn(
-"transition-all duration-1000 delay-300",
-cultureRef.isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-)}
->
-<div className="grid grid-cols-1 gap-6">
-{cultureImages.map((image) => (
-  <div
-  key={image.id}
-  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm hover:border-white/20 transition-all duration-700 hover:scale-105"
-  >
-  <Image
-  src={image.src}
-  alt={image.alt}
-  width={400}
-  height={200}
-  className="w-full h-auto object-cover transition-all duration-700 group-hover:scale-110 filter group-hover:brightness-110"
-  />
-  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-  <div className="absolute bottom-4 left-4 text-white text-lg font-semibold drop-shadow-md">
-  {image.title}
-  </div>
-  </div>
-  ))}
-      </div>
-  <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-br from-primary/30 to-primary/10 rounded-2xl border border-primary/40 animate-pulse backdrop-blur-sm" />
-  <div
-  className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-br from-white/10 to-transparent rounded-xl border border-white/20 animate-pulse backdrop-blur-sm"
-  style={{ animationDelay: "1s" }}
-      />
-  </div>
-  </div>
-  </div>
-  </section>
   
+  <OurWork />
   <OurClients />
 
   <section
