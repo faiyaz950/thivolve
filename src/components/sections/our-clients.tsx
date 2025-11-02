@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from 'next/image';
@@ -57,12 +56,12 @@ export function OurClients() {
         <div
           className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
         >
-          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 animate-infinite-scroll">
+          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 animate-infinite-scroll">
             {duplicatedClients.map((client, index) => (
               <li key={`client-${index}`}>
                 <div
                   className={cn(
-                    "group relative flex items-center justify-center p-8 h-40 w-64 bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-2xl border border-white/5 overflow-hidden transition-all duration-700 hover:scale-105 hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20",
+                    "group relative flex items-center justify-center p-8 h-48 w-80 bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-2xl border border-white/5 overflow-hidden transition-all duration-700 hover:scale-105 hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20",
                      isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
                   )}
                   style={{ transitionDelay: `${index * 50}ms` }}
@@ -70,8 +69,8 @@ export function OurClients() {
                   <Image
                     src={client.logo}
                     alt={client.name}
-                    width={158}
-                    height={48}
+                    width={200}
+                    height={80}
                     className="filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110 object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
