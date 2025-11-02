@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 const clients = [
   { name: "Tirupati", logo: "/tirupati_logo_transparent.png" },
   { name: "Globolosys", logo: "/globolosys_white_text.png" },
-  { name: "Btruss", logo: "/btrusss.jpg" },
+  { name: "Thivolve", logo: "/btrusss.jpg" },
   { name: "GTS", logo: "/gtslogo.png" },
   { name: "Client 5", logo: "/clients/logoipsum-5.svg" },
   { name: "Client 6", logo: "/clients/logoipsum-6.svg" },
