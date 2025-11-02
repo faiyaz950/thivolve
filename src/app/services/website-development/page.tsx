@@ -51,85 +51,73 @@ const heroContent = {
     }
 };
 
-const introduction = "In today's hyper-competitive digital marketplace, a robust online presence isn't just an option—it's a necessity for survival and growth. A well-crafted website serves as the digital storefront of your brand, enhancing credibility, generating high-quality leads, and directly supporting your business objectives like increased sales, user engagement, and customer retention. At our core, we specialize in building websites that go beyond aesthetics: they're visually stunning, technically robust, secure against threats, and scalable to accommodate your evolving needs. Whether you're launching a startup's first site, overhauling an enterprise platform, or integrating e-commerce capabilities, our custom solutions are powered by the latest technologies and user-centric design principles. With a proven track record of delivering 250+ projects—resulting in an average 40% uplift in user engagement and 25% boost in conversions—we transform your vision into a high-performing digital asset that works tirelessly for your success.";
+const introduction = "In today's digital marketplace, a robust online presence is a necessity. A well-crafted website serves as your brand's digital storefront, enhancing credibility and generating leads. We specialize in building websites that are not just visually stunning but also technically robust, secure, and scalable. Our custom solutions are powered by the latest technologies and user-centric design principles to transform your vision into a high-performing digital asset.";
 
 const webServices = [
     {
-        title: "Custom Website Design & Development",
-        description: "We craft bespoke websites tailored precisely to your unique business requirements, branding guidelines, and user expectations. Starting from scratch, our team ideates, designs, and develops fully custom solutions that stand out in crowded markets, ensuring seamless integration of features like interactive elements, dynamic content, and third-party APIs for a truly personalized online experience.",
+        title: "Custom Website Development",
+        description: "Bespoke websites tailored to your unique business requirements, branding, and user expectations for a standout online experience.",
         icon: <Palette className="w-8 h-8" />,
         keyFeatures: [
-            "Fully unique, brand-aligned designs created with tools like Figma and Adobe XD for pixel-perfect prototypes.",
-            "Scalable architecture using modern frameworks (e.g., React.js for front-end, Node.js/Express for back-end) to handle traffic spikes and future expansions.",
-            "Secure coding practices, including OWASP compliance, encryption for sensitive data, and vulnerability scanning with tools like SonarQube.",
-            "Fully responsive layouts that adapt fluidly across devices, with accessibility standards (WCAG 2.1) for inclusive user experiences.",
-            "Custom functionalities such as contact forms, booking systems, or API integrations (e.g., CRM like Salesforce or payment processors).",
-            "Performance optimization: Lazy loading, CDN integration, and Core Web Vitals scoring for lightning-fast load times under 2 seconds."
+            "Fully unique, brand-aligned designs (Figma/Adobe XD).",
+            "Scalable architecture (React.js, Node.js).",
+            "Secure coding practices (OWASP compliance).",
+            "Responsive and accessible (WCAG 2.1) layouts."
         ]
     },
     {
         title: "E-commerce Website Development",
-        description: "Build powerful online stores that not only display your products with flair but also streamline transactions, manage inventory in real-time, and foster customer loyalty through personalized shopping journeys. We focus on creating intuitive e-commerce platforms that minimize cart abandonment and maximize revenue, whether for B2B wholesalers or direct-to-consumer brands.",
+        description: "Build powerful online stores that streamline transactions, manage inventory, and foster customer loyalty.",
         icon: <CreditCard className="w-8 h-8" />,
         keyFeatures: [
-            "Seamless payment gateway integrations (Stripe, PayPal, Razorpay) with multi-currency and tax compliance support.",
-            "Advanced product catalog management: Dynamic filtering, wishlists, variant options (sizes/colors), and high-res zoom galleries.",
-            "Secure checkout processes with PCI-DSS compliance, fraud detection, and one-click purchases for frictionless conversions.",
-            "Real-time inventory tracking synced with ERP systems, automated stock alerts, and supplier integrations.",
-            "Customer account portals for order history, personalized recommendations via AI-driven algorithms, and loyalty program tie-ins.",
-            "Analytics-ready setup with Google Analytics e-commerce tracking, heatmaps, and A/B testing for ongoing revenue optimization."
+            "Seamless payment gateway integrations (Stripe, PayPal).",
+            "Advanced product catalog management.",
+            "Secure checkout (PCI-DSS) & fraud detection.",
+            "Real-time inventory tracking & ERP sync."
         ]
     },
     {
-        title: "CMS Development (e.g., WordPress, Shopify, Drupal)",
-        description: "Empower your team to manage website content effortlessly without needing coding expertise by developing robust Content Management Systems (CMS). We customize platforms like WordPress for blogs and portfolios, Shopify for e-commerce, or Drupal for complex enterprise sites, ensuring they're intuitive, extensible, and aligned with your workflow for efficient updates and scalability.",
+        title: "CMS Development",
+        description: "Empower your team to manage content effortlessly with robust Content Management Systems like WordPress, Shopify, or Drupal.",
         icon: <Database className="w-8 h-8" />,
         keyFeatures: [
-            "Drag-and-drop content editing interfaces with WYSIWYG editors for non-technical users.",
-            "Plugin and module integrations (e.g., WooCommerce for WordPress, apps for Shopify) for added functionalities like SEO tools or forms.",
-            "Granular user roles and permissions to control access, from editors to admins, with audit logs for security.",
-            "Theme customization: Fully bespoke themes built on frameworks like Gutenberg or Headless CMS for modern, performant sites.",
-            "Built-in SEO optimization: Clean URLs, XML sitemaps, meta management, and schema markup for better search visibility.",
-            "Multi-site and multilingual support (e.g., WPML for WordPress) for global audiences, with automated backups via plugins like UpdraftPlus."
+            "Drag-and-drop content editing interfaces.",
+            "Plugin/module integrations for extended functionality.",
+            "Granular user roles and permissions.",
+            "Custom themes and Headless CMS options."
         ]
     },
     {
         title: "Responsive Web Design",
-        description: "Create adaptive websites that deliver flawless experiences across all devices—from desktops and tablets to smartphones—ensuring no user is left behind. This mobile-first methodology is crucial for user satisfaction, reducing bounce rates, and improving SEO rankings, as Google prioritizes responsive sites in its algorithm.",
+        description: "Create adaptive websites that deliver flawless experiences across all devices, crucial for user satisfaction and SEO.",
         icon: <Smartphone className="w-8 h-8" />,
         keyFeatures: [
-            "Mobile-first design philosophy: Prototyping starts with smallest screens, scaling up for larger ones using CSS media queries and Flexbox/Grid.",
-            "Fluid layouts with relative units (em/rem/vw) for proportional scaling and breakpoint testing across 10+ device emulations.",
-            "Optimized images and media: WebP/AVIF formats, responsive srcsets, and lazy loading to cut data usage by up to 50%.",
-            "Cross-browser compatibility testing (Chrome, Firefox, Safari, Edge) with tools like BrowserStack for consistent rendering.",
-            "Touch-friendly navigation, gesture support, and progressive enhancement for older devices.",
-            "Performance auditing with Lighthouse scores targeting 90+ for accessibility, best practices, and SEO."
+            "Mobile-first design philosophy.",
+            "Fluid layouts with relative units.",
+            "Optimized images and media (WebP/AVIF).",
+            "Cross-browser compatibility testing."
         ]
     },
     {
         title: "Website Redesign & Revamp",
-        description: "Breathe new life into your outdated website by modernizing its look, enhancing functionality, and elevating the overall user experience. Our redesign process audits your current site, identifies pain points, and delivers a refreshed version that aligns with contemporary trends, boosts engagement, and future-proofs your digital presence.",
+        description: "Breathe new life into your outdated website by modernizing its look, enhancing functionality, and elevating the user experience.",
         icon: <Sparkles className="w-8 h-8" />,
         keyFeatures: [
-            "Contemporary UI/UX overhaul with micro-interactions, intuitive navigation, and A/B-tested layouts for higher retention.",
-            "Performance tuning: Code refactoring, database optimization, and caching strategies (e.g., Redis) to slash load times by 60%.",
-            "Upgraded technology stack: Migration to modern CMS or frameworks like Next.js, with API-first architectures for agility.",
-            "Enhanced SEO: Keyword audits, content restructuring, and internal linking improvements to recover lost rankings.",
-            "Data migration: Seamless transfer of user data, content, and analytics without downtime, using tools like phpMyAdmin.",
-            "User testing phases with heatmapping (Hotjar) and surveys to validate improvements pre-launch."
+            "Contemporary UI/UX overhaul.",
+            "Performance tuning to slash load times.",
+            "Upgraded technology stack (e.g., Next.js).",
+            "Enhanced SEO and content restructuring."
         ]
     },
     {
         title: "Website Maintenance & Support",
-        description: "Keep your website running at peak efficiency long after launch with our comprehensive maintenance packages. We handle everything from routine updates to proactive security measures, ensuring minimal downtime, compliance with evolving standards, and ongoing enhancements to support your business as it grows.",
+        description: "Keep your site running at peak efficiency with our comprehensive maintenance packages, ensuring security and minimal downtime.",
         icon: <Settings className="w-8 h-8" />,
         keyFeatures: [
-            "Automated daily/weekly backups to cloud storage (AWS S3/Google Drive) with one-click restores.",
-            "Continuous security monitoring via tools like Sucuri or Wordfence, including malware scans and firewall configurations.",
-            "Timely software updates: Core CMS, plugins, themes, and server-side patches to patch vulnerabilities.",
-            "Content and feature updates: Hourly support for adding pages, fixing issues, or integrating new tools.",
-            "24/7 technical support via ticketing (Zendesk) or priority chat, with SLAs guaranteeing responses under 2 hours.",
-            "Monthly health reports: Uptime stats, speed metrics, and recommendations for proactive tweaks."
+            "Automated daily/weekly backups.",
+            "Continuous security monitoring (malware scans).",
+            "Timely software and plugin updates.",
+            "24/7 technical support with quick response SLAs."
         ]
     }
 ];

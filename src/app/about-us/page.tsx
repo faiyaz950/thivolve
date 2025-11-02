@@ -317,7 +317,7 @@ heroRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
 )}
 >
 <div className="relative inline-block mb-6">
-<h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 tracking-tight">
+<h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 tracking-tight">
 About Thivolve
 </h1>
 <div className="absolute -top-6 -left-6 w-4 h-4 bg-primary rounded-full animate-ping" />
@@ -326,7 +326,7 @@ className="absolute -top-4 -right-8 w-3 h-3 bg-primary/60 rounded-full animate-p
 style={{ animationDelay: "1s" }}
                          />
                          </div>
-                         <p className="text-lg md:text-2xl text-neutral-300 leading-relaxed font-light mb-12 max-w-3xl mx-auto">
+                         <p className="text-lg md:text-xl text-neutral-300 leading-relaxed font-light mb-12 max-w-3xl mx-auto">
                          Building the future with innovation, integrity, and a passion for excellence that transforms businesses and empowers communities.
                          </p>
                          <Button
@@ -366,7 +366,7 @@ whoWeAreRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
 )}
 >
 <div className="relative inline-block">
-<h2 className="text-4xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
+<h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
 Who We Are
 </h2>
 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
@@ -378,14 +378,14 @@ Who We Are
         whoWeAreRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
     )}
     >
-    <div className="relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-3xl border border-white/5 p-8 md:p-12 overflow-hidden hover:border-white/10 transition-all duration-700">
+    <div className="relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-3xl border border-white/5 p-6 md:p-10 overflow-hidden hover:border-white/10 transition-all duration-700">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-50" />
-        <div className="relative space-y-6 text-lg text-neutral-300 leading-relaxed">
+        <div className="relative space-y-6 text-base md:text-lg text-neutral-300 leading-relaxed">
             <p>
                 At Thivolve, we firmly believe that innovation is the cornerstone of unlocking true potential in an ever-evolving world. Founded in 2023 by a passionate group of tech visionaries, Thivolve emerged from a simple yet profound realization: in the fast-paced digital age, businesses that harness cutting-edge technology not only survive—they thrive. What started as a small team of developers brainstorming late-night solutions has grown into a dynamic IT services powerhouse, serving a diverse clientele ranging from startups and SMEs to Fortune 500 enterprises across industries like e-commerce, healthcare, finance, and education.
             </p>
 
-            <h4 className="text-2xl font-bold text-primary pt-4">Our Core Expertise</h4>
+            <h4 className="text-xl md:text-2xl font-bold text-primary pt-4">Our Core Expertise</h4>
             <p>As a modern IT services company, we specialize in crafting bespoke digital solutions tailored to your unique needs. Our portfolio spans a wide spectrum of services designed to propel your business forward:</p>
             <ul className="space-y-4 pl-5 list-disc">
                 <li><strong>Web Development:</strong> From responsive, SEO-optimized websites to scalable e-commerce platforms built on frameworks like React, Node.js, and Laravel, we create digital storefronts that captivate users and convert visitors into loyal customers.</li>
@@ -395,11 +395,11 @@ Who We Are
             </ul>
             <p>Every project is approached with a client-centric methodology, incorporating agile practices to iterate quickly, minimize risks, and maximize ROI. We don't just build code; we architect ecosystems that foster long-term growth and operational efficiency.</p>
 
-            <h4 className="text-2xl font-bold text-primary pt-4">Our Team: The Heart of Thivolve</h4>
+            <h4 className="text-xl md:text-2xl font-bold text-primary pt-4">Our Team: The Heart of Thivolve</h4>
             <p>Our success is fueled by a talented team of over 50 professionals—seasoned developers, UI/UX designers, data scientists, project managers, and industry experts—who bring a wealth of experience from global tech hubs like Silicon Valley, Bangalore, and Berlin. What sets us apart is our culture of collaboration and continuous learning. We thrive on tackling complex challenges with creative, out-of-the-box strategies, drawing from diverse backgrounds to deliver solutions that are as innovative as they are practical.</p>
             <p>At Thivolve, professional growth is non-negotiable. Our team members regularly upskill through certifications in emerging technologies like blockchain, cloud computing (AWS, Azure, Google Cloud), and cybersecurity. This ensures we're always at the forefront, ready to navigate the latest trends and disruptions in the digital landscape.</p>
             
-            <h4 className="text-2xl font-bold text-primary pt-4">Our Mission and Values</h4>
+            <h4 className="text-xl md:text-2xl font-bold text-primary pt-4">Our Mission and Values</h4>
             <p>Our mission is straightforward: To empower businesses with transformative technology that drives sustainable success. We are committed to delivering solutions that are not only innovative and reliable but also ethically sound, scalable, and impactful. Here's what guides us every day:</p>
             <ul className="space-y-4 pl-5 list-disc">
                 <li><strong>Innovation First:</strong> We push boundaries, experimenting with emerging tech to solve tomorrow's problems today.</li>
@@ -436,7 +436,7 @@ teamRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
 )}
 >
 <div className="relative inline-block">
-<h2 className="text-4xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
+<h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
 Meet Our Team
 </h2>
 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
@@ -483,7 +483,7 @@ The passionate professionals driving our success and delivering excellence acros
   )}
   >
   <div className="relative inline-block">
-  <h2 className="text-4xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
+  <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
   What Our Clients Say
   </h2>
   <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />

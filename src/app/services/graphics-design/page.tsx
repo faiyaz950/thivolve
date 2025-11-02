@@ -54,39 +54,39 @@ const heroContent = {
 const designServices = [
     {
         title: "Logo Design & Brand Identity",
-        description: "We create a unique and memorable logo for your business that authentically reflects your core values, mission, and vision. In addition to the logo, we develop comprehensive brand guidelines to ensure consistency across all touchpoints.",
+        description: "Create a unique and memorable logo that authentically reflects your brand's core values, mission, and vision.",
         icon: <Award className="w-8 h-8" />,
         tools: ["3-5 Logo Concepts", "Brand Style Guide", "Stationery Suite", "Vector Files (AI, EPS, SVG)"]
     },
     {
         title: "Website & App UI/UX Design",
-        description: "We design intuitive, user-friendly, and visually appealing website interfaces that enhance user satisfaction and boost conversion rates. Our process ensures your site is not only beautiful but also functional and accessible on all devices.",
+        description: "Design intuitive, user-friendly, and visually appealing interfaces that enhance user satisfaction and boost conversion rates.",
         icon: <AppWindow className="w-8 h-8" />,
-        tools: ["Wireframing", "Interactive Prototyping", "High-Fidelity Mockups", "Responsive Design", "Accessibility Compliance"]
+        tools: ["Wireframing", "Prototyping", "High-Fidelity Mockups", "Responsive Design"]
     },
     {
-        title: "Marketing Collateral Design",
-        description: "Elevate your marketing efforts with custom-designed materials such as brochures, flyers, posters, and presentations. These assets are crafted to align perfectly with your brand messaging, driving leads and sales.",
+        title: "Marketing Collateral",
+        description: "Elevate your marketing with custom brochures, flyers, posters, and presentations that align with your brand messaging.",
         icon: <TrendingUp className="w-8 h-8" />,
-        tools: ["Brochures & Flyers", "Business Cards", "Social Media Graphics", "Email Templates", "Presentation Decks"]
+        tools: ["Brochures & Flyers", "Business Cards", "Social Media Graphics", "Email Templates"]
     },
      {
         title: "Social Media Graphics",
-        description: "We produce engaging, brand-consistent graphics for your social media platforms. These visuals are designed to spark conversations, increase shares, and build a loyal community.",
+        description: "Produce engaging, brand-consistent graphics for social platforms to spark conversations and build a loyal community.",
         icon: <ImageIcon className="w-8 h-8" />,
-        tools: ["Custom Templates", "Engaging Post Designs", "Ad Creatives", "Profile & Cover Images", "Analytics-Driven Optimization"]
+        tools: ["Custom Templates", "Post Designs", "Ad Creatives", "Profile & Cover Images"]
     },
     {
         title: "Infographic Design",
-        description: "Transform complex data and information into easy-to-digest, visually stunning infographics that educate and entertain your audience. Ideal for content marketing and knowledge sharing.",
+        description: "Transform complex data into easy-to-digest, visually stunning infographics ideal for content marketing.",
         icon: <BarChart3 className="w-8 h-8" />,
-        tools: ["Data Visualization", "Custom Illustrations", "Clear Information Hierarchy", "Brand Consistency", "Interactive Versions"]
+        tools: ["Data Visualization", "Custom Illustrations", "Clear Hierarchy", "Interactive Versions"]
     },
     {
         title: "Print Design",
-        description: "For traditional media, we deliver high-quality, print-optimized designs including magazine ads, product packaging, and large-format prints like hoardings or billboards.",
+        description: "High-quality, print-optimized designs including magazine ads, product packaging, and large-format prints.",
         icon: <Brush className="w-8 h-8" />,
-        tools: ["Magazine Layouts", "Packaging Design", "Outdoor Advertising", "Print-Ready Files (PDF/X)", "Eco-Friendly Options"]
+        tools: ["Magazine Layouts", "Packaging Design", "Outdoor Advertising", "Print-Ready Files"]
     }
 ];
 
@@ -253,7 +253,7 @@ export default function GraphicsDesignPage() {
                             introRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         )}>
                             <p className="text-base sm:text-lg md:text-xl text-neutral-300 leading-relaxed">
-                               A strong visual identity sets your business apart from the competition and communicates your message effectively, fostering trust and recognition among your audience. Our creative graphic design services are tailored to reflect your brand's unique personality, values, and vision, leaving an unforgettable impression on your target audience. Whether it's crafting a timeless logo, developing a comprehensive branding package, or designing eye-catching marketing materials, we handle every aspect of your design needs with precision and creativity. With years of experience working across industries—from startups to established enterprises—we ensure your visuals not only look exceptional but also drive tangible results like increased engagement and brand loyalty.
+                               A strong visual identity sets your business apart from the competition and communicates your message effectively, fostering trust and recognition among your audience. Our creative graphic design services are tailored to reflect your brand's unique personality, values, and vision, leaving an unforgettable impression on your target audience.
                             </p>
                         </div>
                     </div>

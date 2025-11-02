@@ -52,79 +52,73 @@ const heroContent = {
     }
 };
 
-const introduction = "In 2025, Artificial Intelligence (AI) has solidified its role as the bedrock of modern IT services, catalyzing innovation, operational efficiency, and informed decision-making across every sector imaginable—from healthcare diagnostics to financial fraud prevention. With the global AI market poised for explosive growth at a compound annual growth rate (CAGR) of 31.5% from 2025 to 2033, reaching an estimated USD 3,497.26 billion by 2033, AI investments are supercharging IT budgets and reshaping competitive landscapes. Leading providers like Infosys, Accenture, and niche consultancies are at the forefront, prioritizing generative AI for creative augmentation, intelligent automation to streamline workflows, and enterprise-wide adoption that balances human ingenuity with machine precision. Our AI services are meticulously designed around 2025's pivotal trends: human-AI collaboration for augmented productivity, multimodal models that process text, image, and voice in unison, and ROI-centric implementations that deliver measurable outcomes like 40% cost reductions or 3x faster insights generation. Whether you're a Fortune 500 executive plotting digital metamorphosis or a startup seeking an AI edge, we craft bespoke solutions that embed intelligence into your core operations, ensuring compliance, security, and sustainability. Backed by our track record of 300+ AI deployments yielding an average 35% uplift in efficiency metrics, we transform data into destiny.";
+const introduction = "In 2025, Artificial Intelligence (AI) has solidified its role as the bedrock of modern IT services, catalyzing innovation, operational efficiency, and informed decision-making across every sector imaginable. Our AI services are meticulously designed around pivotal trends: human-AI collaboration, multimodal models, and ROI-centric implementations that deliver measurable outcomes.";
 
 const aiServices = [
     {
         title: "AI Consulting & Strategy",
-        description: "Navigate the complexities of AI adoption with expert guidance on crafting bespoke roadmaps that align with your strategic imperatives, mitigate risks, and maximize value. Our consulting delves into organizational readiness, ethical frameworks, and investment justification, helping you prioritize initiatives that yield quick wins while building for long-term resilience in an era of regulatory scrutiny and technological flux.",
+        description: "Craft bespoke AI roadmaps that align with your strategic imperatives, mitigate risks, and maximize value.",
         icon: <Bot className="w-8 h-8" />,
         keyFeatures: [
-            "AI Strategy Advisory: Comprehensive workshops and audits to define AI vision, use case prioritization, and phased implementation plans.",
-            "Ethical AI Governance: Development of governance frameworks compliant with global standards (GDPR, EU AI Act, NIST AI RMF).",
-            "Maturity Assessments: In-depth evaluations using benchmarks like Gartner's AI Maturity Model.",
-            "ROI Evaluation: Custom financial modeling with KPIs like NPV, IRR, and payback periods.",
-            "Change Management Integration: Stakeholder training programs and cultural shift strategies to ensure smooth adoption."
+            "AI Strategy Advisory & Use Case Prioritization.",
+            "Ethical AI Governance Frameworks (GDPR, EU AI Act).",
+            "Maturity Assessments & ROI Evaluation.",
+            "Change Management for Smooth Adoption."
         ]
     },
     {
         title: "Development & Engineering",
-        description: "From concept to code, we engineer bespoke AI and machine learning (ML) solutions that power your innovations, leveraging open-source and proprietary frameworks to build models that learn, adapt, and evolve. Our focus on generative AI enables unprecedented creativity, while robust engineering ensures models are production-ready, scalable, and integrated with your existing tech stack.",
+        description: "We engineer bespoke AI and machine learning solutions that power your innovations, from concept to production-ready code.",
         icon: <GitBranch className="w-8 h-8" />,
         keyFeatures: [
-            "Custom AI/ML Model Development using TensorFlow, PyTorch, or Hugging Face.",
-            "Generative AI Implementation: Fine-tuning LLMs like GPT-4o for domain-specific applications.",
-            "Neural Network Design: Architecting transformers, CNNs, or GANs for tasks from robotics to cybersecurity.",
-            "Version Control & Collaboration with DVC (Data Version Control).",
-            "Edge AI Optimization for low-latency inference on devices."
+            "Custom AI/ML Model Development (TensorFlow, PyTorch).",
+            "Generative AI Implementation (GPT-4o Fine-tuning).",
+            "Neural Network Design for Complex Tasks.",
+            "Edge AI Optimization for On-device Inference."
         ]
     },
     {
         title: "Data & Analytics",
-        description: "Unlock the full potential of your data assets by engineering pipelines that fuel AI with clean, accessible, and real-time intelligence. We transform raw data into strategic foresight, enabling predictive capabilities that anticipate market shifts, optimize supply chains, and personalize customer journeys with precision analytics.",
+        description: "Unlock the potential of your data by engineering pipelines that fuel AI with clean, real-time intelligence.",
         icon: <BarChart3 className="w-8 h-8" />,
         keyFeatures: [
-            "Data Engineering for AI: Building ETL/ELT pipelines with Apache Spark or Airflow.",
-            "Predictive Analytics: Time-series forecasting with Prophet or LSTM models.",
-            "Big Data AI Pipelines: Streaming integrations via Kafka and Flink for real-time processing.",
-            "Advanced Visualization with Tableau or Power BI, incorporating AI-driven narratives.",
-            "Data Governance: Metadata management, lineage tracking, and anonymization techniques."
+            "AI-ready Data Engineering (ETL/ELT with Spark).",
+            "Predictive Analytics & Time-series Forecasting.",
+            "Big Data AI Pipelines with Kafka & Flink.",
+            "Advanced Visualization with AI-driven Narratives."
         ]
     },
     {
         title: "Specialized AI Applications",
-        description: "Tailor AI to solve domain-specific challenges with advanced applications that interpret human language, perceive visual data, and converse naturally. These solutions enhance user interactions, automate knowledge extraction, and integrate effortlessly with enterprise systems for hyper-personalized experiences.",
+        description: "Tailor AI to solve domain-specific challenges with applications that interpret language, perceive visuals, and converse naturally.",
         icon: <Layers className="w-8 h-8" />,
         keyFeatures: [
-            "Natural Language Processing (NLP) for tasks like sentiment analysis and automated contract review.",
-            "Computer Vision with YOLO or Vision Transformers for quality control or medical imaging.",
-            "Conversational AI (Chatbots/Virtual Assistants) on Rasa or Dialogflow.",
-            "Multimodal Integration for text-to-image generation or video captioning.",
-            "CRM/ERP Synergies for real-time personalization and lead scoring."
+            "Natural Language Processing (NLP) Solutions.",
+            "Computer Vision with YOLO or Vision Transformers.",
+            "Conversational AI (Chatbots/Virtual Assistants).",
+            "CRM/ERP Integration for Hyper-personalization."
         ]
     },
     {
         title: "Integration & Operations",
-        description: "Seamlessly weave AI into your operational fabric, from legacy systems to cloud-native environments, ensuring reliability, security, and agility. Our MLOps practices bridge development and deployment, while hybrid automation (RPA + AI) eliminates silos and accelerates digital transformation.",
+        description: "Seamlessly weave AI into your operational fabric, from legacy systems to cloud-native environments, ensuring reliability and security.",
         icon: <Settings className="w-8 h-8" />,
         keyFeatures: [
-            "AI Integration Services: API orchestration with MuleSoft or Kong.",
-            "MLOps & DevOps for AI: CI/CD pipelines with Kubeflow or MLflow for automated retraining.",
-            "Process Automation (RPA + AI) with UiPath or Automation Anywhere.",
-            "Monitoring & Security with Prometheus, Grafana, and Adversarial Robustness Toolbox.",
-            "Scalability Engineering on Kubernetes with auto-scaling and disaster recovery."
+            "AI Integration with MuleSoft or Kong.",
+            "MLOps & DevOps for AI (Kubeflow, MLflow).",
+            "Hybrid Process Automation (RPA + AI).",
+            "AI Monitoring, Security & Scalability."
         ]
     },
     {
         title: "Emerging & Industry-Specific",
-        description: "Stay ahead of the curve with forward-looking AI that fuses with IoT for intelligent ecosystems or tailors intelligence to your industry's unique demands. From predictive maintenance in manufacturing to ethical AI in finance, we deliver vertical-optimized solutions that drive competitive differentiation and innovation.",
+        description: "Stay ahead with forward-looking AI that fuses with IoT for intelligent ecosystems or is tailored to your industry's unique demands.",
         icon: <Sparkles className="w-8 h-8" />,
         keyFeatures: [
-            "AIoT (AI + IoT) Solutions for smart factories or predictive health monitoring.",
-            "Multimodal AI (e.g., Text-to-Visual) with models like DALL-E 3.",
-            "Sector-Tailored AI for Healthcare, Finance, and Manufacturing.",
-            "Sustainability Focus with Green AI practices.",
-            "Proof-of-Concept Accelerators for rapid validation in regulated sectors."
+            "AIoT (AI + IoT) for Smart Factories & Health.",
+            "Multimodal AI (Text-to-Visual) Solutions.",
+            "Sector-Tailored AI (Healthcare, Finance, etc.).",
+            "Proof-of-Concept Accelerators."
         ]
     }
 ];

@@ -51,86 +51,73 @@ const heroContent = {
     }
 };
 
-const introduction = "In today's fast-paced digital landscape, simply having a website isn't enough— it needs to be visible, engaging, and optimized to stand out. Our SEO and Digital Marketing services empower your business to climb to the top of search results, generate qualified leads, and maximize ROI through proven, data-driven strategies. We bridge the gap between your brand and where your customers are actively searching and interacting online, whether on search engines, social platforms, or email inboxes. With a blend of cutting-edge tools, industry best practices, and personalized campaigns, we've helped over 200 clients across e-commerce, B2B, and service-based sectors achieve up to 300% growth in organic traffic and a 45% increase in conversion rates. From startups scaling their presence to enterprises refining their funnels, we tailor solutions that deliver measurable success and long-term dominance.";
+const introduction = "In today's fast-paced digital landscape, simply having a website isn't enough— it needs to be visible, engaging, and optimized to stand out. Our SEO and Digital Marketing services empower your business to climb to the top of search results, generate qualified leads, and maximize ROI through proven, data-driven strategies.";
 
 const marketingServices = [
     {
         title: "Search Engine Optimization (SEO)",
-        description: "Elevate your website's search engine rankings and drive sustainable organic traffic by targeting high-intent keywords and fixing technical hurdles. Our holistic approach combines on-page tweaks, off-page authority building, and technical audits to position you at the top of Google, Bing, and other engines, ensuring long-term visibility without relying solely on paid ads.",
+        description: "Elevate your website's search rankings and drive sustainable organic traffic by targeting high-intent keywords and fixing technical hurdles.",
         icon: <Search className="w-8 h-8" />,
         keyFeatures: [
-            "In-depth keyword research using tools like Ahrefs and SEMrush.",
-            "On-page optimization: Meta tags, header structures, content enhancements.",
-            "Technical SEO audit: Site speed, mobile responsiveness, schema markup.",
-            "Ethical link-building strategies to build domain authority.",
-            "Local SEO for brick-and-mortar businesses.",
-            "Monthly performance reporting with traffic trends and ranking progress."
+            "In-depth keyword research (Ahrefs, SEMrush).",
+            "On-page, off-page, and technical SEO.",
+            "Ethical link-building strategies.",
+            "Local SEO for brick-and-mortar businesses."
         ]
     },
     {
         title: "Social Media Marketing (SMM)",
-        description: "Amplify your brand awareness, foster vibrant communities, and enhance customer interactions across platforms like Facebook, Instagram, LinkedIn, Twitter (X), and TikTok. We craft engaging campaigns that resonate with your audience, turning followers into advocates and driving real business outcomes.",
+        description: "Amplify brand awareness and foster vibrant communities on platforms like Facebook, Instagram, LinkedIn, and TikTok.",
         icon: <Users className="w-8 h-8" />,
         keyFeatures: [
-            "Customized social media strategy and content calendars.",
-            "Content creation: Posts, stories, reels/videos, and user-generated content.",
-            "Targeted ad campaigns with audience segmentation and retargeting.",
-            "Community management and sentiment analysis.",
-            "Performance analytics and ROI tracking.",
-            "Influencer collaborations and hashtag campaigns."
+            "Customized social media strategy.",
+            "Engaging content creation (posts, stories, reels).",
+            "Targeted ad campaigns and retargeting.",
+            "Community management and sentiment analysis."
         ]
     },
     {
         title: "Pay-Per-Click (PPC) Advertising",
-        description: "Unlock instant visibility and laser-targeted traffic through Google Ads, Microsoft Advertising, and social platforms. We optimize your ad spend for peak performance, ensuring every click contributes to conversions while scaling campaigns based on real-time data for superior ROI.",
+        description: "Unlock instant visibility and laser-targeted traffic through Google Ads, Microsoft Advertising, and social platforms.",
         icon: <LineChart className="w-8 h-8" />,
         keyFeatures: [
-            "Full ad campaign setup and account structuring.",
-            "Strategic keyword bidding and negative keyword lists.",
+            "Full ad campaign setup and structuring.",
+            "Strategic keyword bidding & negative keywords.",
             "Compelling ad copywriting and A/B testing.",
-            "Landing page optimization for higher conversion rates.",
-
-            "Continuous tracking & optimization with Google Analytics.",
-            "Cross-platform remarketing strategies."
+            "Landing page optimization for conversions."
         ]
     },
     {
         title: "Content Marketing",
-        description: "Captivate your audience with high-quality, relevant content—such as blogs, articles, videos, and infographics—that not only attracts visitors but also educates, nurtures leads, and establishes your brand as an industry authority.",
+        description: "Captivate your audience with high-quality content that educates, nurtures leads, and establishes your brand as an industry authority.",
         icon: <PenTool className="w-8 h-8" />,
         keyFeatures: [
-            "Comprehensive content strategy with topic clustering.",
-            "Expert blog and article writing optimized for E-E-A-T.",
-            "Multimedia production: Videos, infographics, and podcasts.",
-            "Guest posting and syndication for backlinks and exposure.",
-            "Content promotion via email, social media, and paid boosts.",
-            "Content repurposing for multi-channel efficiency."
+            "Comprehensive content strategy & topic clustering.",
+            "Expert blog and article writing (E-E-A-T focused).",
+            "Multimedia production (videos, infographics).",
+            "Content promotion via email and social media."
         ]
     },
     {
         title: "Email Marketing",
-        description: "Forge direct, personalized connections with customers and leads through targeted email campaigns that nurture relationships and drive repeat business. From welcome series to abandoned cart recoveries, we design sequences that boost open rates, clicks, and lifetime value.",
+        description: "Forge direct, personalized connections with customers through targeted email campaigns that drive repeat business.",
         icon: <Mail className="w-8 h-8" />,
         keyFeatures: [
-            "Email list management, segmentation, and cleaning.",
-            "Campaign design with mobile-first responsiveness.",
+            "Email list management and segmentation.",
+            "Mobile-first campaign design.",
             "A/B testing for subjects, send times, and CTAs.",
-            "Automation setup: Drip campaigns and behavioral triggers.",
-            "Performance analytics with open/click rates and revenue attribution.",
-            "Compliance with CAN-SPAM and GDPR."
+            "Automation setup (drip campaigns, behavioral triggers)."
         ]
     },
     {
         title: "Analytics & Reporting",
-        description: "Gain crystal-clear insights into your digital marketing performance to make informed decisions and demonstrate value. We set up robust tracking systems and deliver actionable reports that highlight wins, uncover opportunities, and guide strategy pivots for sustained growth.",
+        description: "Gain crystal-clear insights into your marketing performance to make informed decisions and demonstrate value.",
         icon: <BarChart3 className="w-8 h-8" />,
         keyFeatures: [
             "Google Analytics 4 setup and event tracking.",
-            "Custom dashboards in Google Data Studio or Tableau.",
-            "Monthly/quarterly performance reports with executive summaries.",
-            "Competitor analysis using tools like SpyFu.",
-            "Actionable insights from heatmaps and session recordings.",
-            "ROI calculators tying marketing spend to revenue."
+            "Custom dashboards (Google Data Studio, Tableau).",
+            "Monthly/quarterly performance reports.",
+            "Competitor analysis and actionable insights."
         ]
     }
 ];

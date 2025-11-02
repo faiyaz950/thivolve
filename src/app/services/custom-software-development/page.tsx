@@ -52,85 +52,73 @@ const heroContent = {
     }
 };
 
-const introduction = "In an era where off-the-shelf solutions often fall short of addressing nuanced business requirements, custom software development emerges as the ultimate catalyst for differentiation and agility. As of 2025, with global custom software markets surging at a CAGR of 22.7% to exceed $500 billion by 2030, organizations are increasingly turning to bespoke applications to streamline workflows, integrate disparate systems, and harness emerging technologies like AI and blockchain. Our custom software development services are rooted in deep domain expertise, agile methodologies, and a relentless focus on user-centric design, ensuring your software isn't just functional—it's a strategic asset that evolves with your enterprise. From enterprise resource planning (ERP) systems for manufacturing giants to client portals for fintech startups, we've engineered 400+ solutions across sectors, delivering an average 45% reduction in operational costs and 60% faster time-to-insight. We collaborate closely to translate your vision into robust, maintainable code that scales seamlessly, complies with industry standards (e.g., HIPAA, PCI-DSS), and future-proofs your tech stack against disruptions.";
+const introduction = "In an era where off-the-shelf solutions fall short, custom software is the catalyst for differentiation and agility. We translate your vision into robust, maintainable, and scalable code that complies with industry standards and future-proofs your tech stack.";
 
 const customSoftwareServices = [
     {
         title: "Enterprise Software Development",
-        description: "Build comprehensive, modular enterprise applications that unify your organization's siloed processes, from CRM integrations to supply chain management. We specialize in creating scalable platforms that support thousands of concurrent users, leveraging microservices architectures to enhance resilience and adaptability in high-stakes environments like logistics or healthcare.",
+        description: "Build comprehensive, modular enterprise applications that unify your organization's siloed processes, from CRM to supply chain.",
         icon: <AppWindow className="w-8 h-8" />,
         keyFeatures: [
-            "Full-stack development using MERN or .NET stacks.",
+            "Full-stack development (MERN, .NET).",
             "Advanced workflow automation with BPMN tools.",
-            "Role-based access control (RBAC) and multi-tenant architectures.",
-            "Real-time dashboards with BI integrations.",
-            "Cloud-native deployment on AWS, Azure, or GCP.",
-            "Compliance auditing for GDPR, SOX, or ISO 27001."
+            "Role-based access control (RBAC) & multi-tenancy.",
+            "Cloud-native deployment (AWS, Azure, GCP)."
         ]
     },
     {
         title: "Web Application Development",
-        description: "Craft dynamic, responsive web applications that serve as the backbone of your digital operations, enabling collaborative tools, e-learning platforms, or SaaS products. Our approach emphasizes progressive enhancement, ensuring apps load instantaneously and perform flawlessly across browsers and devices.",
+        description: "Craft dynamic, responsive web apps like collaborative tools, e-learning platforms, or SaaS products that perform flawlessly.",
         icon: <Globe className="w-8 h-8" />,
         keyFeatures: [
-            "SPA frameworks like Vue.js or Angular.",
-            "API-first design using RESTful/GraphQL endpoints.",
+            "SPA frameworks (Vue.js, Angular).",
+            "API-first design (RESTful/GraphQL).",
             "Progressive Web App (PWA) capabilities.",
-            "Security layers: OAuth 2.0, JWT tokens, and CSRF protection.",
-            "Performance tuning with code splitting and caching.",
-            "A/B testing infrastructure to iterate on features."
+            "OAuth 2.0, JWT, and CSRF protection."
         ]
     },
     {
         title: "Desktop & Cross-Platform Applications",
-        description: "Develop robust desktop applications for specialized workflows, such as CAD tools or inventory management, while ensuring cross-platform compatibility for Windows, macOS, and Linux. We focus on native performance wrapped in intuitive interfaces.",
+        description: "Develop robust desktop apps for specialized workflows (e.g., CAD, inventory) with native performance and cross-platform compatibility.",
         icon: <Monitor className="w-8 h-8" />,
         keyFeatures: [
-            "Frameworks like Electron or Qt/C++ for high-performance apps.",
-            "Offline-first synchronization using IndexedDB or SQLite.",
-            "Hardware integrations for USB devices, GPU processing, etc.",
-            "Auto-update mechanisms for seamless patch deployments.",
-            "Accessibility compliance (WCAG standards).",
-            "Packaging and distribution with digital signatures."
+            "High-performance apps with Electron or Qt/C++.",
+            "Offline-first synchronization (IndexedDB/SQLite).",
+            "Hardware integrations (USB, GPU).",
+            "Auto-update mechanisms for seamless patches."
         ]
     },
     {
         title: "API & Backend Development",
-        description: "Engineer scalable backend systems and APIs that power your front-end applications, handling data orchestration, authentication, and business logic with enterprise-grade reliability. Perfect for microservices ecosystems or headless CMS setups.",
+        description: "Engineer scalable backends and APIs to power your applications with enterprise-grade reliability, data orchestration, and business logic.",
         icon: <Code className="w-8 h-8" />,
         keyFeatures: [
-            "Serverless backends with AWS Lambda or Google Cloud Functions.",
-            "Database optimization with NoSQL or PostgreSQL.",
-            "Rate limiting, caching, and load balancing.",
-            "Event-driven architectures using Kafka or RabbitMQ.",
-            "Monitoring stacks like ELK for logs and metrics.",
-            "Versioned APIs with OpenAPI/Swagger documentation."
+            "Serverless backends (AWS Lambda, Google Cloud Functions).",
+            "Database optimization (NoSQL, PostgreSQL).",
+            "Event-driven architectures (Kafka, RabbitMQ).",
+            "OpenAPI/Swagger for API documentation."
         ]
     },
     {
         title: "Legacy System Modernization",
-        description: "Revitalize outdated legacy systems by migrating to modern architectures, minimizing downtime and preserving critical data integrity. We refactor and re-platform monolithic apps into cloud-native services, unlocking agility and cost savings.",
+        description: "Revitalize outdated legacy systems by migrating them to modern, cloud-native architectures, preserving data integrity and minimizing downtime.",
         icon: <Zap className="w-8 h-8" />,
         keyFeatures: [
-            "Strangler pattern implementation for gradual refactoring.",
-            "Data migration tools for zero-loss transfers.",
-            "Containerization with Docker and orchestration via Kubernetes.",
-            "Code analysis to identify tech debt.",
-            "Hybrid integration with middleware like MuleSoft.",
-            "Post-migration support and scalability roadmaps."
+            "Strangler pattern for gradual refactoring.",
+            "Zero-loss data migration strategies.",
+            "Containerization with Docker & Kubernetes.",
+            "Hybrid integration with middleware like MuleSoft."
         ]
     },
     {
         title: "Software Testing & QA Services",
-        description: "Ensure your custom software is bulletproof through rigorous, automated testing suites that cover functionality, security, and usability. Our QA practices catch defects early, accelerating releases while upholding the highest quality benchmarks.",
+        description: "Ensure your custom software is bulletproof through rigorous, automated testing for functionality, security, and usability.",
         icon: <TestTube2 className="w-8 h-8" />,
         keyFeatures: [
-            "Automated testing frameworks: Selenium, JUnit/Pytest, Postman.",
+            "Automated testing (Selenium, JUnit, Postman).",
             "CI/CD integration with Jenkins or GitHub Actions.",
-            "Security testing with penetration scans and vulnerability checks.",
-            "Performance benchmarking and load testing.",
-            "User Acceptance Testing (UAT) with collaborative feedback loops.",
-            "Defect tracking via Jira with root-cause analysis."
+            "Security & penetration testing.",
+            "Performance benchmarking & load testing."
         ]
     }
 ];

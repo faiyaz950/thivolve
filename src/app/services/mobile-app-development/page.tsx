@@ -53,85 +53,73 @@ const heroContent = {
     }
 };
 
-const introduction = "In the digital age of 2025, where smartphones are the primary gateway to consumer interactions, a powerful mobile app can propel your business to unprecedented heights, fostering loyalty, streamlining operations, and unlocking new revenue streams. We specialize in crafting innovative, performance-optimized mobile applications that deeply engage your target audience while aligning seamlessly with your overarching business objectives—from boosting user retention by 50% to enabling real-time analytics for data-driven decisions. Whether you're ideating a groundbreaking consumer app, enhancing an existing enterprise solution, or pivoting to hybrid models for cost efficiency, our end-to-end expertise ensures you're supported at every turn. With a portfolio boasting 150+ apps across industries like fintech, healthcare, e-commerce, and edtech—delivering an average 4.8/5 App Store rating and 35% faster time-to-market—we turn abstract concepts into tangible, market-leading products that thrive in app stores and beyond.";
+const introduction = "In the digital age of 2025, a powerful mobile app can propel your business to new heights. We specialize in crafting innovative, performance-optimized mobile applications that deeply engage your target audience while aligning with your business objectives, delivering an average 4.8/5 App Store rating and a 35% faster time-to-market.";
 
 const appServices = [
     {
-        title: "Custom iOS App Development",
-        description: "Harness the elegance and precision of Apple's ecosystem to build stunning, high-performance iOS apps that delight users with buttery-smooth interactions and unwavering reliability. Leveraging the latest in SwiftUI and Objective-C, we create apps that are not only visually immersive but also fortified with enterprise-grade security, ensuring compliance with Apple's stringent guidelines and delivering native experiences that capitalize on features like ARKit, Core ML, and HealthKit for industries such as wellness and retail.",
+        title: "iOS App Development",
+        description: "Harness Apple's ecosystem to build stunning, high-performance iOS apps that delight users with smooth interactions and enterprise-grade security.",
         icon: <AppWindow className="w-8 h-8" />,
         keyFeatures: [
-            "Intuitive UI/UX design tailored to iOS Human Interface Guidelines, incorporating haptic feedback and gesture-based navigation for immersive engagement.",
-            "Rigorous performance optimization: Code profiling with Instruments, memory leak detection, and 60fps animations to handle high-demand scenarios like video streaming or real-time collaboration.",
-            "Streamlined App Store submission: Metadata optimization, beta testing via TestFlight, and ASO (App Store Optimization) strategies to boost discoverability and downloads.",
-            "Comprehensive post-launch support: Analytics integration (Firebase/Crashlytics), iterative updates based on user feedback, and 24/7 monitoring for uptime exceeding 99.9%.",
-            "Integration with Apple-specific services: iCloud syncing, Siri Shortcuts, and Apple Pay for seamless, secure transactions.",
-            "Scalability for growth: Modular architecture supporting in-app purchases, subscriptions, and future expansions like WatchOS or Vision Pro compatibility."
+            "Intuitive UI/UX design following Human Interface Guidelines.",
+            "Rigorous performance optimization with Instruments.",
+            "Streamlined App Store submission & ASO strategies.",
+            "Integration with Apple services like iCloud, Siri & Apple Pay."
         ]
     },
     {
-        title: "Custom Android App Development",
-        description: "Tap into the world's largest mobile platform with versatile, scalable Android apps designed for diverse devices and user behaviors. Our proficiency in Java and Kotlin empowers your business to reach billions, from budget smartphones in emerging markets to flagship devices, with robust features that support offline functionality, personalization, and integration with Google services for enhanced accessibility and monetization.",
+        title: "Android App Development",
+        description: "Tap into the world's largest mobile platform with versatile, scalable Android apps designed for diverse devices and user behaviors.",
         icon: <Smartphone className="w-8 h-8" />,
         keyFeatures: [
-            "Material Design 3 implementation for modern, adaptive interfaces with dynamic theming, elevation, and motion design that aligns with Android's ecosystem.",
-            "Extensive device compatibility testing across 5,000+ configurations using emulators and real hardware (e.g., Samsung, Pixel, OnePlus) to ensure flawless performance from Android 8.0 to 15+.",
-            "Google Play Store compliance: A/B testing for store listings, policy audits, and phased rollouts to minimize risks and maximize organic installs.",
-            "Robust backend integration: Firebase for real-time databases, Google Cloud for AI/ML, and API connections to CRMs like Salesforce for synchronized data flows.",
-            "Security enhancements: Biometric auth (fingerprint/face unlock), encrypted local storage, and vulnerability scanning with tools like OWASP ZAP.",
-            "Monetization tools: AdMob for interstitials/rewarded videos, in-app billing, and analytics-driven A/B testing to optimize revenue per user."
+            "Material Design 3 for modern, adaptive interfaces.",
+            "Extensive device compatibility testing (5,000+ configs).",
+            "Google Play Store compliance and A/B testing.",
+            "Robust backend integration with Firebase & Google Cloud."
         ]
     },
     {
-        title: "Cross-Platform App Development (e.g., React Native, Flutter)",
-        description: "Accelerate your go-to-market strategy by developing feature-rich apps from a single codebase that perform natively on both iOS and Android, slashing development costs by up to 40% and timelines by 30% without sacrificing quality. Frameworks like React Native and Flutter enable code reusability while delivering pixel-perfect UIs and high-speed rendering, ideal for startups and mid-sized firms seeking broad reach with minimal maintenance overhead.",
+        title: "Cross-Platform Development",
+        description: "Accelerate your go-to-market strategy with a single codebase for both iOS and Android, slashing costs by up to 40%.",
         icon: <Layers className="w-8 h-8" />,
         keyFeatures: [
-            "Rapid development cycles: Hot reloading and modular components for quick iterations, reducing build times from weeks to days.",
-            "Cost-effective solutions: Shared logic for business rules, reducing team size needs while maintaining separate native modules for platform-specific tweaks.",
-            "Native-like performance: Dart (Flutter) or JavaScript (React Native) bridges for hardware access, achieving 55-60fps animations and low-latency interactions.",
-            "Broader audience reach: Simultaneous launches on dual stores, with unified analytics via Amplitude or Mixpanel for cross-platform insights.",
-            "Hotfix capabilities: Over-the-air updates without resubmissions, ensuring swift responses to bugs or features.",
-            "Ecosystem integrations: Third-party plugins for maps (Google Maps), payments (Stripe), and push notifications (OneSignal) across platforms."
+            "Rapid development with React Native or Flutter.",
+            "Cost-effective, shared logic for business rules.",
+            "Native-like performance (55-60fps animations).",
+            "Broader audience reach with simultaneous launches."
         ]
     },
      {
         title: "Progressive Web Apps (PWAs)",
-        description: "Bridge the gap between web and native with PWAs that offer app-like functionality—such as offline access, push notifications, and home-screen installation—without the silos of app stores. These platform-agnostic solutions are perfect for content-heavy apps, e-commerce pilots, or global audiences, providing instant updates and reduced development friction while leveraging modern web standards like Service Workers and WebAssembly.",
+        description: "Bridge the gap between web and native with PWAs that offer app-like functionality without the hassle of app stores.",
         icon: <Globe className="w-8 h-8" />,
         keyFeatures: [
-            "Offline capabilities: Caching strategies with IndexedDB and background sync for uninterrupted experiences, even on spotty connections.",
-            "Push notifications via Web Push API, integrated with FCM/APNs for personalized re-engagement, boosting retention by 20-30%.",
-            "Responsive design: Adaptive layouts using CSS Grid/Flexbox and media queries for seamless scaling across devices, from mobiles to tablets.",
-            "No app store required: Direct deployment via HTTPS servers, with manifest files for install prompts and icon customization.",
-            "Performance boosts: Lighthouse-optimized scores (90+), lazy loading, and AMP integration for faster initial loads under 3 seconds.",
-            "Analytics and SEO: Built-in tracking with Google Analytics 4 and crawlable content for organic discoverability, unlike traditional apps."
+            "Offline capabilities with Service Workers & IndexedDB.",
+            "Push notifications for personalized re-engagement.",
+            "Direct deployment, no app store needed.",
+            "Performance-optimized with Lighthouse scores over 90."
         ]
     },
     {
         title: "App UI/UX Design",
-        description: "We don't just code apps—we architect experiences that are as aesthetically captivating as they are intuitively navigable, turning one-time users into lifelong advocates. Our design philosophy prioritizes empathy, blending behavioral psychology with visual storytelling to craft interfaces that reduce cognitive load, accelerate task completion, and elevate brand perception through micro-interactions and personalized flows.",
+        description: "We architect experiences that are as captivating as they are intuitive, turning one-time users into lifelong advocates.",
         icon: <Palette className="w-8 h-8" />,
         keyFeatures: [
-            "In-depth user research: Surveys, interviews, and analytics audits to build detailed personas and journey maps.",
-            "Wireframing and prototyping: Low-to-high fidelity mocks in Figma or Adobe XD, with interactive prototypes for early validation.",
-            "User testing: Usability sessions with tools like UserTesting.com, heatmaps via Hotjar, and A/B variants to refine based on real feedback.",
-            "Visually appealing interfaces: Custom iconography, gradient animations, and dark/light mode toggles for modern, inclusive aesthetics.",
-            "Accessibility compliance: WCAG 2.2 standards, voice-over support, and color contrast checks for diverse users.",
-            "Design system creation: Reusable component libraries (e.g., Storybook) for consistency across app versions and future projects."
+            "In-depth user research, personas, and journey maps.",
+            "Interactive wireframing and prototyping (Figma/Adobe XD).",
+            "Usability testing with real user feedback.",
+            "Accessibility compliance (WCAG 2.2 standards)."
         ]
     },
     {
         title: "App Maintenance & Support",
-        description: "Our commitment extends far beyond launch—we provide ongoing vigilance to keep your app resilient, relevant, and revenue-generating in a landscape of evolving OS updates, user expectations, and security threats. From proactive monitoring to feature roadmaps, we ensure your investment yields compounding returns, with SLAs guaranteeing 99.5% uptime and response times under 4 hours.",
+        description: "Our commitment extends beyond launch. We provide ongoing vigilance to keep your app resilient, relevant, and revenue-generating.",
         icon: <Settings className="w-8 h-8" />,
         keyFeatures: [
-            "Swift bug fixing: Automated CI/CD pipelines for regression testing and hotfixes, resolving 95% of issues within 24 hours.",
-            "Performance monitoring: Real-time dashboards with New Relic or Datadog, alerting on crashes, load times, and battery drain.",
-            "Security updates: Regular audits for vulnerabilities (e.g., OWASP Mobile Top 10), encryption upgrades, and compliance with GDPR/ CCPA.",
-            "Feature enhancements: Quarterly sprints for new integrations like AR/VR or AI chatbots, based on user analytics and market trends.",
-            "Technical support: Dedicated account managers, knowledge bases, and training webinars for your in-house team.",
-            "Scalability tuning: Cloud migrations (AWS Amplify/Azure) and load balancing to support user growth from 10K to 1M+ MAUs."
+            "Swift bug fixing with CI/CD and hotfixes.",
+            "Real-time performance monitoring (New Relic/Datadog).",
+            "Regular security audits and updates.",
+            "Quarterly sprints for feature enhancements."
         ]
     }
 ];
