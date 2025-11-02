@@ -381,27 +381,44 @@ Who We Are
 </div>
 </div>
 <div
-className={cn(
-"max-w-6xl mx-auto space-y-8 transition-all duration-1000 delay-300",
-whoWeAreRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-)}
->
-<div className="relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-3xl border border-white/5 p-8 md:p-12 overflow-hidden hover:border-white/10 transition-all duration-700">
-<div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-50" />
-<div className="relative space-y-6 text-lg md:text-xl text-neutral-300 leading-relaxed">
-<p>
-At <span className="text-primary font-semibold">Thivolve Services Pvt Ltd</span>, we stand as a dynamic multi-service company built on the foundation of innovation, reliability, and unwavering commitment to client success. Established with a clear vision to bridge the gap between cutting-edge technology and essential human services, we have emerged as a trusted partner for businesses and individuals seeking comprehensive solutions under one roof.
-</p>
-<p>
-What sets us apart is our unique ability to excel across multiple industries while maintaining the highest standards of quality and innovation. We are not just another service provider; we are <span className="text-primary font-semibold">solution architects</span> who understand that today's businesses need partners who can adapt, evolve, and deliver across various domains—from cutting-edge IT services and mobile app development to compassionate healthcare solutions, secure payment processing, and comprehensive insurance coverage.
-</p>
-<p>
-Our success is driven by our exceptional team of passionate professionals who bring years of experience, fresh perspectives, and shared values to every project. Innovation is woven into the DNA of our organization as we constantly explore new technologies, methodologies, and approaches that benefit our clients, building long-term relationships based on <span className="text-primary font-semibold">trust, transparency, and mutual respect</span>.
-</p>
-</div>
-<div className="absolute top-6 right-6 w-3 h-3 bg-primary/40 rounded-full animate-pulse" />
-<div className="absolute bottom-6 left-6 w-2 h-2 bg-white/20 rounded-full animate-ping" />
-</div>
+    className={cn(
+        "max-w-6xl mx-auto space-y-8 transition-all duration-1000 delay-300",
+        whoWeAreRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+    )}
+    >
+    <div className="relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-3xl border border-white/5 p-8 md:p-12 overflow-hidden hover:border-white/10 transition-all duration-700">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-50" />
+        <div className="relative space-y-6 text-lg text-neutral-300 leading-relaxed">
+            <p>
+                At Thivolve, we firmly believe that innovation is the cornerstone of unlocking true potential in an ever-evolving world. Founded in 2023 by a passionate group of tech visionaries, Thivolve emerged from a simple yet profound realization: in the fast-paced digital age, businesses that harness cutting-edge technology not only survive—they thrive. What started as a small team of developers brainstorming late-night solutions has grown into a dynamic IT services powerhouse, serving a diverse clientele ranging from startups and SMEs to Fortune 500 enterprises across industries like e-commerce, healthcare, finance, and education.
+            </p>
+
+            <h4 className="text-2xl font-bold text-primary pt-4">Our Core Expertise</h4>
+            <p>As a modern IT services company, we specialize in crafting bespoke digital solutions tailored to your unique needs. Our portfolio spans a wide spectrum of services designed to propel your business forward:</p>
+            <ul className="space-y-4">
+                <li><strong>Web Development:</strong> From responsive, SEO-optimized websites to scalable e-commerce platforms built on frameworks like React, Node.js, and Laravel, we create digital storefronts that captivate users and convert visitors into loyal customers.</li>
+                <li><strong>Mobile App Development:</strong> Whether it's a cross-platform app using Flutter or native iOS/Android solutions with Swift and Kotlin, we deliver intuitive, feature-rich applications that enhance user engagement and streamline operations on the go.</li>
+                <li><strong>AI and Machine Learning Systems:</strong> Leveraging tools like TensorFlow, PyTorch, and advanced NLP models, we build intelligent systems for predictive analytics, chatbots, recommendation engines, and automation—empowering your business with data-driven insights that anticipate needs before they arise.</li>
+                <li><strong>Custom Software Solutions:</strong> Our bespoke software development covers everything from enterprise resource planning (ERP) systems to CRM integrations and IoT-enabled applications, ensuring seamless scalability, security, and performance.</li>
+            </ul>
+            <p>Every project is approached with a client-centric methodology, incorporating agile practices to iterate quickly, minimize risks, and maximize ROI. We don't just build code; we architect ecosystems that foster long-term growth and operational efficiency.</p>
+
+            <h4 className="text-2xl font-bold text-primary pt-4">Our Team: The Heart of Thivolve</h4>
+            <p>Our success is fueled by a talented team of over 50 professionals—seasoned developers, UI/UX designers, data scientists, project managers, and industry experts—who bring a wealth of experience from global tech hubs like Silicon Valley, Bangalore, and Berlin. What sets us apart is our culture of collaboration and continuous learning. We thrive on tackling complex challenges with creative, out-of-the-box strategies, drawing from diverse backgrounds to deliver solutions that are as innovative as they are practical.</p>
+            <p>At Thivolve, professional growth is non-negotiable. Our team members regularly upskill through certifications in emerging technologies like blockchain, cloud computing (AWS, Azure, Google Cloud), and cybersecurity. This ensures we're always at the forefront, ready to navigate the latest trends and disruptions in the digital landscape.</p>
+            
+            <h4 className="text-2xl font-bold text-primary pt-4">Our Mission and Values</h4>
+            <p>Our mission is straightforward: To empower businesses with transformative technology that drives sustainable success. We are committed to delivering solutions that are not only innovative and reliable but also ethically sound, scalable, and impactful. Here's what guides us every day:</p>
+            <ul className="space-y-4">
+                <li><strong>Innovation First:</strong> We push boundaries, experimenting with emerging tech to solve tomorrow's problems today.</li>
+                <li><strong>Client Partnership:</strong> You're not just a client—you're a collaborator. We listen, adapt, and co-create to align our work with your vision and goals.</li>
+                <li><strong>Excellence and Integrity:</strong> Every line of code, every design decision, is held to the highest standards of quality, security, and transparency.</li>
+                <li><strong>Sustainability and Impact:</strong> We prioritize green computing practices and solutions that contribute positively to society, ensuring our innovations create lasting value for your business and the world at large.</li>
+            </ul>
+        </div>
+        <div className="absolute top-6 right-6 w-3 h-3 bg-primary/40 rounded-full animate-pulse" />
+        <div className="absolute bottom-6 left-6 w-2 h-2 bg-white/20 rounded-full animate-ping" />
+    </div>
 </div>
 </div>
 </section>
