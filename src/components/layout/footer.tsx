@@ -50,16 +50,6 @@ export function Footer() {
 
   const footerNav = [
     {
-      title: "Company",
-      icon: Users,
-      links: [
-        { label: "About Us", href: "/about-us" },
-        { label: "Careers", href: "#" },
-        { label: "Press", href: "#" },
-        { label: "Leadership", href: "#" },
-      ]
-    },
-    {
       title: "Services",
       icon: Zap,
       links: [
@@ -69,26 +59,6 @@ export function Footer() {
         { label: "Graphics Design", href: "/services/graphics-design" },
         { label: "SEO & Digital Marketing", href: "/services/seo-and-digital-marketing" },
         { label: "AI Services", href: "/services/ai-services" },
-      ]
-    },
-    {
-      title: "Resources",
-      icon: Globe,
-      links: [
-        { label: "Blog", href: "#" },
-        { label: "Case Studies", href: "/our-work" },
-        { label: "Support", href: "/#contact" },
-        { label: "Documentation", href: "#" },
-      ]
-    },
-    {
-      title: "Legal",
-      icon: Shield,
-      links: [
-        { label: "Privacy Policy", href: "#" },
-        { label: "Terms of Service", href: "#" },
-        { label: "Cookie Policy", href: "#" },
-        { label: "GDPR", href: "#" },
       ]
     }
   ];
@@ -177,7 +147,7 @@ export function Footer() {
                     Innovative Solutions for Tomorrow
                   </h3>
                   <p className="text-neutral-400 leading-relaxed text-base">
-                    Thivolve delivers excellence in IT, healthcare, and financial services with <span className="text-primary font-semibold">cutting-edge technology</span> and unmatched expertise.
+                    Thivolve delivers excellence in IT, healthcare, and financial services with cutting-edge technology and unmatched expertise.
                   </p>
                 </div>
                 
