@@ -234,18 +234,15 @@ export function Hero() {
 
               {/* Enhanced Desktop Navigation */}
               <nav className="hidden md:flex items-center space-x-1">
-                {navLinks.map((link, index) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="relative group py-2 px-3 text-neutral-300 hover:text-white transition-all duration-300 rounded-lg font-medium text-sm"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <span className="relative z-10">{link.label}</span>
-                    <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-red-500/5 to-red-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-95 group-hover:scale-100" />
-                  </Link>
-                ))}
+                <Link
+                  href="/"
+                  className="relative group py-2 px-3 text-neutral-300 hover:text-white transition-all duration-300 rounded-lg font-medium text-sm"
+                >
+                  <span className="relative z-10">Home</span>
+                  <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-red-500/5 to-red-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-95 group-hover:scale-100" />
+                </Link>
+                
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <div
@@ -271,6 +268,19 @@ export function Hero() {
                     })}
                   </DropdownMenuContent>
                 </DropdownMenu>
+
+                {navLinks.filter(l => l.label !== 'Home').map((link, index) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="relative group py-2 px-3 text-neutral-300 hover:text-white transition-all duration-300 rounded-lg font-medium text-sm"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <span className="relative z-10">{link.label}</span>
+                    <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-red-500/5 to-red-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-95 group-hover:scale-100" />
+                  </Link>
+                ))}
               </nav>
 
               {/* Enhanced CTA & Mobile Menu */}
