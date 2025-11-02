@@ -10,8 +10,11 @@ const clients = [
   { name: "Globolosys", logo: "/globolosys_white_text.png" },
   { name: "Thivolve", logo: "/btrusss.jpg" },
   { name: "GTS", logo: "/gtslogo.png" },
-  { name: "Client 5", logo: "/clients/logoipsum-5.svg" },
-  { name: "Client 6", logo: "/clients/logoipsum-6.svg" },
+  { name: "Malogo", logo: "/malogo.png" },
+  { name: "Alphaw", logo: "/alphaw.png" },
+  { name: "Ceragon", logo: "/ceragon.png" },
+  { name: "Steelmann", logo: "/steelmann.png" },
+  { name: "Emergentt", logo: "/emergentt.png" },
 ];
 
 // Duplicate clients for a seamless loop
