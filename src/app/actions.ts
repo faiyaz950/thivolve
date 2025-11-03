@@ -2,6 +2,7 @@
 
 import { z } from 'zod';
 import { contactFormSchema } from '@/lib/schemas';
+import nodemailer from 'nodemailer';
 
 export type FormState = {
   message: string;
@@ -26,15 +27,54 @@ export async function submitContactForm(
     };
   }
 
-  // Simulate API call or database interaction
-  console.log("Form data submitted:", parsed.data);
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  // Configure nodemailer
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: Number(process.env.SMTP_PORT),
+    secure: Number(process.env.SMTP_PORT) === 465, // true for 465, false for other ports
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
 
-  // Example: Send an email, save to database, etc.
-  // For this example, we'll just return a success message.
+  const { name, email, phone, message } = parsed.data;
 
-  return {
-    message: "Thank you for your inquiry! We will get back to you soon.",
-    status: 'success',
+  const mailOptions = {
+    from: `"${name}" <${process.env.SMTP_USER}>`, // sender address
+    to: 'info@thivolve.com', // list of receivers
+    subject: `New Contact Form Submission from ${name}`, // Subject line
+    text: `You have received a new message from your website contact form.
+
+Here are the details:
+Name: ${name}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+Message:
+${message}
+`,
+    html: `
+      <h2>New Contact Form Submission</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+      <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+      <hr>
+      <h3>Message:</h3>
+      <p style="white-space: pre-wrap;">${message}</p>
+    `,
   };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    return {
+      message: "Thank you for your inquiry! We will get back to you soon.",
+      status: 'success',
+    };
+  } catch (error) {
+    console.error("Failed to send email:", error);
+    return {
+      message: "Something went wrong. Please try again later.",
+      status: 'error',
+    };
+  }
 }
