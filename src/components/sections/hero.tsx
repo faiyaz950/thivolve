@@ -43,7 +43,6 @@ const heroImages = [
 ];
 
 const navLinks = [
-  { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
   { href: "/our-work", label: "Our Work" },
   { href: "/#contact", label: "Contact Us" },
@@ -337,7 +336,7 @@ export function Hero() {
                   </DropdownMenuContent>
                 </DropdownMenu>
 
-                {navLinks.filter(l => l.label !== 'Home').map((link, index) => (
+                {navLinks.map((link, index) => (
                   <Link
                     key={link.href}
                     href={link.href}
@@ -355,13 +354,13 @@ export function Hero() {
               <div className="flex items-center gap-4">
                 <Button
                   size="sm"
-                  className="hidden sm:flex relative overflow-hidden group bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white border-0 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-red-500/50 font-medium px-6 py-2.5 rounded-xl"
+                  className="hidden sm:flex relative overflow-hidden group bg-transparent hover:bg-red-500/10 border border-red-500/30 hover:border-red-500/50 text-white transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-red-500/20 font-medium px-6 py-2.5 rounded-xl"
                   asChild
                 >
                   <Link href="#contact" className="flex items-center gap-2 relative z-10">
-                    <Sparkles className="h-4 w-4 animate-pulse" />
+                    <Sparkles className="h-4 w-4 text-red-400" />
                     <span>Book a Meeting</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
+                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
                   </Link>
                 </Button>
 
@@ -403,7 +402,7 @@ export function Hero() {
           )}>
             {/* Enhanced Headline */}
             <div className="relative mb-8">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 tracking-tight leading-[0.9] drop-shadow-2xl mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 tracking-tight leading-[0.9] drop-shadow-2xl mb-4">
                 {mainHeadlineLetters.map((item, index) => {
                   return (
                     <span

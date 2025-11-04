@@ -13,6 +13,7 @@ import { cn } from '@/lib/utils';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { OurClients } from '@/components/sections/our-clients';
 
 interface Project {
   imageUrl: string;
@@ -325,6 +326,7 @@ export default function OurWorkPage() {
                         </div>
                     </div>
                 </section>
+                <OurClients />
             </main>
             <Footer />
         </div>
