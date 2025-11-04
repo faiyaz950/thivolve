@@ -199,7 +199,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Syed Zishan Imam",
     role: "Director Operation",
-    image: "https://placehold.co/400x400.png",
+    image: "/zishanbhai.png",
     social: {
       linkedin: "#",
     },
@@ -207,7 +207,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Faiyaz Mujtaba",
     role: "Project Manager",
-    image: "https://placehold.co/400x400.png",
+    image: "/faiyaz.jpg",
     social: {
       linkedin: "https://linkedin.com/in/faiyaz-mujtaba",
     },
@@ -215,7 +215,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Wafa Fatima",
     role: "Project Lead",
-    image: "https://placehold.co/400x400.png",
+    image: "/wafa.png",
     social: {
       linkedin: "#",
     },
