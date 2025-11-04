@@ -65,7 +65,7 @@ style={{ transitionDelay: `${index * 150}ms` }}
 <div className="relative bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-3xl border border-white/5 p-8 overflow-hidden hover:border-white/20 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:scale-105">
 <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 <div className="relative mb-6">
-<div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-primary/20 group-hover:border-primary/40 transition-all duration-500 group-hover:scale-110">
+<div className="relative w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-primary/20 group-hover:border-primary/40 transition-all duration-500 group-hover:scale-110">
 <Image
 src={member.image}
 alt={`${member.name} - ${member.role}`}
