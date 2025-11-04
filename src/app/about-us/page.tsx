@@ -207,7 +207,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Faiyaz Mujtaba",
     role: "Project Manager",
-    image: "/faiyaz.jpg",
+    image: "/faiyaz.jpeg",
     social: {
       linkedin: "https://linkedin.com/in/faiyaz-mujtaba",
     },
@@ -215,7 +215,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Wafa Fatima",
     role: "Project Lead",
-    image: "/wafa.png",
+    image: "/wafa.jpeg",
     social: {
       linkedin: "#",
     },
