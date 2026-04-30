@@ -206,7 +206,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Faiyaz Mujtaba",
-    role: "Project Manager",
+    role: "CEO (Chief Executive Officer)",
     image: "/faiyaz.jpeg",
     social: {
       linkedin: "https://linkedin.com/in/faiyaz-mujtaba",
