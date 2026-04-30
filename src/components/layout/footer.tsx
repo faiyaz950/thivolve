@@ -75,8 +75,8 @@ export function Footer() {
     {
       icon: Phone,
       label: "Phone",
-      value: "+91 7091491397",
-      href: "tel:+917091491397",
+      value: "+91 8340715516",
+      href: "tel:+918340715516",
       description: "24/7 support available"
     },
   ];

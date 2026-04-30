@@ -115,7 +115,7 @@ export function ContactForm() {
 
   const contactDetails = [
     { icon: Mail, text: "info@thivolve.com", href: "mailto:info@thivolve.com" },
-    { icon: Phone, text: "+91 7091491397", href: "tel:+917091491397" },
+    { icon: Phone, text: "+91 8340715516", href: "tel:+918340715516" },
   ];
 
   return (
